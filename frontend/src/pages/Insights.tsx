@@ -371,7 +371,7 @@ export default function Insights() {
                   <h3 className="font-semibold text-blue-300">{t('insights.industry.stateBreakdown')}</h3>
                 </div>
                 <p className="text-sm text-white/80">
-                  {t('insights.industry.stateDescription', { state: selectedState })}
+                  {t('insights.industry.stateDescription').replace(/\{state\}/g, selectedState || '')}
                 </p>
               </div>
             )}

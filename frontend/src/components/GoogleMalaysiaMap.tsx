@@ -98,6 +98,9 @@ export default function GoogleMalaysiaMap({ states, selectedState, onStateClick 
     // @ts-ignore - Vite environment variables
     const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
     
+    console.log('API Key loaded:', apiKey ? 'Present' : 'Missing');
+    console.log('Environment:', import.meta.env.MODE);
+    
     if (!apiKey || apiKey === 'your_google_maps_api_key_here') {
       const errorMsg = 'Google Maps API key not configured. Please add VITE_GOOGLE_MAPS_API_KEY to your .env file';
       console.error(errorMsg);
