@@ -7,9 +7,7 @@ import type {
   NationalityData 
 } from '../types'
 
-const BASE_URL = process.env.NODE_ENV === 'production' 
-  ? 'https://backend-c3n8jrkn9-boeys-projects.vercel.app/api'
-  : 'http://localhost:3004/api'
+const BASE_URL = 'https://mental-susy-bright-minds-7e6c49f7.koyeb.app/api'
 
 async function fetchAPI<T>(endpoint: string): Promise<APIResponse<T>> {
   try {

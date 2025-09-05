@@ -50,9 +50,9 @@ export class DatabaseService {
         console.log('Query executed', { duration, rows: result.rowCount })
       }
       return result
-    } catch (error: any) {
+    } catch (error) {
       const duration = Date.now() - start
-      console.error('Query failed', { duration, error: error.message })
+      console.error('Query failed', { duration, error: error instanceof Error ? error.message : 'Unknown error' })
       throw error
     }
   }

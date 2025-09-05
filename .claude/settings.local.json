@@ -12,7 +12,8 @@
       "Bash(curl:*)",
       "Bash(taskkill:*)",
       "Bash(node:*)",
-      "Bash(tree:*)"
+      "Bash(tree:*)",
+      "Bash(npx vercel:*)"
     ],
     "deny": [],
     "ask": []
