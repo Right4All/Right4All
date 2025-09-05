@@ -7,7 +7,7 @@ import type {
   NationalityData 
 } from '../types'
 
-const BASE_URL = 'https://mental-susy-bright-minds-7e6c49f7.koyeb.app/api'
+const BASE_URL = 'http://localhost:3004/api'
 
 async function fetchAPI<T>(endpoint: string): Promise<APIResponse<T>> {
   try {

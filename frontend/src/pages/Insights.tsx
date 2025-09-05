@@ -67,9 +67,8 @@ export default function Insights() {
 
   useEffect(() => {
     if (selectedNationalities.length >= 2) setViewMode('comparison')
-    else if (selectedIndustry !== 'all') setViewMode('industry')
     else setViewMode('overview')
-  }, [selectedNationalities, selectedIndustry])
+  }, [selectedNationalities])
 
   const chartData = useMemo(() => {
     if (selectedNationalities.length >= 2) {
@@ -81,20 +80,6 @@ export default function Insights() {
           workers: nationalityData?.nationality_number || 0
         }
       })
-    } else if (selectedIndustry !== 'all') {
-      // For industry view, show sector data
-      const sector = sectors.find(s => s.sector_name.toLowerCase().includes(selectedIndustry.toLowerCase()))
-      if (sector) {
-        return [
-          { period: '2001', percentage: parseFloat(sector['2001_perc']) },
-          { period: '2005', percentage: parseFloat(sector['2005_perc']) },
-          { period: '2010', percentage: parseFloat(sector['2010_perc']) },
-          { period: '2015', percentage: parseFloat(sector['2015_perc']) },
-          { period: '2020', percentage: parseFloat(sector['2020_perc']) },
-          { period: '2023', percentage: parseFloat(sector['2023_perc']) }
-        ]
-      }
-      return []
     } else if (selectedState) {
       // Show selected state breakdown by industry percentages
       const state = states.find(s => s.state_name_en.trim() === selectedState)
@@ -114,11 +99,28 @@ export default function Insights() {
         workers: state.migrant_number
       }))
     }
-  }, [selectedIndustry, selectedNationalities, selectedState, viewMode, states, sectors, nationalities])
+  }, [selectedNationalities, selectedState, states, nationalities])
+
+  // Separate chart data for industry growth over time
+  const industryChartData = useMemo(() => {
+    if (selectedIndustry !== 'all') {
+      const sector = sectors.find(s => s.sector_name.toLowerCase().includes(selectedIndustry.toLowerCase()))
+      if (sector) {
+        return [
+          { period: '2001', percentage: parseFloat(sector['2001_perc']) },
+          { period: '2005', percentage: parseFloat(sector['2005_perc']) },
+          { period: '2010', percentage: parseFloat(sector['2010_perc']) },
+          { period: '2015', percentage: parseFloat(sector['2015_perc']) },
+          { period: '2020', percentage: parseFloat(sector['2020_perc']) },
+          { period: '2023', percentage: parseFloat(sector['2023_perc']) }
+        ]
+      }
+    }
+    return []
+  }, [selectedIndustry, sectors])
 
   const handleStateClick = (stateName: string) => {
     setSelectedState(stateName)
-    setSelectedIndustry('all')
     setSelectedNationalities([])
   }
 
@@ -339,8 +341,16 @@ export default function Insights() {
                   {selectedIndustry !== 'all' ? `${selectedIndustry} Industry Growth Over Time` : `${selectedState} State Industry Distribution`}
                 </span>
               </h2>
-              <button onClick={() => { setSelectedState(null); setSelectedIndustry('all'); }}
-                className="btn-outline text-white border-white/30 hover:bg-white/10 text-sm self-start sm:self-auto">Clear Filter</button>
+              <div className="flex gap-2">
+                {selectedState && (
+                  <button onClick={() => setSelectedState(null)}
+                    className="btn-outline text-white border-white/30 hover:bg-white/10 text-sm self-start sm:self-auto">Clear State</button>
+                )}
+                {selectedIndustry !== 'all' && (
+                  <button onClick={() => setSelectedIndustry('all')}
+                    className="btn-outline text-white border-white/30 hover:bg-white/10 text-sm self-start sm:self-auto">Clear Industry</button>
+                )}
+              </div>
             </div>
             
             {/* Context Information */}
@@ -381,7 +391,7 @@ export default function Insights() {
             {/* Chart */}
             <div className="h-64 md:h-80">
               <ResponsiveContainer width="100%" height="100%">
-                <AreaChart data={chartData} margin={{top:10,right:10,left:10,bottom:60}}>
+                <AreaChart data={selectedIndustry !== 'all' ? industryChartData : chartData} margin={{top:10,right:10,left:10,bottom:60}}>
                   <defs>
                     <linearGradient id="colorIndustry" x1="0" y1="0" x2="0" y2="1">
                       <stop offset="5%" stopColor={selectedIndustry !== 'all' ? "#F97316" : "#8B5CF6"} stopOpacity={0.8}/>
@@ -423,7 +433,7 @@ export default function Insights() {
             </div>
             
             {/* Summary Stats */}
-            {selectedIndustry !== 'all' && chartData.length > 0 && (
+            {selectedIndustry !== 'all' && industryChartData.length > 0 && (
               <div className="mt-4 grid md:grid-cols-3 gap-4">
                 <div className="p-3 rounded-lg bg-white/5 border border-white/10 group relative">
                   <div className="flex items-center gap-1 mb-1">
@@ -434,10 +444,10 @@ export default function Insights() {
                     </div>
                   </div>
                   <div className="text-lg font-bold text-green-400">
-                    {Math.max(...chartData.map(d => (d as any).percentage)).toFixed(1)}%
+                    {Math.max(...industryChartData.map(d => (d as any).percentage)).toFixed(1)}%
                   </div>
                   <div className="text-xs text-green-300">
-                    in {(chartData.find(d => (d as any).percentage === Math.max(...chartData.map(d => (d as any).percentage))) as any)?.period}
+                    in {(industryChartData.find(d => (d as any).percentage === Math.max(...industryChartData.map(d => (d as any).percentage))) as any)?.period}
                   </div>
                 </div>
                 <div className="p-3 rounded-lg bg-white/5 border border-white/10 group relative">
@@ -449,7 +459,7 @@ export default function Insights() {
                     </div>
                   </div>
                   <div className="text-lg font-bold text-blue-400">
-                    {(chartData[chartData.length - 1] as any)?.percentage?.toFixed(1)}%
+                    {(industryChartData[industryChartData.length - 1] as any)?.percentage?.toFixed(1)}%
                   </div>
                   <div className="text-xs text-blue-300">in 2023</div>
                 </div>
@@ -462,12 +472,12 @@ export default function Insights() {
                     </div>
                   </div>
                   <div className="text-lg font-bold text-orange-400">
-                    {chartData.length >= 2 && (chartData[chartData.length - 1] as any)?.percentage > (chartData[0] as any)?.percentage ? '📈' : '📉'}
-                    {chartData.length >= 2 ? 
-                      Math.abs((((chartData[chartData.length - 1] as any)?.percentage - (chartData[0] as any)?.percentage) / (chartData[0] as any)?.percentage * 100)).toFixed(1) : '0'}%
+                    {industryChartData.length >= 2 && (industryChartData[industryChartData.length - 1] as any)?.percentage > (industryChartData[0] as any)?.percentage ? '📈' : '📉'}
+                    {industryChartData.length >= 2 ? 
+                      Math.abs((((industryChartData[industryChartData.length - 1] as any)?.percentage - (industryChartData[0] as any)?.percentage) / (industryChartData[0] as any)?.percentage * 100)).toFixed(1) : '0'}%
                   </div>
                   <div className="text-xs text-orange-300">
-                    {chartData.length >= 2 && (chartData[chartData.length - 1] as any)?.percentage > (chartData[0] as any)?.percentage ? t('insights.stats.growth') : 'decline'} since 2001
+                    {industryChartData.length >= 2 && (industryChartData[industryChartData.length - 1] as any)?.percentage > (industryChartData[0] as any)?.percentage ? t('insights.stats.growth') : 'decline'} since 2001
                   </div>
                 </div>
               </div>
@@ -497,8 +507,6 @@ export default function Insights() {
                   onClick={() => {
                     const newIndustry = isSelected ? 'all' : sector.sector_name.trim()
                     setSelectedIndustry(newIndustry)
-                    // Clear state selection when selecting industry
-                    if (newIndustry !== 'all') setSelectedState(null)
                   }} 
                   className={"p-4 rounded-2xl border text-left transition " + (isSelected ? "bg-orange-500/20 border-orange-400/50 ring-2 ring-orange-400/30" : "bg-white/10 border-white/20 hover:bg-white/20")}>
                   <div className={"badge mb-2 border " + r.badge}>{risk.toUpperCase()}</div>
