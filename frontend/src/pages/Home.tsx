@@ -16,12 +16,12 @@ function Stat({ label, value, suffix = '+' }: { label: string, value: number, su
   }, [value])
 
   return (
-    <div className="p-3 md:p-4 rounded-2xl bg-white/5 border border-white/10">
-      <div className="text-xl md:text-3xl font-extrabold tabular-nums">
+    <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
+      <div className="text-3xl font-extrabold tabular-nums">
         <motion.span>{formatted}</motion.span>
         <span className="text-rose-400">{suffix}</span>
       </div>
-      <div className="text-white/70 text-xs md:text-sm leading-tight">{label}</div>
+      <div className="text-white/70 text-sm">{label}</div>
     </div>
   )
 }
@@ -30,7 +30,7 @@ export default function Home() {
   const { t } = useTranslation()
 
   return (
-    <section className="container-max grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-center min-h-[calc(100vh-140px)] py-4 lg:py-8 px-4 lg:px-0">
+    <section className="container-max grid lg:grid-cols-2 gap-10 items-center min-h-[calc(100vh-140px)] py-8">
       <div className="space-y-6">
         <FadeIn>
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 border border-white/15 font-semibold shadow">
@@ -38,13 +38,13 @@ export default function Home() {
           </div>
         </FadeIn>
         <FadeIn>
-          <h1 className="text-4xl md:text-6xl font-black leading-[1.05] tracking-tight">
+          <h1 className="text-6xl font-black leading-[1.05] tracking-tight">
             {t('home.empowering')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-pink-400">{t('home.migrantWorkers')}</span><br/>
             {t('home.withDataTools')}
           </h1>
         </FadeIn>
         <FadeIn>
-          <p className="text-base md:text-lg text-white/80">
+          <p className="text-lg text-white/80">
             {t('home.description')}
           </p>
         </FadeIn>
@@ -55,7 +55,7 @@ export default function Home() {
           </div>
         </FadeIn>
         <FadeIn>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-lg">
+          <div className="grid grid-cols-3 gap-3 max-w-lg">
             <Stat label={t('home.stats.arrivals')} value={3} suffix=" Million+" />
             <Stat label={t('home.stats.undocumented')} value={2.2} suffix=" Million+" />
             <Stat label={t('home.stats.documented')} value={15.27} suffix="%" />

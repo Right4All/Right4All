@@ -116,6 +116,33 @@ export default function QuizCategorySelection({
             })}
           </div>
 
+          {/* All Topics Option */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: topics.length * 0.1 }}
+            className="max-w-2xl mx-auto"
+          >
+            <div 
+              className="p-6 rounded-2xl bg-gradient-to-br from-slate-600/20 to-gray-600/20 border border-white/10 hover:border-white/30 transition-all hover:scale-105 backdrop-blur-sm cursor-pointer group"
+              onClick={() => onTopicSelect(0)} // 0 for all topics
+            >
+              <div className="text-center">
+                <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4 backdrop-blur-sm">
+                  <Shield className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-2">
+                  Complete Rights Quiz
+                </h3>
+                <p className="text-white/80 mb-4">
+                  Test your knowledge across all categories with a comprehensive quiz
+                </p>
+                <p className="text-white/60 text-sm">
+                  {topics.reduce((total, topic) => total + topic.questions.length, 0)} questions total
+                </p>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
     </div>

@@ -34,4 +34,3 @@ dist-ssr
 *.pem
 *.key
 .env.production
-.vercel

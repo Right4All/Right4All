@@ -94,16 +94,30 @@ export default function Quiz() {
     )
   }))
   
-  const allTopics = topics
+  // Add "All Topics" option
+  const allTopicsOption: Topic = {
+    id: 0,
+    name: selectedLanguage === 'ms' ? 'Semua Topik' :
+          selectedLanguage === 'ne' ? 'सबै विषयहरू' :
+          selectedLanguage === 'hi' ? 'सभी विषय' :
+          selectedLanguage === 'bn' ? 'সব বিষয়' : 'All Topics',
+    questions: quizData.flatMap((topicData, topicIndex) => 
+      topicData.questions.map((q: any, qIndex: number) => 
+        transformQuestion(q, topicIndex * 1000 + qIndex, selectedLanguage)
+      )
+    )
+  }
+  
+  const allTopics = [allTopicsOption, ...topics]
   
   // Get selected topic
-  const currentTopic = topics.find(topic => topic.id === selectedTopic) || null
-  const isAllTopics = false
+  const currentTopic = selectedTopic === 0 ? allTopicsOption : topics.find(topic => topic.id === selectedTopic) || null
+  const isAllTopics = selectedTopic === 0
 
   if (viewMode === 'category') {
     return (
       <QuizCategorySelection
-        topics={topics}
+        topics={allTopics}
         selectedLanguage={selectedLanguage}
         languageName={currentLanguageName}
         onTopicSelect={handleTopicSelect}
@@ -116,7 +130,7 @@ export default function Quiz() {
     return (
       <QuizInterface
         topic={currentTopic}
-        allTopics={topics}
+        allTopics={allTopics}
         isAllTopics={isAllTopics}
         languageName={currentLanguageName}
         onBack={handleBackToCategories}

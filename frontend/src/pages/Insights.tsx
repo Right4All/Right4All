@@ -67,8 +67,9 @@ export default function Insights() {
 
   useEffect(() => {
     if (selectedNationalities.length >= 2) setViewMode('comparison')
+    else if (selectedIndustry !== 'all') setViewMode('industry')
     else setViewMode('overview')
-  }, [selectedNationalities])
+  }, [selectedNationalities, selectedIndustry])
 
   const chartData = useMemo(() => {
     if (selectedNationalities.length >= 2) {
@@ -80,6 +81,20 @@ export default function Insights() {
           workers: nationalityData?.nationality_number || 0
         }
       })
+    } else if (selectedIndustry !== 'all') {
+      // For industry view, show sector data
+      const sector = sectors.find(s => s.sector_name.toLowerCase().includes(selectedIndustry.toLowerCase()))
+      if (sector) {
+        return [
+          { period: '2001', percentage: parseFloat(sector['2001_perc']) },
+          { period: '2005', percentage: parseFloat(sector['2005_perc']) },
+          { period: '2010', percentage: parseFloat(sector['2010_perc']) },
+          { period: '2015', percentage: parseFloat(sector['2015_perc']) },
+          { period: '2020', percentage: parseFloat(sector['2020_perc']) },
+          { period: '2023', percentage: parseFloat(sector['2023_perc']) }
+        ]
+      }
+      return []
     } else if (selectedState) {
       // Show selected state breakdown by industry percentages
       const state = states.find(s => s.state_name_en.trim() === selectedState)
@@ -99,28 +114,11 @@ export default function Insights() {
         workers: state.migrant_number
       }))
     }
-  }, [selectedNationalities, selectedState, states, nationalities])
-
-  // Separate chart data for industry growth over time
-  const industryChartData = useMemo(() => {
-    if (selectedIndustry !== 'all') {
-      const sector = sectors.find(s => s.sector_name.toLowerCase().includes(selectedIndustry.toLowerCase()))
-      if (sector) {
-        return [
-          { period: '2001', percentage: parseFloat(sector['2001_perc']) },
-          { period: '2005', percentage: parseFloat(sector['2005_perc']) },
-          { period: '2010', percentage: parseFloat(sector['2010_perc']) },
-          { period: '2015', percentage: parseFloat(sector['2015_perc']) },
-          { period: '2020', percentage: parseFloat(sector['2020_perc']) },
-          { period: '2023', percentage: parseFloat(sector['2023_perc']) }
-        ]
-      }
-    }
-    return []
-  }, [selectedIndustry, sectors])
+  }, [selectedIndustry, selectedNationalities, selectedState, viewMode, states, sectors, nationalities])
 
   const handleStateClick = (stateName: string) => {
     setSelectedState(stateName)
+    setSelectedIndustry('all')
     setSelectedNationalities([])
   }
 
@@ -166,28 +164,28 @@ export default function Insights() {
   }
 
   return (
-    <div className="relative z-10 p-4 md:p-6">
-      <div className="container-max min-h-[calc(100vh-140px)] py-4 md:py-8">
-        <div className="text-center mb-6 md:mb-10">
-          <div className="inline-flex items-center justify-center w-12 h-12 md:w-16 md:h-16 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-full mb-4 md:mb-6 shadow-2xl shadow-purple-500/50">
-            <Activity className="w-6 h-6 md:w-8 md:h-8 text-white" />
+    <div className="relative z-10 p-6">
+      <div className="container-max min-h-[calc(100vh-140px)] py-8">
+        <div className="text-center mb-10">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-full mb-6 shadow-2xl shadow-purple-500/50">
+            <Activity className="w-8 h-8 text-white" />
           </div>
-          <h1 className="text-3xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 via-rose-300 to-cyan-300 mb-2">
+          <h1 className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 via-rose-300 to-cyan-300 mb-2">
             {t('insights.title')}
           </h1>
-          <p className="text-slate-600 text-sm md:text-base">{t('insights.subtitle')} {overviewData?.summary?.year || 2024}</p>
+          <p className="text-slate-600">{t('insights.subtitle')} {overviewData?.summary?.year || 2024}</p>
         </div>
 
         {/* Malaysia Overview Section - Always Visible */}
-        <div className="card p-4 md:p-6 mb-6 md:mb-8">
-          <div className="flex items-center justify-between mb-4 md:mb-6">
-            <h2 className="text-xl md:text-2xl font-bold flex items-center gap-2 text-white">
-              <Activity className="w-5 h-5 md:w-6 md:h-6 text-cyan-600"/>{t('insights.overview.title')}
+        <div className="card p-6 mb-8">
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-2xl font-bold flex items-center gap-2 text-white">
+              <Activity className="w-6 h-6 text-cyan-600"/>{t('insights.overview.title')}
             </h2>
           </div>
             
           {/* Overview Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 mb-4 md:mb-6">
+          <div className="grid md:grid-cols-3 gap-4 mb-6">
             <div className="p-4 rounded-xl bg-white/10 border border-white/20">
               <div className="text-sm text-white/70 mb-1">{t('insights.overview.totalWorkers')} ({overviewData?.summary?.year || 2024})</div>
               <div className="text-2xl font-bold text-blue-400">
@@ -205,12 +203,12 @@ export default function Insights() {
           </div>
 
           {/* Chart - Show Malaysia overview data */}
-          <div className="h-64 md:h-80">
+          <div className="h-80">
             <ResponsiveContainer width="100%" height="100%">
               <AreaChart data={states.map(state => ({
                 state: state.state_name_en.trim(),
                 workers: state.migrant_number
-              }))} margin={{top:10,right:10,left:10,bottom:60}}>
+              }))} margin={{top:10,right:20,left:40,bottom:40}}>
                 <defs>
                   <linearGradient id="colorData" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="5%" stopColor="#8B5CF6" stopOpacity={0.8}/>
@@ -223,12 +221,12 @@ export default function Insights() {
                   angle={-45}
                   textAnchor="end"
                   height={60}
-                  tick={{ fill: 'rgba(255,255,255,0.8)', fontSize: 10 }}
-                  interval={0}
+                  tick={{ fill: 'rgba(255,255,255,0.8)', fontSize: 8.5 }}
+                  label={{ value: 'Malaysian States', position: 'insideBottom', offset: -15, style: { textAnchor: 'middle', fill: 'rgba(255,255,255,0.8)' } }}
                 />
                 <YAxis 
-                  tick={{ fill: 'rgba(255,255,255,0.8)', fontSize: 10 }}
-                  width={60}
+                  tick={{ fill: 'rgba(255,255,255,0.8)', fontSize: 12 }}
+                  label={{ value: 'Number of Workers', angle: -90, position: 'insideLeft',offset: -30, style: { textAnchor: 'middle', fill: 'rgba(255,255,255,0.8)' } }}
                 />
                 <Tooltip 
                   contentStyle={{ backgroundColor: 'rgba(0,0,0,0.8)', border: 'none', borderRadius: '7px' }}
@@ -243,15 +241,15 @@ export default function Insights() {
         </div>
 
         {/* Nationality Comparison Section - Always Visible */}
-        <div className="card p-4 md:p-6 mb-6 md:mb-8">
-          <div className="flex items-center justify-between mb-4 md:mb-6">
-            <h2 className="text-xl md:text-2xl font-bold flex items-center gap-2 text-white">
-              <Globe className="w-5 h-5 md:w-6 md:h-6 text-teal-600"/>{t('insights.countryComparison.title')}
+        <div className="card p-6 mb-8">
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-2xl font-bold flex items-center gap-2 text-white">
+              <Globe className="w-6 h-6 text-teal-600"/>{t('insights.countryComparison.title')}
             </h2>
           </div>
           
           {/* Nationality Controls - Right with the chart */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6">
+          <div className="grid lg:grid-cols-3 gap-6">
             {/* Controls */}
             <div>
               <div className="flex items-center gap-2 mb-3">
@@ -333,24 +331,14 @@ export default function Insights() {
 
         {/* State/Industry Analysis Section */}
         {(selectedState || selectedIndustry !== 'all') && (
-          <div className="card p-4 md:p-6 mb-6 md:mb-8">
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4 md:mb-6">
-              <h2 className="text-lg md:text-2xl font-bold flex items-center gap-2 text-white">
-                <Activity className="w-5 h-5 md:w-6 md:h-6 text-orange-600"/>
-                <span className="text-sm md:text-2xl">
-                  {selectedIndustry !== 'all' ? `${selectedIndustry} Industry Growth Over Time` : `${selectedState} State Industry Distribution`}
-                </span>
+          <div className="card p-6 mb-8">
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-2xl font-bold flex items-center gap-2 text-white">
+                <Activity className="w-6 h-6 text-orange-600"/>
+                {selectedIndustry !== 'all' ? `${selectedIndustry} Industry Growth Over Time` : `${selectedState} State Industry Distribution`}
               </h2>
-              <div className="flex gap-2">
-                {selectedState && (
-                  <button onClick={() => setSelectedState(null)}
-                    className="btn-outline text-white border-white/30 hover:bg-white/10 text-sm self-start sm:self-auto">Clear State</button>
-                )}
-                {selectedIndustry !== 'all' && (
-                  <button onClick={() => setSelectedIndustry('all')}
-                    className="btn-outline text-white border-white/30 hover:bg-white/10 text-sm self-start sm:self-auto">Clear Industry</button>
-                )}
-              </div>
+              <button onClick={() => { setSelectedState(null); setSelectedIndustry('all'); }}
+                className="btn-outline text-white border-white/30 hover:bg-white/10 text-sm">Clear Filter</button>
             </div>
             
             {/* Context Information */}
@@ -383,15 +371,15 @@ export default function Insights() {
                   <h3 className="font-semibold text-blue-300">{t('insights.industry.stateBreakdown')}</h3>
                 </div>
                 <p className="text-sm text-white/80">
-                  {t('insights.industry.stateDescription').replace(/\{state\}/g, selectedState || '')}
+                  {t('insights.industry.stateDescription', { state: selectedState })}
                 </p>
               </div>
             )}
             
             {/* Chart */}
-            <div className="h-64 md:h-80">
+            <div className="h-80">
               <ResponsiveContainer width="100%" height="100%">
-                <AreaChart data={selectedIndustry !== 'all' ? industryChartData : chartData} margin={{top:10,right:10,left:10,bottom:60}}>
+                <AreaChart data={chartData} margin={{top:10,right:20,left:50,bottom:50}}>
                   <defs>
                     <linearGradient id="colorIndustry" x1="0" y1="0" x2="0" y2="1">
                       <stop offset="5%" stopColor={selectedIndustry !== 'all' ? "#F97316" : "#8B5CF6"} stopOpacity={0.8}/>
@@ -401,16 +389,26 @@ export default function Insights() {
                   <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.1)"/>
                   <XAxis 
                     dataKey={selectedIndustry !== 'all' ? 'period' : 'industry'}
-                    tick={{ fill: 'rgba(255,255,255,0.8)', fontSize: 10 }}
-                    angle={selectedIndustry !== 'all' ? 0 : -45}
+                    tick={{ fill: 'rgba(255,255,255,0.8)', fontSize: 11 }}
+                    angle={selectedIndustry !== 'all' ? 0 : -15}
                     textAnchor={selectedIndustry !== 'all' ? 'middle' : 'end'}
-                    height={60}
-                    interval={0}
+                    height={selectedIndustry !== 'all' ? 40 : 60}
+                    label={{ 
+                      value: selectedIndustry !== 'all' ? 'Time Period (Years)' : 'Industry Sectors', 
+                      position: 'insideBottom', 
+                      offset: -10, 
+                      style: { textAnchor: 'middle', fill: 'rgba(255,255,255,0.8)', fontSize: '12px', fontWeight: 'bold' } 
+                    }}
                   />
                   <YAxis 
-                    tick={{ fill: 'rgba(255,255,255,0.8)', fontSize: 10 }}
+                    tick={{ fill: 'rgba(255,255,255,0.8)', fontSize: 11 }}
                     domain={selectedIndustry !== 'all' ? [0, 'dataMax + 2'] : [0, 'dataMax + 5']}
-                    width={50}
+                    label={{ 
+                      value: selectedIndustry !== 'all' ? 'Industry Share (% of Total Migrant Workers)' : 'Worker Distribution (% in State)', 
+                      angle: -90, 
+                      position: 'insideLeft', 
+                      style: { textAnchor: 'middle', fill: 'rgba(255,255,255,0.8)', fontSize: '12px', fontWeight: 'bold' } 
+                    }}
                   />
                   <Tooltip 
                     contentStyle={{ backgroundColor: 'rgba(0,0,0,0.9)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '8px', color: 'white' }}
@@ -433,7 +431,7 @@ export default function Insights() {
             </div>
             
             {/* Summary Stats */}
-            {selectedIndustry !== 'all' && industryChartData.length > 0 && (
+            {selectedIndustry !== 'all' && chartData.length > 0 && (
               <div className="mt-4 grid md:grid-cols-3 gap-4">
                 <div className="p-3 rounded-lg bg-white/5 border border-white/10 group relative">
                   <div className="flex items-center gap-1 mb-1">
@@ -444,10 +442,10 @@ export default function Insights() {
                     </div>
                   </div>
                   <div className="text-lg font-bold text-green-400">
-                    {Math.max(...industryChartData.map(d => (d as any).percentage)).toFixed(1)}%
+                    {Math.max(...chartData.map(d => (d as any).percentage)).toFixed(1)}%
                   </div>
                   <div className="text-xs text-green-300">
-                    in {(industryChartData.find(d => (d as any).percentage === Math.max(...industryChartData.map(d => (d as any).percentage))) as any)?.period}
+                    in {(chartData.find(d => (d as any).percentage === Math.max(...chartData.map(d => (d as any).percentage))) as any)?.period}
                   </div>
                 </div>
                 <div className="p-3 rounded-lg bg-white/5 border border-white/10 group relative">
@@ -459,7 +457,7 @@ export default function Insights() {
                     </div>
                   </div>
                   <div className="text-lg font-bold text-blue-400">
-                    {(industryChartData[industryChartData.length - 1] as any)?.percentage?.toFixed(1)}%
+                    {(chartData[chartData.length - 1] as any)?.percentage?.toFixed(1)}%
                   </div>
                   <div className="text-xs text-blue-300">in 2023</div>
                 </div>
@@ -472,12 +470,12 @@ export default function Insights() {
                     </div>
                   </div>
                   <div className="text-lg font-bold text-orange-400">
-                    {industryChartData.length >= 2 && (industryChartData[industryChartData.length - 1] as any)?.percentage > (industryChartData[0] as any)?.percentage ? '📈' : '📉'}
-                    {industryChartData.length >= 2 ? 
-                      Math.abs((((industryChartData[industryChartData.length - 1] as any)?.percentage - (industryChartData[0] as any)?.percentage) / (industryChartData[0] as any)?.percentage * 100)).toFixed(1) : '0'}%
+                    {chartData.length >= 2 && (chartData[chartData.length - 1] as any)?.percentage > (chartData[0] as any)?.percentage ? '📈' : '📉'}
+                    {chartData.length >= 2 ? 
+                      Math.abs((((chartData[chartData.length - 1] as any)?.percentage - (chartData[0] as any)?.percentage) / (chartData[0] as any)?.percentage * 100)).toFixed(1) : '0'}%
                   </div>
                   <div className="text-xs text-orange-300">
-                    {industryChartData.length >= 2 && (industryChartData[industryChartData.length - 1] as any)?.percentage > (industryChartData[0] as any)?.percentage ? t('insights.stats.growth') : 'decline'} since 2001
+                    {chartData.length >= 2 && (chartData[chartData.length - 1] as any)?.percentage > (chartData[0] as any)?.percentage ? t('insights.stats.growth') : 'decline'} since 2001
                   </div>
                 </div>
               </div>
@@ -487,9 +485,9 @@ export default function Insights() {
 
 
         {/* Industry cards with real accident data */}
-        <div className="card p-4 md:p-6 mb-6 md:mb-8">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
-            <h2 className="text-lg md:text-xl font-bold flex items-center gap-2 text-white">
+        <div className="card p-6 mb-8">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-xl font-bold flex items-center gap-2 text-white">
               <Shield className="w-5 h-5 text-orange-600"/>{t('insights.industry.title')}
             </h2>
             {selectedIndustry !== 'all' && (
@@ -497,7 +495,7 @@ export default function Insights() {
             )}
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 mb-4 md:mb-6">
+          <div className="grid md:grid-cols-3 gap-4 mb-6">
             {sectors.map(sector => {
               const risk = mapRiskLevel(sector.accident_risk_level)
               const r = riskClasses(risk)
@@ -507,6 +505,8 @@ export default function Insights() {
                   onClick={() => {
                     const newIndustry = isSelected ? 'all' : sector.sector_name.trim()
                     setSelectedIndustry(newIndustry)
+                    // Clear state selection when selecting industry
+                    if (newIndustry !== 'all') setSelectedState(null)
                   }} 
                   className={"p-4 rounded-2xl border text-left transition " + (isSelected ? "bg-orange-500/20 border-orange-400/50 ring-2 ring-orange-400/30" : "bg-white/10 border-white/20 hover:bg-white/20")}>
                   <div className={"badge mb-2 border " + r.badge}>{risk.toUpperCase()}</div>
@@ -550,10 +550,10 @@ export default function Insights() {
         </div>
 
         {/* Interactive Map - Moved to Bottom */}
-        <div className="card p-4 md:p-6">
+        <div className="card p-6">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-xl md:text-2xl font-bold flex items-center gap-2 text-white">
-              <MapPin className="w-5 h-5 md:w-6 md:h-6 text-purple-600"/>{t('insights.map.title')}
+            <h2 className="text-2xl font-bold flex items-center gap-2 text-white">
+              <MapPin className="w-6 h-6 text-purple-600"/>{t('insights.map.title')}
             </h2>
           </div>
           <div className="mb-4">
@@ -589,7 +589,7 @@ export default function Insights() {
             <p className="text-sm text-white/80 mb-3">
               {t('insights.map.riskDescription')}
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+            <div className="grid md:grid-cols-2 gap-4">
               <div className="flex items-start gap-3 p-3 rounded-lg bg-green-500/10 border border-green-500/20">
                 <div className="w-3 h-3 rounded-full bg-green-500 mt-0.5 flex-shrink-0"></div>
                 <div>

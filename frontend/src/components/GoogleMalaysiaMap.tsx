@@ -98,9 +98,6 @@ export default function GoogleMalaysiaMap({ states, selectedState, onStateClick 
     // @ts-ignore - Vite environment variables
     const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
     
-    console.log('API Key loaded:', apiKey ? 'Present' : 'Missing');
-    console.log('Environment:', import.meta.env.MODE);
-    
     if (!apiKey || apiKey === 'your_google_maps_api_key_here') {
       const errorMsg = 'Google Maps API key not configured. Please add VITE_GOOGLE_MAPS_API_KEY to your .env file';
       console.error(errorMsg);
@@ -222,7 +219,7 @@ export default function GoogleMalaysiaMap({ states, selectedState, onStateClick 
   }, [states, selectedState, onStateClick]);
  
   return (
-    <div className="relative w-full h-64 md:h-96 bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl overflow-hidden border border-slate-700">
+    <div className="relative w-full h-96 bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl overflow-hidden border border-slate-700">
       <div ref={mapRef} className="w-full h-full" />
       
       {/* Loading Overlay */}
@@ -259,13 +256,13 @@ export default function GoogleMalaysiaMap({ states, selectedState, onStateClick 
       
       {/* Legend */}
       {!isLoading && !mapError && (
-        <div className="absolute bottom-2 md:bottom-4 left-2 md:left-4 flex items-center gap-2 md:gap-4 bg-black/70 px-2 md:px-3 py-1 md:py-2 rounded-lg">
-          <div className="flex items-center gap-1 md:gap-2">
-            <div className="w-2 h-2 md:w-3 md:h-3 rounded-full bg-green-500"></div>
+        <div className="absolute bottom-4 left-4 flex items-center gap-4 bg-black/70 px-3 py-2 rounded-lg">
+          <div className="flex items-center gap-2">
+            <div className="w-3 h-3 rounded-full bg-green-500"></div>
             <span className="text-white text-xs">Low Risk</span>
           </div>
-          <div className="flex items-center gap-1 md:gap-2">
-            <div className="w-2 h-2 md:w-3 md:h-3 rounded-full bg-red-500"></div>
+          <div className="flex items-center gap-2">
+            <div className="w-3 h-3 rounded-full bg-red-500"></div>
             <span className="text-white text-xs">High Risk</span>
           </div>
         </div>
@@ -273,9 +270,9 @@ export default function GoogleMalaysiaMap({ states, selectedState, onStateClick 
       
       {/* Selected state info */}
       {selectedState && !isLoading && !mapError && (
-        <div className="absolute top-2 md:top-4 right-2 md:right-4 bg-black/80 text-white px-3 md:px-4 py-2 rounded-lg max-w-[calc(100%-2rem)] md:max-w-none">
-          <div className="font-semibold text-sm md:text-base truncate">{selectedState}</div>
-          <div className="text-xs md:text-sm text-gray-300">
+        <div className="absolute top-4 right-4 bg-black/80 text-white px-4 py-2 rounded-lg">
+          <div className="font-semibold">{selectedState}</div>
+          <div className="text-sm text-gray-300">
             {states.find(s => s.state_name_en.trim() === selectedState)?.migrant_number?.toLocaleString()} workers
           </div>
         </div>
