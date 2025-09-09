@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Play, Pause, SkipForward, SkipBack, RotateCcw } from 'lucide-react'
+import { Play, Pause, SkipForward, SkipBack, RotateCcw, Gauge } from 'lucide-react'
 
 type Language = 'en' | 'ms' | 'ne' | 'bn' | 'hi'
 
@@ -49,6 +49,8 @@ export default function AvatarAnimation({
   const [showText, setShowText] = useState(false)
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
   const [textProgress, setTextProgress] = useState(0)
+  const [playbackSpeed, setPlaybackSpeed] = useState(1)
+  const [showSpeedControl, setShowSpeedControl] = useState(false)
 
   const currentSpeaker = dialogue.speaker
   const currentText = dialogue.text[language]
@@ -70,11 +72,12 @@ export default function AvatarAnimation({
     if (showText && isAutoPlaying) {
       startTextAnimation()
     }
-  }, [isAutoPlaying, showText])
+  }, [isAutoPlaying, showText, playbackSpeed])
 
   const startTextAnimation = () => {
     const textLength = currentText.length
-    const duration = Math.max(3000, textLength * 50) // Minimum 3 seconds, 50ms per character
+    const baseDuration = Math.max(3000, textLength * 50) // Minimum 3 seconds, 50ms per character
+    const duration = baseDuration / playbackSpeed // Adjust duration based on speed
     let startTime = Date.now()
     
     const animate = () => {
@@ -87,12 +90,13 @@ export default function AvatarAnimation({
       if (progress < 1) {
         requestAnimationFrame(animate)
       } else {
-        // Auto advance after text completes + pause
+        // Auto advance after text completes + pause (also affected by speed)
+        const pauseDuration = Math.max(1000, 2000 / playbackSpeed)
         setTimeout(() => {
           if (hasNext && isAutoPlaying) {
             onNext()
           }
-        }, 2000) // 2 second pause before auto-advance
+        }, pauseDuration)
       }
     }
     
@@ -119,6 +123,30 @@ export default function AvatarAnimation({
         }
       }, 500)
     }, 100)
+  }
+
+  const speedOptions = [0.5, 0.75, 1, 1.25, 1.5, 2]
+  
+  const cycleSpeed = () => {
+    const currentIndex = speedOptions.indexOf(playbackSpeed)
+    const nextIndex = (currentIndex + 1) % speedOptions.length
+    setPlaybackSpeed(speedOptions[nextIndex])
+    
+    // Restart animation with new speed if currently playing
+    if (isAutoPlaying && showText) {
+      setTextProgress(0)
+      startTextAnimation()
+    }
+  }
+
+  const getSpeedLabel = (speed: number) => {
+    if (speed === 0.5) return 'Slow'
+    if (speed === 0.75) return 'Slower'
+    if (speed === 1) return 'Normal'
+    if (speed === 1.25) return 'Faster'
+    if (speed === 1.5) return 'Fast'
+    if (speed === 2) return 'Very Fast'
+    return `${speed}x`
   }
 
   const getDisplayText = () => {
@@ -341,6 +369,18 @@ export default function AvatarAnimation({
             {isAutoPlaying ? 'Pause Auto-Play' : 'Resume Auto-Play'}
           </span>
         </button>
+
+        {/* Speed Control */}
+        <div className="relative">
+          <button
+            onClick={cycleSpeed}
+            className="flex items-center gap-1 md:gap-2 px-3 md:px-4 py-2 bg-purple-500 hover:bg-purple-600 text-white rounded-lg transition-all text-sm md:text-base"
+            title={`Current speed: ${getSpeedLabel(playbackSpeed)} (${playbackSpeed}x)`}
+          >
+            <Gauge className="w-4 h-4" />
+            <span className="font-medium">{getSpeedLabel(playbackSpeed)}</span>
+          </button>
+        </div>
         
         <button
           onClick={restartAnimation}

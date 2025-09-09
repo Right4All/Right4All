@@ -28,9 +28,6 @@ export default function Community() {
     alert('🚨 Emergency Help\n\n24/7 Hotlines:\n• Tenaganita: +60 3-2697-3671\n• Legal Aid: 15999\n• Police: 999\n\nYou are not alone. Help is available.')
   }
 
-  const handleFloatingButtonClick = () => {
-    alert('📝 Share Your Story\n\nYou can tell your story to help other workers. Your story can be anonymous (no name needed).\n\nThis feature is coming soon!')
-  }
 
   return (
     <section className="container-max min-h-[calc(100vh-140px)] py-8">
@@ -292,18 +289,10 @@ export default function Community() {
       <div className="card p-6 text-center">
         <p className="text-slate-400">
           <i className="fas fa-lightbulb mr-2"></i>
-          Can't find what you need? Use the search box above or tap the red button to share your story and ask for help.
+          Can't find what you need? Use the search box above to find help.
         </p>
       </div>
 
-      {/* Floating Action Button */}
-      <button
-        onClick={handleFloatingButtonClick}
-        className="fixed bottom-8 right-8 w-16 h-16 bg-gradient-to-r from-rose-600 to-pink-600 rounded-full text-white text-xl shadow-lg shadow-rose-500/50 hover:scale-110 transition-all duration-300 z-50"
-        title="Share Your Story"
-      >
-        <i className="fas fa-plus"></i>
-      </button>
     </section>
   )
 }
