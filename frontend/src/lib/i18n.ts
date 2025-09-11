@@ -49,7 +49,11 @@ const resources = {
         takeQuizInLanguage: 'Take quiz in this language',
         interactiveQuizAvailable: 'Interactive quiz available',
         title: 'Know Your Rights Quiz',
-        subtitle: 'Test your knowledge about workplace rights through interactive quizzes. Choose your preferred language to begin.'
+        subtitle: 'Test your knowledge about workplace rights through interactive quizzes. Choose your preferred language to begin.',
+        disclaimer: {
+          title: 'Disclaimer',
+          content: 'The quizzes are provided for learning and self-assessment purposes only. They are not official tests and do not guarantee compliance with workplace laws. Always confirm important information with official sources or qualified professionals.'
+        }
       },
       insights: {
         title: 'Labour Pulse',
@@ -138,7 +142,11 @@ const resources = {
         of: 'of',
         dialogue: 'Dialogue',
         sectionsAvailable: 'sections available',
-        interactiveLearning: 'Interactive Learning'
+        interactiveLearning: 'Interactive Learning',
+        disclaimer: {
+          title: 'Disclaimer',
+          content: 'The information provided in the Rights Guide is for educational purposes only and does not constitute legal advice. While every effort has been made to ensure accuracy, workplace laws and regulations may change. For advice specific to your situation, please consult a qualified professional or the relevant authorities.'
+        }
       }
     }
   },
@@ -181,7 +189,11 @@ const resources = {
         takeQuizInLanguage: 'Ambil kuiz dalam bahasa ini',
         interactiveQuizAvailable: 'Kuiz interaktif tersedia',
         title: 'Kuiz Kenali Hak Anda',
-        subtitle: 'Uji pengetahuan anda tentang hak tempat kerja melalui kuiz interaktif. Pilih bahasa pilihan anda untuk bermula.'
+        subtitle: 'Uji pengetahuan anda tentang hak tempat kerja melalui kuiz interaktif. Pilih bahasa pilihan anda untuk bermula.',
+        disclaimer: {
+          title: 'Penafian',
+          content: 'Kuiz-kuiz ini disediakan untuk tujuan pembelajaran dan penilaian kendiri sahaja. Ia bukan ujian rasmi dan tidak menjamin pematuhan undang-undang tempat kerja. Sentiasa sahkan maklumat penting dengan sumber rasmi atau profesional yang berkelayakan.'
+        }
       },
       insights: {
         title: 'Pulsa Buruh',
@@ -270,7 +282,11 @@ const resources = {
         of: 'daripada',
         dialogue: 'Dialog',
         sectionsAvailable: 'bahagian tersedia',
-        interactiveLearning: 'Pembelajaran Interaktif'
+        interactiveLearning: 'Pembelajaran Interaktif',
+        disclaimer: {
+          title: 'Penafian',
+          content: 'Maklumat yang disediakan dalam Panduan Hak adalah untuk tujuan pendidikan sahaja dan tidak membentuk nasihat undang-undang. Walaupun segala usaha telah dibuat untuk memastikan ketepatan, undang-undang dan peraturan tempat kerja mungkin berubah. Untuk nasihat khusus untuk situasi anda, sila rujuk profesional yang berkelayakan atau pihak berkuasa berkaitan.'
+        }
       }
     }
   },
@@ -313,7 +329,11 @@ const resources = {
         takeQuizInLanguage: 'यस भाषामा प्रश्नोत्तर लिनुहोस्',
         interactiveQuizAvailable: 'अन्तरक्रियात्मक प्रश्नोत्तर उपलब्ध',
         title: 'आफ्ना अधिकारहरू प्रश्नोत्तर',
-        subtitle: 'अन्तरक्रियात्मक प्रश्नोत्तरहरू मार्फत कार्यस्थल अधिकारहरूको बारेमा आफ्नो ज्ञान परीक्षण गर्नुहोस्। सुरु गर्न आफ्नो मनपर्ने भाषा चयन गर्नुहोस्।'
+        subtitle: 'अन्तरक्रियात्मक प्रश्नोत्तरहरू मार्फत कार्यस्थल अधिकारहरूको बारेमा आफ्नो ज्ञान परीक्षण गर्नुहोस्। सुरु गर्न आफ्नो मनपर्ने भाषा चयन गर्नुहोस्।',
+        disclaimer: {
+          title: 'अस्वीकरण',
+          content: 'प्रश्नोत्तरहरू केवल सिकाइ र आत्म-मूल्याङ्कनका लागि प्रदान गरिएका हुन्। यी आधिकारिक परीक्षाहरू होइनन् र कार्यक्षेत्रका कानूनहरूको अनुपालनको ग्यारेन्टी गर्दैनन्। महत्वपूर्ण जानकारी सधैं आधिकारिक स्रोत वा योग्य पेशेवरहरूसँग पुष्टि गर्नुहोस्।'
+        }
       },
       insights: {
         title: 'श्रम पल्स',
@@ -402,7 +422,11 @@ const resources = {
         of: 'मध्ये',
         dialogue: 'संवाद',
         sectionsAvailable: 'खण्डहरू उपलब्ध',
-        interactiveLearning: 'अन्तरक्रियात्मक सिकाइ'
+        interactiveLearning: 'अन्तरक्रियात्मक सिकाइ',
+        disclaimer: {
+          title: 'अस्वीकरण',
+          content: 'अधिकार गाइडमा उपलब्ध गराइएको जानकारी शैक्षिक उद्देश्यका लागि मात्र हो र यसले कानूनी सल्लाहको गठन गर्दैन। सटीकता सुनिश्चित गर्न सबै प्रयासहरू गरिएको भए तापनि, कार्यक्षेत्रका कानून र नियमहरू परिवर्तन हुन सक्छन्। तपाईंको परिस्थितिको लागि विशिष्ट सल्लाहको लागि, कृपया योग्य पेशेवर वा सम्बन्धित अधिकारीहरूसँग सल्लाह गर्नुहोस्।'
+        }
       }
     }
   },
@@ -445,7 +469,11 @@ const resources = {
         takeQuizInLanguage: 'इस भाषा में क्विज़ लें',
         interactiveQuizAvailable: 'इंटरैक्टिव क्विज़ उपलब्ध',
         title: 'अपने अधिकारों की क्विज़',
-        subtitle: 'इंटरैक्टिव क्विज़ के माध्यम से कार्यस्थल अधिकारों के बारे में अपने ज्ञान का परीक्षण करें। शुरू करने के लिए अपनी पसंदीदा भाषा चुनें।'
+        subtitle: 'इंटरैक्टिव क्विज़ के माध्यम से कार्यस्थल अधिकारों के बारे में अपने ज्ञान का परीक्षण करें। शुरू करने के लिए अपनी पसंदीदा भाषा चुनें।',
+        disclaimer: {
+          title: 'अस्वीकरण',
+          content: 'क्विज़ केवल सीखने और स्व-मूल्यांकन के उद्देश्यों के लिए प्रदान की गई हैं। ये आधिकारिक परीक्षाएं नहीं हैं और कार्यस्थल कानूनों के अनुपालन की गारंटी नहीं देतीं। महत्वपूर्ण जानकारी हमेशा आधिकारिक स्रोतों या योग्य पेशेवरों से पुष्टि करें।'
+        }
       },
       insights: {
         title: 'श्रम पल्स',
@@ -534,7 +562,11 @@ const resources = {
         of: 'में से',
         dialogue: 'संवाद',
         sectionsAvailable: 'सेक्शन उपलब्ध',
-        interactiveLearning: 'इंटरैक्टिव लर्निंग'
+        interactiveLearning: 'इंटरैक्टिव लर्निंग',
+        disclaimer: {
+          title: 'अस्वीकरण',
+          content: 'अधिकार गाइड में प्रदान की गई जानकारी केवल शैक्षणिक उद्देश्यों के लिए है और यह कानूनी सलाह का गठन नहीं करती है। सटीकता सुनिश्चित करने के लिए हर प्रयास किया गया है, लेकिन कार्यस्थल के कानून और नियम बदल सकते हैं। आपकी स्थिति के लिए विशिष्ट सलाह के लिए, कृपया किसी योग्य पेशेवर या संबंधित अधिकारियों से सलाह लें।'
+        }
       }
     }
   },
@@ -577,7 +609,11 @@ const resources = {
         takeQuizInLanguage: 'এই ভাষায় কুইজ নিন',
         interactiveQuizAvailable: 'ইন্টারেক্টিভ কুইজ উপলব্ধ',
         title: 'আপনার অধিকার সম্পর্কে কুইজ',
-        subtitle: 'ইন্টারেক্টিভ কুইজের মাধ্যমে কর্মক্ষেত্রের অধিকার সম্পর্কে আপনার জ্ঞান পরীক্ষা করুন। শুরু করতে আপনার পছন্দের ভাষা নির্বাচন করুন।'
+        subtitle: 'ইন্টারেক্টিভ কুইজের মাধ্যমে কর্মক্ষেত্রের অধিকার সম্পর্কে আপনার জ্ঞান পরীক্ষা করুন। শুরু করতে আপনার পছন্দের ভাষা নির্বাচন করুন।',
+        disclaimer: {
+          title: 'দাবিত্যাগ',
+          content: 'কুইজগুলি শুধুমাত্র শিক্ষা এবং স্ব-মূল্যায়নের উদ্দেশ্যে প্রদান করা হয়েছে। এগুলি সরকারি পরীক্ষা নয় এবং কর্মক্ষেত্রের আইন মেনে চলার নিশ্চয়তা দেয় না। গুরুত্বপূর্ণ তথ্য সবসময় সরকারি সূত্র বা যোগ্য পেশাদারদের সাথে নিশ্চিত করুন।'
+        }
       },
       insights: {
         title: 'শ্রম পালস',
@@ -666,7 +702,11 @@ const resources = {
         of: 'এর',
         dialogue: 'সংলাপ',
         sectionsAvailable: 'বিভাগ উপলব্ধ',
-        interactiveLearning: 'ইন্টারেক্টিভ লার্নিং'
+        interactiveLearning: 'ইন্টারেক্টিভ লার্নিং',
+        disclaimer: {
+          title: 'দাবিত্যাগ',
+          content: 'অধিকার গাইডে প্রদত্ত তথ্য শুধুমাত্র শিক্ষামূলক উদ্দেশ্যে এবং এটি আইনগত পরামর্শ গঠন করে না। নির্ভুলতা নিশ্চিত করার জন্য সর্বাত্মক চেষ্টা করা হয়েছে, তবে কর্মক্ষেত্রের আইন ও নিয়মকানুন পরিবর্তন হতে পারে। আপনার পরিস্থিতির জন্য নির্দিষ্ট পরামর্শের জন্য, অনুগ্রহ করে একজন যোগ্য পেশাদার বা সংশ্লিষ্ট কর্তৃপক্ষের সাথে পরামর্শ করুন।'
+        }
       }
     }
   }

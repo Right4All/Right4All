@@ -125,6 +125,23 @@ export default function AnimatedRightsGuide() {
           </motion.div>
         ))}
       </div>
+
+      {/* Disclaimer Section */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: topics.length * 0.1 + 0.3 }}
+        className="max-w-4xl mx-auto px-4 mt-12"
+      >
+        <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 md:p-6 border border-white/20">
+          <h3 className="text-lg md:text-xl font-bold text-white mb-3">
+            {t('rightsGuide.disclaimer.title')}
+          </h3>
+          <p className="text-white/80 text-sm md:text-base leading-relaxed">
+            {t('rightsGuide.disclaimer.content')}
+          </p>
+        </div>
+      </motion.div>
     </div>
   )
 

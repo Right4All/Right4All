@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Users, Clock, DollarSign, Shield, AlertTriangle, Calendar, Home, Heart, Coffee, FileText } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 interface Topic {
   id: number;
@@ -49,6 +50,7 @@ export default function QuizCategorySelection({
   onTopicSelect, 
   onBack 
 }: QuizCategorySelectionProps) {
+  const { t } = useTranslation();
   return (
     <div className="min-h-screen p-6">
       <div className="container-max py-8">
@@ -115,6 +117,23 @@ export default function QuizCategorySelection({
               );
             })}
           </div>
+
+          {/* Disclaimer Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: topics.length * 0.1 + 0.3 }}
+            className="max-w-4xl mx-auto mt-12"
+          >
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 md:p-6 border border-white/20">
+              <h3 className="text-lg md:text-xl font-bold text-white mb-3">
+                {t('quiz.disclaimer.title')}
+              </h3>
+              <p className="text-white/80 text-sm md:text-base leading-relaxed">
+                {t('quiz.disclaimer.content')}
+              </p>
+            </div>
+          </motion.div>
 
         </div>
       </div>
