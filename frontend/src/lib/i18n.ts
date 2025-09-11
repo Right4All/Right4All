@@ -34,6 +34,25 @@ const resources = {
           arrivals: 'Monthly foreign arrivals in Malaysia',
           undocumented: 'Undocumented Migrant Worker', 
           documented: 'Documented Migrant Worker (Until Year 2022)'
+        },
+        vision: {
+          title: 'Vision',
+          content: 'To create an inclusive and accessible digital platform that empowers every migrant worker in Malaysia with knowledge of their rights, enabling them to live and work with dignity, safety, and equality — contributing to Malaysia\'s progress towards SDG 10: Reduced Inequalities.'
+        },
+        mission: {
+          title: 'Mission',
+          content: 'Our mission is to empower migrant workers in Malaysia by delivering multilingual, easy-to-understand guides and interactive tools that help them know their rights, check their work conditions, and access safe support. We aim to protect, educate, and uplift migrant communities while promoting dignity and reducing inequalities.'
+        },
+        sdg: {
+          title: 'Reducing inequality starts here. Learn, connect, and grow with us.',
+          description: 'Through Right4All, we\'re contributing to the United Nations Sustainable Development Goal 10: Reduced Inequalities. Join us in building a more equitable future for migrant workers in Malaysia.'
+        },
+        footer: {
+          copyright: 'Right4All © 2025 | Empowering Migrant Workers in Malaysia | Serving SDG 10: Reduced Inequalities | Protect • Educate • Uplift',
+          disclaimer: {
+            title: 'Disclaimer',
+            content: 'The information on this site is for educational purposes only and does not constitute legal advice. Please consult relevant authorities or qualified professionals for specific guidance.'
+          }
         }
       },
       quiz: {
@@ -174,6 +193,25 @@ const resources = {
           arrivals: 'Kedatangan asing bulanan di Malaysia',
           undocumented: 'Pekerja Migran Tanpa Dokumen',
           documented: 'Pekerja Migran Berdokumen (Sehingga Tahun 2022)'
+        },
+        vision: {
+          title: 'Visi',
+          content: 'Untuk mencipta platform digital yang inklusif dan mudah diakses yang memperkasakan setiap pekerja migran di Malaysia dengan pengetahuan tentang hak mereka, membolehkan mereka hidup dan bekerja dengan maruah, keselamatan, dan kesaksamaan — menyumbang kepada kemajuan Malaysia ke arah SDG 10: Mengurangkan Ketidaksamaan.'
+        },
+        mission: {
+          title: 'Misi',
+          content: 'Misi kami adalah untuk memperkasakan pekerja migran di Malaysia dengan menyampaikan panduan pelbagai bahasa yang mudah difahami dan alat interaktif yang membantu mereka mengetahui hak mereka, memeriksa keadaan kerja mereka, dan mengakses sokongan yang selamat. Kami bertujuan untuk melindungi, mendidik, dan mengangkat komuniti migran sambil mempromosikan maruah dan mengurangkan ketidaksamaan.'
+        },
+        sdg: {
+          title: 'Mengurangkan ketidaksamaan bermula di sini. Belajar, berhubung, dan berkembang bersama kami.',
+          description: 'Melalui Right4All, kami menyumbang kepada Matlamat Pembangunan Lestari Pertubuhan Bangsa-Bangsa Bersatu 10: Mengurangkan Ketidaksamaan. Sertai kami dalam membina masa depan yang lebih saksama untuk pekerja migran di Malaysia.'
+        },
+        footer: {
+          copyright: 'Right4All © 2025 | Memperkasa Pekerja Migran di Malaysia | Melayani SDG 10: Mengurangkan Ketidaksamaan | Lindungi • Didik • Angkat',
+          disclaimer: {
+            title: 'Penafian',
+            content: 'Maklumat di laman web ini adalah untuk tujuan pendidikan sahaja dan tidak membentuk nasihat undang-undang. Sila rujuk pihak berkuasa berkaitan atau profesional yang berkelayakan untuk panduan khusus.'
+          }
         }
       },
       quiz: {
@@ -314,6 +352,25 @@ const resources = {
           arrivals: 'मलेसियामा मासिक विदेशी आगमन',
           undocumented: 'कागजातरहित आप्रवासी कामदार',
           documented: 'कागजात भएका आप्रवासी कामदार (२०२२ सम्म)'
+        },
+        vision: {
+          title: 'दृष्टिकोण',
+          content: 'मलेसियामा प्रत्येक आप्रवासी कामदारलाई उनीहरूको अधिकारको ज्ञानले सशक्त बनाउने समावेशी र पहुँचयोग्य डिजिटल प्लेटफर्म सिर्जना गर्न, उनीहरूलाई गरिमा, सुरक्षा र समानताका साथ बाँच्न र काम गर्न सक्षम पारेर — SDG 10: असमानता घटाउने दिशामा मलेसियाको प्रगतिमा योगदान पुर्याउने।'
+        },
+        mission: {
+          title: 'मिशन',
+          content: 'हाम्रो मिशन भनेको मलेसियाका आप्रवासी कामदारहरूलाई बहुभाषिक, सजिलो-देखि-बुझ्ने गाइड र अन्तरक्रियात्मक उपकरणहरू प्रदान गरेर सशक्त बनाउनु हो जसले उनीहरूलाई आफ्ना अधिकारहरू जान्न, आफ्ना कामका अवस्थाहरू जाँच्न, र सुरक्षित सहयोग प्राप्त गर्न मद्दत गर्छ। हामी गरिमालाई बढावा दिंदै र असमानताहरू घटाउँदै आप्रवासी समुदायहरूलाई संरक्षण, शिक्षा र उत्थान गर्ने लक्ष्य राख्छौं।'
+        },
+        sdg: {
+          title: 'असमानता घटाउने यहाँबाट सुरु हुन्छ। हामीसँग सिक्नुहोस्, जोडिनुहोस् र बढ्नुहोस्।',
+          description: 'Right4All मार्फत, हामी संयुक्त राष्ट्रसंघको दिगो विकास लक्ष्य 10: असमानता घटाउनेमा योगदान गर्दैछौं। मलेसियामा आप्रवासी कामदारहरूका लागि अधिक न्यायसंगत भविष्य निर्माण गर्न हामीसँग सहभागी हुनुहोस्।'
+        },
+        footer: {
+          copyright: 'Right4All © 2025 | मलेसियामा आप्रवासी कामदारहरूलाई सशक्त बनाउँदै | SDG 10: असमानता घटाउने सेवा गर्दै | संरक्षण • शिक्षा • उत्थान',
+          disclaimer: {
+            title: 'अस्वीकरण',
+            content: 'यस साइटमा जानकारी केवल शैक्षिक उद्देश्यका लागि हो र कानूनी सल्लाहको गठन गर्दैन। विशिष्ट मार्गदर्शनका लागि सम्बन्धित अधिकारीहरू वा योग्य पेशेवरहरूसँग सल्लाह गर्नुहोस्।'
+          }
         }
       },
       quiz: {
@@ -454,6 +511,25 @@ const resources = {
           arrivals: 'मलेशिया में मासिक विदेशी आगमन',
           undocumented: 'बिना दस्तावेज़ प्रवासी श्रमिक',
           documented: 'दस्तावेज़ सहित प्रवासी श्रमिक (2022 तक)'
+        },
+        vision: {
+          title: 'दृष्टि',
+          content: 'मलेशिया में प्रत्येक प्रवासी श्रमिक को उनके अधिकारों के ज्ञान से सशक्त बनाने वाला एक समावेशी और सुलभ डिजिटल प्लेटफॉर्म बनाना, जो उन्हें गरिमा, सुरक्षा और समानता के साथ जीने और काम करने में सक्षम बनाए — SDG 10: असमानताओं में कमी की दिशा में मलेशिया की प्रगति में योगदान देते हुए।'
+        },
+        mission: {
+          title: 'मिशन',
+          content: 'हमारा मिशन मलेशिया में प्रवासी श्रमिकों को बहुभाषी, समझने में आसान गाइड और इंटरैक्टिव उपकरण प्रदान करके सशक्त बनाना है जो उन्हें अपने अधिकारों को जानने, अपनी कार्य स्थितियों की जांच करने और सुरक्षित सहायता तक पहुंचने में मदद करते हैं। हमारा लक्ष्य गरिमा को बढ़ावा देते हुए और असमानताओं को कम करते हुए प्रवासी समुदायों की सुरक्षा, शिक्षा और उत्थान करना है।'
+        },
+        sdg: {
+          title: 'असमानता कम करना यहाँ से शुरू होता है। हमारे साथ सीखें, जुड़ें और बढ़ें।',
+          description: 'Right4All के माध्यम से, हम संयुक्त राष्ट्र सतत विकास लक्ष्य 10: असमानताओं में कमी में योगदान दे रहे हैं। मलेशिया में प्रवासी श्रमिकों के लिए अधिक न्यायसंगत भविष्य बनाने में हमारे साथ जुड़ें।'
+        },
+        footer: {
+          copyright: 'Right4All © 2025 | मलेशिया में प्रवासी श्रमिकों को सशक्त बनाना | SDG 10: असमानताओं में कमी की सेवा | सुरक्षा • शिक्षा • उत्थान',
+          disclaimer: {
+            title: 'अस्वीकरण',
+            content: 'इस साइट की जानकारी केवल शैक्षणिक उद्देश्यों के लिए है और कानूनी सलाह का गठन नहीं करती है। विशिष्ट मार्गदर्शन के लिए कृपया संबंधित अधिकारियों या योग्य पेशेवरों से सलाह लें।'
+          }
         }
       },
       quiz: {
@@ -594,6 +670,25 @@ const resources = {
           arrivals: 'মালয়েশিয়ায় মাসিক বিদেশি আগমন',
           undocumented: 'নথিবিহীন অভিবাসী শ্রমিক',
           documented: 'নথিসহ অভিবাসী শ্রমিক (২০২২ সাল পর্যন্ত)'
+        },
+        vision: {
+          title: 'দৃষ্টিভঙ্গি',
+          content: 'মালয়েশিয়ার প্রতিটি অভিবাসী শ্রমিককে তাদের অধিকারের জ্ঞান দিয়ে ক্ষমতায়ন করে এমন একটি অন্তর্ভুক্তিমূলক এবং অ্যাক্সেসযোগ্য ডিজিটাল প্ল্যাটফর্ম তৈরি করা, যা তাদের মর্যাদা, নিরাপত্তা এবং সমতার সাথে বাঁচতে ও কাজ করতে সক্ষম করে — SDG 10: অসমতা হ্রাসের দিকে মালয়েশিয়ার অগ্রগতিতে অবদান রেখে।'
+        },
+        mission: {
+          title: 'মিশন',
+          content: 'আমাদের মিশন হলো মালয়েশিয়ার অভিবাসী শ্রমিকদের বহুভাষিক, সহজবোধ্য গাইড এবং ইন্টারঅ্যাক্টিভ টুল সরবরাহ করে ক্ষমতায়ন করা যা তাদের তাদের অধিকার জানতে, তাদের কাজের অবস্থা পরীক্ষা করতে এবং নিরাপদ সহায়তা অ্যাক্সেস করতে সাহায্য করে। আমাদের লক্ষ্য হলো মর্যাদা প্রচার এবং অসমতা হ্রাস করতে গিয়ে অভিবাসী সম্প্রদায়দের সুরক্ষা, শিক্ষা এবং উন্নতি সাধন করা।'
+        },
+        sdg: {
+          title: 'অসমতা হ্রাস এখানে শুরু হয়। আমাদের সাথে শিখুন, যুক্ত হন এবং বৃদ্ধি করুন।',
+          description: 'Right4All-এর মাধ্যমে, আমরা সংযুক্ত জাতিসংঘের সাস্টেইনেবল ডেভেলপমেন্ট গোল 10: অসমতা হ্রাসে অবদান রাখছি। মালয়েশিয়ায় অভিবাসী শ্রমিকদের জন্য আরো ন্যায্য ভবিষ্যৎ গড়তে আমাদের সাথে যুক্ত হন।'
+        },
+        footer: {
+          copyright: 'Right4All © 2025 | মালয়েশিয়ায় অভিবাসী শ্রমিকদের ক্ষমতায়ন | SDG 10: অসমতা হ্রাসের সেবা | সুরক্ষা • শিক্ষা • উন্নতি',
+          disclaimer: {
+            title: 'দাবিত্যাগ',
+            content: 'এই সাইটের তথ্য শুধুমাত্র শিক্ষামূলক উদ্দেশ্যে এবং আইনগত পরামর্শ গঠন করে না। নির্দিষ্ট নির্দেশনার জন্য অনুগ্রহ করে সংশ্লিষ্ট কর্তৃপক্ষ বা যোগ্য পেশাদারদের সাথে পরামর্শ করুন।'
+          }
         }
       },
       quiz: {
