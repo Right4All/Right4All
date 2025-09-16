@@ -4,6 +4,7 @@ import helmet from 'helmet'
 import dotenv from 'dotenv'
 import translationRouter from './routes/translation'
 import insightsRouter from './routes/insights'
+import communityRouter from './routes/community'
 import { db } from './services/databaseService'
 
 dotenv.config()
@@ -45,6 +46,9 @@ app.use('/api/translation', translationRouter)
 
 // Insights routes (labor market data from Neon database)
 app.use('/api/insights', insightsRouter)
+
+// Community routes (organizations, stories, resources)
+app.use('/api/community', communityRouter)
 
 // Graceful shutdown
 process.on('SIGINT', async () => {

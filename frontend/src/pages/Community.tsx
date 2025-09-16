@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { CommunityApi, Organization, Story, Resource, CommunityStats } from '../services/communityApi'
 
 type TabType = 'ngos' | 'stories' | 'resources'
 
@@ -7,10 +8,18 @@ export default function Community() {
   const [activeTab, setActiveTab] = useState<TabType>('ngos')
   const [activeFilter, setActiveFilter] = useState('All Help')
   const [searchTerm, setSearchTerm] = useState('')
+  const [organizations, setOrganizations] = useState<Organization[]>([])
+  const [stories, setStories] = useState<Story[]>([])
+  const [resources, setResources] = useState<Resource[]>([])
+  const [stats, setStats] = useState<CommunityStats>({ organizations: 0, stories: 0, resources: 0 })
+  const [loading, setLoading] = useState(false)
+  const [expandedOrg, setExpandedOrg] = useState<number | null>(null)
+  const [expandedStory, setExpandedStory] = useState<number | null>(null)
+  const [expandedResource, setExpandedResource] = useState<number | null>(null)
 
-  const ngoFilters = ['All Help', 'Legal', 'Medical', 'Housing', 'Work', 'Emergency']
-  const storyFilters = ['New Stories', 'Success', 'Legal Wins', 'Housing', 'Tips']
-  const resourceFilters = ['Most Helpful', 'Bank Account', 'Doctor', 'Housing', 'School']
+  const ngoFilters = ['All Help', 'Legal Aid', 'Health & Wellbeing', 'Work', 'Other Support']
+  const storyFilters = ['All Stories', 'Legal & Documents', 'Fair Pay & Wages', 'Safety & Health', 'Housing & Living Conditions', 'Workplace Rights & Respect', 'Working Hours & Conditions', 'Resilience & Success']
+  const resourceFilters = ['All Resources', 'Work & Legal', 'Health & Safety', 'Housing & Everyday Life', 'Money & Daily Life']
 
   const getCurrentFilters = () => {
     switch (activeTab) {
@@ -28,6 +37,48 @@ export default function Community() {
   const handleEmergencyClick = () => {
     alert('🚨 Emergency Help\n\n24/7 Hotlines:\n• Tenaganita: +60 3-2697-3671\n• Legal Aid: 15999\n• Police: 999\n\nYou are not alone. Help is available.')
   }
+
+  // Fetch data based on active tab and filters
+  const fetchData = async () => {
+    setLoading(true)
+    try {
+      const category = activeFilter === getCurrentFilters()[0] ? undefined : activeFilter
+      const search = searchTerm || undefined
+
+      switch (activeTab) {
+        case 'ngos':
+          const orgs = await CommunityApi.getOrganizations(category, search)
+          setOrganizations(orgs)
+          break
+        case 'stories':
+          const storiesData = await CommunityApi.getStories(category, search)
+          setStories(storiesData)
+          break
+        case 'resources':
+          const resourcesData = await CommunityApi.getResources(category, search)
+          setResources(resourcesData)
+          break
+      }
+    } catch (error) {
+      console.error('Error fetching data:', error)
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  // Fetch stats on component mount
+  useEffect(() => {
+    const fetchStats = async () => {
+      const statsData = await CommunityApi.getStats()
+      setStats(statsData)
+    }
+    fetchStats()
+  }, [])
+
+  // Fetch data when tab, filter, or search changes
+  useEffect(() => {
+    fetchData()
+  }, [activeTab, activeFilter, searchTerm])
 
   return (
     <section className="min-h-screen py-8 px-4 lg:px-0">
@@ -97,21 +148,21 @@ export default function Community() {
             <div className="relative bg-white/5 backdrop-blur-xl rounded-2xl p-6 border border-white/10">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {[
-                  { 
-                    number: '33+', 
-                    label: 'Organizations', 
+                  {
+                    number: `${stats.organizations}+`,
+                    label: 'Organizations',
                     icon: '🏢',
                     gradient: 'from-rose-500 to-pink-500'
                   },
-                  { 
-                    number: '10+', 
-                    label: 'Worker Stories', 
+                  {
+                    number: `${stats.stories}+`,
+                    label: 'Survivor Stories',
                     icon: '📖',
                     gradient: 'from-blue-500 to-cyan-500'
                   },
-                  { 
-                    number: '14+', 
-                    label: 'Help Guides', 
+                  {
+                    number: `${stats.resources}+`,
+                    label: 'Life Hacks',
                     icon: '📚',
                     gradient: 'from-purple-500 to-indigo-500'
                   }
@@ -180,7 +231,22 @@ export default function Community() {
               key={tab.id}
               onClick={() => {
                 setActiveTab(tab.id as TabType)
-                setActiveFilter(getCurrentFilters()[0])
+                // Reset filter to "All" for the new tab
+                const newFilters = (() => {
+                  switch (tab.id) {
+                    case 'ngos': return ngoFilters
+                    case 'stories': return storyFilters
+                    case 'resources': return resourceFilters
+                    default: return ngoFilters
+                  }
+                })()
+                setActiveFilter(newFilters[0])
+                // Clear search when switching tabs
+                setSearchTerm('')
+                // Clear expanded items
+                setExpandedOrg(null)
+                setExpandedStory(null)
+                setExpandedResource(null)
               }}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
@@ -232,7 +298,7 @@ export default function Community() {
         {/* Content Cards */}
         <AnimatePresence mode="wait">
           {activeTab === 'ngos' && (
-            <motion.div 
+            <motion.div
               key="ngos"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -240,83 +306,121 @@ export default function Community() {
               transition={{ duration: 0.3 }}
               className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12"
             >
-              {[
-                {
-                  title: 'Tenaganita',
-                  location: 'Kuala Lumpur • 2 km away',
-                  description: 'Free legal help for workers. They speak many languages and help with unpaid wages, work problems, and worker rights.',
-                  icon: '⚖️',
-                  tags: ['Free Legal Help', 'Many Languages', 'Hotline'],
-                  gradient: 'from-rose-500 to-pink-500',
-                  rating: '4.9'
-                },
-                {
-                  title: 'Migrant CARE',
-                  location: 'Petaling Jaya • 4 km away', 
-                  description: 'Helps migrant workers with community support, advocacy, and connecting with other workers in your area.',
-                  icon: '💝',
-                  tags: ['Community Help', 'Worker Groups', 'Support'],
-                  gradient: 'from-rose-500 to-pink-500',
-                  rating: '4.8'
-                },
-                {
-                  title: 'SUHAKAM',
-                  location: 'Kuala Lumpur • 5 km away',
-                  description: 'Government office that protects human rights. They can help if someone treats you badly or unfairly.',
-                  icon: '🛡️',
-                  tags: ['Human Rights', 'Government', 'Protection'],
-                  gradient: 'from-rose-500 to-pink-500',
-                  rating: '4.7'
-                }
-              ].filter(item => 
-                searchTerm === '' || 
-                item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                item.description.toLowerCase().includes(searchTerm.toLowerCase())
-              ).map((ngo, index) => (
-                <motion.div 
-                  key={ngo.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  className="group relative"
-                >
-                  <div className={`absolute -inset-1 bg-gradient-to-r ${ngo.gradient} rounded-3xl blur opacity-20 group-hover:opacity-30 transition duration-300`}></div>
-                  <div className="relative bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10 hover:transform hover:-translate-y-3 transition-all duration-500 cursor-pointer h-full">
-                    <div className="flex items-start gap-4 mb-6">
-                      <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${ngo.gradient} flex items-center justify-center text-2xl shadow-lg`}>
-                        {ngo.icon}
-                      </div>
-                      <div className="flex-1">
-                        <div className="flex items-center gap-2 mb-2">
-                          <h3 className="font-bold text-2xl text-white">{ngo.title}</h3>
-                          <div className="flex items-center gap-1 text-yellow-400">
-                            <span>⭐</span>
-                            <span className="text-sm font-semibold">{ngo.rating}</span>
+              {loading ? (
+                <div className="col-span-full text-center py-12">
+                  <div className="text-white/60">Loading organizations...</div>
+                </div>
+              ) : organizations.length === 0 ? (
+                <div className="col-span-full text-center py-12">
+                  <div className="text-white/60">No organizations found.</div>
+                </div>
+              ) : (
+                organizations.map((org, index) => {
+                  const isExpanded = expandedOrg === org.org_id
+                  return (
+                    <motion.div
+                      key={org.org_id}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                      className="group relative"
+                    >
+                      <div className="absolute -inset-1 bg-gradient-to-r from-rose-500 to-pink-500 rounded-3xl blur opacity-20 group-hover:opacity-30 transition duration-300"></div>
+                      <div
+                        className="relative bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10 hover:transform hover:-translate-y-3 transition-all duration-500 cursor-pointer"
+                        onClick={() => setExpandedOrg(isExpanded ? null : org.org_id)}
+                      >
+                        <div className="flex items-start gap-4 mb-6">
+                          <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-rose-500 to-pink-500 flex items-center justify-center text-2xl shadow-lg">
+                            🏢
+                          </div>
+                          <div className="flex-1">
+                            <div className="flex items-center gap-2 mb-2">
+                              <h3 className="font-bold text-2xl text-white">{org.org_name || org.org_en}</h3>
+                              <span className="text-white/60 text-lg">
+                                {isExpanded ? '▼' : '▶'}
+                              </span>
+                            </div>
+                            <div className="text-cyan-400 flex items-center gap-2 font-medium">
+                              <span>📍</span>
+                              {org.org_address || 'Location not specified'}
+                            </div>
                           </div>
                         </div>
-                        <div className="text-cyan-400 flex items-center gap-2 font-medium">
-                          <span>📍</span>
-                          {ngo.location}
+
+                        <p className="text-white/80 mb-6 leading-relaxed text-base">
+                          {isExpanded ? org.org_descr_en : (org.org_descr_en?.length > 150 ? `${org.org_descr_en.substring(0, 150)}...` : org.org_descr_en)}
+                        </p>
+
+                        {isExpanded && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            exit={{ opacity: 0, height: 0 }}
+                            className="mb-6 space-y-4"
+                          >
+                            {org.org_phone_no && org.org_phone_no !== 'No contact number' && (
+                              <div className="flex items-center gap-3">
+                                <span className="text-cyan-400">📞</span>
+                                <span className="text-white">{org.org_phone_no}</span>
+                              </div>
+                            )}
+                            {org.org_email && (
+                              <div className="flex items-center gap-3">
+                                <span className="text-cyan-400">✉️</span>
+                                <span className="text-white">{org.org_email}</span>
+                              </div>
+                            )}
+                            {org.org_website && (
+                              <div className="flex items-center gap-3">
+                                <span className="text-cyan-400">🌐</span>
+                                <a href={org.org_website} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">
+                                  Visit Website
+                                </a>
+                              </div>
+                            )}
+                            {(org.org_state || org.org_country) && (
+                              <div className="flex items-center gap-3">
+                                <span className="text-cyan-400">🗺️</span>
+                                <span className="text-white">{org.org_state}{org.org_state && org.org_country && ', '}{org.org_country}</span>
+                              </div>
+                            )}
+                          </motion.div>
+                        )}
+
+                        <div className="flex flex-wrap gap-2">
+                          {org.service_type && (
+                            <span className="px-4 py-2 bg-white/20 rounded-xl text-sm font-medium text-white border border-white/20 backdrop-blur-sm">
+                              {org.service_type}
+                            </span>
+                          )}
+                          {org.tag && (
+                            <span className="px-4 py-2 bg-white/20 rounded-xl text-sm font-medium text-white border border-white/20 backdrop-blur-sm">
+                              {org.tag.split(',')[0]}
+                            </span>
+                          )}
+                          {org.org_phone_no && org.org_phone_no !== 'No contact number' && (
+                            <span className="px-4 py-2 bg-green-500/20 rounded-xl text-sm font-medium text-green-300 border border-green-400/30 backdrop-blur-sm">
+                              📞 Contact Available
+                            </span>
+                          )}
+                          {!isExpanded && (
+                            <span className="px-4 py-2 bg-cyan-500/20 rounded-xl text-sm font-medium text-cyan-300 border border-cyan-400/30 backdrop-blur-sm">
+                              👆 Click for details
+                            </span>
+                          )}
                         </div>
                       </div>
-                    </div>
-                    <p className="text-white/80 mb-6 leading-relaxed text-base">{ngo.description}</p>
-                    <div className="flex flex-wrap gap-2">
-                      {ngo.tags.map((tag) => (
-                        <span key={tag} className="px-4 py-2 bg-white/20 rounded-xl text-sm font-medium text-white border border-white/20 backdrop-blur-sm">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
+                    </motion.div>
+                  )
+                })
+              )}
             </motion.div>
           )}
         </AnimatePresence>
 
           {activeTab === 'stories' && (
-            <motion.div 
+            <motion.div
               key="stories"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -324,148 +428,316 @@ export default function Community() {
               transition={{ duration: 0.3 }}
               className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12"
             >
-              {[
-                {
-                  title: 'I Got My Money Back!',
-                  author: 'By Ahmad • 3 days ago',
-                  description: 'My boss didn\'t pay me for 6 months. I thought I lost RM 12,000. Then Tenaganita helped me get all my money back. Here\'s how...',
-                  icon: '🏆',
-                  tags: ['Success Story', 'Got Money Back', 'Legal Help'],
-                  gradient: 'from-cyan-500 to-blue-500',
-                  readTime: '5 min read'
-                },
-                {
-                  title: 'How I Found Safe Housing',
-                  author: 'By Sarah • 1 week ago',
-                  description: 'Finding a safe place to live in Malaysia was scary. Here are 5 simple tips that helped me find good, cheap housing...',
-                  icon: '🏠',
-                  tags: ['Housing Tips', 'Safety', 'Cheap Rent'],
-                  gradient: 'from-cyan-500 to-blue-500',
-                  readTime: '4 min read'
-                },
-                {
-                  title: 'My Kids Go to School Now',
-                  author: 'By Maria • 2 weeks ago',
-                  description: 'The paperwork looked impossible, but I got help and now my children are happy in school. Here\'s what I did step by step...',
-                  icon: '🎓',
-                  tags: ['School', 'Children', 'Step by Step'],
-                  gradient: 'from-cyan-500 to-blue-500',
-                  readTime: '6 min read'
-                }
-              ].filter(item => 
-                searchTerm === '' || 
-                item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                item.description.toLowerCase().includes(searchTerm.toLowerCase())
-              ).map((story, index) => (
-                <motion.div 
-                  key={story.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  className="group relative"
-                >
-                  <div className={`absolute -inset-1 bg-gradient-to-r ${story.gradient} rounded-3xl blur opacity-20 group-hover:opacity-30 transition duration-300`}></div>
-                  <div className="relative bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10 hover:transform hover:-translate-y-3 transition-all duration-500 cursor-pointer h-full">
-                    <div className="flex items-start gap-4 mb-6">
-                      <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${story.gradient} flex items-center justify-center text-2xl shadow-lg`}>
-                        {story.icon}
+              {loading ? (
+                <div className="col-span-full text-center py-12">
+                  <div className="text-white/60">Loading stories...</div>
+                </div>
+              ) : stories.length === 0 ? (
+                <div className="col-span-full text-center py-12">
+                  <div className="text-white/60">No stories found.</div>
+                </div>
+              ) : (
+                stories.map((story, index) => {
+                  const isExpanded = expandedStory === story.story_id
+                  return (
+                    <motion.div
+                      key={story.story_id}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                      className="group relative"
+                    >
+                      <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-3xl blur opacity-20 group-hover:opacity-30 transition duration-300"></div>
+                      <div
+                        className="relative bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10 hover:transform hover:-translate-y-3 transition-all duration-500 cursor-pointer"
+                        onClick={() => setExpandedStory(isExpanded ? null : story.story_id)}
+                      >
+                        <div className="flex items-start gap-4 mb-6">
+                          <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-500 flex items-center justify-center text-2xl shadow-lg">
+                            ✨
+                          </div>
+                          <div className="flex-1">
+                            <div className="flex items-center gap-2 mb-2">
+                              <h3 className="font-bold text-2xl text-white">{story.story_title_en}</h3>
+                              <span className="text-white/60 text-lg">
+                                {isExpanded ? '▼' : '▶'}
+                              </span>
+                            </div>
+                            <div className="text-cyan-400 text-sm font-medium">
+                              Personal Experience • {story.theme || 'Story'}
+                            </div>
+                          </div>
+                        </div>
+
+                        <p className="text-white/80 mb-6 leading-relaxed text-base">
+                          {isExpanded ? story.story_body_en : (story.story_body_en?.length > 200 ? `${story.story_body_en.substring(0, 200)}...` : story.story_body_en)}
+                        </p>
+
+                        {isExpanded && story.tips_or_lesson && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            exit={{ opacity: 0, height: 0 }}
+                            className="mb-6 p-4 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-xl border border-cyan-400/20"
+                          >
+                            <h4 className="text-cyan-300 font-semibold mb-2 flex items-center gap-2">
+                              💡 Key Lessons & Tips
+                            </h4>
+                            <div className="text-white/90 space-y-2">
+                              {story.tips_or_lesson.split(';').map((tip, tipIndex) => (
+                                <div key={tipIndex} className="flex items-start gap-2">
+                                  <span className="text-cyan-400 mt-1">•</span>
+                                  <span>{tip.trim()}</span>
+                                </div>
+                              ))}
+                            </div>
+                          </motion.div>
+                        )}
+
+                        {isExpanded && story.story_url && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            exit={{ opacity: 0, height: 0 }}
+                            className="mb-6"
+                          >
+                            <a
+                              href={story.story_url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 underline"
+                            >
+                              🔗 Read Full Story
+                            </a>
+                          </motion.div>
+                        )}
+
+                        <div className="flex flex-wrap gap-2">
+                          {story.theme && (
+                            <span className="px-4 py-2 bg-white/20 rounded-xl text-sm font-medium text-white border border-white/20 backdrop-blur-sm">
+                              {story.theme}
+                            </span>
+                          )}
+                          {story.tips_or_lesson && (
+                            <span className="px-4 py-2 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-xl text-sm font-medium text-cyan-300 border border-cyan-400/30 backdrop-blur-sm">
+                              💡 Tips Available
+                            </span>
+                          )}
+                          {!isExpanded && (
+                            <span className="px-4 py-2 bg-cyan-500/20 rounded-xl text-sm font-medium text-cyan-300 border border-cyan-400/30 backdrop-blur-sm">
+                              👆 Click to read more
+                            </span>
+                          )}
+                        </div>
                       </div>
-                      <div className="flex-1">
-                        <h3 className="font-bold text-2xl text-white mb-2">{story.title}</h3>
-                        <div className="text-cyan-400 text-sm font-medium">{story.author}</div>
-                        <div className="text-white/50 text-xs mt-1">{story.readTime}</div>
-                      </div>
-                    </div>
-                    <p className="text-white/80 mb-6 leading-relaxed text-base">{story.description}</p>
-                    <div className="flex flex-wrap gap-2">
-                      {story.tags.map((tag) => (
-                        <span key={tag} className="px-4 py-2 bg-white/20 rounded-xl text-sm font-medium text-white border border-white/20 backdrop-blur-sm">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
+                    </motion.div>
+                  )
+                })
+              )}
             </motion.div>
           )}
 
           {activeTab === 'resources' && (
-            <motion.div 
+            <motion.div
               key="resources"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3 }}
-              className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12"
+              className="space-y-8 mb-12"
             >
-              {[
-                {
-                  title: 'How to Open Bank Account',
-                  subtitle: 'Easy step-by-step guide',
-                  description: 'Simple guide to open a bank account in Malaysia. What papers you need, which banks are good for workers, and how much it costs.',
-                  icon: '🏦',
-                  tags: ['Banking', 'Documents', 'Step by Step'],
-                  gradient: 'from-purple-500 to-indigo-500',
-                  difficulty: 'Easy'
-                },
-                {
-                  title: 'How to See a Doctor',
-                  subtitle: 'Health care guide',
-                  description: 'Find doctors who speak your language, understand health insurance, know which clinics are cheap and good.',
-                  icon: '🩺',
-                  tags: ['Doctor', 'Cheap Clinics', 'Your Language'],
-                  gradient: 'from-purple-500 to-indigo-500',
-                  difficulty: 'Medium'
-                },
-                {
-                  title: 'How to Find Safe Housing',
-                  subtitle: 'Rental guide & safety tips',
-                  description: 'How to find safe, cheap housing, understand rental papers, avoid scams, and know your rights as a tenant.',
-                  icon: '🏘️',
-                  tags: ['Safe Housing', 'Avoid Scams', 'Your Rights'],
-                  gradient: 'from-purple-500 to-indigo-500',
-                  difficulty: 'Medium'
-                }
-              ].filter(item => 
-                searchTerm === '' || 
-                item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                item.description.toLowerCase().includes(searchTerm.toLowerCase())
-              ).map((resource, index) => (
-                <motion.div 
-                  key={resource.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  className="group relative"
-                >
-                  <div className={`absolute -inset-1 bg-gradient-to-r ${resource.gradient} rounded-3xl blur opacity-20 group-hover:opacity-30 transition duration-300`}></div>
-                  <div className="relative bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10 hover:transform hover:-translate-y-3 transition-all duration-500 cursor-pointer h-full">
-                    <div className="flex items-start gap-4 mb-6">
-                      <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${resource.gradient} flex items-center justify-center text-2xl shadow-lg`}>
-                        {resource.icon}
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="font-bold text-2xl text-white mb-2">{resource.title}</h3>
-                        <div className="text-cyan-400 text-sm font-medium mb-1">{resource.subtitle}</div>
-                        <div className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${
-                          resource.difficulty === 'Easy' ? 'bg-green-500/20 text-green-400' : 'bg-yellow-500/20 text-yellow-400'
-                        }`}>
-                          {resource.difficulty}
-                        </div>
-                      </div>
-                    </div>
-                    <p className="text-white/80 mb-6 leading-relaxed text-base">{resource.description}</p>
-                    <div className="flex flex-wrap gap-2">
-                      {resource.tags.map((tag) => (
-                        <span key={tag} className="px-4 py-2 bg-white/20 rounded-xl text-sm font-medium text-white border border-white/20 backdrop-blur-sm">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
+              {loading ? (
+                <div className="text-center py-12">
+                  <div className="text-white/60">Loading resources...</div>
+                </div>
+              ) : resources.length === 0 ? (
+                <div className="text-center py-12">
+                  <div className="text-white/60">No resources found.</div>
+                </div>
+              ) : (
+                <>
+                  {/* Expanded Card - Full Width */}
+                  {expandedResource && resources.find(r => r.guide_topic_id === expandedResource) && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      exit={{ opacity: 0, height: 0 }}
+                      className="mb-8"
+                    >
+                      {(() => {
+                        const resource = resources.find(r => r.guide_topic_id === expandedResource)!
+                        return (
+                          <div className="group relative">
+                            <div className="absolute -inset-1 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-3xl blur opacity-30"></div>
+                            <div className="relative bg-white/10 backdrop-blur-xl rounded-3xl p-8 border border-white/20">
+                              {/* Header with close button */}
+                              <div className="flex items-start justify-between gap-4 mb-6">
+                                <div className="flex items-start gap-4 flex-1">
+                                  <div className="w-20 h-20 rounded-2xl bg-gradient-to-r from-purple-500 to-indigo-500 flex items-center justify-center text-3xl shadow-lg">
+                                    📚
+                                  </div>
+                                  <div className="flex-1">
+                                    <h3 className="font-bold text-3xl text-white mb-2">{resource.guide_topic_name}</h3>
+                                    {resource.category_name && (
+                                      <div className="text-cyan-400 text-lg font-medium mb-2">{resource.category_name}</div>
+                                    )}
+                                    <div className="inline-block px-4 py-2 rounded-full text-sm font-semibold bg-green-500/20 text-green-400">
+                                      📚 Complete Step-by-step Guide
+                                    </div>
+                                  </div>
+                                </div>
+                                <button
+                                  onClick={() => setExpandedResource(null)}
+                                  className="text-white/60 hover:text-white transition-colors p-2 hover:bg-white/10 rounded-lg"
+                                >
+                                  ✕
+                                </button>
+                              </div>
+
+                              <p className="text-white/90 text-lg mb-8 leading-relaxed">{resource.guide_summary}</p>
+
+                              {/* Content in horizontal layout */}
+                              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6" onClick={(e) => e.stopPropagation()}>
+                                {resource.guide_who_is_this_for && (
+                                  <div className="p-6 bg-purple-500/10 rounded-xl border border-purple-400/20">
+                                    <h4 className="text-purple-300 font-semibold mb-3 flex items-center gap-2 text-lg">
+                                      👥 Who is this for?
+                                    </h4>
+                                    <p className="text-white/90 leading-relaxed">{resource.guide_who_is_this_for}</p>
+                                  </div>
+                                )}
+
+                                {resource.guide_what_you_need && (
+                                  <div className="p-6 bg-blue-500/10 rounded-xl border border-blue-400/20">
+                                    <h4 className="text-blue-300 font-semibold mb-3 flex items-center gap-2 text-lg">
+                                      📋 What you need
+                                    </h4>
+                                    <p className="text-white/90 leading-relaxed">{resource.guide_what_you_need}</p>
+                                  </div>
+                                )}
+
+                                {resource.cost_n_time && (
+                                  <div className="p-6 bg-yellow-500/10 rounded-xl border border-yellow-400/20">
+                                    <h4 className="text-yellow-300 font-semibold mb-3 flex items-center gap-2 text-lg">
+                                      💰 Cost & Time
+                                    </h4>
+                                    <p className="text-white/90 leading-relaxed">{resource.cost_n_time}</p>
+                                  </div>
+                                )}
+
+                                {resource.guide_legal_chckpoint && (
+                                  <div className="p-6 bg-red-500/10 rounded-xl border border-red-400/20">
+                                    <h4 className="text-red-300 font-semibold mb-3 flex items-center gap-2 text-lg">
+                                      ⚖️ Legal information
+                                    </h4>
+                                    <p className="text-white/90 leading-relaxed">{resource.guide_legal_chckpoint}</p>
+                                  </div>
+                                )}
+
+                                {resource.prob_n_scams && (
+                                  <div className="p-6 bg-orange-500/10 rounded-xl border border-orange-400/20">
+                                    <h4 className="text-orange-300 font-semibold mb-3 flex items-center gap-2 text-lg">
+                                      ⚠️ Problems & Scams to avoid
+                                    </h4>
+                                    <p className="text-white/90 leading-relaxed">{resource.prob_n_scams}</p>
+                                  </div>
+                                )}
+
+                                {resource.whr_to_get_help && (
+                                  <div className="p-6 bg-emerald-500/10 rounded-xl border border-emerald-400/20">
+                                    <h4 className="text-emerald-300 font-semibold mb-3 flex items-center gap-2 text-lg">
+                                      🤝 Where to get help
+                                    </h4>
+                                    <div className="space-y-2">
+                                      {resource.whr_to_get_help.split(',').map((helpItem, helpIndex) => (
+                                        <div key={helpIndex} className="flex items-center gap-2 text-white/90">
+                                          <span className="text-emerald-400">•</span>
+                                          <span>{helpItem.trim()}</span>
+                                        </div>
+                                      ))}
+                                    </div>
+                                  </div>
+                                )}
+                              </div>
+
+                              {/* Step-by-step guide - Full width */}
+                              {resource.guide_steps && (
+                                <div className="mt-8 p-6 bg-green-500/10 rounded-xl border border-green-400/20">
+                                  <h4 className="text-green-300 font-semibold mb-6 flex items-center gap-2 text-xl">
+                                    📝 Step-by-step guide
+                                  </h4>
+                                  <div className="grid md:grid-cols-2 gap-4">
+                                    {resource.guide_steps.split('.').filter(step => step.trim()).map((step, stepIndex) => (
+                                      <div key={stepIndex} className="flex items-start gap-4 p-4 bg-white/5 rounded-lg">
+                                        <span className="text-green-400 font-bold text-lg min-w-[32px] mt-1 bg-green-500/20 rounded-full w-8 h-8 flex items-center justify-center">
+                                          {stepIndex + 1}
+                                        </span>
+                                        <span className="text-white/90 leading-relaxed">{step.trim()}</span>
+                                      </div>
+                                    ))}
+                                  </div>
+                                </div>
+                              )}
+                            </div>
+                          </div>
+                        )
+                      })()}
+                    </motion.div>
+                  )}
+
+                  {/* Regular Cards Grid */}
+                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {resources.map((resource, index) => {
+                      const isExpanded = expandedResource === resource.guide_topic_id
+                      if (isExpanded) return null // Don't show in grid if expanded
+
+                      return (
+                        <motion.div
+                          key={resource.guide_topic_id}
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: index * 0.1 }}
+                          className="group relative"
+                        >
+                          <div className="absolute -inset-1 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-3xl blur opacity-20 group-hover:opacity-30 transition duration-300"></div>
+                          <div
+                            className="relative bg-white/5 backdrop-blur-xl rounded-3xl p-6 border border-white/10 hover:transform hover:-translate-y-2 transition-all duration-300 cursor-pointer h-full"
+                            onClick={() => setExpandedResource(resource.guide_topic_id)}
+                          >
+                            <div className="flex items-start gap-3 mb-4">
+                              <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-purple-500 to-indigo-500 flex items-center justify-center text-lg shadow-lg">
+                                📚
+                              </div>
+                              <div className="flex-1">
+                                <h3 className="font-bold text-lg text-white mb-1">{resource.guide_topic_name}</h3>
+                                {resource.category_name && (
+                                  <div className="text-cyan-400 text-xs font-medium">{resource.category_name}</div>
+                                )}
+                              </div>
+                              <span className="text-white/60 text-sm">▶</span>
+                            </div>
+
+                            <p className="text-white/80 text-sm leading-relaxed mb-4">
+                              {resource.guide_summary?.length > 120 ? `${resource.guide_summary.substring(0, 120)}...` : resource.guide_summary}
+                            </p>
+
+                            <div className="flex flex-wrap gap-2">
+                              {resource.category_name && (
+                                <span className="px-3 py-1 bg-white/20 rounded-lg text-xs font-medium text-white">
+                                  {resource.category_name}
+                                </span>
+                              )}
+                              <span className="px-3 py-1 bg-purple-500/20 rounded-lg text-xs font-medium text-purple-300">
+                                👆 Click to expand
+                              </span>
+                            </div>
+                          </div>
+                        </motion.div>
+                      )
+                    })}
                   </div>
-                </motion.div>
-              ))}
+                </>
+              )}
             </motion.div>
           )}
 

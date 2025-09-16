@@ -6,9 +6,7 @@ dotenv.config()
 // Create PostgreSQL connection pool
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: false
-  },
+  ssl: process.env.DATABASE_URL?.includes('neon.tech') ? { rejectUnauthorized: false } : false,
   max: 10, // Maximum number of clients in pool
   idleTimeoutMillis: 60000, // Close idle clients after 60 seconds
   connectionTimeoutMillis: 30000, // Return error after 30 seconds if connection could not be established
@@ -129,6 +127,113 @@ export class DatabaseService {
       summary: result.rows[0] || { total_migrant_worker: 0, year: new Date().getFullYear() },
       ts: new Date().toISOString()
     }
+  }
+
+  // Get all organizations/NGOs data
+  async getOrganizationsData(): Promise<any[]> {
+    const query = `
+      SELECT *
+      FROM organization
+      ORDER BY org_name
+    `
+    const result = await this.query(query)
+    return result.rows
+  }
+
+  // Get all survivor stories
+  async getSurvivorStoriesData(): Promise<any[]> {
+    const query = `
+      SELECT *
+      FROM survivor_story
+      ORDER BY story_id
+    `
+    const result = await this.query(query)
+    return result.rows
+  }
+
+  // Get all practical guides
+  async getPracticalGuidesData(): Promise<any[]> {
+    const query = `
+      SELECT *
+      FROM comm_practical_guide
+      ORDER BY guide_topic_name
+    `
+    const result = await this.query(query)
+    return result.rows
+  }
+
+  // Get organizations by category/filter
+  async getOrganizationsByCategory(category: string): Promise<any[]> {
+    const query = `
+      SELECT
+        o.organization_id,
+        o.organization_name,
+        o.organization_description,
+        o.organization_type,
+        o.contact_email,
+        o.contact_phone,
+        o.website_url,
+        o.address,
+        o.city,
+        o.state,
+        o.postal_code,
+        o.latitude,
+        o.longitude,
+        o.rating,
+        o.is_active,
+        array_agg(DISTINCT ol.language_name) as languages
+      FROM organization o
+      LEFT JOIN organization_language ol ON o.organization_id = ol.organization_id
+      WHERE o.is_active = true
+        AND (o.organization_type ILIKE $1 OR o.organization_description ILIKE $1)
+      GROUP BY o.organization_id, o.organization_name, o.organization_description,
+               o.organization_type, o.contact_email, o.contact_phone, o.website_url,
+               o.address, o.city, o.state, o.postal_code, o.latitude, o.longitude,
+               o.rating, o.is_active
+      ORDER BY o.rating DESC
+    `
+    const result = await this.query(query, [`%${category}%`])
+    return result.rows
+  }
+
+  // Search organizations
+  async searchOrganizations(searchTerm: string): Promise<any[]> {
+    const query = `
+      SELECT
+        o.organization_id,
+        o.organization_name,
+        o.organization_description,
+        o.organization_type,
+        o.contact_email,
+        o.contact_phone,
+        o.website_url,
+        o.address,
+        o.city,
+        o.state,
+        o.postal_code,
+        o.latitude,
+        o.longitude,
+        o.rating,
+        o.is_active,
+        array_agg(DISTINCT ol.language_name) as languages
+      FROM organization o
+      LEFT JOIN organization_language ol ON o.organization_id = ol.organization_id
+      WHERE o.is_active = true
+        AND (
+          o.organization_name ILIKE $1 OR
+          o.organization_description ILIKE $1 OR
+          o.organization_type ILIKE $1 OR
+          o.city ILIKE $1 OR
+          o.state ILIKE $1
+        )
+      GROUP BY o.organization_id, o.organization_name, o.organization_description,
+               o.organization_type, o.contact_email, o.contact_phone, o.website_url,
+               o.address, o.city, o.state, o.postal_code, o.latitude, o.longitude,
+               o.rating, o.is_active
+      ORDER BY o.rating DESC
+    `
+    const result = await this.query(query, [`%${searchTerm}%`])
+    return result.rows
   }
 
   // Close the pool (for graceful shutdown)
