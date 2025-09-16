@@ -6,7 +6,9 @@ dotenv.config()
 // Create PostgreSQL connection pool
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
-  ssl: process.env.DATABASE_URL?.includes('neon.tech') ? { rejectUnauthorized: false } : false,
+  ssl: process.env.DATABASE_URL?.includes('neon.tech') ? {
+    rejectUnauthorized: false
+  } : false,
   max: 10, // Maximum number of clients in pool
   idleTimeoutMillis: 60000, // Close idle clients after 60 seconds
   connectionTimeoutMillis: 30000, // Return error after 30 seconds if connection could not be established
