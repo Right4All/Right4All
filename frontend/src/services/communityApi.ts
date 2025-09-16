@@ -1,4 +1,8 @@
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api'
+const API_BASE_URL = import.meta.env.VITE_API_URL || (
+  import.meta.env.PROD
+    ? '/api'  // In production, use relative path since backend is on same domain
+    : 'http://localhost:3000/api'  // In development, use localhost
+)
 
 export interface Organization {
   org_id: number

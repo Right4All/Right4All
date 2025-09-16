@@ -63,7 +63,7 @@ process.on('SIGTERM', async () => {
   process.exit(0)
 })
 
-// Start server
+// Start server (for local development)
 async function startServer() {
   await initializeDatabase()
   app.listen(PORT, () => {
@@ -73,4 +73,10 @@ async function startServer() {
   })
 }
 
-startServer().catch(console.error)
+// Export for Vercel
+export default app
+
+// Start server only if not in Vercel environment
+if (process.env.NODE_ENV !== 'production' || !process.env.VERCEL) {
+  startServer().catch(console.error)
+}
