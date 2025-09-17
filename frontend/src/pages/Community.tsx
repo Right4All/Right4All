@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import { CommunityApi, Organization, Story, Resource, CommunityStats } from '../services/communityApi'
 
 type TabType = 'ngos' | 'stories' | 'resources'
 
 export default function Community() {
+  const { t } = useTranslation()
   const [activeTab, setActiveTab] = useState<TabType>('ngos')
   const [activeFilter, setActiveFilter] = useState('All Help')
   const [searchTerm, setSearchTerm] = useState('')
@@ -93,21 +95,21 @@ export default function Community() {
         <motion.div 
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-12"
+          className="text-center mb-8 md:mb-12"
         >
           <div className="relative inline-block">
             <div className="absolute -inset-2 bg-gradient-to-r from-rose-500 to-pink-500 rounded-2xl blur opacity-20"></div>
-            <h1 className="relative text-5xl md:text-6xl font-black mb-6 bg-gradient-to-r from-rose-500 via-pink-400 to-purple-500 bg-clip-text text-transparent">
-              Community Hub
+            <h1 className="relative text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-4 md:mb-6 bg-gradient-to-r from-rose-500 via-pink-400 to-purple-500 bg-clip-text text-transparent">
+              {t('community.title')}
             </h1>
           </div>
           <motion.p 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto leading-relaxed"
+            className="text-lg sm:text-xl md:text-2xl text-white/80 max-w-3xl mx-auto leading-relaxed px-4"
           >
-            ✨ Real voices. Real help. Real life in Malaysia. ✨
+            {t('community.subtitle')}
           </motion.p>
         </motion.div>
 
@@ -117,19 +119,19 @@ export default function Community() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="relative mb-8"
+          className="relative mb-6 md:mb-8"
         >
           <div className="max-w-2xl mx-auto">
             <div className="text-lg font-medium mb-4 text-center text-white/80 flex items-center justify-center gap-2">
               <span className="text-xl">🔍</span>
-              <span>Search for help</span>
+              {t('community.searchHelp')}
             </div>
             <div className="relative">
               <input
                 type="text"
                 value={searchTerm}
                 onChange={(e) => handleSearch(e.target.value)}
-                placeholder="Type what you need... like 'legal help' or 'housing'"
+                placeholder={t('community.searchPlaceholder')}
                 className="w-full px-6 py-3 rounded-xl border border-white/20 bg-white/10 text-white placeholder-white/50 text-base backdrop-blur-sm focus:outline-none focus:border-rose-400/50 focus:bg-white/15 transition-all duration-300"
               />
             </div>
@@ -141,7 +143,7 @@ export default function Community() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
-          className="mb-10"
+          className="mb-6 md:mb-10"
         >
           <div className="relative max-w-4xl mx-auto">
             <div className="absolute -inset-1 bg-gradient-to-r from-rose-500/20 via-blue-500/20 to-purple-500/20 rounded-2xl blur opacity-30"></div>
@@ -150,19 +152,19 @@ export default function Community() {
                 {[
                   {
                     number: `${stats.organizations}+`,
-                    label: 'Organizations',
+                    label: t('community.stats.organizations'),
                     icon: '🏢',
                     gradient: 'from-rose-500 to-pink-500'
                   },
                   {
                     number: `${stats.stories}+`,
-                    label: 'Survivor Stories',
+                    label: t('community.stats.stories'),
                     icon: '📖',
                     gradient: 'from-blue-500 to-cyan-500'
                   },
                   {
                     number: `${stats.resources}+`,
-                    label: 'Life Hacks',
+                    label: t('community.stats.resources'),
                     icon: '📚',
                     gradient: 'from-purple-500 to-indigo-500'
                   }
@@ -202,28 +204,28 @@ export default function Community() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8 }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12"
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mb-8 md:mb-12"
         >
           {[
             { 
               id: 'ngos', 
               icon: '🤝', 
-              label: 'Find Help',
-              description: 'Connect with trusted organizations',
+              label: t('community.tabs.findHelp.label'),
+              description: t('community.tabs.findHelp.description'),
               gradient: 'from-rose-500 to-pink-500'
             },
             { 
               id: 'stories', 
               icon: '✨', 
-              label: 'Survivor Stories',
-              description: 'Learn from others experiences',
+              label: t('community.tabs.stories.label'),
+              description: t('community.tabs.stories.description'),
               gradient: 'from-blue-500 to-cyan-500'
             },
             { 
               id: 'resources', 
               icon: '🔧', 
-              label: 'Life Hacks',
-              description: 'Practical guides for daily life',
+              label: t('community.tabs.resources.label'),
+              description: t('community.tabs.resources.description'),
               gradient: 'from-purple-500 to-indigo-500'
             }
           ].map((tab) => (
@@ -304,15 +306,15 @@ export default function Community() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3 }}
-              className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12"
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8 mb-8 md:mb-12"
             >
               {loading ? (
                 <div className="col-span-full text-center py-12">
-                  <div className="text-white/60">Loading organizations...</div>
+                  <div className="text-white/60">{t('community.loading.organizations')}</div>
                 </div>
               ) : organizations.length === 0 ? (
                 <div className="col-span-full text-center py-12">
-                  <div className="text-white/60">No organizations found.</div>
+                  <div className="text-white/60">{t('community.notFound.organizations')}</div>
                 </div>
               ) : (
                 organizations.map((org, index) => {
@@ -327,7 +329,7 @@ export default function Community() {
                     >
                       <div className="absolute -inset-1 bg-gradient-to-r from-rose-500 to-pink-500 rounded-3xl blur opacity-20 group-hover:opacity-30 transition duration-300"></div>
                       <div
-                        className="relative bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10 hover:transform hover:-translate-y-3 transition-all duration-500 cursor-pointer"
+                        className="relative bg-white/5 backdrop-blur-xl rounded-2xl md:rounded-3xl p-6 md:p-8 border border-white/10 hover:transform hover:-translate-y-2 md:hover:-translate-y-3 transition-all duration-500 cursor-pointer"
                         onClick={() => setExpandedOrg(isExpanded ? null : org.org_id)}
                       >
                         <div className="flex items-start gap-4 mb-6">
@@ -375,7 +377,7 @@ export default function Community() {
                               <div className="flex items-center gap-3">
                                 <span className="text-cyan-400">🌐</span>
                                 <a href={org.org_website} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">
-                                  Visit Website
+                                  {t('community.actions.visitWebsite')}
                                 </a>
                               </div>
                             )}
@@ -390,23 +392,23 @@ export default function Community() {
 
                         <div className="flex flex-wrap gap-2">
                           {org.service_type && (
-                            <span className="px-4 py-2 bg-white/20 rounded-xl text-sm font-medium text-white border border-white/20 backdrop-blur-sm">
+                            <span className="px-3 py-1.5 bg-white/10 rounded-lg text-xs font-medium text-white/70">
                               {org.service_type}
                             </span>
                           )}
                           {org.tag && (
-                            <span className="px-4 py-2 bg-white/20 rounded-xl text-sm font-medium text-white border border-white/20 backdrop-blur-sm">
+                            <span className="px-3 py-1.5 bg-white/10 rounded-lg text-xs font-medium text-white/70">
                               {org.tag.split(',')[0]}
                             </span>
                           )}
                           {org.org_phone_no && org.org_phone_no !== 'No contact number' && (
-                            <span className="px-4 py-2 bg-green-500/20 rounded-xl text-sm font-medium text-green-300 border border-green-400/30 backdrop-blur-sm">
-                              📞 Contact Available
+                            <span className="px-3 py-1.5 bg-green-500/10 rounded-lg text-xs font-medium text-green-400/80">
+                              📞 {t('community.actions.contactAvailable')}
                             </span>
                           )}
                           {!isExpanded && (
                             <span className="px-4 py-2 bg-cyan-500/20 rounded-xl text-sm font-medium text-cyan-300 border border-cyan-400/30 backdrop-blur-sm">
-                              👆 Click for details
+                              👆 {t('community.actions.clickForDetails')}
                             </span>
                           )}
                         </div>
@@ -426,15 +428,15 @@ export default function Community() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3 }}
-              className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12"
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8 mb-8 md:mb-12"
             >
               {loading ? (
                 <div className="col-span-full text-center py-12">
-                  <div className="text-white/60">Loading stories...</div>
+                  <div className="text-white/60">{t('community.loading.stories')}</div>
                 </div>
               ) : stories.length === 0 ? (
                 <div className="col-span-full text-center py-12">
-                  <div className="text-white/60">No stories found.</div>
+                  <div className="text-white/60">{t('community.notFound.stories')}</div>
                 </div>
               ) : (
                 stories.map((story, index) => {
@@ -449,7 +451,7 @@ export default function Community() {
                     >
                       <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-3xl blur opacity-20 group-hover:opacity-30 transition duration-300"></div>
                       <div
-                        className="relative bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10 hover:transform hover:-translate-y-3 transition-all duration-500 cursor-pointer"
+                        className="relative bg-white/5 backdrop-blur-xl rounded-2xl md:rounded-3xl p-6 md:p-8 border border-white/10 hover:transform hover:-translate-y-2 md:hover:-translate-y-3 transition-all duration-500 cursor-pointer"
                         onClick={() => setExpandedStory(isExpanded ? null : story.story_id)}
                       >
                         <div className="flex items-start gap-4 mb-6">
@@ -464,7 +466,7 @@ export default function Community() {
                               </span>
                             </div>
                             <div className="text-cyan-400 text-sm font-medium">
-                              Personal Experience • {story.theme || 'Story'}
+                              {t('community.content.personalExperience')} • {story.theme || 'Story'}
                             </div>
                           </div>
                         </div>
@@ -481,7 +483,7 @@ export default function Community() {
                             className="mb-6 p-4 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-xl border border-cyan-400/20"
                           >
                             <h4 className="text-cyan-300 font-semibold mb-2 flex items-center gap-2">
-                              💡 Key Lessons & Tips
+                              💡 {t('community.content.keyLessonsAndTips')}
                             </h4>
                             <div className="text-white/90 space-y-2">
                               {story.tips_or_lesson.split(';').map((tip, tipIndex) => (
@@ -507,25 +509,25 @@ export default function Community() {
                               rel="noopener noreferrer"
                               className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 underline"
                             >
-                              🔗 Read Full Story
+                              🔗 {t('community.actions.readFullStory')}
                             </a>
                           </motion.div>
                         )}
 
                         <div className="flex flex-wrap gap-2">
                           {story.theme && (
-                            <span className="px-4 py-2 bg-white/20 rounded-xl text-sm font-medium text-white border border-white/20 backdrop-blur-sm">
+                            <span className="px-3 py-1.5 bg-white/10 rounded-lg text-xs font-medium text-white/70">
                               {story.theme}
                             </span>
                           )}
                           {story.tips_or_lesson && (
-                            <span className="px-4 py-2 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-xl text-sm font-medium text-cyan-300 border border-cyan-400/30 backdrop-blur-sm">
-                              💡 Tips Available
+                            <span className="px-3 py-1.5 bg-cyan-500/10 rounded-lg text-xs font-medium text-cyan-400/80">
+                              💡 {t('community.actions.tipsAvailable')}
                             </span>
                           )}
                           {!isExpanded && (
                             <span className="px-4 py-2 bg-cyan-500/20 rounded-xl text-sm font-medium text-cyan-300 border border-cyan-400/30 backdrop-blur-sm">
-                              👆 Click to read more
+                              👆 {t('community.actions.clickToReadMore')}
                             </span>
                           )}
                         </div>
@@ -544,15 +546,15 @@ export default function Community() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3 }}
-              className="space-y-8 mb-12"
+              className="space-y-6 md:space-y-8 mb-8 md:mb-12"
             >
               {loading ? (
                 <div className="text-center py-12">
-                  <div className="text-white/60">Loading resources...</div>
+                  <div className="text-white/60">{t('community.loading.resources')}</div>
                 </div>
               ) : resources.length === 0 ? (
                 <div className="text-center py-12">
-                  <div className="text-white/60">No resources found.</div>
+                  <div className="text-white/60">{t('community.notFound.resources')}</div>
                 </div>
               ) : (
                 <>
@@ -582,7 +584,7 @@ export default function Community() {
                                       <div className="text-cyan-400 text-lg font-medium mb-2">{resource.category_name}</div>
                                     )}
                                     <div className="inline-block px-4 py-2 rounded-full text-sm font-semibold bg-green-500/20 text-green-400">
-                                      📚 Complete Step-by-step Guide
+                                      📚 {t('community.content.completeStepByStepGuide')}
                                     </div>
                                   </div>
                                 </div>
@@ -597,11 +599,11 @@ export default function Community() {
                               <p className="text-white/90 text-lg mb-8 leading-relaxed">{resource.guide_summary}</p>
 
                               {/* Content in horizontal layout */}
-                              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6" onClick={(e) => e.stopPropagation()}>
+                              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6" onClick={(e) => e.stopPropagation()}>
                                 {resource.guide_who_is_this_for && (
                                   <div className="p-6 bg-purple-500/10 rounded-xl border border-purple-400/20">
                                     <h4 className="text-purple-300 font-semibold mb-3 flex items-center gap-2 text-lg">
-                                      👥 Who is this for?
+                                      👥 {t('community.content.whoIsThisFor')}
                                     </h4>
                                     <p className="text-white/90 leading-relaxed">{resource.guide_who_is_this_for}</p>
                                   </div>
@@ -610,7 +612,7 @@ export default function Community() {
                                 {resource.guide_what_you_need && (
                                   <div className="p-6 bg-blue-500/10 rounded-xl border border-blue-400/20">
                                     <h4 className="text-blue-300 font-semibold mb-3 flex items-center gap-2 text-lg">
-                                      📋 What you need
+                                      📋 {t('community.content.whatYouNeed')}
                                     </h4>
                                     <p className="text-white/90 leading-relaxed">{resource.guide_what_you_need}</p>
                                   </div>
@@ -619,7 +621,7 @@ export default function Community() {
                                 {resource.cost_n_time && (
                                   <div className="p-6 bg-yellow-500/10 rounded-xl border border-yellow-400/20">
                                     <h4 className="text-yellow-300 font-semibold mb-3 flex items-center gap-2 text-lg">
-                                      💰 Cost & Time
+                                      💰 {t('community.content.costAndTime')}
                                     </h4>
                                     <p className="text-white/90 leading-relaxed">{resource.cost_n_time}</p>
                                   </div>
@@ -628,7 +630,7 @@ export default function Community() {
                                 {resource.guide_legal_chckpoint && (
                                   <div className="p-6 bg-red-500/10 rounded-xl border border-red-400/20">
                                     <h4 className="text-red-300 font-semibold mb-3 flex items-center gap-2 text-lg">
-                                      ⚖️ Legal information
+                                      ⚖️ {t('community.content.legalInformation')}
                                     </h4>
                                     <p className="text-white/90 leading-relaxed">{resource.guide_legal_chckpoint}</p>
                                   </div>
@@ -637,7 +639,7 @@ export default function Community() {
                                 {resource.prob_n_scams && (
                                   <div className="p-6 bg-orange-500/10 rounded-xl border border-orange-400/20">
                                     <h4 className="text-orange-300 font-semibold mb-3 flex items-center gap-2 text-lg">
-                                      ⚠️ Problems & Scams to avoid
+                                      ⚠️ {t('community.content.problemsAndScams')}
                                     </h4>
                                     <p className="text-white/90 leading-relaxed">{resource.prob_n_scams}</p>
                                   </div>
@@ -646,7 +648,7 @@ export default function Community() {
                                 {resource.whr_to_get_help && (
                                   <div className="p-6 bg-emerald-500/10 rounded-xl border border-emerald-400/20">
                                     <h4 className="text-emerald-300 font-semibold mb-3 flex items-center gap-2 text-lg">
-                                      🤝 Where to get help
+                                      🤝 {t('community.content.whereToGetHelp')}
                                     </h4>
                                     <div className="space-y-2">
                                       {resource.whr_to_get_help.split(',').map((helpItem, helpIndex) => (
@@ -664,9 +666,9 @@ export default function Community() {
                               {resource.guide_steps && (
                                 <div className="mt-8 p-6 bg-green-500/10 rounded-xl border border-green-400/20">
                                   <h4 className="text-green-300 font-semibold mb-6 flex items-center gap-2 text-xl">
-                                    📝 Step-by-step guide
+                                    📝 {t('community.content.stepByStepGuide')}
                                   </h4>
-                                  <div className="grid md:grid-cols-2 gap-4">
+                                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
                                     {resource.guide_steps.split('.').filter(step => step.trim()).map((step, stepIndex) => (
                                       <div key={stepIndex} className="flex items-start gap-4 p-4 bg-white/5 rounded-lg">
                                         <span className="text-green-400 font-bold text-lg min-w-[32px] mt-1 bg-green-500/20 rounded-full w-8 h-8 flex items-center justify-center">
@@ -686,7 +688,7 @@ export default function Community() {
                   )}
 
                   {/* Regular Cards Grid */}
-                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
                     {resources.map((resource, index) => {
                       const isExpanded = expandedResource === resource.guide_topic_id
                       if (isExpanded) return null // Don't show in grid if expanded
@@ -701,7 +703,7 @@ export default function Community() {
                         >
                           <div className="absolute -inset-1 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-3xl blur opacity-20 group-hover:opacity-30 transition duration-300"></div>
                           <div
-                            className="relative bg-white/5 backdrop-blur-xl rounded-3xl p-6 border border-white/10 hover:transform hover:-translate-y-2 transition-all duration-300 cursor-pointer h-full"
+                            className="relative bg-white/5 backdrop-blur-xl rounded-2xl md:rounded-3xl p-4 md:p-6 border border-white/10 hover:transform hover:-translate-y-1 md:hover:-translate-y-2 transition-all duration-300 cursor-pointer h-full"
                             onClick={() => setExpandedResource(resource.guide_topic_id)}
                           >
                             <div className="flex items-start gap-3 mb-4">
@@ -723,12 +725,12 @@ export default function Community() {
 
                             <div className="flex flex-wrap gap-2">
                               {resource.category_name && (
-                                <span className="px-3 py-1 bg-white/20 rounded-lg text-xs font-medium text-white">
+                                <span className="px-3 py-1.5 bg-white/10 rounded-lg text-xs font-medium text-white/70">
                                   {resource.category_name}
                                 </span>
                               )}
-                              <span className="px-3 py-1 bg-purple-500/20 rounded-lg text-xs font-medium text-purple-300">
-                                👆 Click to expand
+                              <span className="px-3 py-1.5 bg-purple-500/10 rounded-lg text-xs font-medium text-purple-400/80">
+                                👆 {t('community.actions.clickToExpand')}
                               </span>
                             </div>
                           </div>
@@ -752,7 +754,7 @@ export default function Community() {
           <div className="relative bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10 text-center">
             <div className="text-3xl mb-4">💡</div>
             <p className="text-white/80 text-lg">
-              Can't find what you need? Use the search box above to find help, or try different filters to discover more resources.
+              {t('community.helpText')}
             </p>
           </div>
         </motion.div>

@@ -186,11 +186,6 @@ export default function Home() {
         <div className="container-max px-4 lg:px-0">
           <FadeIn>
             <div className="text-center space-y-6">
-              {/* Copyright */}
-              <p className="text-sm md:text-base text-white/70 leading-relaxed">
-                {t('home.footer.copyright')}
-              </p>
-
               {/* Disclaimer */}
               <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-4 md:p-6 border border-white/10 max-w-3xl mx-auto">
                 <h3 className="text-lg font-bold text-white mb-3">
@@ -200,6 +195,11 @@ export default function Home() {
                   {t('home.footer.disclaimer.content')}
                 </p>
               </div>
+
+              {/* Copyright */}
+              <p className="text-sm md:text-base text-white/70 leading-relaxed">
+                {t('home.footer.copyright')}
+              </p>
             </div>
           </FadeIn>
         </div>

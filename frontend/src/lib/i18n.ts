@@ -166,6 +166,63 @@ const resources = {
           title: 'Disclaimer',
           content: 'The information provided in the Rights Guide is for educational purposes only and does not constitute legal advice. While every effort has been made to ensure accuracy, workplace laws and regulations may change. For advice specific to your situation, please consult a qualified professional or the relevant authorities.'
         }
+      },
+      community: {
+        title: 'Community Hub',
+        subtitle: '✨ Real voices. Real help. Real life in Malaysia. ✨',
+        searchHelp: 'Search for help',
+        searchPlaceholder: "Type what you need... like 'legal help' or 'housing'",
+        stats: {
+          organizations: 'Organizations',
+          stories: 'Survivor Stories',
+          resources: 'Life Hacks'
+        },
+        tabs: {
+          findHelp: {
+            label: 'Find Help',
+            description: 'Connect with trusted organizations'
+          },
+          stories: {
+            label: 'Survivor Stories',
+            description: 'Learn from others experiences'
+          },
+          resources: {
+            label: 'Life Hacks',
+            description: 'Practical guides for daily life'
+          }
+        },
+        loading: {
+          organizations: 'Loading organizations...',
+          stories: 'Loading stories...',
+          resources: 'Loading resources...'
+        },
+        notFound: {
+          organizations: 'No organizations found.',
+          stories: 'No stories found.',
+          resources: 'No resources found.'
+        },
+        actions: {
+          visitWebsite: 'Visit Website',
+          contactAvailable: 'Contact Available',
+          clickForDetails: 'Click for details',
+          readFullStory: 'Read Full Story',
+          tipsAvailable: 'Tips Available',
+          clickToReadMore: 'Click to read more',
+          clickToExpand: 'Click to expand'
+        },
+        content: {
+          personalExperience: 'Personal Experience',
+          keyLessonsAndTips: 'Key Lessons & Tips',
+          completeStepByStepGuide: 'Complete Step-by-step Guide',
+          whoIsThisFor: 'Who is this for?',
+          whatYouNeed: 'What you need',
+          costAndTime: 'Cost & Time',
+          legalInformation: 'Legal information',
+          problemsAndScams: 'Problems & Scams to avoid',
+          whereToGetHelp: 'Where to get help',
+          stepByStepGuide: 'Step-by-step guide'
+        },
+        helpText: "Can't find what you need? Use the search box above to find help, or try different filters to discover more resources."
       }
     }
   },
@@ -325,6 +382,63 @@ const resources = {
           title: 'Penafian',
           content: 'Maklumat yang disediakan dalam Panduan Hak adalah untuk tujuan pendidikan sahaja dan tidak membentuk nasihat undang-undang. Walaupun segala usaha telah dibuat untuk memastikan ketepatan, undang-undang dan peraturan tempat kerja mungkin berubah. Untuk nasihat khusus untuk situasi anda, sila rujuk profesional yang berkelayakan atau pihak berkuasa berkaitan.'
         }
+      },
+      community: {
+        title: 'Hab Komuniti',
+        subtitle: '✨ Suara sebenar. Bantuan sebenar. Kehidupan sebenar di Malaysia. ✨',
+        searchHelp: 'Cari bantuan',
+        searchPlaceholder: "Taipkan apa yang anda perlukan... seperti 'bantuan undang-undang' atau 'perumahan'",
+        stats: {
+          organizations: 'Organisasi',
+          stories: 'Cerita Penyintas',
+          resources: 'Petua Hidup'
+        },
+        tabs: {
+          findHelp: {
+            label: 'Cari Bantuan',
+            description: 'Berhubung dengan organisasi dipercayai'
+          },
+          stories: {
+            label: 'Cerita Penyintas',
+            description: 'Belajar dari pengalaman orang lain'
+          },
+          resources: {
+            label: 'Petua Hidup',
+            description: 'Panduan praktikal untuk kehidupan harian'
+          }
+        },
+        loading: {
+          organizations: 'Memuatkan organisasi...',
+          stories: 'Memuatkan cerita...',
+          resources: 'Memuatkan sumber...'
+        },
+        notFound: {
+          organizations: 'Tiada organisasi dijumpai.',
+          stories: 'Tiada cerita dijumpai.',
+          resources: 'Tiada sumber dijumpai.'
+        },
+        actions: {
+          visitWebsite: 'Lawati Laman Web',
+          contactAvailable: 'Hubungan Tersedia',
+          clickForDetails: 'Klik untuk butiran',
+          readFullStory: 'Baca Cerita Penuh',
+          tipsAvailable: 'Petua Tersedia',
+          clickToReadMore: 'Klik untuk baca lagi',
+          clickToExpand: 'Klik untuk kembangkan'
+        },
+        content: {
+          personalExperience: 'Pengalaman Peribadi',
+          keyLessonsAndTips: 'Pengajaran & Petua Utama',
+          completeStepByStepGuide: 'Panduan Langkah demi Langkah Lengkap',
+          whoIsThisFor: 'Untuk siapa ini?',
+          whatYouNeed: 'Apa yang anda perlukan',
+          costAndTime: 'Kos & Masa',
+          legalInformation: 'Maklumat undang-undang',
+          problemsAndScams: 'Masalah & Penipuan yang perlu dielakkan',
+          whereToGetHelp: 'Di mana untuk mendapatkan bantuan',
+          stepByStepGuide: 'Panduan langkah demi langkah'
+        },
+        helpText: "Tidak jumpa apa yang anda perlukan? Gunakan kotak carian di atas untuk mencari bantuan, atau cuba penapis berbeza untuk menemui lebih banyak sumber."
       }
     }
   },
@@ -484,6 +598,63 @@ const resources = {
           title: 'अस्वीकरण',
           content: 'अधिकार गाइडमा उपलब्ध गराइएको जानकारी शैक्षिक उद्देश्यका लागि मात्र हो र यसले कानूनी सल्लाहको गठन गर्दैन। सटीकता सुनिश्चित गर्न सबै प्रयासहरू गरिएको भए तापनि, कार्यक्षेत्रका कानून र नियमहरू परिवर्तन हुन सक्छन्। तपाईंको परिस्थितिको लागि विशिष्ट सल्लाहको लागि, कृपया योग्य पेशेवर वा सम्बन्धित अधिकारीहरूसँग सल्लाह गर्नुहोस्।'
         }
+      },
+      community: {
+        title: 'समुदायिक केन्द्र',
+        subtitle: '✨ वास्तविक आवाजहरू। वास्तविक सहायता। मलेसियामा वास्तविक जीवन। ✨',
+        searchHelp: 'सहायता खोज्नुहोस्',
+        searchPlaceholder: "तपाईंलाई के चाहिन्छ टाइप गर्नुहोस्... जस्तै 'कानूनी सहायता' वा 'आवास'",
+        stats: {
+          organizations: 'संगठनहरू',
+          stories: 'बाँचेकाहरूका कथाहरू',
+          resources: 'जीवन ह्याकहरू'
+        },
+        tabs: {
+          findHelp: {
+            label: 'सहायता फेला पार्नुहोस्',
+            description: 'विश्वसनीय संगठनहरूसँग जोडिनुहोस्'
+          },
+          stories: {
+            label: 'बाँचेकाहरूका कथाहरू',
+            description: 'अरूका अनुभवहरूबाट सिक्नुहोस्'
+          },
+          resources: {
+            label: 'जीवन ह्याकहरू',
+            description: 'दैनिक जीवनका लागि व्यावहारिक गाइडहरू'
+          }
+        },
+        loading: {
+          organizations: 'संगठनहरू लोड गर्दै...',
+          stories: 'कथाहरू लोड गर्दै...',
+          resources: 'स्रोतहरू लोड गर्दै...'
+        },
+        notFound: {
+          organizations: 'कुनै संगठन फेला परेन।',
+          stories: 'कुनै कथा फेला परेन।',
+          resources: 'कुनै स्रोत फेला परेन।'
+        },
+        actions: {
+          visitWebsite: 'वेबसाइट भ्रमण गर्नुहोस्',
+          contactAvailable: 'सम्पर्क उपलब्ध',
+          clickForDetails: 'विवरणका लागि क्लिक गर्नुहोस्',
+          readFullStory: 'पूरै कथा पढ्नुहोस्',
+          tipsAvailable: 'सुझावहरू उपलब्ध',
+          clickToReadMore: 'थप पढ्न क्लिक गर्नुहोस्',
+          clickToExpand: 'विस्तार गर्न क्लिक गर्नुहोस्'
+        },
+        content: {
+          personalExperience: 'व्यक्तिगत अनुभव',
+          keyLessonsAndTips: 'मुख्य सिकाइ र सुझावहरू',
+          completeStepByStepGuide: 'पूर्ण चरणबद्ध गाइड',
+          whoIsThisFor: 'यो कसका लागि हो?',
+          whatYouNeed: 'तपाईंलाई के चाहिन्छ',
+          costAndTime: 'लागत र समय',
+          legalInformation: 'कानूनी जानकारी',
+          problemsAndScams: 'समस्याहरू र घोटालाहरूबाट बच्न',
+          whereToGetHelp: 'सहायता कहाँ पाउने',
+          stepByStepGuide: 'चरणबद्ध गाइड'
+        },
+        helpText: "तपाईंलाई चाहिएको कुरा फेला पार्न सक्नुभएन? सहायता फेला पार्न माथिको खोज बाकस प्रयोग गर्नुहोस्, वा थप स्रोतहरू पत्ता लगाउन विभिन्न फिल्टरहरू प्रयास गर्नुहोस्।"
       }
     }
   },
@@ -643,6 +814,63 @@ const resources = {
           title: 'अस्वीकरण',
           content: 'अधिकार गाइड में प्रदान की गई जानकारी केवल शैक्षणिक उद्देश्यों के लिए है और यह कानूनी सलाह का गठन नहीं करती है। सटीकता सुनिश्चित करने के लिए हर प्रयास किया गया है, लेकिन कार्यस्थल के कानून और नियम बदल सकते हैं। आपकी स्थिति के लिए विशिष्ट सलाह के लिए, कृपया किसी योग्य पेशेवर या संबंधित अधिकारियों से सलाह लें।'
         }
+      },
+      community: {
+        title: 'कम्युनिटी हब',
+        subtitle: '✨ वास्तविक आवाजें। वास्तविक मदद। मलेशिया में वास्तविक जीवन। ✨',
+        searchHelp: 'मदद खोजें',
+        searchPlaceholder: "आपको क्या चाहिए टाइप करें... जैसे 'कानूनी मदद' या 'आवास'",
+        stats: {
+          organizations: 'संगठन',
+          stories: 'बचे हुए लोगों की कहानियां',
+          resources: 'लाइफ हैक्स'
+        },
+        tabs: {
+          findHelp: {
+            label: 'मदद खोजें',
+            description: 'विश्वसनीय संगठनों से जुड़ें'
+          },
+          stories: {
+            label: 'बचे हुए लोगों की कहानियां',
+            description: 'दूसरों के अनुभवों से सीखें'
+          },
+          resources: {
+            label: 'लाइफ हैक्स',
+            description: 'दैनिक जीवन के लिए व्यावहारिक गाइड'
+          }
+        },
+        loading: {
+          organizations: 'संगठन लोड हो रहे हैं...',
+          stories: 'कहानियां लोड हो रही हैं...',
+          resources: 'संसाधन लोड हो रहे हैं...'
+        },
+        notFound: {
+          organizations: 'कोई संगठन नहीं मिला।',
+          stories: 'कोई कहानी नहीं मिली।',
+          resources: 'कोई संसाधन नहीं मिला।'
+        },
+        actions: {
+          visitWebsite: 'वेबसाइट पर जाएं',
+          contactAvailable: 'संपर्क उपलब्ध',
+          clickForDetails: 'विवरण के लिए क्लिक करें',
+          readFullStory: 'पूरी कहानी पढ़ें',
+          tipsAvailable: 'सुझाव उपलब्ध',
+          clickToReadMore: 'और पढ़ने के लिए क्लिक करें',
+          clickToExpand: 'विस्तार के लिए क्लिक करें'
+        },
+        content: {
+          personalExperience: 'व्यक्तिगत अनुभव',
+          keyLessonsAndTips: 'मुख्य सीख और सुझाव',
+          completeStepByStepGuide: 'पूर्ण चरणबद्ध गाइड',
+          whoIsThisFor: 'यह किसके लिए है?',
+          whatYouNeed: 'आपको क्या चाहिए',
+          costAndTime: 'लागत और समय',
+          legalInformation: 'कानूनी जानकारी',
+          problemsAndScams: 'समस्याएं और घोटाले से बचें',
+          whereToGetHelp: 'मदद कहां मिलेगी',
+          stepByStepGuide: 'चरणबद्ध गाइड'
+        },
+        helpText: "आपको जो चाहिए वह नहीं मिल रहा? मदद पाने के लिए ऊपर खोज बॉक्स का उपयोग करें, या अधिक संसाधन खोजने के लिए विभिन्न फिल्टर आज़माएं।"
       }
     }
   },
@@ -802,6 +1030,63 @@ const resources = {
           title: 'দাবিত্যাগ',
           content: 'অধিকার গাইডে প্রদত্ত তথ্য শুধুমাত্র শিক্ষামূলক উদ্দেশ্যে এবং এটি আইনগত পরামর্শ গঠন করে না। নির্ভুলতা নিশ্চিত করার জন্য সর্বাত্মক চেষ্টা করা হয়েছে, তবে কর্মক্ষেত্রের আইন ও নিয়মকানুন পরিবর্তন হতে পারে। আপনার পরিস্থিতির জন্য নির্দিষ্ট পরামর্শের জন্য, অনুগ্রহ করে একজন যোগ্য পেশাদার বা সংশ্লিষ্ট কর্তৃপক্ষের সাথে পরামর্শ করুন।'
         }
+      },
+      community: {
+        title: 'কমিউনিটি হাব',
+        subtitle: '✨ সত্যিকারের কণ্ঠস্বর। সত্যিকারের সাহায্য। মালয়েশিয়ায় সত্যিকারের জীবন। ✨',
+        searchHelp: 'সাহায্য খুঁজুন',
+        searchPlaceholder: "আপনার কী প্রয়োজন টাইপ করুন... যেমন 'আইনি সাহায্য' বা 'আবাসন'",
+        stats: {
+          organizations: 'সংস্থা',
+          stories: 'বেঁচে থাকা ব্যক্তিদের গল্প',
+          resources: 'লাইফ হ্যাকস'
+        },
+        tabs: {
+          findHelp: {
+            label: 'সাহায্য খুঁজুন',
+            description: 'বিশ্বস্ত সংস্থাগুলির সাথে যোগ দিন'
+          },
+          stories: {
+            label: 'বেঁচে থাকা ব্যক্তিদের গল্প',
+            description: 'অন্যদের অভিজ্ঞতা থেকে শিখুন'
+          },
+          resources: {
+            label: 'লাইফ হ্যাকস',
+            description: 'দৈনন্দিন জীবনের জন্য ব্যবহারিক গাইড'
+          }
+        },
+        loading: {
+          organizations: 'সংস্থা লোড হচ্ছে...',
+          stories: 'গল্প লোড হচ্ছে...',
+          resources: 'সম্পদ লোড হচ্ছে...'
+        },
+        notFound: {
+          organizations: 'কোনো সংস্থা পাওয়া যায়নি।',
+          stories: 'কোনো গল্প পাওয়া যায়নি।',
+          resources: 'কোনো সম্পদ পাওয়া যায়নি।'
+        },
+        actions: {
+          visitWebsite: 'ওয়েবসাইট ভিজিট করুন',
+          contactAvailable: 'যোগাযোগ উপলব্ধ',
+          clickForDetails: 'বিস্তারিতের জন্য ক্লিক করুন',
+          readFullStory: 'সম্পূর্ণ গল্প পড়ুন',
+          tipsAvailable: 'টিপস উপলব্ধ',
+          clickToReadMore: 'আরো পড়তে ক্লিক করুন',
+          clickToExpand: 'বিস্তার করতে ক্লিক করুন'
+        },
+        content: {
+          personalExperience: 'ব্যক্তিগত অভিজ্ঞতা',
+          keyLessonsAndTips: 'মূল শিক্ষা ও টিপস',
+          completeStepByStepGuide: 'সম্পূর্ণ ধাপে ধাপে গাইড',
+          whoIsThisFor: 'এটি কার জন্য?',
+          whatYouNeed: 'আপনার কী প্রয়োজন',
+          costAndTime: 'খরচ ও সময়',
+          legalInformation: 'আইনি তথ্য',
+          problemsAndScams: 'সমস্যা ও প্রতারণা এড়াতে',
+          whereToGetHelp: 'কোথায় সাহায্য পাবেন',
+          stepByStepGuide: 'ধাপে ধাপে গাইড'
+        },
+        helpText: "আপনার প্রয়োজনীয় কিছু খুঁজে পাচ্ছেন না? সাহায্য খুঁজতে উপরের সার্চ বক্স ব্যবহার করুন, অথবা আরো সম্পদ আবিষ্কার করতে বিভিন্ন ফিল্টার চেষ্টা করুন।"
       }
     }
   }
