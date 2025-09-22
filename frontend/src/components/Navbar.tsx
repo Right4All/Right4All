@@ -8,7 +8,7 @@ import shieldPng from '@/assets/shield.png'
 
 const langs = [
   { code: 'en', label: 'English', name: 'English' },
-  { code: 'ms', label: 'Bahasa Malaysia', name: 'Bahasa Malaysia' },
+  { code: 'ms', label: 'Bahasa Melayu', name: 'Bahasa Melayu' },
   { code: 'ne', label: 'नेपाली', name: 'Nepali' },
   { code: 'hi', label: 'हिंदी', name: 'Hindi' },
   { code: 'bn', label: 'বাংলা', name: 'Bengali' },
@@ -59,7 +59,7 @@ export default function Navbar() {
         className="flex items-center justify-between card px-4 py-3 md:px-5 md:rounded-2xl rounded-none"
       >
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-3 text-white font-bold">
+        <Link to="/home" className="flex items-center gap-3 text-white font-bold">
           <div className="w-8 h-8 md:w-9 md:h-9 rounded-xl bg-white grid place-items-center shadow-[0_10px_30px_-10px_rgba(244,63,94,0.9)] p-1.5">
             <img src={shieldPng} alt="Shield" className="w-full h-full object-contain" />
           </div>
@@ -68,12 +68,11 @@ export default function Navbar() {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-2">
-          {item('/', t('nav.home'))}
-          {item('/insights', t('nav.insights'))}
-          {item('/rights', t('nav.rights'))}
-          {item('/quiz', t('nav.quiz'))}
-          {item('/tools', t('nav.tools'))}
-          {item('/community', t('nav.community'))}
+          {item('/home', 'Home')}
+          {item('/support', 'Get Support')}
+          {item('/chatbot', 'AI Chatbot')}
+          {item('/rights', 'Rights Education')}
+          {item('/insights', 'Insights & Stories')}
         </div>
 
         {/* Desktop Language Switcher */}
@@ -109,12 +108,11 @@ export default function Navbar() {
             className="md:hidden card mx-4 mt-2 rounded-xl overflow-hidden"
           >
             <div className="py-2">
-              {item('/', t('nav.home'), true)}
-              {item('/insights', t('nav.insights'), true)}
-              {item('/rights', t('nav.rights'), true)}
-              {item('/quiz', t('nav.quiz'), true)}
-              {item('/tools', t('nav.tools'), true)}
-              {item('/community', t('nav.community'), true)}
+              {item('/home', 'Home', true)}
+              {item('/support', 'Get Support', true)}
+              {item('/chatbot', 'AI Chatbot', true)}
+              {item('/rights', 'Rights Education', true)}
+              {item('/insights', 'Insights & Stories', true)}
             </div>
             
             {/* Mobile Language Switcher */}
