@@ -58,30 +58,55 @@ export default function Home() {
               <h3 className="text-xl font-bold text-white mb-6">😟 Migrant Workers' Concerns</h3>
 
               <div className="space-y-4">
-                <div className="faq-item bg-white/5 rounded-2xl p-4">
-                  <div className="faq-question font-semibold text-white mb-2">💰 What if I'm not paid?</div>
-                  <div className="faq-navigate text-sm text-white/70">👉 Navigate to: <strong>Support Hub → Get Help</strong></div>
-                </div>
+                <Link to="/rights-guide" className="block group">
+                  <div className="faq-item bg-white/5 rounded-2xl p-4 border border-transparent hover:border-cyan-400/30 hover:bg-white/10 transition-all duration-300 cursor-pointer">
+                    <div className="faq-question font-semibold text-white mb-2">🧠 Want to test your knowledge?</div>
+                    <div className="text-sm text-cyan-300 group-hover:text-cyan-200 flex items-center gap-2">
+                      <span>Go to Rights Education</span>
+                      <span className="text-xs opacity-60">→</span>
+                    </div>
+                  </div>
+                </Link>
 
-                <div className="faq-item bg-white/5 rounded-2xl p-4">
-                  <div className="faq-question font-semibold text-white mb-2">🪪 What if my passport is taken?</div>
-                  <div className="faq-navigate text-sm text-white/70">👉 Navigate to: <strong>Rights Guide → Documents</strong></div>
-                </div>
+                <Link to="/rights-guide" className="block group">
+                  <div className="faq-item bg-white/5 rounded-2xl p-4 border border-transparent hover:border-cyan-400/30 hover:bg-white/10 transition-all duration-300 cursor-pointer">
+                    <div className="faq-question font-semibold text-white mb-2">📚 Want to learn your rights?</div>
+                    <div className="text-sm text-cyan-300 group-hover:text-cyan-200 flex items-center gap-2">
+                      <span>Go to Rights Education</span>
+                      <span className="text-xs opacity-60">→</span>
+                    </div>
+                  </div>
+                </Link>
 
-                <div className="faq-item bg-white/5 rounded-2xl p-4">
-                  <div className="faq-question font-semibold text-white mb-2">⏱ What if I work too many hours?</div>
-                  <div className="faq-navigate text-sm text-white/70">👉 Navigate to: <strong>Rights Guide → Working Hours</strong></div>
-                </div>
+                <Link to="/support" className="block group">
+                  <div className="faq-item bg-white/5 rounded-2xl p-4 border border-transparent hover:border-cyan-400/30 hover:bg-white/10 transition-all duration-300 cursor-pointer">
+                    <div className="faq-question font-semibold text-white mb-2">🆘 Need help or support?</div>
+                    <div className="text-sm text-cyan-300 group-hover:text-cyan-200 flex items-center gap-2">
+                      <span>Go to Get Support</span>
+                      <span className="text-xs opacity-60">→</span>
+                    </div>
+                  </div>
+                </Link>
 
-                <div className="faq-item bg-white/5 rounded-2xl p-4">
-                  <div className="faq-question font-semibold text-white mb-2">🩺 What if I get injured at work?</div>
-                  <div className="faq-navigate text-sm text-white/70">👉 Navigate to: <strong>Support Hub → Health & Safety</strong></div>
-                </div>
+                <Link to="/insights-stories" className="block group">
+                  <div className="faq-item bg-white/5 rounded-2xl p-4 border border-transparent hover:border-cyan-400/30 hover:bg-white/10 transition-all duration-300 cursor-pointer">
+                    <div className="faq-question font-semibold text-white mb-2">✨ Want to know survivor stories?</div>
+                    <div className="text-sm text-cyan-300 group-hover:text-cyan-200 flex items-center gap-2">
+                      <span>Go to Insights & Stories</span>
+                      <span className="text-xs opacity-60">→</span>
+                    </div>
+                  </div>
+                </Link>
 
-                <div className="faq-item bg-white/5 rounded-2xl p-4">
-                  <div className="faq-question font-semibold text-white mb-2">😟 What if I'm scared to complain?</div>
-                  <div className="faq-navigate text-sm text-white/70">👉 Navigate to: <strong>Support Hub → NGO Directory</strong></div>
-                </div>
+                <Link to="/insights-stories" className="block group">
+                  <div className="faq-item bg-white/5 rounded-2xl p-4 border border-transparent hover:border-cyan-400/30 hover:bg-white/10 transition-all duration-300 cursor-pointer">
+                    <div className="faq-question font-semibold text-white mb-2">📊 Want to understand the labor market?</div>
+                    <div className="text-sm text-cyan-300 group-hover:text-cyan-200 flex items-center gap-2">
+                      <span>Go to Insights & Stories</span>
+                      <span className="text-xs opacity-60">→</span>
+                    </div>
+                  </div>
+                </Link>
               </div>
             </div>
 

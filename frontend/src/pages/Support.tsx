@@ -105,82 +105,59 @@ export default function Support() {
           </motion.p>
         </motion.div>
 
-        {/* Search Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-          className="relative mb-6 md:mb-8"
-        >
-          <div className="max-w-2xl mx-auto">
-            <div className="text-lg font-medium mb-4 text-center text-white/80 flex items-center justify-center gap-2">
-              <span className="text-xl">🔍</span>
-              Search for help and resources
-            </div>
-            <div className="relative">
-              <input
-                type="text"
-                value={searchTerm}
-                onChange={(e) => handleSearch(e.target.value)}
-                placeholder="Search organizations or life hacks..."
-                className="w-full px-6 py-3 rounded-xl border border-white/20 bg-white/10 text-white placeholder-white/50 text-base backdrop-blur-sm focus:outline-none focus:border-rose-400/50 focus:bg-white/15 transition-all duration-300"
-              />
-            </div>
-          </div>
-        </motion.div>
 
-        {/* Stats */}
+        {/* Stats - Fancy floating style */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
           className="mb-6 md:mb-10"
         >
-          <div className="relative max-w-4xl mx-auto">
-            <div className="absolute -inset-1 bg-gradient-to-r from-rose-500/20 via-blue-500/20 to-purple-500/20 rounded-2xl blur opacity-30"></div>
-            <div className="relative bg-white/5 backdrop-blur-xl rounded-2xl p-6 border border-white/10">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {[
-                  {
-                    number: `${stats.organizations}+`,
-                    label: 'Support Organizations',
-                    icon: '🏢',
-                    gradient: 'from-rose-500 to-pink-500'
-                  },
-                  {
-                    number: `${stats.resources}+`,
-                    label: 'Life Hack Resources',
-                    icon: '📚',
-                    gradient: 'from-purple-500 to-indigo-500'
-                  }
-                ].map((stat, index) => (
+          <div className="flex flex-wrap justify-center gap-6 md:gap-12">
+            {[
+              {
+                number: `${stats.organizations}+`,
+                label: 'Support Organizations',
+                icon: '🏢',
+                gradient: 'from-rose-500 to-pink-500'
+              },
+              {
+                number: `${stats.resources}+`,
+                label: 'Life Hack Resources',
+                icon: '📚',
+                gradient: 'from-purple-500 to-indigo-500'
+              }
+            ].map((stat, index) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.5 + index * 0.2, type: "spring", stiffness: 100 }}
+                whileHover={{ scale: 1.05, y: -5 }}
+                className="group relative"
+              >
+                <div className="absolute -inset-2 bg-gradient-to-r from-transparent via-white/10 to-transparent rounded-3xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="relative flex flex-col items-center text-center space-y-2 p-4">
                   <motion.div
-                    key={stat.label}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.5 + index * 0.1 }}
-                    className="text-center group"
+                    className={`w-12 h-12 rounded-xl bg-gradient-to-r ${stat.gradient} flex items-center justify-center shadow-lg`}
+                    whileHover={{ rotate: 360 }}
+                    transition={{ duration: 0.8 }}
                   >
-                    <div className="flex items-center justify-center gap-4">
-                      <div className={`w-12 h-12 rounded-xl bg-gradient-to-r ${stat.gradient} flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                        <span className="text-xl">{stat.icon}</span>
-                      </div>
-                      <div className="text-left">
-                        <div className={`text-3xl font-black bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-1`}>
-                          {stat.number}
-                        </div>
-                        <div className="text-white/80 text-sm font-medium">{stat.label}</div>
-                      </div>
-                    </div>
-
-                    {/* Separator line for desktop */}
-                    {index < 1 && (
-                      <div className="hidden md:block absolute top-1/2 right-0 w-px h-12 bg-gradient-to-b from-transparent via-white/20 to-transparent transform -translate-y-1/2 translate-x-4"></div>
-                    )}
+                    <span className="text-xl">{stat.icon}</span>
                   </motion.div>
-                ))}
-              </div>
-            </div>
+                  <div>
+                    <motion.div
+                      className={`text-2xl md:text-3xl font-black bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-1`}
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                    >
+                      {stat.number}
+                    </motion.div>
+                    <div className="text-white/80 font-medium text-sm">{stat.label}</div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </motion.div>
 
@@ -228,22 +205,46 @@ export default function Support() {
               }}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className={`relative group p-6 rounded-3xl border-2 transition-all duration-300 font-medium text-center ${
+              className={`relative group p-4 rounded-2xl border-2 transition-all duration-300 font-medium text-center ${
                 activeTab === tab.id
                   ? 'border-transparent shadow-2xl'
                   : 'border-white/20 bg-white/5 hover:bg-white/10'
               }`}
             >
               {activeTab === tab.id && (
-                <div className={`absolute -inset-1 bg-gradient-to-r ${tab.gradient} rounded-3xl blur opacity-30`}></div>
+                <div className={`absolute -inset-1 bg-gradient-to-r ${tab.gradient} rounded-2xl blur opacity-30`}></div>
               )}
-              <div className={`relative ${activeTab === tab.id ? `bg-gradient-to-r ${tab.gradient}` : 'bg-white/5'} backdrop-blur-xl rounded-2xl p-6 border border-white/10`}>
-                <div className="text-4xl mb-3">{tab.icon}</div>
-                <div className="text-xl font-bold mb-2 text-white">{tab.label}</div>
-                <div className="text-white/70 text-sm">{tab.description}</div>
+              <div className={`relative ${activeTab === tab.id ? `bg-gradient-to-r ${tab.gradient}` : 'bg-white/5'} backdrop-blur-xl rounded-xl p-4 border border-white/10`}>
+                <div className="text-3xl mb-2">{tab.icon}</div>
+                <div className="text-lg font-bold mb-1 text-white">{tab.label}</div>
+                <div className="text-white/70 text-xs">{tab.description}</div>
               </div>
             </motion.button>
           ))}
+        </motion.div>
+
+        {/* Search Section - Moved below tabs */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.9 }}
+          className="relative mb-6 md:mb-8"
+        >
+          <div className="max-w-2xl mx-auto">
+            <div className="text-lg font-medium mb-4 text-center text-white/80 flex items-center justify-center gap-2">
+              <span className="text-xl">🔍</span>
+              Search for help and resources
+            </div>
+            <div className="relative">
+              <input
+                type="text"
+                value={searchTerm}
+                onChange={(e) => handleSearch(e.target.value)}
+                placeholder="Search organizations or life hacks..."
+                className="w-full px-6 py-3 rounded-xl border border-white/20 bg-white/10 text-white placeholder-white/50 text-base backdrop-blur-sm focus:outline-none focus:border-rose-400/50 focus:bg-white/15 transition-all duration-300"
+              />
+            </div>
+          </div>
         </motion.div>
 
         {/* Filters */}
