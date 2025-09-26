@@ -71,17 +71,6 @@ export default function App() {
             </main>
           </>
         } />
-        <Route path="/chatbot" element={
-          <>
-            <Navbar />
-            <main className="pt-20 md:pt-28 pb-16 min-h-screen">
-              <div className="container-max px-4 py-16 text-center">
-                <h1 className="text-4xl font-bold text-white mb-4">🤖 AI Chatbot</h1>
-                <p className="text-white/70">Coming soon! Our AI assistant will help you with questions about work, rights, and life in Malaysia.</p>
-              </div>
-            </main>
-          </>
-        } />
       </Routes>
     </div>
   )

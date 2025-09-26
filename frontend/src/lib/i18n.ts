@@ -47,6 +47,38 @@ const resources = {
           title: 'Reducing inequality starts here. Learn, connect, and grow with us.',
           description: 'Through Right4All, we\'re contributing to the United Nations Sustainable Development Goal 10: Reduced Inequalities. Join us in building a more equitable future for migrant workers in Malaysia.'
         },
+        faq: {
+          sectionTitle: 'Stay Safe, Stay Informed',
+          sectionSubtitle: 'Know your rights, Stay protected',
+          sectionDescription: 'This section shows you where to go for learning rights, getting support, or reading stories.',
+          homepageGuidance: 'Homepage Guidance',
+          findNGOs: 'Find NGOs, organisations, and practical life tips',
+          goToGetSupport: 'Go to Get Support',
+          chatWithAI: 'Have a question? Chat with our AI Chatbot',
+          comingSoon: 'Coming Soon',
+          learnRights: 'Learn about your labour rights in simple language',
+          goToRightsEducation: 'Go to Rights Education',
+          testKnowledge: 'Test your knowledge of labour rights',
+          exploreJobs: 'Explore jobs, and labour market information',
+          goToInsightsStories: 'Go to Insights & Stories',
+          readStories: 'Read real-life stories from migrant workers',
+          aboutWebsite: 'About This Website',
+          whoIsThisFor: 'Who is this website for?',
+          whoIsThisForAnswer: 'Mainly for migrant workers in Malaysia.',
+          registerOrPay: 'Do I need to register or pay?',
+          registerOrPayAnswer: 'No. It is free and no login is needed.',
+          infoSafe: 'Is my information safe?',
+          infoSafeAnswer: 'Yes. We do not collect personal data.',
+          whyFiveLanguages: 'Why only 5 languages?',
+          whyFiveLanguagesAnswer: 'Because most workers are from Indonesia, Nepal, Bangladesh, and India. More will be added later.',
+          legalAdvice: 'Does this website give legal advice?',
+          legalAdviceAnswer: 'No. This site only gives general information. It does not replace government advice or professional legal support. For serious problems, please contact JTKSM, your embassy, or NGOs in our Support Hub.'
+        },
+        buttons: {
+          getSupport: 'Get Support',
+          rightsEducation: 'Rights Education'
+        },
+        tagline: 'Know your rights, stay protected',
         footer: {
           copyright: 'Right4All © 2025 | Empowering Migrant Workers in Malaysia | Serving SDG 10: Reduced Inequalities | Protect • Educate • Uplift',
           disclaimer: {
@@ -263,6 +295,38 @@ const resources = {
           title: 'Mengurangkan ketidaksamaan bermula di sini. Belajar, berhubung, dan berkembang bersama kami.',
           description: 'Melalui Right4All, kami menyumbang kepada Matlamat Pembangunan Lestari Pertubuhan Bangsa-Bangsa Bersatu 10: Mengurangkan Ketidaksamaan. Sertai kami dalam membina masa depan yang lebih saksama untuk pekerja migran di Malaysia.'
         },
+        faq: {
+          sectionTitle: 'Kekal Selamat, Kekal Dimaklumkan',
+          sectionSubtitle: 'Kenali hak anda, kekal dilindungi',
+          sectionDescription: 'Bahagian ini menunjukkan kepada anda ke mana untuk mempelajari hak, mendapatkan sokongan, atau membaca cerita.',
+          homepageGuidance: 'Panduan Laman Utama',
+          findNGOs: 'Cari NGO, organisasi, dan petua kehidupan praktikal',
+          goToGetSupport: 'Pergi ke Dapatkan Sokongan',
+          chatWithAI: 'Ada soalan? Berbual dengan Chatbot AI kami',
+          comingSoon: 'Akan Datang',
+          learnRights: 'Pelajari tentang hak buruh anda dalam bahasa yang mudah',
+          goToRightsEducation: 'Pergi ke Pendidikan Hak',
+          testKnowledge: 'Uji pengetahuan anda tentang hak buruh',
+          exploreJobs: 'Teroka pekerjaan, dan maklumat pasaran buruh',
+          goToInsightsStories: 'Pergi ke Wawasan & Cerita',
+          readStories: 'Baca cerita kehidupan sebenar dari pekerja migran',
+          aboutWebsite: 'Tentang Laman Web Ini',
+          whoIsThisFor: 'Untuk siapa laman web ini?',
+          whoIsThisForAnswer: 'Terutamanya untuk pekerja migran di Malaysia.',
+          registerOrPay: 'Adakah saya perlu mendaftar atau membayar?',
+          registerOrPayAnswer: 'Tidak. Ia percuma dan tidak perlu log masuk.',
+          infoSafe: 'Adakah maklumat saya selamat?',
+          infoSafeAnswer: 'Ya. Kami tidak mengumpul data peribadi.',
+          whyFiveLanguages: 'Mengapa hanya 5 bahasa?',
+          whyFiveLanguagesAnswer: 'Kerana kebanyakan pekerja dari Indonesia, Nepal, Bangladesh, dan India. Lebih banyak akan ditambah kemudian.',
+          legalAdvice: 'Adakah laman web ini memberikan nasihat undang-undang?',
+          legalAdviceAnswer: 'Tidak. Laman web ini hanya memberikan maklumat am. Ia tidak menggantikan nasihat kerajaan atau sokongan undang-undang profesional. Untuk masalah serius, sila hubungi JTKSM, kedutaan anda, atau NGO dalam Hub Sokongan kami.'
+        },
+        buttons: {
+          getSupport: 'Dapatkan Sokongan',
+          rightsEducation: 'Pendidikan Hak'
+        },
+        tagline: 'Kenali hak anda, kekal dilindungi',
         footer: {
           copyright: 'Right4All © 2025 | Memperkasa Pekerja Migran di Malaysia | Melayani SDG 10: Mengurangkan Ketidaksamaan | Lindungi • Didik • Angkat',
           disclaimer: {
@@ -479,6 +543,38 @@ const resources = {
           title: 'असमानता घटाउने यहाँबाट सुरु हुन्छ। हामीसँग सिक्नुहोस्, जोडिनुहोस् र बढ्नुहोस्।',
           description: 'Right4All मार्फत, हामी संयुक्त राष्ट्रसंघको दिगो विकास लक्ष्य 10: असमानता घटाउनेमा योगदान गर्दैछौं। मलेसियामा आप्रवासी कामदारहरूका लागि अधिक न्यायसंगत भविष्य निर्माण गर्न हामीसँग सहभागी हुनुहोस्।'
         },
+        faq: {
+          sectionTitle: 'सुरक्षित रहनुहोस्, सूचित रहनुहोस्',
+          sectionSubtitle: 'आफ्ना अधिकार जान्नुहोस्, सुरक्षित रहनुहोस्',
+          sectionDescription: 'यो खण्डले तपाईंलाई अधिकार सिक्न, समर्थन प्राप्त गर्न, वा कथाहरू पढ्नको लागि कहाँ जाने भनेर देखाउँछ।',
+          homepageGuidance: 'होमपेज मार्गदर्शन',
+          findNGOs: 'एनजीओहरू, संगठनहरू, र व्यावहारिक जीवन सुझावहरू फेला पार्नुहोस्',
+          goToGetSupport: 'सहयोग प्राप्त गर्न जानुहोस्',
+          chatWithAI: 'प्रश्न छ? हाम्रो AI च्याटबोटसँग कुराकानी गर्नुहोस्',
+          comingSoon: 'छिट्टै आउँदै',
+          learnRights: 'सरल भाषामा आफ्ना श्रम अधिकारहरूको बारेमा जान्नुहोस्',
+          goToRightsEducation: 'अधिकार शिक्षामा जानुहोस्',
+          testKnowledge: 'श्रम अधिकारहरूको आफ्नो ज्ञान परीक्षण गर्नुहोस्',
+          exploreJobs: 'जागिर र श्रम बजार जानकारी अन्वेषण गर्नुहोस्',
+          goToInsightsStories: 'अन्तर्दृष्टि र कथाहरूमा जानुहोस्',
+          readStories: 'आप्रवासी कामदारहरूका वास्तविक जीवनका कथाहरू पढ्नुहोस्',
+          aboutWebsite: 'यस वेबसाइटको बारेमा',
+          whoIsThisFor: 'यो वेबसाइट कसका लागि हो?',
+          whoIsThisForAnswer: 'मुख्यतः मलेसियामा आप्रवासी कामदारहरूका लागि।',
+          registerOrPay: 'के मैले दर्ता गर्नु वा पैसा तिर्नु पर्छ?',
+          registerOrPayAnswer: 'होइन। यो नि:शुल्क छ र लगइनको आवश्यकता छैन।',
+          infoSafe: 'के मेरो जानकारी सुरक्षित छ?',
+          infoSafeAnswer: 'हो। हामी व्यक्तिगत डेटा सङ्कलन गर्दैनौं।',
+          whyFiveLanguages: 'किन केवल ५ भाषाहरू मात्र?',
+          whyFiveLanguagesAnswer: 'किनभने धेरैजसो कामदारहरू इन्डोनेसिया, नेपाल, बंगलादेश र भारतबाट आएका छन्। पछि थप भाषाहरू थपिनेछ।',
+          legalAdvice: 'के यो वेबसाइटले कानूनी सल्लाह दिन्छ?',
+          legalAdviceAnswer: 'होइन। यो साइटले केवल सामान्य जानकारी दिन्छ। यसले सरकारी सल्लाह वा व्यावसायिक कानूनी सहयोगलाई प्रतिस्थापन गर्दैन। गम्भीर समस्याहरूका लागि, कृपया JTKSM, तपाईंको दूतावास, वा हाम्रो सपोर्ट हबमा एनजीओहरूलाई सम्पर्क गर्नुहोस्।'
+        },
+        buttons: {
+          getSupport: 'सहयोग प्राप्त गर्नुहोस्',
+          rightsEducation: 'अधिकार शिक्षा'
+        },
+        tagline: 'आफ्ना अधिकार जान्नुहोस्, सुरक्षित रहनुहोस्',
         footer: {
           copyright: 'Right4All © 2025 | मलेसियामा आप्रवासी कामदारहरूलाई सशक्त बनाउँदै | SDG 10: असमानता घटाउने सेवा गर्दै | संरक्षण • शिक्षा • उत्थान',
           disclaimer: {
@@ -695,6 +791,38 @@ const resources = {
           title: 'असमानता कम करना यहाँ से शुरू होता है। हमारे साथ सीखें, जुड़ें और बढ़ें।',
           description: 'Right4All के माध्यम से, हम संयुक्त राष्ट्र सतत विकास लक्ष्य 10: असमानताओं में कमी में योगदान दे रहे हैं। मलेशिया में प्रवासी श्रमिकों के लिए अधिक न्यायसंगत भविष्य बनाने में हमारे साथ जुड़ें।'
         },
+        faq: {
+          sectionTitle: 'सुरक्षित रहें, सूचित रहें',
+          sectionSubtitle: 'अपने अधिकार जानें, सुरक्षित रहें',
+          sectionDescription: 'यह अनुभाग आपको दिखाता है कि अधिकार सीखने, समर्थन प्राप्त करने, या कहानियां पढ़ने के लिए कहाँ जाना है।',
+          homepageGuidance: 'होमपेज मार्गदर्शन',
+          findNGOs: 'एनजीओ, संगठन और व्यावहारिक जीवन सुझाव खोजें',
+          goToGetSupport: 'सहायता प्राप्त करने जाएं',
+          chatWithAI: 'कोई सवाल है? हमारे AI चैटबॉट से बात करें',
+          comingSoon: 'जल्द आ रहा है',
+          learnRights: 'सरल भाषा में अपने श्रम अधिकारों के बारे में जानें',
+          goToRightsEducation: 'अधिकार शिक्षा में जाएं',
+          testKnowledge: 'श्रम अधिकारों के अपने ज्ञान का परीक्षण करें',
+          exploreJobs: 'नौकरियां और श्रम बाज़ार की जानकारी देखें',
+          goToInsightsStories: 'अंतर्दृष्टि और कहानियों में जाएं',
+          readStories: 'प्रवासी श्रमिकों की वास्तविक जीवन कहानियां पढ़ें',
+          aboutWebsite: 'इस वेबसाइट के बारे में',
+          whoIsThisFor: 'यह वेबसाइट किसके लिए है?',
+          whoIsThisForAnswer: 'मुख्यतः मलेशिया में प्रवासी श्रमिकों के लिए।',
+          registerOrPay: 'क्या मुझे रजिस्टर करना या भुगतान करना होगा?',
+          registerOrPayAnswer: 'नहीं। यह मुफ्त है और लॉगिन की आवश्यकता नहीं है।',
+          infoSafe: 'क्या मेरी जानकारी सुरक्षित है?',
+          infoSafeAnswer: 'हाँ। हम व्यक्तिगत डेटा एकत्र नहीं करते हैं।',
+          whyFiveLanguages: 'केवल 5 भाषाएं क्यों?',
+          whyFiveLanguagesAnswer: 'क्योंकि अधिकांश श्रमिक इंडोनेशिया, नेपाल, बांग्लादेश और भारत से हैं। बाद में और भाषाएं जोड़ी जाएंगी।',
+          legalAdvice: 'क्या यह वेबसाइट कानूनी सलाह देती है?',
+          legalAdviceAnswer: 'नहीं। यह साइट केवल सामान्य जानकारी देती है। यह सरकारी सलाह या पेशेवर कानूनी सहायता की जगह नहीं लेती। गंभीर समस्याओं के लिए, कृपया JTKSM, अपने दूतावास, या हमारे सहायता केंद्र में एनजीओ से संपर्क करें।'
+        },
+        buttons: {
+          getSupport: 'सहायता प्राप्त करें',
+          rightsEducation: 'अधिकार शिक्षा'
+        },
+        tagline: 'अपने अधिकार जानें, सुरक्षित रहें',
         footer: {
           copyright: 'Right4All © 2025 | मलेशिया में प्रवासी श्रमिकों को सशक्त बनाना | SDG 10: असमानताओं में कमी की सेवा | सुरक्षा • शिक्षा • उत्थान',
           disclaimer: {
@@ -911,6 +1039,38 @@ const resources = {
           title: 'অসমতা হ্রাস এখানে শুরু হয়। আমাদের সাথে শিখুন, যুক্ত হন এবং বৃদ্ধি করুন।',
           description: 'Right4All-এর মাধ্যমে, আমরা সংযুক্ত জাতিসংঘের সাস্টেইনেবল ডেভেলপমেন্ট গোল 10: অসমতা হ্রাসে অবদান রাখছি। মালয়েশিয়ায় অভিবাসী শ্রমিকদের জন্য আরো ন্যায্য ভবিষ্যৎ গড়তে আমাদের সাথে যুক্ত হন।'
         },
+        faq: {
+          sectionTitle: 'নিরাপদ থাকুন, অবহিত থাকুন',
+          sectionSubtitle: 'আপনার অধিকার জানুন, সুরক্ষিত থাকুন',
+          sectionDescription: 'এই বিভাগটি আপনাকে দেখায় যে অধিকার শেখা, সহায়তা পাওয়া বা গল্প পড়ার জন্য কোথায় যেতে হবে।',
+          homepageGuidance: 'হোমপেজ গাইডেন্স',
+          findNGOs: 'এনজিও, সংস্থা এবং ব্যবহারিক জীবনের টিপস খুঁজুন',
+          goToGetSupport: 'সহায়তা পেতে যান',
+          chatWithAI: 'কোনো প্রশ্ন আছে? আমাদের AI চ্যাটবটের সাথে কথা বলুন',
+          comingSoon: 'শীঘ্রই আসছে',
+          learnRights: 'সহজ ভাষায় আপনার শ্রম অধিকার সম্পর্কে জানুন',
+          goToRightsEducation: 'অধিকার শিক্ষায় যান',
+          testKnowledge: 'শ্রম অধিকারের আপনার জ্ঞান পরীক্ষা করুন',
+          exploreJobs: 'চাকরি এবং শ্রমবাজারের তথ্য অন্বেষণ করুন',
+          goToInsightsStories: 'অন্তর্দৃষ্টি ও গল্পে যান',
+          readStories: 'অভিবাসী শ্রমিকদের বাস্তব জীবনের গল্প পড়ুন',
+          aboutWebsite: 'এই ওয়েবসাইট সম্পর্কে',
+          whoIsThisFor: 'এই ওয়েবসাইট কার জন্য?',
+          whoIsThisForAnswer: 'মূলত মালয়েশিয়ার অভিবাসী শ্রমিকদের জন্য।',
+          registerOrPay: 'আমার কি নিবন্ধন করতে বা অর্থ প্রদান করতে হবে?',
+          registerOrPayAnswer: 'না। এটি বিনামূল্যে এবং লগইনের প্রয়োজন নেই।',
+          infoSafe: 'আমার তথ্য কি নিরাপদ?',
+          infoSafeAnswer: 'হ্যাঁ। আমরা ব্যক্তিগত ডেটা সংগ্রহ করি না।',
+          whyFiveLanguages: 'কেন শুধুমাত্র ৫টি ভাষা?',
+          whyFiveLanguagesAnswer: 'কারণ বেশিরভাগ শ্রমিক ইন্দোনেশিয়া, নেপাল, বাংলাদেশ এবং ভারত থেকে এসেছেন। পরে আরো ভাষা যোগ করা হবে।',
+          legalAdvice: 'এই ওয়েবসাইট কি আইনি পরামর্শ দেয়?',
+          legalAdviceAnswer: 'না। এই সাইট শুধুমাত্র সাধারণ তথ্য প্রদান করে। এটি সরকারি পরামর্শ বা পেশাদার আইনি সহায়তার বিকল্প নয়। গুরুতর সমস্যার জন্য, অনুগ্রহ করে JTKSM, আপনার দূতাবাস, বা আমাদের সাপোর্ট হাবের এনজিওদের সাথে যোগাযোগ করুন।'
+        },
+        buttons: {
+          getSupport: 'সহায়তা পান',
+          rightsEducation: 'অধিকার শিক্ষা'
+        },
+        tagline: 'আপনার অধিকার জানুন, সুরক্ষিত থাকুন',
         footer: {
           copyright: 'Right4All © 2025 | মালয়েশিয়ায় অভিবাসী শ্রমিকদের ক্ষমতায়ন | SDG 10: অসমতা হ্রাসের সেবা | সুরক্ষা • শিক্ষা • উন্নতি',
           disclaimer: {

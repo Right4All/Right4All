@@ -70,7 +70,6 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-2">
           {item('/home', 'Home')}
           {item('/support', 'Get Support')}
-          {item('/chatbot', 'AI Chatbot')}
           {item('/rights', 'Rights Education')}
           {item('/insights', 'Insights & Stories')}
         </div>
@@ -110,7 +109,6 @@ export default function Navbar() {
             <div className="py-2">
               {item('/home', 'Home', true)}
               {item('/support', 'Get Support', true)}
-              {item('/chatbot', 'AI Chatbot', true)}
               {item('/rights', 'Rights Education', true)}
               {item('/insights', 'Insights & Stories', true)}
             </div>

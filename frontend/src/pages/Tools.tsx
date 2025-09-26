@@ -16,7 +16,7 @@ export default function Tools() {
           <div className="text-6xl mb-4">🚧</div>
           <h2 className="text-2xl font-bold mb-3">Coming Soon</h2>
           <p className="text-slate-300 leading-relaxed">
-            We're building amazing tools including an AI chatbot, and contract analyzer to help protect your rights.
+            We're building amazing tools including contract analyzer to help protect your rights.
           </p>
         </div>
       </div>

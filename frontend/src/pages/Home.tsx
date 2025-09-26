@@ -24,14 +24,14 @@ export default function Home() {
           </FadeIn>
           <FadeIn>
             <div className="flex flex-col sm:flex-row gap-3">
-              <Link className="relative btn-primary text-center" to="/support">Get Support</Link>
-              <Link className="btn-outline text-center" to="/chatbot">AI Chatbot</Link>
+              <Link className="relative btn-primary text-center" to="/support">{t('home.buttons.getSupport')}</Link>
+              <Link className="btn-outline text-center" to="/rights">{t('home.buttons.rightsEducation')}</Link>
             </div>
           </FadeIn>
           <FadeIn>
             <div className="text-center lg:text-left">
               <p className="text-sm text-white/60 italic">
-                Know your rights, stay protected
+                {t('home.tagline')}
               </p>
             </div>
           </FadeIn>
@@ -48,61 +48,71 @@ export default function Home() {
       <section className="faq-section py-16">
         <FadeIn>
           <div className="faq-header text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-black text-white mb-4"> Stay Safe, Stay Informed</h2>
-            <h3 className="text-xl md:text-2xl font-bold text-rose-400 mb-6">✨ <em>Know your rights, Stay protected</em> ✨</h3>
-            <p className="text-white/80 max-w-2xl mx-auto">This FAQ gives simple answers to common worker concerns and explains how to use our website.</p>
+            <h2 className="text-3xl md:text-4xl font-black text-white mb-4">{t('home.faq.sectionTitle')}</h2>
+            <h3 className="text-xl md:text-2xl font-bold text-rose-400 mb-6">✨ <em>{t('home.faq.sectionSubtitle')}</em> ✨</h3>
+            <p className="text-white/80 max-w-2xl mx-auto">{t('home.faq.sectionDescription')}</p>
           </div>
 
           <div className="faq-content grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
             <div className="faq-category bg-white/5 backdrop-blur-sm rounded-3xl p-6 md:p-8 border border-white/10">
-              <h3 className="text-xl font-bold text-white mb-6">😟 Migrant Workers' Concerns</h3>
+              <h3 className="text-xl font-bold text-white mb-6">{t('home.faq.homepageGuidance')}</h3>
 
               <div className="space-y-4">
-                <Link to="/rights-guide" className="block group">
-                  <div className="faq-item bg-white/5 rounded-2xl p-4 border border-transparent hover:border-cyan-400/30 hover:bg-white/10 transition-all duration-300 cursor-pointer">
-                    <div className="faq-question font-semibold text-white mb-2">🧠 Want to test your knowledge?</div>
-                    <div className="text-sm text-cyan-300 group-hover:text-cyan-200 flex items-center gap-2">
-                      <span>Go to Rights Education</span>
-                      <span className="text-xs opacity-60">→</span>
-                    </div>
-                  </div>
-                </Link>
-
-                <Link to="/rights-guide" className="block group">
-                  <div className="faq-item bg-white/5 rounded-2xl p-4 border border-transparent hover:border-cyan-400/30 hover:bg-white/10 transition-all duration-300 cursor-pointer">
-                    <div className="faq-question font-semibold text-white mb-2">📚 Want to learn your rights?</div>
-                    <div className="text-sm text-cyan-300 group-hover:text-cyan-200 flex items-center gap-2">
-                      <span>Go to Rights Education</span>
-                      <span className="text-xs opacity-60">→</span>
-                    </div>
-                  </div>
-                </Link>
-
                 <Link to="/support" className="block group">
                   <div className="faq-item bg-white/5 rounded-2xl p-4 border border-transparent hover:border-cyan-400/30 hover:bg-white/10 transition-all duration-300 cursor-pointer">
-                    <div className="faq-question font-semibold text-white mb-2">🆘 Need help or support?</div>
+                    <div className="faq-question font-semibold text-white mb-2">🆘 {t('home.faq.findNGOs')}</div>
                     <div className="text-sm text-cyan-300 group-hover:text-cyan-200 flex items-center gap-2">
-                      <span>Go to Get Support</span>
+                      <span>{t('home.faq.goToGetSupport')}</span>
                       <span className="text-xs opacity-60">→</span>
                     </div>
                   </div>
                 </Link>
 
-                <Link to="/insights-stories" className="block group">
+                <div className="block group opacity-60">
+                  <div className="faq-item bg-white/5 rounded-2xl p-4 border border-transparent">
+                    <div className="faq-question font-semibold text-white mb-2">💬 {t('home.faq.chatWithAI')}</div>
+                    <div className="text-sm text-gray-400 flex items-center gap-2">
+                      <span>{t('home.faq.comingSoon')}</span>
+                      <span className="text-xs opacity-60">⏳</span>
+                    </div>
+                  </div>
+                </div>
+
+                <Link to="/rights" className="block group">
                   <div className="faq-item bg-white/5 rounded-2xl p-4 border border-transparent hover:border-cyan-400/30 hover:bg-white/10 transition-all duration-300 cursor-pointer">
-                    <div className="faq-question font-semibold text-white mb-2">✨ Want to know survivor stories?</div>
+                    <div className="faq-question font-semibold text-white mb-2">📚 {t('home.faq.learnRights')}</div>
                     <div className="text-sm text-cyan-300 group-hover:text-cyan-200 flex items-center gap-2">
-                      <span>Go to Insights & Stories</span>
+                      <span>{t('home.faq.goToRightsEducation')}</span>
                       <span className="text-xs opacity-60">→</span>
                     </div>
                   </div>
                 </Link>
 
-                <Link to="/insights-stories" className="block group">
+                <Link to="/rights" className="block group">
                   <div className="faq-item bg-white/5 rounded-2xl p-4 border border-transparent hover:border-cyan-400/30 hover:bg-white/10 transition-all duration-300 cursor-pointer">
-                    <div className="faq-question font-semibold text-white mb-2">📊 Want to understand the labor market?</div>
+                    <div className="faq-question font-semibold text-white mb-2">🧠 {t('home.faq.testKnowledge')}</div>
                     <div className="text-sm text-cyan-300 group-hover:text-cyan-200 flex items-center gap-2">
-                      <span>Go to Insights & Stories</span>
+                      <span>{t('home.faq.goToRightsEducation')}</span>
+                      <span className="text-xs opacity-60">→</span>
+                    </div>
+                  </div>
+                </Link>
+
+                <Link to="/insights" className="block group">
+                  <div className="faq-item bg-white/5 rounded-2xl p-4 border border-transparent hover:border-cyan-400/30 hover:bg-white/10 transition-all duration-300 cursor-pointer">
+                    <div className="faq-question font-semibold text-white mb-2">📊 {t('home.faq.exploreJobs')}</div>
+                    <div className="text-sm text-cyan-300 group-hover:text-cyan-200 flex items-center gap-2">
+                      <span>{t('home.faq.goToInsightsStories')}</span>
+                      <span className="text-xs opacity-60">→</span>
+                    </div>
+                  </div>
+                </Link>
+
+                <Link to="/insights" className="block group">
+                  <div className="faq-item bg-white/5 rounded-2xl p-4 border border-transparent hover:border-cyan-400/30 hover:bg-white/10 transition-all duration-300 cursor-pointer">
+                    <div className="faq-question font-semibold text-white mb-2">✨ {t('home.faq.readStories')}</div>
+                    <div className="text-sm text-cyan-300 group-hover:text-cyan-200 flex items-center gap-2">
+                      <span>{t('home.faq.goToInsightsStories')}</span>
                       <span className="text-xs opacity-60">→</span>
                     </div>
                   </div>
@@ -111,41 +121,41 @@ export default function Home() {
             </div>
 
             <div className="faq-category bg-white/5 backdrop-blur-sm rounded-3xl p-6 md:p-8 border border-white/10">
-              <h3 className="text-xl font-bold text-white mb-6">🌐 About This Website</h3>
+              <h3 className="text-xl font-bold text-white mb-6">🌐 {t('home.faq.aboutWebsite')}</h3>
 
               <div className="space-y-4">
                 <div className="faq-item bg-white/5 rounded-2xl p-4">
-                  <div className="faq-question font-semibold text-white mb-2">🧑‍🤝‍🧑 Who is this website for?</div>
+                  <div className="faq-question font-semibold text-white mb-2">🧑‍🤝‍🧑 {t('home.faq.whoIsThisFor')}</div>
                   <div className="faq-answer text-sm text-white/70">
-                    Mainly for migrant workers in Malaysia.
+                    {t('home.faq.whoIsThisForAnswer')}
                   </div>
                 </div>
 
                 <div className="faq-item bg-white/5 rounded-2xl p-4">
-                  <div className="faq-question font-semibold text-white mb-2">🆓 Do I need to register or pay?</div>
+                  <div className="faq-question font-semibold text-white mb-2">🆓 {t('home.faq.registerOrPay')}</div>
                   <div className="faq-answer text-sm text-white/70">
-                    No. It is free and no login is needed.
+                    {t('home.faq.registerOrPayAnswer')}
                   </div>
                 </div>
 
                 <div className="faq-item bg-white/5 rounded-2xl p-4">
-                  <div className="faq-question font-semibold text-white mb-2">🔒 Is my information safe?</div>
+                  <div className="faq-question font-semibold text-white mb-2">🔒 {t('home.faq.infoSafe')}</div>
                   <div className="faq-answer text-sm text-white/70">
-                    Yes. We do not collect personal data.
+                    {t('home.faq.infoSafeAnswer')}
                   </div>
                 </div>
 
                 <div className="faq-item bg-white/5 rounded-2xl p-4">
-                  <div className="faq-question font-semibold text-white mb-2">🌍 Why only 5 languages?</div>
+                  <div className="faq-question font-semibold text-white mb-2">🌍 {t('home.faq.whyFiveLanguages')}</div>
                   <div className="faq-answer text-sm text-white/70">
-                    Because most workers are from Indonesia, Nepal, Bangladesh, and India. More will be added later.
+                    {t('home.faq.whyFiveLanguagesAnswer')}
                   </div>
                 </div>
 
                 <div className="faq-item disclaimer bg-gradient-to-r from-red-500/20 to-orange-500/20 border border-red-500/30 rounded-2xl p-4">
-                  <div className="faq-question font-semibold text-white mb-2">⚠️ Does this website give legal advice?</div>
+                  <div className="faq-question font-semibold text-white mb-2">⚠️ {t('home.faq.legalAdvice')}</div>
                   <div className="faq-answer text-sm text-white/70">
-                    No. This site only gives <strong>general information</strong>. It does not replace government advice or professional legal support. For serious problems, please contact <strong>JTKSM, your embassy, or NGOs in our Support Hub</strong>.
+                    {t('home.faq.legalAdviceAnswer')}
                   </div>
                 </div>
               </div>
@@ -183,7 +193,7 @@ export default function Home() {
 
             {/* Copyright */}
             <div className="text-white/60 text-sm leading-relaxed">
-              Right4All © 2025 | Empowering Migrant Workers in Malaysia | Serving SDG 10: Reduced Inequalities | Protect • Educate • Uplift
+              {t('home.footer.copyright')}
             </div>
           </div>
         </FadeIn>

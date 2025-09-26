@@ -107,7 +107,7 @@ export default function LanguageSelection() {
           className="text-center mt-12"
         >
           <p className="text-sm text-white/60">
-            You can change the language anytime from the settings
+            You can change the language anytime from the Navigation Bar
           </p>
         </motion.div>
       </motion.div>
