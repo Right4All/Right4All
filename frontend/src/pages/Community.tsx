@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { CommunityApi, Organization, Story, Resource, CommunityStats } from '../services/communityApi'
+import { useAppStore } from '../store/appStore'
 
 type TabType = 'ngos' | 'stories' | 'resources'
 
@@ -40,6 +41,9 @@ export default function Community() {
     alert('🚨 Emergency Help\n\n24/7 Hotlines:\n• Tenaganita: +60 3-2697-3671\n• Legal Aid: 15999\n• Police: 999\n\nYou are not alone. Help is available.')
   }
 
+  // Get current language from app store
+  const language = useAppStore(state => state.language)
+
   // Fetch data based on active tab and filters
   const fetchData = async () => {
     setLoading(true)
@@ -49,15 +53,15 @@ export default function Community() {
 
       switch (activeTab) {
         case 'ngos':
-          const orgs = await CommunityApi.getOrganizations(category, search)
+          const orgs = await CommunityApi.getOrganizations(category, search, language)
           setOrganizations(orgs)
           break
         case 'stories':
-          const storiesData = await CommunityApi.getStories(category, search)
+          const storiesData = await CommunityApi.getStories(category, search, language)
           setStories(storiesData)
           break
         case 'resources':
-          const resourcesData = await CommunityApi.getResources(category, search)
+          const resourcesData = await CommunityApi.getResources(category, search, language)
           setResources(resourcesData)
           break
       }
@@ -77,10 +81,10 @@ export default function Community() {
     fetchStats()
   }, [])
 
-  // Fetch data when tab, filter, or search changes
+  // Fetch data when tab, filter, search, or language changes
   useEffect(() => {
     fetchData()
-  }, [activeTab, activeFilter, searchTerm])
+  }, [activeTab, activeFilter, searchTerm, language])
 
   return (
     <section className="min-h-screen py-8 px-4 lg:px-0">
@@ -351,7 +355,7 @@ export default function Community() {
                         </div>
 
                         <p className="text-white/80 mb-6 leading-relaxed text-base">
-                          {isExpanded ? org.org_descr_en : (org.org_descr_en?.length > 150 ? `${org.org_descr_en.substring(0, 150)}...` : org.org_descr_en)}
+                          {isExpanded ? org.org_descr_en : (org.org_descr_en && org.org_descr_en.length > 150 ? `${org.org_descr_en.substring(0, 150)}...` : org.org_descr_en)}
                         </p>
 
                         {isExpanded && (

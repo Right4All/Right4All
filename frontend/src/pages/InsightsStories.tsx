@@ -8,6 +8,7 @@ import type { StateData, SectorData, NationalityData } from '../types'
 import { riskColors } from '../data/malaysiaMap'
 import GoogleMalaysiaMap from '../components/GoogleMalaysiaMap'
 import { useTranslation } from 'react-i18next'
+import { useAppStore } from '../store/appStore'
 
 type Risk = 'low'|'medium'|'high'
 type TabType = 'labourmarket' | 'stories'
@@ -77,13 +78,16 @@ export default function InsightsStories() {
     .filter(n => n.nationality_number && n.nationality_number > 0)
     .map(n => n.nationality_name_en)
 
+  // Get current language from app store
+  const language = useAppStore(state => state.language)
+
   // Fetch stories data
   const fetchStories = async () => {
     setStoriesLoading(true)
     try {
       const category = activeStoriesFilter === 'All Stories' ? undefined : activeStoriesFilter
       const search = searchTerm || undefined
-      const storiesData = await CommunityApi.getStories(category, search)
+      const storiesData = await CommunityApi.getStories(category, search, language)
       setStories(storiesData)
     } catch (error) {
       console.error('Error fetching stories:', error)
@@ -96,7 +100,7 @@ export default function InsightsStories() {
     if (activeTab === 'stories') {
       fetchStories()
     }
-  }, [activeTab, activeStoriesFilter, searchTerm])
+  }, [activeTab, activeStoriesFilter, searchTerm, language])
 
   useEffect(() => {
     if (selectedNationalities.length >= 2) setViewMode('comparison')

@@ -12,7 +12,10 @@
       "Bash(curl:*)",
       "Bash(taskkill:*)",
       "Bash(node:*)",
-      "Bash(tree:*)"
+      "Bash(tree:*)",
+      "Read(//c/Users/ASUS/OneDrive/Documents/Server/Right4All---Backend-Database/Frontend/**)",
+      "Bash(npx tsx:*)",
+      "Bash(npx tsc:*)"
     ],
     "deny": [],
     "ask": []

@@ -1,7 +1,7 @@
 const API_BASE_URL = import.meta.env.VITE_API_URL || (
   import.meta.env.PROD
-    ? '/api'  // In production, use relative path since backend is on same domain
-    : 'http://localhost:3000/api'  // In development, use localhost
+    ? ''  // In production, use relative path since backend is on same domain
+    : 'http://localhost:3000'  // In development, use localhost without /api prefix
 )
 
 export interface Organization {
@@ -69,11 +69,12 @@ export interface CommunityStats {
 
 export class CommunityApi {
   // Get organizations/NGOs
-  static async getOrganizations(category?: string, search?: string): Promise<Organization[]> {
+  static async getOrganizations(category?: string, search?: string, language?: string): Promise<Organization[]> {
     try {
       const params = new URLSearchParams()
       if (category) params.append('category', category)
       if (search) params.append('search', search)
+      if (language) params.append('lang', language)
 
       const url = `${API_BASE_URL}/community/organizations?${params.toString()}`
       const response = await fetch(url)
@@ -91,11 +92,12 @@ export class CommunityApi {
   }
 
   // Get survivor stories
-  static async getStories(category?: string, search?: string): Promise<Story[]> {
+  static async getStories(category?: string, search?: string, language?: string): Promise<Story[]> {
     try {
       const params = new URLSearchParams()
       if (category) params.append('category', category)
       if (search) params.append('search', search)
+      if (language) params.append('lang', language)
 
       const url = `${API_BASE_URL}/community/stories?${params.toString()}`
       const response = await fetch(url)
@@ -113,11 +115,12 @@ export class CommunityApi {
   }
 
   // Get practical guides/resources
-  static async getResources(category?: string, search?: string): Promise<Resource[]> {
+  static async getResources(category?: string, search?: string, language?: string): Promise<Resource[]> {
     try {
       const params = new URLSearchParams()
       if (category) params.append('category', category)
       if (search) params.append('search', search)
+      if (language) params.append('lang', language)
 
       const url = `${API_BASE_URL}/community/resources?${params.toString()}`
       const response = await fetch(url)
