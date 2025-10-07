@@ -695,14 +695,14 @@ export default function InsightsStories() {
                 <div className="max-w-2xl mx-auto mb-6">
                   <div className="text-lg font-medium mb-4 text-center text-white/80 flex items-center justify-center gap-2">
                     <span className="text-xl">🔍</span>
-                    Search survivor stories
+                    {t('support.search.placeholder')}
                   </div>
                   <div className="relative">
                     <input
                       type="text"
                       value={searchTerm}
                       onChange={(e) => setSearchTerm(e.target.value)}
-                      placeholder="Search stories..."
+                      placeholder={t('support.search.storiesPlaceholder')}
                       className="w-full px-6 py-3 rounded-xl border border-white/20 bg-white/10 text-white placeholder-white/50 text-base backdrop-blur-sm focus:outline-none focus:border-rose-400/50 focus:bg-white/15 transition-all duration-300"
                     />
                   </div>
@@ -857,7 +857,7 @@ export default function InsightsStories() {
             <p className="text-white/80 text-lg">
               {activeTab === 'labourmarket'
                 ? 'Use the data insights to understand labour market trends and make informed decisions about work opportunities.'
-                : 'These stories come from real migrant workers. Their experiences can help guide and support others facing similar challenges.'
+                : t('support.descriptions.storiesIntro')
               }
             </p>
           </div>

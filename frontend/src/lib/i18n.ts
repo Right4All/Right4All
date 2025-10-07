@@ -275,9 +275,28 @@ const resources = {
           }
         },
         search: {
-          placeholder: 'Search for help and resource',
-          helpText: 'Search survivor stories',
+          placeholder: 'Search for help and resources',
+          organizationsPlaceholder: 'Search organizations or life hacks...',
           storiesPlaceholder: 'Search stories...'
+        },
+        filters: {
+          getHelp: {
+            allHelp: 'All Help',
+            legalAid: 'Legal Aid',
+            healthWellbeing: 'Health & Wellbeing',
+            work: 'Work',
+            otherSupport: 'Other Support'
+          },
+          lifeHacks: {
+            allResources: 'All Resources',
+            workLegal: 'Work & Legal',
+            healthSafety: 'Health & Safety',
+            housingEveryday: 'Housing & Everyday Life',
+            moneyDaily: 'Money & Daily Life'
+          }
+        },
+        descriptions: {
+          storiesIntro: 'These stories come from real migrant workers. Their experiences can help guide and support others facing similar challenges.'
         }
       },
       insightsStories: {
@@ -572,8 +591,27 @@ const resources = {
         },
         search: {
           placeholder: 'Cari bantuan dan sumber',
-          helpText: 'Cari cerita mangsa',
+          organizationsPlaceholder: 'Cari organisasi atau petua hidup...',
           storiesPlaceholder: 'Cari cerita...'
+        },
+        filters: {
+          getHelp: {
+            allHelp: 'Semua Bantuan',
+            legalAid: 'Bantuan Undang-undang',
+            healthWellbeing: 'Kesihatan & Kebajikan',
+            work: 'Kerja',
+            otherSupport: 'Sokongan Lain'
+          },
+          lifeHacks: {
+            allResources: 'Semua Sumber',
+            workLegal: 'Kerja & Undang-undang',
+            healthSafety: 'Kesihatan & Keselamatan',
+            housingEveryday: 'Perumahan & Kehidupan Harian',
+            moneyDaily: 'Wang & Kehidupan Harian'
+          }
+        },
+        descriptions: {
+          storiesIntro: 'Cerita-cerita ini datang dari pekerja migran sebenar. Pengalaman mereka boleh membantu membimbing dan menyokong orang lain yang menghadapi cabaran serupa.'
         }
       },
       insightsStories: {
@@ -867,9 +905,28 @@ const resources = {
           }
         },
         search: {
-          helpAndResources: 'सहायता र स्रोत खोज्नुहोस्',
-          survivorStories: 'बाँचेकाहरूका कथाहरू खोज्नुहोस्',
-          searchStories: 'कथाहरू खोज्नुहोस्...'
+          placeholder: 'सहायता र स्रोतहरू खोज्नुहोस्',
+          organizationsPlaceholder: 'संगठन वा जीवन ह्याकहरू खोज्नुहोस्...',
+          storiesPlaceholder: 'कथाहरू खोज्नुहोस्...'
+        },
+        filters: {
+          getHelp: {
+            allHelp: 'सबै सहायता',
+            legalAid: 'कानूनी सहायता',
+            healthWellbeing: 'स्वास्थ्य र कल्याण',
+            work: 'काम',
+            otherSupport: 'अन्य सहयोग'
+          },
+          lifeHacks: {
+            allResources: 'सबै स्रोतहरू',
+            workLegal: 'काम र कानूनी',
+            healthSafety: 'स्वास्थ्य र सुरक्षा',
+            housingEveryday: 'आवास र दैनिक जीवन',
+            moneyDaily: 'पैसा र दैनिक जीवन'
+          }
+        },
+        descriptions: {
+          storiesIntro: 'यी कथाहरू वास्तविक प्रवासी कामदारहरूबाट आउँछन्। तिनीहरूका अनुभवहरूले समान चुनौतीहरूको सामना गर्ने अरूलाई मार्गदर्शन र समर्थन गर्न मद्दत गर्न सक्छ।'
         }
       },
       insightsStories: {
@@ -1163,9 +1220,28 @@ const resources = {
           }
         },
         search: {
-          helpAndResources: 'सहायता और संसाधन खोजें',
-          survivorStories: 'बचे हुए लोगों की कहानियां खोजें',
-          searchStories: 'कहानियां खोजें...'
+          placeholder: 'मदद और संसाधन खोजें',
+          organizationsPlaceholder: 'संगठन या जीवन हैक्स खोजें...',
+          storiesPlaceholder: 'कहानियां खोजें...'
+        },
+        filters: {
+          getHelp: {
+            allHelp: 'सभी मदद',
+            legalAid: 'कानूनी सहायता',
+            healthWellbeing: 'स्वास्थ्य और कल्याण',
+            work: 'काम',
+            otherSupport: 'अन्य सहायता'
+          },
+          lifeHacks: {
+            allResources: 'सभी संसाधन',
+            workLegal: 'काम और कानूनी',
+            healthSafety: 'स्वास्थ्य और सुरक्षा',
+            housingEveryday: 'आवास और दैनिक जीवन',
+            moneyDaily: 'पैसा और दैनिक जीवन'
+          }
+        },
+        descriptions: {
+          storiesIntro: 'ये कहानियां वास्तविक प्रवासी श्रमिकों से आती हैं। उनके अनुभव समान चुनौतियों का सामना करने वाले अन्य लोगों का मार्गदर्शन और समर्थन करने में मदद कर सकते हैं।'
         }
       },
       insightsStories: {
@@ -1459,9 +1535,28 @@ const resources = {
           }
         },
         search: {
-          helpAndResources: 'সাহায্য এবং সম্পদ খুঁজুন',
-          survivorStories: 'বেঁচে থাকা ব্যক্তিদের গল্প খুঁজুন',
-          searchStories: 'গল্প খুঁজুন...'
+          placeholder: 'সাহায্য ও সম্পদ খুঁজুন',
+          organizationsPlaceholder: 'সংস্থা বা জীবন হ্যাক খুঁজুন...',
+          storiesPlaceholder: 'গল্প খুঁজুন...'
+        },
+        filters: {
+          getHelp: {
+            allHelp: 'সব সাহায্য',
+            legalAid: 'আইনি সহায়তা',
+            healthWellbeing: 'স্বাস্থ্য ও কল্যাণ',
+            work: 'কাজ',
+            otherSupport: 'অন্যান্য সহায়তা'
+          },
+          lifeHacks: {
+            allResources: 'সব সম্পদ',
+            workLegal: 'কাজ ও আইনি',
+            healthSafety: 'স্বাস্থ্য ও নিরাপত্তা',
+            housingEveryday: 'আবাসন ও দৈনন্দিন জীবন',
+            moneyDaily: 'অর্থ ও দৈনন্দিন জীবন'
+          }
+        },
+        descriptions: {
+          storiesIntro: 'এই গল্পগুলি প্রকৃত প্রবাসী শ্রমিকদের কাছ থেকে এসেছে। তাদের অভিজ্ঞতা অনুরূপ চ্যালেঞ্জের মুখোমুখি অন্যদের গাইড এবং সমর্থন করতে সাহায্য করতে পারে।'
         }
       },
       insightsStories: {

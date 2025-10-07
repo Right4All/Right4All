@@ -9,7 +9,7 @@ type TabType = 'gethelp' | 'lifehacks'
 export default function Support() {
   const { t } = useTranslation()
   const [activeTab, setActiveTab] = useState<TabType>('gethelp')
-  const [activeFilter, setActiveFilter] = useState('All Help')
+  const [activeFilter, setActiveFilter] = useState(t('support.filters.getHelp.allHelp'))
   const [searchTerm, setSearchTerm] = useState('')
   const [organizations, setOrganizations] = useState<Organization[]>([])
   const [resources, setResources] = useState<Resource[]>([])
@@ -18,8 +18,20 @@ export default function Support() {
   const [expandedOrg, setExpandedOrg] = useState<number | null>(null)
   const [expandedResource, setExpandedResource] = useState<number | null>(null)
 
-  const ngoFilters = ['All Help', 'Legal Aid', 'Health & Wellbeing', 'Work', 'Other Support']
-  const resourceFilters = ['All Resources', 'Work & Legal', 'Health & Safety', 'Housing & Everyday Life', 'Money & Daily Life']
+  const ngoFilters = [
+    t('support.filters.getHelp.allHelp'),
+    t('support.filters.getHelp.legalAid'),
+    t('support.filters.getHelp.healthWellbeing'),
+    t('support.filters.getHelp.work'),
+    t('support.filters.getHelp.otherSupport')
+  ]
+  const resourceFilters = [
+    t('support.filters.lifeHacks.allResources'),
+    t('support.filters.lifeHacks.workLegal'),
+    t('support.filters.lifeHacks.healthSafety'),
+    t('support.filters.lifeHacks.housingEveryday'),
+    t('support.filters.lifeHacks.moneyDaily')
+  ]
 
   const getCurrentFilters = () => {
     switch (activeTab) {
@@ -237,14 +249,14 @@ export default function Support() {
           <div className="max-w-2xl mx-auto">
             <div className="text-lg font-medium mb-4 text-center text-white/80 flex items-center justify-center gap-2">
               <span className="text-xl">🔍</span>
-              Search for help and resources
+              {t('support.search.placeholder')}
             </div>
             <div className="relative">
               <input
                 type="text"
                 value={searchTerm}
                 onChange={(e) => handleSearch(e.target.value)}
-                placeholder="Search organizations or life hacks..."
+                placeholder={t('support.search.organizationsPlaceholder')}
                 className="w-full px-6 py-3 rounded-xl border border-white/20 bg-white/10 text-white placeholder-white/50 text-base backdrop-blur-sm focus:outline-none focus:border-rose-400/50 focus:bg-white/15 transition-all duration-300"
               />
             </div>
