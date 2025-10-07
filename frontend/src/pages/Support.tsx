@@ -96,7 +96,7 @@ export default function Support() {
           <div className="relative inline-block">
             <div className="absolute -inset-2 bg-gradient-to-r from-rose-500 to-pink-500 rounded-2xl blur opacity-20"></div>
             <h1 className="relative text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-4 md:mb-6 bg-gradient-to-r from-rose-500 via-pink-400 to-purple-500 bg-clip-text text-transparent">
-              Get Support
+              {t('support.title')}
             </h1>
           </div>
           <motion.p
@@ -105,7 +105,7 @@ export default function Support() {
             transition={{ delay: 0.2 }}
             className="text-lg sm:text-xl md:text-2xl text-white/80 max-w-3xl mx-auto leading-relaxed px-4"
           >
-            Find practical help and life hacks for your daily needs
+            {t('support.subtitle')}
           </motion.p>
         </motion.div>
 
@@ -121,13 +121,13 @@ export default function Support() {
             {[
               {
                 number: `${stats.organizations}+`,
-                label: 'Support Organizations',
+                label: t('support.stats.organizations'),
                 icon: '🏢',
                 gradient: 'from-rose-500 to-pink-500'
               },
               {
                 number: `${stats.resources}+`,
-                label: 'Life Hack Resources',
+                label: t('support.stats.resources'),
                 icon: '📚',
                 gradient: 'from-purple-500 to-indigo-500'
               }
@@ -176,15 +176,15 @@ export default function Support() {
             {
               id: 'gethelp',
               icon: '🤝',
-              label: 'Get Help',
-              description: 'Connect with NGOs and support organizations',
+              label: t('support.sections.getHelp.title'),
+              description: t('support.sections.getHelp.subtitle'),
               gradient: 'from-rose-500 to-pink-500'
             },
             {
               id: 'lifehacks',
               icon: '🔧',
-              label: 'Life Hacks',
-              description: 'Practical resources for daily life',
+              label: t('support.sections.lifeHacks.title'),
+              description: t('support.sections.lifeHacks.subtitle'),
               gradient: 'from-purple-500 to-indigo-500'
             }
           ].map((tab) => (

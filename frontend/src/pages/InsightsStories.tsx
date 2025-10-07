@@ -59,11 +59,20 @@ export default function InsightsStories() {
   // Stories state
   const [stories, setStories] = useState<Story[]>([])
   const [storiesLoading, setStoriesLoading] = useState(false)
-  const [activeStoriesFilter, setActiveStoriesFilter] = useState('All Stories')
+  const [activeStoriesFilter, setActiveStoriesFilter] = useState(t('insightsStories.categories.allStories'))
   const [searchTerm, setSearchTerm] = useState('')
   const [expandedStory, setExpandedStory] = useState<number | null>(null)
 
-  const storyFilters = ['All Stories', 'Legal & Documents', 'Fair Pay & Wages', 'Safety & Health', 'Housing & Living Conditions', 'Workplace Rights & Respect', 'Working Hours & Conditions', 'Resilience & Success']
+  const storyFilters = [
+    t('insightsStories.categories.allStories'),
+    t('insightsStories.categories.legal'),
+    t('insightsStories.categories.fairPay'),
+    t('insightsStories.categories.safety'),
+    t('insightsStories.categories.housing'),
+    t('insightsStories.categories.workplaceRights'),
+    t('insightsStories.categories.workingHours'),
+    t('insightsStories.categories.resilience')
+  ]
 
   // API data hooks for Labour Market
   const { data: statesData, loading: statesLoading, error: statesError } = useStatesData()
@@ -220,7 +229,7 @@ export default function InsightsStories() {
           <div className="relative inline-block">
             <div className="absolute -inset-2 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-2xl blur opacity-20"></div>
             <h1 className="relative text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-4 md:mb-6 bg-gradient-to-r from-fuchsia-400 via-rose-300 to-cyan-300 bg-clip-text text-transparent">
-              Insights & Stories
+              {t('insightsStories.title')}
             </h1>
           </div>
           <motion.p
@@ -229,7 +238,7 @@ export default function InsightsStories() {
             transition={{ delay: 0.2 }}
             className="text-lg sm:text-xl md:text-2xl text-white/80 max-w-3xl mx-auto leading-relaxed px-4"
           >
-            Labour market data and real experiences from migrant workers
+            {t('insightsStories.subtitle')}
           </motion.p>
         </motion.div>
 
@@ -244,15 +253,15 @@ export default function InsightsStories() {
             {
               id: 'labourmarket',
               icon: '📊',
-              label: 'Labour Market',
-              description: 'Data trends and employment analytics',
+              label: t('insightsStories.sections.labourMarket.title'),
+              description: t('insightsStories.sections.labourMarket.subtitle'),
               gradient: 'from-purple-500 to-cyan-500'
             },
             {
               id: 'stories',
               icon: '✨',
-              label: 'Survivor Stories',
-              description: 'Real experiences from migrant workers',
+              label: t('insightsStories.sections.survivorStories.title'),
+              description: t('insightsStories.sections.survivorStories.subtitle'),
               gradient: 'from-blue-500 to-cyan-500'
             }
           ].map((tab) => (

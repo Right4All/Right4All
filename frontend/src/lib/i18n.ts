@@ -10,8 +10,9 @@ const resources = {
       },
       nav: {
         home: 'Home',
-        insights: 'Labour Market',
-        rights: 'Rights Guide',
+        support: 'Get Support',
+        rights: 'Rights Education',
+        insights: 'Insights & Stories',
         quiz: 'Know Your Rights',
         tools: 'Tools',
         community: 'Community'
@@ -255,6 +256,53 @@ const resources = {
           stepByStepGuide: 'Step-by-step guide'
         },
         helpText: "Can't find what you need? Use the search box above to find help, or try different filters to discover more resources."
+      },
+      support: {
+        title: 'Get Support',
+        subtitle: 'Find practical help and life hacks for your daily needs',
+        stats: {
+          organizations: 'Support Organizations',
+          resources: 'Life Hack Resources'
+        },
+        sections: {
+          getHelp: {
+            title: 'Get Help',
+            subtitle: 'Connect with NGOs and support organizations'
+          },
+          lifeHacks: {
+            title: 'Life Hacks',
+            subtitle: 'Practical resources for daily life'
+          }
+        },
+        search: {
+          placeholder: 'Search for help and resource',
+          helpText: 'Search survivor stories',
+          storiesPlaceholder: 'Search stories...'
+        }
+      },
+      insightsStories: {
+        title: 'Insights & Stories',
+        subtitle: 'Labour market data and real experiences from migrant workers',
+        sections: {
+          labourMarket: {
+            title: 'Labour Market',
+            subtitle: 'Data trends and employment analytics'
+          },
+          survivorStories: {
+            title: 'Survivor Stories',
+            subtitle: 'Real experiences from migrant workers'
+          }
+        },
+        categories: {
+          allStories: 'All Stories',
+          legal: 'Legal & Documents',
+          fairPay: 'Fair Pay & Wages',
+          safety: 'Safety & Health',
+          housing: 'Housing & Living Conditions',
+          workplaceRights: 'Workplace Rights & Respect',
+          workingHours: 'Working Hours & Conditions',
+          resilience: 'Resilience & Success'
+        }
       }
     }
   },
@@ -263,8 +311,9 @@ const resources = {
       app: { title: 'Right4All', tagline: 'Kenali hak anda, kekal dilindungi' },
       nav: {
         home: 'Laman Utama',
-        insights: 'Pasaran Buruh',
-        rights: 'Panduan Hak',
+        support: 'Dapatkan Sokongan',
+        rights: 'Pendidikan Hak',
+        insights: 'Wawasan & Cerita',
         quiz: 'Kuiz Hak',
         tools: 'Alat',
         community: 'Komuniti'
@@ -503,6 +552,53 @@ const resources = {
           stepByStepGuide: 'Panduan langkah demi langkah'
         },
         helpText: "Tidak jumpa apa yang anda perlukan? Gunakan kotak carian di atas untuk mencari bantuan, atau cuba penapis berbeza untuk menemui lebih banyak sumber."
+      },
+      support: {
+        title: 'Dapatkan Sokongan',
+        subtitle: 'Cari bantuan praktikal dan petua hidup untuk keperluan harian anda',
+        stats: {
+          organizations: 'Organisasi Sokongan',
+          resources: 'Sumber Petua Hidup'
+        },
+        sections: {
+          getHelp: {
+            title: 'Dapatkan Bantuan',
+            subtitle: 'Berhubung dengan NGO dan organisasi sokongan'
+          },
+          lifeHacks: {
+            title: 'Petua Hidup',
+            subtitle: 'Sumber praktikal untuk kehidupan harian'
+          }
+        },
+        search: {
+          placeholder: 'Cari bantuan dan sumber',
+          helpText: 'Cari cerita mangsa',
+          storiesPlaceholder: 'Cari cerita...'
+        }
+      },
+      insightsStories: {
+        title: 'Wawasan & Cerita',
+        subtitle: 'Data pasaran buruh dan pengalaman sebenar pekerja migran',
+        sections: {
+          labourMarket: {
+            title: 'Pasaran Buruh',
+            subtitle: 'Trend data dan analisis pekerjaan'
+          },
+          survivorStories: {
+            title: 'Cerita Mangsa',
+            subtitle: 'Pengalaman sebenar pekerja migran'
+          }
+        },
+        categories: {
+          allStories: 'Semua Cerita',
+          legal: 'Undang-undang & Dokumen',
+          fairPay: 'Gaji Adil & Upah',
+          safety: 'Keselamatan & Kesihatan',
+          housing: 'Perumahan & Keadaan Hidup',
+          workplaceRights: 'Hak Tempat Kerja & Penghormatan',
+          workingHours: 'Waktu Kerja & Syarat',
+          resilience: 'Daya Tahan & Kejayaan'
+        }
       }
     }
   },
@@ -511,8 +607,9 @@ const resources = {
       app: { title: 'Right4All', tagline: 'आफ्ना अधिकार जान्नुहोस्, सुरक्षित रहनुहोस्' },
       nav: {
         home: 'घर',
-        insights: 'श्रम बजार',
-        rights: 'अधिकार गाइड',
+        support: 'सहायता प्राप्त गर्नुहोस्',
+        rights: 'अधिकार शिक्षा',
+        insights: 'अन्तर्दृष्टि र कथाहरू',
         quiz: 'तपाईंको अधिकार जान्नुहोस्',
         tools: 'उपकरण',
         community: 'समुदाय'
@@ -751,6 +848,53 @@ const resources = {
           stepByStepGuide: 'चरणबद्ध गाइड'
         },
         helpText: "तपाईंलाई चाहिएको कुरा फेला पार्न सक्नुभएन? सहायता फेला पार्न माथिको खोज बाकस प्रयोग गर्नुहोस्, वा थप स्रोतहरू पत्ता लगाउन विभिन्न फिल्टरहरू प्रयास गर्नुहोस्।"
+      },
+      support: {
+        title: 'सहायता प्राप्त गर्नुहोस्',
+        subtitle: 'तपाईंको दैनिक आवश्यकताहरूको लागि व्यावहारिक सहायता र जीवन ह्याकहरू फेला पार्नुहोस्',
+        stats: {
+          organizations: 'सहायता संगठनहरू',
+          resources: 'जीवन ह्याक स्रोतहरू'
+        },
+        sections: {
+          getHelp: {
+            title: 'सहायता पाउनुहोस्',
+            subtitle: 'एनजीओ र सहायता संगठनहरूसँग जडान गर्नुहोस्'
+          },
+          lifeHacks: {
+            title: 'जीवन ह्याकहरू',
+            subtitle: 'दैनिक जीवनका लागि व्यावहारिक स्रोतहरू'
+          }
+        },
+        search: {
+          helpAndResources: 'सहायता र स्रोत खोज्नुहोस्',
+          survivorStories: 'बाँचेकाहरूका कथाहरू खोज्नुहोस्',
+          searchStories: 'कथाहरू खोज्नुहोस्...'
+        }
+      },
+      insightsStories: {
+        title: 'अन्तर्दृष्टि र कथाहरू',
+        subtitle: 'श्रम बजार डेटा र आप्रवासी कामदारहरूको वास्तविक अनुभवहरू',
+        sections: {
+          labourMarket: {
+            title: 'श्रम बजार',
+            subtitle: 'डेटा प्रवृत्ति र रोजगार विश्लेषण'
+          },
+          survivorStories: {
+            title: 'बाँचेकाहरूका कथाहरू',
+            subtitle: 'आप्रवासी कामदारहरूका वास्तविक अनुभवहरू'
+          }
+        },
+        categories: {
+          allStories: 'सबै कथाहरू',
+          legal: 'कानूनी र कागजातहरू',
+          fairPay: 'निष्पक्ष तलब र ज्यालाहरू',
+          safety: 'सुरक्षा र स्वास्थ्य',
+          housing: 'आवास र बस्ने अवस्था',
+          workplaceRights: 'कार्यस्थल अधिकार र सम्मान',
+          workingHours: 'काम गर्ने घण्टा र अवस्था',
+          resilience: 'लचक र सफलता'
+        }
       }
     }
   },
@@ -759,8 +903,9 @@ const resources = {
       app: { title: 'Right4All', tagline: 'अपने अधिकार जानें, सुरक्षित रहें' },
       nav: {
         home: 'होम',
-        insights: 'श्रम बाज़ार',
-        rights: 'अधिकार गाइड',
+        support: 'सहायता प्राप्त करें',
+        rights: 'अधिकार शिक्षा',
+        insights: 'अंतर्दृष्टि और कहानियां',
         quiz: 'अपने अधिकार जानें',
         tools: 'उपकरण',
         community: 'समुदाय'
@@ -999,6 +1144,53 @@ const resources = {
           stepByStepGuide: 'चरणबद्ध गाइड'
         },
         helpText: "आपको जो चाहिए वह नहीं मिल रहा? मदद पाने के लिए ऊपर खोज बॉक्स का उपयोग करें, या अधिक संसाधन खोजने के लिए विभिन्न फिल्टर आज़माएं।"
+      },
+      support: {
+        title: 'सहायता प्राप्त करें',
+        subtitle: 'अपनी दैनिक आवश्यकताओं के लिए व्यावहारिक सहायता और जीवन हैक्स खोजें',
+        stats: {
+          organizations: 'सहायता संगठन',
+          resources: 'लाइफ हैक संसाधन'
+        },
+        sections: {
+          getHelp: {
+            title: 'सहायता प्राप्त करें',
+            subtitle: 'एनजीओ और सहायता संगठनों से जुड़ें'
+          },
+          lifeHacks: {
+            title: 'लाइफ हैक्स',
+            subtitle: 'दैनिक जीवन के लिए व्यावहारिक संसाधन'
+          }
+        },
+        search: {
+          helpAndResources: 'सहायता और संसाधन खोजें',
+          survivorStories: 'बचे हुए लोगों की कहानियां खोजें',
+          searchStories: 'कहानियां खोजें...'
+        }
+      },
+      insightsStories: {
+        title: 'अंतर्दृष्टि और कहानियां',
+        subtitle: 'श्रम बाज़ार डेटा और प्रवासी श्रमिकों के वास्तविक अनुभव',
+        sections: {
+          labourMarket: {
+            title: 'श्रम बाज़ार',
+            subtitle: 'डेटा रुझान और रोजगार विश्लेषण'
+          },
+          survivorStories: {
+            title: 'बचे हुए लोगों की कहानियां',
+            subtitle: 'प्रवासी श्रमिकों के वास्तविक अनुभव'
+          }
+        },
+        categories: {
+          allStories: 'सभी कहानियां',
+          legal: 'कानूनी और दस्तावेज',
+          fairPay: 'निष्पक्ष वेतन और मजदूरी',
+          safety: 'सुरक्षा और स्वास्थ्य',
+          housing: 'आवास और रहने की स्थिति',
+          workplaceRights: 'कार्यस्थल अधिकार और सम्मान',
+          workingHours: 'कार्य घंटे और शर्तें',
+          resilience: 'लचीलापन और सफलता'
+        }
       }
     }
   },
@@ -1007,8 +1199,9 @@ const resources = {
       app: { title: 'Right4All', tagline: 'আপনার অধিকার জানুন, সুরক্ষিত থাকুন' },
       nav: {
         home: 'হোম',
-        insights: 'শ্রমবাজার',
-        rights: 'অধিকার গাইড',
+        support: 'সহায়তা পান',
+        rights: 'অধিকার শিক্ষা',
+        insights: 'অন্তর্দৃষ্টি এবং গল্প',
         quiz: 'আপনার অধিকার জানুন',
         tools: 'টুলস',
         community: 'কমিউনিটি'
@@ -1247,6 +1440,53 @@ const resources = {
           stepByStepGuide: 'ধাপে ধাপে গাইড'
         },
         helpText: "আপনার প্রয়োজনীয় কিছু খুঁজে পাচ্ছেন না? সাহায্য খুঁজতে উপরের সার্চ বক্স ব্যবহার করুন, অথবা আরো সম্পদ আবিষ্কার করতে বিভিন্ন ফিল্টার চেষ্টা করুন।"
+      },
+      support: {
+        title: 'সহায়তা পান',
+        subtitle: 'আপনার দৈনন্দিন প্রয়োজনের জন্য ব্যবহারিক সাহায্য এবং লাইফ হ্যাকস খুঁজুন',
+        stats: {
+          organizations: 'সহায়তা সংস্থা',
+          resources: 'লাইফ হ্যাক সম্পদ'
+        },
+        sections: {
+          getHelp: {
+            title: 'সাহায্য পান',
+            subtitle: 'এনজিও এবং সহায়তা সংস্থাগুলির সাথে যোগাযোগ করুন'
+          },
+          lifeHacks: {
+            title: 'লাইফ হ্যাকস',
+            subtitle: 'দৈনন্দিন জীবনের জন্য ব্যবহারিক সম্পদ'
+          }
+        },
+        search: {
+          helpAndResources: 'সাহায্য এবং সম্পদ খুঁজুন',
+          survivorStories: 'বেঁচে থাকা ব্যক্তিদের গল্প খুঁজুন',
+          searchStories: 'গল্প খুঁজুন...'
+        }
+      },
+      insightsStories: {
+        title: 'অন্তর্দৃষ্টি এবং গল্প',
+        subtitle: 'শ্রমবাজার ডেটা এবং অভিবাসী শ্রমিকদের বাস্তব অভিজ্ঞতা',
+        sections: {
+          labourMarket: {
+            title: 'শ্রমবাজার',
+            subtitle: 'ডেটা প্রবণতা এবং কর্মসংস্থান বিশ্লেষণ'
+          },
+          survivorStories: {
+            title: 'বেঁচে থাকা ব্যক্তিদের গল্প',
+            subtitle: 'অভিবাসী শ্রমিকদের বাস্তব অভিজ্ঞতা'
+          }
+        },
+        categories: {
+          allStories: 'সব গল্প',
+          legal: 'আইনি এবং নথিপত্র',
+          fairPay: 'ন্যায্য বেতন এবং মজুরি',
+          safety: 'নিরাপত্তা এবং স্বাস্থ্য',
+          housing: 'আবাসন এবং বসবাসের অবস্থা',
+          workplaceRights: 'কর্মক্ষেত্রের অধিকার এবং সম্মান',
+          workingHours: 'কাজের সময় এবং শর্তাবলী',
+          resilience: 'স্থিতিস্থাপকতা এবং সাফল্য'
+        }
       }
     }
   }

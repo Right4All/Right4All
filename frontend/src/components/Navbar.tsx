@@ -68,10 +68,10 @@ export default function Navbar() {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-2">
-          {item('/home', 'Home')}
-          {item('/support', 'Get Support')}
-          {item('/rights', 'Rights Education')}
-          {item('/insights', 'Insights & Stories')}
+          {item('/home', t('nav.home'))}
+          {item('/support', t('nav.support'))}
+          {item('/rights', t('nav.rights'))}
+          {item('/insights', t('nav.insights'))}
         </div>
 
         {/* Desktop Language Switcher */}
@@ -107,10 +107,10 @@ export default function Navbar() {
             className="md:hidden card mx-4 mt-2 rounded-xl overflow-hidden"
           >
             <div className="py-2">
-              {item('/home', 'Home', true)}
-              {item('/support', 'Get Support', true)}
-              {item('/rights', 'Rights Education', true)}
-              {item('/insights', 'Insights & Stories', true)}
+              {item('/home', t('nav.home'), true)}
+              {item('/support', t('nav.support'), true)}
+              {item('/rights', t('nav.rights'), true)}
+              {item('/insights', t('nav.insights'), true)}
             </div>
             
             {/* Mobile Language Switcher */}
