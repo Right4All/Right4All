@@ -1,0 +1,81 @@
+question_id,question_text_en,question_type,question_order,is_active,created_at,legal_topic_mapping_id
+1,What is the minimum monthly wage in Malaysia from Aug 2025?,multiple_choice,1,,,9
+2,Maximum weekly working hours allowed?,multiple_choice,2,,,3
+3,"Your employer keeps your passport for ""safety"". Is this legal?",true_false,3,,,10
+4,How many paid public holidays must you get each year?,multiple_choice,4,,,11
+5,What is the maximum monthly overtime limit?,multiple_choice,5,,,1
+6,You worked 5 continuous hours without a break. Is this allowed?,true_false,6,,,3
+7,Maximum wage deduction allowed per month?,multiple_choice,7,,,2
+8,Employer didn't pay wages for 2 months. What should happen?,multiple_choice,8,,,4
+9,How often must wages be paid?,multiple_choice,1,,,12
+10,Wages must be paid within how many days after the wage period ends?,multiple_choice,2,,,14
+11,You worked half a month. How is pay calculated?,multiple_choice,3,,,13
+12,Minimum daily wage (6-day week) from Aug 2025?,multiple_choice,4,,,18
+13,"If wages are not paid on time, what is it?",multiple_choice,5,,,17
+14,Employer pays wages in cash at a bar. Legal?,true_false,6,,,16
+15,Can employers charge interest on wage advances?,true_false,7,,,15
+16,Employer fails to pay maternity allowance. What happens?,multiple_choice,8,,,21
+17,Maximum daily hours allowed (normal conditions)?,multiple_choice,1,,,22
+18,Maximum weekly hours allowed?,multiple_choice,2,,,22
+19,What break is required after 5 continuous hours?,multiple_choice,3,,,22
+20,Forced to work every weekly rest day. Legal?,true_false,4,,,23
+21,How many rest days per week are you entitled to?,multiple_choice,5,,,23
+22,You apply to employer for flexible work. Allowed?,true_false,6,,,24
+23,What's the emergency daily maximum hours?,multiple_choice,7,,,22
+24,You worked 50 hours in a week. Legal?,true_false,8,,,22
+25,Can your employer keep your passport?,true_false,1,,,26
+26,Maximum fine for general labour violations (no specific penalty stated)?,multiple_choice,2,,,25
+27,No safety helmet provided on site. Who is responsible?,multiple_choice,3,,,27
+28,A safety & health committee is required at how many workers?,multiple_choice,4,,,29
+29,Unsafe electrical wiring in hostel. Who must fix it?,multiple_choice,5,,,31
+30,Who must report workplace accidents/dangerous incidents?,multiple_choice,6,,,30
+31,Hostel has no water supply. Legal?,true_false,7,,,32
+32,Employees' safety duty includes…,multiple_choice,8,,,28
+33,What is the maximum overtime hours per month?,multiple_choice,1,,,33
+34,"Who must pay for overtime, rest-day, and holiday work?",multiple_choice,2,,,34
+35,Fine for general violations if no specific penalty is stated?,multiple_choice,3,,,36
+36,You worked 120 OT hours this month. Legal?,true_false,4,,,33
+37,Employer refuses to pay OT. Legal?,true_false,5,,,34
+38,"If no penalty is specified for an offence, what applies?",multiple_choice,6,,,36
+39,You worked on a public holiday but got no extra pay. Legal?,true_false,7,,,34
+40,What happens if an employer ignores a payment order?,multiple_choice,8,,,35
+41,Minimum overtime pay rate is…,multiple_choice,1,,,37
+42,"If you work more than half a rest day, you get…",multiple_choice,2,,,38
+43,Hourly rate calculation (monthly basis) is…,multiple_choice,3,,,39
+44,Paid normal rate for overtime. Legal?,true_false,4,,,37
+45,Worked half a rest day. What pay?,multiple_choice,5,,,38
+46,Worked full rest day. What pay?,multiple_choice,6,,,38
+47,Overtime on a rest day. What pay?,multiple_choice,7,,,38
+48,Employer calculates hourly rate as monthly ÷ 30. Legal?,true_false,8,,,39
+49,"If you live at the workplace for ≥ 6 months, the land for food must be at least…",multiple_choice,1,,,40
+50,"If ≥100 workers live at site, employer must provide…",multiple_choice,2,,,41
+51,"If no hospital is nearby, who must establish a clinic?",multiple_choice,3,,,42
+52,Must accommodation have a certificate?,true_false,4,,,43
+53,Employer charges rent but not via wage deductions. Legal?,true_false,5,,,44
+54,Employer uses an unfit building for housing. Legal?,true_false,6,,,45
+55,Which utilities are required for housing?,multiple_choice,7,,,47
+56,Terminated with notice < 4 weeks; told to leave hostel today. Legal?,true_false,8,,,46
+57,Employer safety duties include…,multiple_choice,1,,,49
+58,Employees must…,multiple_choice,2,,,50
+59,Penalty for breaking employee safety duties?,multiple_choice,3,,,50
+60,When must a safety & health committee be set up?,multiple_choice,4,,,52
+61,Who must report accidents/dangerous incidents?,multiple_choice,5,,,53
+62,Employer ignores fire safety. Legal?,true_false,6,,,48
+63,Employer must prepare and update…,multiple_choice,7,,,51
+64,Infectious disease outbreak at work. Employer must…,multiple_choice,8,,,54
+65,Maternity leave entitlement (days)?,multiple_choice,1,,,55
+66,Paternity leave entitlement (days)?,multiple_choice,2,,,60
+67,Minimum paid public holidays per year?,multiple_choice,3,,,57
+68,Annual leave for service ≥ 5 years?,multiple_choice,4,,,58
+69,Employer refuses maternity leave to an eligible worker. Legal?,true_false,5,,,61
+70,You work on a rest day > half normal hours. Compensation?,multiple_choice,6,,,56
+71,Public holiday falls on your rest day. What happens?,multiple_choice,7,,,57
+72,Sick leave entitlement for < 2 years of service?,multiple_choice,8,,,59
+73,Can an employer legally keep your passport?,true_false,1,,,63
+74,Who may lawfully hold your passport?,multiple_choice,2,,,63
+75,Employer keeps passport for 'safekeeping' until contract ends. Legal?,true_false,3,,,63
+76,"If your passport is kept illegally, that is…",multiple_choice,4,,,63
+77,Penalty that can apply for passport/labour violations (when no specific penalty stated)?,multiple_choice,5,,,62
+78,You 'agree' to let employer hold passport. Is it safe/legal?,true_false,6,,,63
+79,Employer returns your passport only for immigration appointments. Legal?,true_false,7,,,63
+80,"If employer refuses to return your passport, what should you do first?",multiple_choice,8,,,63

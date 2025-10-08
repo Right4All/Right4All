@@ -1,0 +1,273 @@
+option_id,option_text_en,option_order,option_explanation_text_en,is_correct,question_id,answer_id,result_id,user_id,topic_id,legal_topic_mapping_id
+1,"RM1,500",A,"Incorrect - From 1 Aug 2025, the minimum monthly wage is RM1,700 .",False,1,,,,1,9
+2,"RM1,600",B,"Incorrect - From 1 Aug 2025, the minimum monthly wage is RM1,700 .",False,1,,,,1,9
+3,"RM1,700",C,"Correct - From 1 Aug 2025, the minimum monthly wage is RM1,700 .",True,1,,,,1,9
+4,"RM1,800",D,"Incorrect - From 1 Aug 2025, the minimum monthly wage is RM1,700 .",False,1,,,,1,9
+5,40,A,Incorrect - 45 hours per week is the limit. More than this is unlawful except within OT rules .,False,2,,,,1,3
+6,45,B,Correct - 45 hours per week is the limit. More than this is unlawful except within OT rules .,True,2,,,,1,3
+7,48,C,Incorrect - 45 hours per week is the limit. More than this is unlawful except within OT rules .,False,2,,,,1,3
+8,60,D,Incorrect - 45 hours per week is the limit. More than this is unlawful except within OT rules .,False,2,,,,1,3
+9,Yes,A,Incorrect - Employers cannot keep workers' passports; only proper authority can.,False,3,,,,1,10
+10,No,B,Correct - Employers cannot keep workers' passports; only proper authority can.,True,3,,,,1,10
+11,8,A,"Incorrect - At least 11 paid public holidays, including 5 mandatory ones.",False,4,,,,1,11
+12,10,B,"Incorrect - At least 11 paid public holidays, including 5 mandatory ones.",False,4,,,,1,11
+13,11,C,"Correct - At least 11 paid public holidays, including 5 mandatory ones.",True,4,,,,1,11
+14,12,D,"Incorrect - At least 11 paid public holidays, including 5 mandatory ones.",False,4,,,,1,11
+15,60,A,Incorrect - Overtime is capped at 104 hours/month.,False,5,,,,1,1
+16,80,B,Incorrect - Overtime is capped at 104 hours/month.,False,5,,,,1,1
+17,104,C,Correct - Overtime is capped at 104 hours/month.,True,5,,,,1,1
+18,120,D,Incorrect - Overtime is capped at 104 hours/month.,False,5,,,,1,1
+19,Yes,A,Incorrect - A 30-minute break is required after 5 continuous hours.,False,6,,,,1,3
+20,No,B,Correct - A 30-minute break is required after 5 continuous hours.,True,6,,,,1,3
+21,30%,A,Incorrect - Total deductions cannot exceed 50% of monthly wages.,False,7,,,,1,2
+22,40%,B,Incorrect - Total deductions cannot exceed 50% of monthly wages.,False,7,,,,1,2
+23,50%,C,Correct - Total deductions cannot exceed 50% of monthly wages.,True,7,,,,1,2
+24,60%,D,Incorrect - Total deductions cannot exceed 50% of monthly wages.,False,7,,,,1,2
+25,Nothing,A,Incorrect - Non-payment is an offence; authorities/courts can order payment and penalties.,False,8,,,,1,4
+26,It's an offence; court can order payment,B,Correct - Non-payment is an offence; authorities/courts can order payment and penalties.,True,8,,,,1,4
+27,Wait longer,C,Incorrect - Non-payment is an offence; authorities/courts can order payment and penalties.,False,8,,,,1,4
+28,Employer can decide,D,Incorrect - Non-payment is an offence; authorities/courts can order payment and penalties.,False,8,,,,1,4
+29,Weekly,A,Incorrect - Wages must be paid at least once a month.,False,9,,,,2,12
+30,Monthly,B,Correct - Wages must be paid at least once a month.,True,9,,,,2,12
+31,Every 2 months,C,Incorrect - Wages must be paid at least once a month.,False,9,,,,2,12
+32,Whenever employer decides,D,Incorrect - Wages must be paid at least once a month.,False,9,,,,2,12
+33,3 days,A,Incorrect - Within 7 days after the wage period ends.,False,10,,,,2,14
+34,7 days,B,Correct - Within 7 days after the wage period ends.,True,10,,,,2,14
+35,14 days,C,Incorrect - Within 7 days after the wage period ends.,False,10,,,,2,14
+36,30 days,D,Incorrect - Within 7 days after the wage period ends.,False,10,,,,2,14
+37,Employer decides any amount,A,Incorrect - Pay = Monthly wages ÷ Days in period × Days actually worked.,False,11,,,,2,13
+38,Monthly ÷ Days in period × Days worked,B,Correct - Pay = Monthly wages ÷ Days in period × Days actually worked.,True,11,,,,2,13
+39,Flat 50% deduction,C,Incorrect - Pay = Monthly wages ÷ Days in period × Days actually worked.,False,11,,,,2,13
+40,No pay,D,Incorrect - Pay = Monthly wages ÷ Days in period × Days actually worked.,False,11,,,,2,13
+41,RM60.00,A,Incorrect - RM65.38 for 6-day week.,False,12,,,,2,18
+42,RM65.38,B,Correct - RM65.38 for 6-day week.,True,12,,,,2,18
+43,RM70.00,C,Incorrect - RM65.38 for 6-day week.,False,12,,,,2,18
+44,RM78.46,D,Incorrect - RM65.38 for 6-day week.,False,12,,,,2,18
+45,No issue,A,Incorrect - Failing to pay wages on time is an offence.,False,13,,,,2,17
+46,An offence by employer,B,Correct - Failing to pay wages on time is an offence.,True,13,,,,2,17
+47,Optional payment,C,Incorrect - Failing to pay wages on time is an offence.,False,13,,,,2,17
+48,Worker's fault,D,Incorrect - Failing to pay wages on time is an offence.,False,13,,,,2,17
+49,Yes,A,Incorrect - Payment at bars/shops is prohibited.,False,14,,,,2,16
+50,No,B,Correct - Payment at bars/shops is prohibited.,True,14,,,,2,16
+51,Yes,A,Incorrect - Charging interest or fees on wage advances is not allowed.,False,15,,,,2,15
+52,No,B,Correct - Charging interest or fees on wage advances is not allowed.,True,15,,,,2,15
+53,Nothing,A,Incorrect - Courts can order payment and penalties for violations.,False,16,,,,2,21
+54,Court can order payment,B,Correct - Courts can order payment and penalties for violations.,True,16,,,,2,21
+55,Worker loses rights,C,Incorrect - Courts can order payment and penalties for violations.,False,16,,,,2,21
+56,Delay until next month,D,Incorrect - Courts can order payment and penalties for violations.,False,16,,,,2,21
+57,8,A,Correct - 8 hours/day.,True,17,,,,3,22
+58,10,B,Incorrect - 8 hours/day.,False,17,,,,3,22
+59,12,C,Incorrect - 8 hours/day.,False,17,,,,3,22
+60,14,D,Incorrect - 8 hours/day.,False,17,,,,3,22
+61,40,A,Incorrect - 45 hours/week.,False,18,,,,3,22
+62,45,B,Correct - 45 hours/week.,True,18,,,,3,22
+63,50,C,Incorrect - 45 hours/week.,False,18,,,,3,22
+64,60,D,Incorrect - 45 hours/week.,False,18,,,,3,22
+65,No break,A,Incorrect - At least a 30-minute break.,False,19,,,,3,22
+66,15 minutes,B,Incorrect - At least a 30-minute break.,False,19,,,,3,22
+67,30 minutes,C,Correct - At least a 30-minute break.,True,19,,,,3,22
+68,45 minutes,D,Incorrect - At least a 30-minute break.,False,19,,,,3,22
+69,Yes,A,Incorrect - At least one rest day per week is mandatory.,False,20,,,,3,23
+70,No,B,Correct - At least one rest day per week is mandatory.,True,20,,,,3,23
+71,1,A,Correct - At least one full rest day weekly.,True,21,,,,3,23
+72,2,B,Incorrect - At least one full rest day weekly.,False,21,,,,3,23
+73,0,C,Incorrect - At least one full rest day weekly.,False,21,,,,3,23
+74,Employer decides,D,Incorrect - At least one full rest day weekly.,False,21,,,,3,23
+75,Yes,A,Correct - Workers may apply for flexible hours/days/place.,True,22,,,,3,24
+76,No,B,Incorrect - Workers may apply for flexible hours/days/place.,False,22,,,,3,24
+77,10,A,Incorrect - 12 hours/day cap in emergencies.,False,23,,,,3,22
+78,12,B,Correct - 12 hours/day cap in emergencies.,True,23,,,,3,22
+79,14,C,Incorrect - 12 hours/day cap in emergencies.,False,23,,,,3,22
+80,No limit,D,Incorrect - 12 hours/day cap in emergencies.,False,23,,,,3,22
+81,Legal,A,Incorrect - Exceeds 45 hours/week.,False,24,,,,3,22
+82,Illegal,B,Correct - Exceeds 45 hours/week.,True,24,,,,3,22
+83,Yes,A,Incorrect - Employers cannot hold passports; only proper authority can.,False,25,,,,4,26
+84,No,B,Correct - Employers cannot hold passports; only proper authority can.,True,25,,,,4,26
+85,"RM10,000",A,"Incorrect - Up to RM50,000.",False,26,,,,4,25
+86,"RM20,000",B,"Incorrect - Up to RM50,000.",False,26,,,,4,25
+87,"RM50,000",C,"Correct - Up to RM50,000.",True,26,,,,4,25
+88,"RM100,000",D,"Incorrect - Up to RM50,000.",False,26,,,,4,25
+89,Worker,A,Incorrect - Employer must provide protective equipment.,False,27,,,,4,27
+90,Employer,B,Correct - Employer must provide protective equipment.,True,27,,,,4,27
+91,Union,C,Incorrect - Employer must provide protective equipment.,False,27,,,,4,27
+92,NGO,D,Incorrect - Employer must provide protective equipment.,False,27,,,,4,27
+93,20,A,Incorrect - Required for ≥ 40 workers or when directed.,False,28,,,,4,29
+94,30,B,Incorrect - Required for ≥ 40 workers or when directed.,False,28,,,,4,29
+95,40,C,Correct - Required for ≥ 40 workers or when directed.,True,28,,,,4,29
+96,50,D,Incorrect - Required for ≥ 40 workers or when directed.,False,28,,,,4,29
+97,Employer,A,Correct - Employer/accommodation provider must ensure safety.,True,29,,,,4,31
+98,Worker,B,Incorrect - Employer/accommodation provider must ensure safety.,False,29,,,,4,31
+99,NGO,C,Incorrect - Employer/accommodation provider must ensure safety.,False,29,,,,4,31
+100,Nobody,D,Incorrect - Employer/accommodation provider must ensure safety.,False,29,,,,4,31
+101,Employer,A,Correct - Employer must notify the nearest OSH office.,True,30,,,,4,30
+102,Worker,B,Incorrect - Employer must notify the nearest OSH office.,False,30,,,,4,30
+103,Police,C,Incorrect - Employer must notify the nearest OSH office.,False,30,,,,4,30
+104,No need to report,D,Incorrect - Employer must notify the nearest OSH office.,False,30,,,,4,30
+105,Yes,A,Incorrect - Adequate water must be provided.,False,31,,,,4,32
+106,No,B,Correct - Adequate water must be provided.,True,31,,,,4,32
+107,Nothing,A,Incorrect - Workers must take reasonable care and wear PPE; penalties apply for breaches.,False,32,,,,4,28
+108,Only employer's duty,B,Incorrect - Workers must take reasonable care and wear PPE; penalties apply for breaches.,False,32,,,,4,28
+109,Care for own & others' safety and follow rules,C,Correct - Workers must take reasonable care and wear PPE; penalties apply for breaches.,True,32,,,,4,28
+110,Optional compliance,D,Incorrect - Workers must take reasonable care and wear PPE; penalties apply for breaches.,False,32,,,,4,28
+111,60,A,Incorrect - Monthly cap is 104 hours.,False,33,,,,5,33
+112,80,B,Incorrect - Monthly cap is 104 hours.,False,33,,,,5,33
+113,104,C,Correct - Monthly cap is 104 hours.,True,33,,,,5,33
+114,120,D,Incorrect - Monthly cap is 104 hours.,False,33,,,,5,33
+115,Employer,A,Correct - Employer must pay; non-payment is an offence.,True,34,,,,5,34
+116,Government,B,Incorrect - Employer must pay; non-payment is an offence.,False,34,,,,5,34
+117,Union,C,Incorrect - Employer must pay; non-payment is an offence.,False,34,,,,5,34
+118,Nobody,D,Incorrect - Employer must pay; non-payment is an offence.,False,34,,,,5,34
+119,"RM5,000",A,"Incorrect - Up to RM50,000.",False,35,,,,5,36
+120,"RM20,000",B,"Incorrect - Up to RM50,000.",False,35,,,,5,36
+121,"RM50,000",C,"Correct - Up to RM50,000.",True,35,,,,5,36
+122,"RM100,000",D,"Incorrect - Up to RM50,000.",False,35,,,,5,36
+123,Yes,A,Incorrect - Exceeds the 104-hour cap.,False,36,,,,5,33
+124,No,B,Correct - Exceeds the 104-hour cap.,True,36,,,,5,33
+125,Yes,A,Incorrect - Non-payment is an offence; court can order payment.,False,37,,,,5,34
+126,No,B,Correct - Non-payment is an offence; court can order payment.,True,37,,,,5,34
+127,Warning only,A,"Incorrect - General penalty up to RM50,000.",False,38,,,,5,36
+128,"RM10,000 fine",B,"Incorrect - General penalty up to RM50,000.",False,38,,,,5,36
+129,"RM50,000 fine",C,"Correct - General penalty up to RM50,000.",True,38,,,,5,36
+130,No consequence,D,"Incorrect - General penalty up to RM50,000.",False,38,,,,5,36
+131,Yes,A,Incorrect - Employers must pay for holiday work.,False,39,,,,5,34
+132,No,B,Correct - Employers must pay for holiday work.,True,39,,,,5,34
+133,Nothing,A,Incorrect - Non-compliance can lead to extra fines until payment.,False,40,,,,5,35
+134,Additional daily fines,B,Correct - Non-compliance can lead to extra fines until payment.,True,40,,,,5,35
+135,Worker pays fees,C,Incorrect - Non-compliance can lead to extra fines until payment.,False,40,,,,5,35
+136,Delay allowed,D,Incorrect - Non-compliance can lead to extra fines until payment.,False,40,,,,5,35
+137,Normal rate,A,Incorrect - At least 1.5× the normal hourly rate.,False,41,,,,6,37
+138,1.25×,B,Incorrect - At least 1.5× the normal hourly rate.,False,41,,,,6,37
+139,1.5×,C,Correct - At least 1.5× the normal hourly rate.,True,41,,,,6,37
+140,2×,D,Incorrect - At least 1.5× the normal hourly rate.,False,41,,,,6,37
+141,1 day's pay,A,Incorrect - More than half rest-day work = 2 days' wages.,False,42,,,,6,38
+142,2 days' pay,B,Correct - More than half rest-day work = 2 days' wages.,True,42,,,,6,38
+143,1.5× hourly rate,C,Incorrect - More than half rest-day work = 2 days' wages.,False,42,,,,6,38
+144,Normal pay,D,Incorrect - More than half rest-day work = 2 days' wages.,False,42,,,,6,38
+145,Monthly ÷ 30,A,Incorrect - Monthly ÷ 26 (or weekly ÷ 6).,False,43,,,,6,39
+146,Monthly ÷ 26,B,Correct - Monthly ÷ 26 (or weekly ÷ 6).,True,43,,,,6,39
+147,Weekly ÷ 7,C,Incorrect - Monthly ÷ 26 (or weekly ÷ 6).,False,43,,,,6,39
+148,Monthly ÷ 20,D,Incorrect - Monthly ÷ 26 (or weekly ÷ 6).,False,43,,,,6,39
+149,Yes,A,Incorrect - OT must be paid at least 1.5×.,False,44,,,,6,37
+150,No,B,Correct - OT must be paid at least 1.5×.,True,44,,,,6,37
+151,,A,Incorrect - Half rest-day work = 1 day's wages.,False,45,,,,6,38
+152,1 day's wages,B,Correct - Half rest-day work = 1 day's wages.,True,45,,,,6,38
+153,2 days' wages,C,Incorrect - Half rest-day work = 1 day's wages.,False,45,,,,6,38
+154,Normal pay only,D,Incorrect - Half rest-day work = 1 day's wages.,False,45,,,,6,38
+155,1 day's wages,A,Incorrect - Full rest-day work = 2 days' wages.,False,46,,,,6,38
+156,2 days' wages,B,Correct - Full rest-day work = 2 days' wages.,True,46,,,,6,38
+157,1.5× hourly rate,C,Incorrect - Full rest-day work = 2 days' wages.,False,46,,,,6,38
+158,Normal pay,D,Incorrect - Full rest-day work = 2 days' wages.,False,46,,,,6,38
+159,Normal rate,A,Incorrect - OT on rest day must be at least double hourly rate.,False,47,,,,6,38
+160,1.5×,B,Incorrect - OT on rest day must be at least double hourly rate.,False,47,,,,6,38
+161,2× hourly rate,C,Correct - OT on rest day must be at least double hourly rate.,True,47,,,,6,38
+162,No pay,D,Incorrect - OT on rest day must be at least double hourly rate.,False,47,,,,6,38
+163,Yes,A,Incorrect - Must use monthly ÷ 26.,False,48,,,,6,39
+164,No,B,Correct - Must use monthly ÷ 26.,True,48,,,,6,39
+165,100 sqm,A,Incorrect - 250 square meters.,False,49,,,,7,40
+166,150 sqm,B,Incorrect - 250 square meters.,False,49,,,,7,40
+167,200 sqm,C,Incorrect - 250 square meters.,False,49,,,,7,40
+168,250 sqm,D,Correct - 250 square meters.,True,49,,,,7,40
+169,Nothing extra,A,Incorrect - Community hall and recreation facilities are required.,False,50,,,,7,41
+170,Community hall & recreation facilities,B,Correct - Community hall and recreation facilities are required.,True,50,,,,7,41
+171,Only clinic,C,Incorrect - Community hall and recreation facilities are required.,False,50,,,,7,41
+172,Only dorm rooms,D,Incorrect - Community hall and recreation facilities are required.,False,50,,,,7,41
+173,Government,A,Incorrect - Employer must maintain a clinic with doctor visits.,False,51,,,,7,42
+174,Employer,B,Correct - Employer must maintain a clinic with doctor visits.,True,51,,,,7,42
+175,Union,C,Incorrect - Employer must maintain a clinic with doctor visits.,False,51,,,,7,42
+176,NGO,D,Incorrect - Employer must maintain a clinic with doctor visits.,False,51,,,,7,42
+177,Yes,A,Correct - Certificate for Accommodation is required.,True,52,,,,7,43
+178,No,B,Incorrect - Certificate for Accommodation is required.,False,52,,,,7,43
+179,Yes,A,Incorrect - Rent/charges must be deducted via wages under prescribed conditions.,False,53,,,,7,44
+180,No,B,Correct - Rent/charges must be deducted via wages under prescribed conditions.,True,53,,,,7,44
+181,Yes,A,Incorrect - Unfit buildings cannot be used for accommodation.,False,54,,,,7,45
+182,No,B,Correct - Unfit buildings cannot be used for accommodation.,True,54,,,,7,45
+183,,A,Incorrect - Adequate water and electricity must be provided.,False,55,,,,7,47
+184,Only electricity,B,Incorrect - Adequate water and electricity must be provided.,False,55,,,,7,47
+185,Only water,C,Incorrect - Adequate water and electricity must be provided.,False,55,,,,7,47
+186,Water and electricity,D,Correct - Adequate water and electricity must be provided.,True,55,,,,7,47
+187,Yes,A,Incorrect - Worker generally has up to 4 weeks to vacate after short-notice termination.,False,56,,,,7,46
+188,No,B,Correct - Worker generally has up to 4 weeks to vacate after short-notice termination.,True,56,,,,7,46
+189,"Provide safe equipment and systems, training, emergency procedures",A,"Correct - Employers must ensure safety, training, safe systems, facilities, and emergency procedures.",True,57,,,,8,49
+190,Only pay on time,B,"Incorrect - Employers must ensure safety, training, safe systems, facilities, and emergency procedures.",False,57,,,,8,49
+191,Nothing specific,C,"Incorrect - Employers must ensure safety, training, safe systems, facilities, and emergency procedures.",False,57,,,,8,49
+192,Leave to workers,D,"Incorrect - Employers must ensure safety, training, safe systems, facilities, and emergency procedures.",False,57,,,,8,49
+193,Ignore safety rules,A,Incorrect - Workers must cooperate on safety and wear PPE; penalties apply for breaches.,False,58,,,,8,50
+194,Care for own & others' safety and wear PPE,B,Correct - Workers must cooperate on safety and wear PPE; penalties apply for breaches.,True,58,,,,8,50
+195,Never report hazards,C,Incorrect - Workers must cooperate on safety and wear PPE; penalties apply for breaches.,False,58,,,,8,50
+196,Choose any equipment,D,Incorrect - Workers must cooperate on safety and wear PPE; penalties apply for breaches.,False,58,,,,8,50
+197,No penalty,A,"Incorrect - Fines up to RM2,000 or jail up to 3 months.",False,59,,,,8,50
+198,"RM2,000 fine or up to 3 months jail",B,"Correct - Fines up to RM2,000 or jail up to 3 months.",True,59,,,,8,50
+199,Only warning,C,"Incorrect - Fines up to RM2,000 or jail up to 3 months.",False,59,,,,8,50
+200,RM500 fine,D,"Incorrect - Fines up to RM2,000 or jail up to 3 months.",False,59,,,,8,50
+201,10 workers,A,Incorrect - Required for 40 or more workers or if directed.,False,60,,,,8,52
+202,20 workers,B,Incorrect - Required for 40 or more workers or if directed.,False,60,,,,8,52
+203,40 workers,C,Correct - Required for 40 or more workers or if directed.,True,60,,,,8,52
+204,100 workers,D,Incorrect - Required for 40 or more workers or if directed.,False,60,,,,8,52
+205,Employer,A,Correct - Employer must notify the nearest OSH office.,True,61,,,,8,53
+206,Worker,B,Incorrect - Employer must notify the nearest OSH office.,False,61,,,,8,53
+207,Police,C,Incorrect - Employer must notify the nearest OSH office.,False,61,,,,8,53
+208,Nobody,D,Incorrect - Employer must notify the nearest OSH office.,False,61,,,,8,53
+209,Yes,A,Incorrect - Employers must take fire safety measures.,False,62,,,,8,48
+210,No,B,Correct - Employers must take fire safety measures.,True,62,,,,8,48
+211,Payroll only,A,Incorrect - A written safety and health policy must be prepared and communicated.,False,63,,,,8,51
+212,Written safety & health policy,B,Correct - A written safety and health policy must be prepared and communicated.,True,63,,,,8,51
+213,No documents,C,Incorrect - A written safety and health policy must be prepared and communicated.,False,63,,,,8,51
+214,Advertising plan,D,Incorrect - A written safety and health policy must be prepared and communicated.,False,63,,,,8,51
+215,Do nothing,A,Incorrect - Provide place for safe segregation and bear maintenance/treatment costs as directed.,False,64,,,,8,54
+216,Provide segregation and pay costs as directed,B,Correct - Provide place for safe segregation and bear maintenance/treatment costs as directed.,True,64,,,,8,54
+217,Close business only,C,Incorrect - Provide place for safe segregation and bear maintenance/treatment costs as directed.,False,64,,,,8,54
+218,Ask workers to stay home without pay,D,Incorrect - Provide place for safe segregation and bear maintenance/treatment costs as directed.,False,64,,,,8,54
+219,60,A,Incorrect - 98 consecutive days; allowance subject to qualifying conditions.,False,65,,,,9,55
+220,90,B,Incorrect - 98 consecutive days; allowance subject to qualifying conditions.,False,65,,,,9,55
+221,98,C,Correct - 98 consecutive days; allowance subject to qualifying conditions.,True,65,,,,9,55
+222,100,D,Incorrect - 98 consecutive days; allowance subject to qualifying conditions.,False,65,,,,9,55
+223,3,A,Incorrect - 7 consecutive days for eligible married male employees.,False,66,,,,9,60
+224,5,B,Incorrect - 7 consecutive days for eligible married male employees.,False,66,,,,9,60
+225,7,C,Correct - 7 consecutive days for eligible married male employees.,True,66,,,,9,60
+226,10,D,Incorrect - 7 consecutive days for eligible married male employees.,False,66,,,,9,60
+227,8,A,Incorrect - At least 11 paid public holidays.,False,67,,,,9,57
+228,10,B,Incorrect - At least 11 paid public holidays.,False,67,,,,9,57
+229,11,C,Correct - At least 11 paid public holidays.,True,67,,,,9,57
+230,12,D,Incorrect - At least 11 paid public holidays.,False,67,,,,9,57
+231,12 days,A,Incorrect - 16 days per 12 months.,False,68,,,,9,58
+232,14 days,B,Incorrect - 16 days per 12 months.,False,68,,,,9,58
+233,16 days,C,Correct - 16 days per 12 months.,True,68,,,,9,58
+234,18 days,D,Incorrect - 16 days per 12 months.,False,68,,,,9,58
+235,Yes,A,Incorrect - It's an offence; court can order payment/penalties.,False,69,,,,9,61
+236,No,B,Correct - It's an offence; court can order payment/penalties.,True,69,,,,9,61
+237,No extra pay,A,Incorrect - Compensation depends on pay basis; exceeding half normal hours triggers higher pay.,False,70,,,,9,56
+238,Half-day pay only,B,Incorrect - Compensation depends on pay basis; exceeding half normal hours triggers higher pay.,False,70,,,,9,56
+239,1 day's wages (monthly/weekly) or 2 days (daily/hourly),C,Correct - Compensation depends on pay basis; exceeding half normal hours triggers higher pay.,True,70,,,,9,56
+240,Normal rate only,D,Incorrect - Compensation depends on pay basis; exceeding half normal hours triggers higher pay.,False,70,,,,9,56
+241,Nothing,A,Incorrect - Next working day becomes a paid public holiday.,False,71,,,,9,57
+242,Next working day becomes a paid holiday,B,Correct - Next working day becomes a paid public holiday.,True,71,,,,9,57
+243,Lose the holiday,C,Incorrect - Next working day becomes a paid public holiday.,False,71,,,,9,57
+244,Take leave,D,Incorrect - Next working day becomes a paid public holiday.,False,71,,,,9,57
+245,8 days,A,Incorrect - 14 days per year; higher entitlements for longer service/hospitalisation.,False,72,,,,9,59
+246,14 days,B,Correct - 14 days per year; higher entitlements for longer service/hospitalisation.,True,72,,,,9,59
+247,18 days,C,Incorrect - 14 days per year; higher entitlements for longer service/hospitalisation.,False,72,,,,9,59
+248,22 days,D,Incorrect - 14 days per year; higher entitlements for longer service/hospitalisation.,False,72,,,,9,59
+249,Yes,A,Incorrect - Employers cannot keep passports; only proper authority can.,False,73,,,,10,63
+250,No,B,Correct - Employers cannot keep passports; only proper authority can.,True,73,,,,10,63
+251,Employer,A,Incorrect - Only the worker or proper authority.,False,74,,,,10,63
+252,You and immigration authority with legal approval,B,Correct - Only the worker or proper authority.,True,74,,,,10,63
+253,Supervisor,C,Incorrect - Only the worker or proper authority.,False,74,,,,10,63
+254,Recruitment agent,D,Incorrect - Only the worker or proper authority.,False,74,,,,10,63
+255,Yes,A,Incorrect - Still illegal; passport must remain with worker.,False,75,,,,10,63
+256,No,B,Correct - Still illegal; passport must remain with worker.,True,75,,,,10,63
+257,Allowed,A,Incorrect - It is unlawful.,False,76,,,,10,63
+258,Against the law,B,Correct - It is unlawful.,True,76,,,,10,63
+259,Optional,C,Incorrect - It is unlawful.,False,76,,,,10,63
+260,Company policy,D,Incorrect - It is unlawful.,False,76,,,,10,63
+261,"RM5,000",A,"Incorrect - General penalty up to RM50,000.",False,77,,,,10,62
+262,"RM20,000",B,"Incorrect - General penalty up to RM50,000.",False,77,,,,10,62
+263,"RM50,000",C,"Correct - General penalty up to RM50,000.",True,77,,,,10,62
+264,"RM100,000",D,"Incorrect - General penalty up to RM50,000.",False,77,,,,10,62
+265,Yes,A,Incorrect - Workers should keep their own passport; employer retention risks coercion and is not permitted.,False,78,,,,10,63
+266,No,B,Correct - Workers should keep their own passport; employer retention risks coercion and is not permitted.,True,78,,,,10,63
+267,Yes,A,Incorrect - Passport should remain with the worker except when handed to proper authority.,False,79,,,,10,63
+268,No,B,Correct - Passport should remain with the worker except when handed to proper authority.,True,79,,,,10,63
+269,Do nothing,A,Incorrect - Seek help from NGOs/authorities; retention is illegal.,False,80,,,,10,63
+270,Report to NGO/authorities,B,Correct - Seek help from NGOs/authorities; retention is illegal.,True,80,,,,10,63
+271,Pay a fee to get it back,C,Incorrect - Seek help from NGOs/authorities; retention is illegal.,False,80,,,,10,63
+272,Quit immediately,D,Incorrect - Seek help from NGOs/authorities; retention is illegal.,False,80,,,,10,63

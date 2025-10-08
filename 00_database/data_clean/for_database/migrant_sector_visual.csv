@@ -1,0 +1,4 @@
+sector_id,description,total_accidents_2023,accident_risk_level,2001_perc,2005_perc,2010_perc,2015_perc,2020_perc,2023_perc
+1,"Agriculture, forestry, fishing, and mining activities",1092,Medium,15.1,14.6,13.6,12.5,10.5,9.84
+2,"Manufacturing, construction, electricity, and utilities",4491,High,33.1,29.7,28.3,27.5,25.1,27.75
+3,"Services, retail, transport, finance, and administration",1368,Medium,51.7,55.6,58.1,60.0,64.4,62.41
