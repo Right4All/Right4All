@@ -97,6 +97,8 @@ export const ChatWidget: React.FC = () => {
     try {
       const response = await sendMessage(input, language)
 
+      console.log('Chatbot response:', response)
+
       const botMessage: Message = {
         id: (Date.now() + 1).toString(),
         type: 'bot',
@@ -108,6 +110,7 @@ export const ChatWidget: React.FC = () => {
 
       setMessages(prev => [...prev, botMessage])
     } catch (error) {
+      console.error('Chatbot error:', error)
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
         type: 'bot',

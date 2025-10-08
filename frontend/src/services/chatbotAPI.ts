@@ -14,40 +14,38 @@ interface WageCalculation {
 }
 
 class ChatbotAPI {
-  private baseUrl = '/api/chatbot'
+  private baseUrl = '/chatbot'
 
   async sendMessage(
     question: string,
     language: string,
     sessionId?: string
   ): Promise<ChatResponse> {
-    const response = await apiClient.post(`${this.baseUrl}/chat`, {
+    const response = await apiClient.post<ChatResponse>(`${this.baseUrl}/chat`, {
       question,
       language,
       sessionId
     })
-    return response.data
+    return response
   }
 
   async calculateWage(monthly: number, otHours: number): Promise<WageCalculation> {
-    const response = await apiClient.post(`${this.baseUrl}/wage/check`, {
+    const response = await apiClient.post<WageCalculation>(`${this.baseUrl}/wage/check`, {
       monthly,
       otHours
     })
-    return response.data
+    return response
   }
 
   async getStarterQuestions(language: string): Promise<string[]> {
-    const response = await apiClient.get(`${this.baseUrl}/starter-questions`, {
-      params: { language }
-    })
-    return response.data.questions
+    const response = await apiClient.get<{ questions: string[] }>(`${this.baseUrl}/starter-questions?language=${language}`)
+    return response.data?.questions || []
   }
 
   async healthCheck(): Promise<boolean> {
     try {
-      const response = await apiClient.get(`${this.baseUrl}/health`)
-      return response.data.ok
+      const response = await apiClient.get<{ ok: boolean }>(`${this.baseUrl}/health`)
+      return response.data?.ok || false
     } catch {
       return false
     }
