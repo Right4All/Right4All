@@ -5,6 +5,7 @@ import dotenv from 'dotenv'
 import translationRouter from './routes/translation'
 import insightsRouter from './routes/insights'
 import communityRouter from './routes/community'
+import chatbotRouter from './routes/chatbot'
 import { db } from './services/databaseService'
 
 dotenv.config()
@@ -50,6 +51,9 @@ app.use('/api/insights', insightsRouter)
 // Community routes (organizations, stories, resources)
 app.use('/api/community', communityRouter)
 
+// Chatbot routes (AI assistant with RAG)
+app.use('/api/chatbot', chatbotRouter)
+
 // Graceful shutdown
 process.on('SIGINT', async () => {
   console.log('\n🛑 Shutting down server...')
@@ -70,6 +74,7 @@ async function startServer() {
     console.log(`🚀 Server running on port ${PORT}`)
     console.log(`📊 Labor Market API: http://localhost:${PORT}/api/insights/`)
     console.log(`🌐 Translation API: http://localhost:${PORT}/api/translation/`)
+    console.log(`🤖 Chatbot API: http://localhost:${PORT}/api/chatbot/`)
   })
 }
 

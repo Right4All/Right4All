@@ -7,12 +7,16 @@ import RightsGuide from '@/pages/RightsGuide'
 import Quiz from '@/pages/Quiz'
 import Support from '@/pages/Support'
 import { useLanguageSync } from '@/hooks/useLanguageSync'
+import { ChatWidget } from '@/components/Chatbot'
 
 export default function App() {
   useLanguageSync()
 
   return (
     <div className="min-h-screen">
+      {/* Global Chatbot Widget */}
+      <ChatWidget />
+
       <Routes>
         <Route path="/" element={<LanguageSelection />} />
         <Route path="/home" element={
