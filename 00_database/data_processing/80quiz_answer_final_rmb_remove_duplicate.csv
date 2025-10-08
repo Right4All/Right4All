@@ -1,0 +1,300 @@
+topic_id,legal_id,question_id,question_text_en,quiz_type,answer_id,option_text_en,option_order,option_explanation_text_en,option_is_correct,session_id,created_at,user_id,question_order
+1,34,1,What is the minimum monthly wage in Malaysia from Aug 2025?,multiple_choice,1,"RM1,500",A,"Incorrect - From 1 Aug 2025, the minimum monthly wage is RM1,700 .",False,,,,1
+1,34,1,What is the minimum monthly wage in Malaysia from Aug 2025?,multiple_choice,2,"RM1,600",B,"Incorrect - From 1 Aug 2025, the minimum monthly wage is RM1,700 .",False,,,,1
+1,34,1,What is the minimum monthly wage in Malaysia from Aug 2025?,multiple_choice,3,"RM1,700",C,"Correct - From 1 Aug 2025, the minimum monthly wage is RM1,700 .",True,,,,1
+1,34,1,What is the minimum monthly wage in Malaysia from Aug 2025?,multiple_choice,4,"RM1,800",D,"Incorrect - From 1 Aug 2025, the minimum monthly wage is RM1,700 .",False,,,,1
+1,15,2,Maximum weekly working hours allowed?,multiple_choice,1,40,A,Incorrect - 45 hours per week is the limit. More than this is unlawful except within OT rules .,False,,,,2
+1,15,2,Maximum weekly working hours allowed?,multiple_choice,2,45,B,Correct - 45 hours per week is the limit. More than this is unlawful except within OT rules .,True,,,,2
+1,15,2,Maximum weekly working hours allowed?,multiple_choice,3,48,C,Incorrect - 45 hours per week is the limit. More than this is unlawful except within OT rules .,False,,,,2
+1,15,2,Maximum weekly working hours allowed?,multiple_choice,4,60,D,Incorrect - 45 hours per week is the limit. More than this is unlawful except within OT rules .,False,,,,2
+1,35,3,"Your employer keeps your passport for ""safety"". Is this legal?",true_false,1,Yes,A,Incorrect - Employers cannot keep workers' passports; only proper authority can.,False,,,,3
+1,35,3,"Your employer keeps your passport for ""safety"". Is this legal?",true_false,2,No,B,Correct - Employers cannot keep workers' passports; only proper authority can.,True,,,,3
+1,70,4,How many paid public holidays must you get each year?,multiple_choice,1,8,A,"Incorrect - At least 11 paid public holidays, including 5 mandatory ones.",False,,,,4
+1,70,4,How many paid public holidays must you get each year?,multiple_choice,2,10,B,"Incorrect - At least 11 paid public holidays, including 5 mandatory ones.",False,,,,4
+1,70,4,How many paid public holidays must you get each year?,multiple_choice,3,11,C,"Correct - At least 11 paid public holidays, including 5 mandatory ones.",True,,,,4
+1,70,4,How many paid public holidays must you get each year?,multiple_choice,4,12,D,"Incorrect - At least 11 paid public holidays, including 5 mandatory ones.",False,,,,4
+1,1,5,What is the maximum monthly overtime limit?,multiple_choice,1,60,A,Incorrect - Overtime is capped at 104 hours/month.,False,,,,5
+1,1,5,What is the maximum monthly overtime limit?,multiple_choice,2,80,B,Incorrect - Overtime is capped at 104 hours/month.,False,,,,5
+1,1,5,What is the maximum monthly overtime limit?,multiple_choice,3,104,C,Correct - Overtime is capped at 104 hours/month.,True,,,,5
+1,1,5,What is the maximum monthly overtime limit?,multiple_choice,4,120,D,Incorrect - Overtime is capped at 104 hours/month.,False,,,,5
+1,15,6,You worked 5 continuous hours without a break. Is this allowed?,true_false,1,Yes,A,Incorrect - A 30-minute break is required after 5 continuous hours.,False,,,,6
+1,15,6,You worked 5 continuous hours without a break. Is this allowed?,true_false,2,No,B,Correct - A 30-minute break is required after 5 continuous hours.,True,,,,6
+1,9,7,Maximum wage deduction allowed per month?,multiple_choice,1,30%,A,Incorrect - Total deductions cannot exceed 50% of monthly wages.,False,,,,7
+1,9,7,Maximum wage deduction allowed per month?,multiple_choice,2,40%,B,Incorrect - Total deductions cannot exceed 50% of monthly wages.,False,,,,7
+1,9,7,Maximum wage deduction allowed per month?,multiple_choice,3,50%,C,Correct - Total deductions cannot exceed 50% of monthly wages.,True,,,,7
+1,9,7,Maximum wage deduction allowed per month?,multiple_choice,4,60%,D,Incorrect - Total deductions cannot exceed 50% of monthly wages.,False,,,,7
+1,26,8,Employer didn't pay wages for 2 months. What should happen?,multiple_choice,1,Nothing,A,Incorrect - Non-payment is an offence; authorities/courts can order payment and penalties.,False,,,,8
+1,26,8,Employer didn't pay wages for 2 months. What should happen?,multiple_choice,2,It's an offence; court can order payment,B,Correct - Non-payment is an offence; authorities/courts can order payment and penalties.,True,,,,8
+1,26,8,Employer didn't pay wages for 2 months. What should happen?,multiple_choice,3,Wait longer,C,Incorrect - Non-payment is an offence; authorities/courts can order payment and penalties.,False,,,,8
+1,26,8,Employer didn't pay wages for 2 months. What should happen?,multiple_choice,4,Employer can decide,D,Incorrect - Non-payment is an offence; authorities/courts can order payment and penalties.,False,,,,8
+1,27,8,Employer didn't pay wages for 2 months. What should happen?,multiple_choice,1,Nothing,A,Incorrect - Non-payment is an offence; authorities/courts can order payment and penalties.,False,,,,8
+1,27,8,Employer didn't pay wages for 2 months. What should happen?,multiple_choice,2,It's an offence; court can order payment,B,Correct - Non-payment is an offence; authorities/courts can order payment and penalties.,True,,,,8
+1,27,8,Employer didn't pay wages for 2 months. What should happen?,multiple_choice,3,Wait longer,C,Incorrect - Non-payment is an offence; authorities/courts can order payment and penalties.,False,,,,8
+1,27,8,Employer didn't pay wages for 2 months. What should happen?,multiple_choice,4,Employer can decide,D,Incorrect - Non-payment is an offence; authorities/courts can order payment and penalties.,False,,,,8
+1,28,8,Employer didn't pay wages for 2 months. What should happen?,multiple_choice,1,Nothing,A,Incorrect - Non-payment is an offence; authorities/courts can order payment and penalties.,False,,,,8
+1,28,8,Employer didn't pay wages for 2 months. What should happen?,multiple_choice,2,It's an offence; court can order payment,B,Correct - Non-payment is an offence; authorities/courts can order payment and penalties.,True,,,,8
+1,28,8,Employer didn't pay wages for 2 months. What should happen?,multiple_choice,3,Wait longer,C,Incorrect - Non-payment is an offence; authorities/courts can order payment and penalties.,False,,,,8
+1,28,8,Employer didn't pay wages for 2 months. What should happen?,multiple_choice,4,Employer can decide,D,Incorrect - Non-payment is an offence; authorities/courts can order payment and penalties.,False,,,,8
+1,29,8,Employer didn't pay wages for 2 months. What should happen?,multiple_choice,1,Nothing,A,Incorrect - Non-payment is an offence; authorities/courts can order payment and penalties.,False,,,,8
+1,29,8,Employer didn't pay wages for 2 months. What should happen?,multiple_choice,2,It's an offence; court can order payment,B,Correct - Non-payment is an offence; authorities/courts can order payment and penalties.,True,,,,8
+1,29,8,Employer didn't pay wages for 2 months. What should happen?,multiple_choice,3,Wait longer,C,Incorrect - Non-payment is an offence; authorities/courts can order payment and penalties.,False,,,,8
+1,29,8,Employer didn't pay wages for 2 months. What should happen?,multiple_choice,4,Employer can decide,D,Incorrect - Non-payment is an offence; authorities/courts can order payment and penalties.,False,,,,8
+1,30,8,Employer didn't pay wages for 2 months. What should happen?,multiple_choice,1,Nothing,A,Incorrect - Non-payment is an offence; authorities/courts can order payment and penalties.,False,,,,8
+1,30,8,Employer didn't pay wages for 2 months. What should happen?,multiple_choice,2,It's an offence; court can order payment,B,Correct - Non-payment is an offence; authorities/courts can order payment and penalties.,True,,,,8
+1,30,8,Employer didn't pay wages for 2 months. What should happen?,multiple_choice,3,Wait longer,C,Incorrect - Non-payment is an offence; authorities/courts can order payment and penalties.,False,,,,8
+1,30,8,Employer didn't pay wages for 2 months. What should happen?,multiple_choice,4,Employer can decide,D,Incorrect - Non-payment is an offence; authorities/courts can order payment and penalties.,False,,,,8
+2,4,1,How often must wages be paid?,multiple_choice,1,Weekly,A,Incorrect - Wages must be paid at least once a month.,False,,,,1
+2,4,1,How often must wages be paid?,multiple_choice,2,Monthly,B,Correct - Wages must be paid at least once a month.,True,,,,1
+2,4,1,How often must wages be paid?,multiple_choice,3,Every 2 months,C,Incorrect - Wages must be paid at least once a month.,False,,,,1
+2,4,1,How often must wages be paid?,multiple_choice,4,Whenever employer decides,D,Incorrect - Wages must be paid at least once a month.,False,,,,1
+2,6,2,Wages must be paid within how many days after the wage period ends?,multiple_choice,1,3 days,A,Incorrect - Within 7 days after the wage period ends.,False,,,,2
+2,6,2,Wages must be paid within how many days after the wage period ends?,multiple_choice,2,7 days,B,Correct - Within 7 days after the wage period ends.,True,,,,2
+2,6,2,Wages must be paid within how many days after the wage period ends?,multiple_choice,3,14 days,C,Incorrect - Within 7 days after the wage period ends.,False,,,,2
+2,6,2,Wages must be paid within how many days after the wage period ends?,multiple_choice,4,30 days,D,Incorrect - Within 7 days after the wage period ends.,False,,,,2
+2,5,3,You worked half a month. How is pay calculated?,multiple_choice,1,Employer decides any amount,A,Incorrect - Pay = Monthly wages ÷ Days in period × Days actually worked.,False,,,,3
+2,5,3,You worked half a month. How is pay calculated?,multiple_choice,2,Monthly ÷ Days in period × Days worked,B,Correct - Pay = Monthly wages ÷ Days in period × Days actually worked.,True,,,,3
+2,5,3,You worked half a month. How is pay calculated?,multiple_choice,3,Flat 50% deduction,C,Incorrect - Pay = Monthly wages ÷ Days in period × Days actually worked.,False,,,,3
+2,5,3,You worked half a month. How is pay calculated?,multiple_choice,4,No pay,D,Incorrect - Pay = Monthly wages ÷ Days in period × Days actually worked.,False,,,,3
+2,32,4,Minimum daily wage (6-day week) from Aug 2025?,multiple_choice,1,RM60.00,A,Incorrect - RM65.38 for 6-day week.,False,,,,4
+2,32,4,Minimum daily wage (6-day week) from Aug 2025?,multiple_choice,2,RM65.38,B,Correct - RM65.38 for 6-day week.,True,,,,4
+2,32,4,Minimum daily wage (6-day week) from Aug 2025?,multiple_choice,3,RM70.00,C,Incorrect - RM65.38 for 6-day week.,False,,,,4
+2,32,4,Minimum daily wage (6-day week) from Aug 2025?,multiple_choice,4,RM78.46,D,Incorrect - RM65.38 for 6-day week.,False,,,,4
+2,33,4,Minimum daily wage (6-day week) from Aug 2025?,multiple_choice,1,RM60.00,A,Incorrect - RM65.38 for 6-day week.,False,,,,4
+2,33,4,Minimum daily wage (6-day week) from Aug 2025?,multiple_choice,2,RM65.38,B,Correct - RM65.38 for 6-day week.,True,,,,4
+2,33,4,Minimum daily wage (6-day week) from Aug 2025?,multiple_choice,3,RM70.00,C,Incorrect - RM65.38 for 6-day week.,False,,,,4
+2,33,4,Minimum daily wage (6-day week) from Aug 2025?,multiple_choice,4,RM78.46,D,Incorrect - RM65.38 for 6-day week.,False,,,,4
+2,34,4,Minimum daily wage (6-day week) from Aug 2025?,multiple_choice,1,RM60.00,A,Incorrect - RM65.38 for 6-day week.,False,,,,4
+2,34,4,Minimum daily wage (6-day week) from Aug 2025?,multiple_choice,2,RM65.38,B,Correct - RM65.38 for 6-day week.,True,,,,4
+2,34,4,Minimum daily wage (6-day week) from Aug 2025?,multiple_choice,3,RM70.00,C,Incorrect - RM65.38 for 6-day week.,False,,,,4
+2,34,4,Minimum daily wage (6-day week) from Aug 2025?,multiple_choice,4,RM78.46,D,Incorrect - RM65.38 for 6-day week.,False,,,,4
+2,29,5,"If wages are not paid on time, what is it?",multiple_choice,1,No issue,A,Incorrect - Failing to pay wages on time is an offence.,False,,,,5
+2,29,5,"If wages are not paid on time, what is it?",multiple_choice,2,An offence by employer,B,Correct - Failing to pay wages on time is an offence.,True,,,,5
+2,29,5,"If wages are not paid on time, what is it?",multiple_choice,3,Optional payment,C,Incorrect - Failing to pay wages on time is an offence.,False,,,,5
+2,29,5,"If wages are not paid on time, what is it?",multiple_choice,4,Worker's fault,D,Incorrect - Failing to pay wages on time is an offence.,False,,,,5
+2,14,6,Employer pays wages in cash at a bar. Legal?,true_false,1,Yes,A,Incorrect - Payment at bars/shops is prohibited.,False,,,,6
+2,14,6,Employer pays wages in cash at a bar. Legal?,true_false,2,No,B,Correct - Payment at bars/shops is prohibited.,True,,,,6
+2,13,7,Can employers charge interest on wage advances?,true_false,1,Yes,A,Incorrect - Charging interest or fees on wage advances is not allowed.,False,,,,7
+2,13,7,Can employers charge interest on wage advances?,true_false,2,No,B,Correct - Charging interest or fees on wage advances is not allowed.,True,,,,7
+2,74,8,Employer fails to pay maternity allowance. What happens?,multiple_choice,1,Nothing,A,Incorrect - Courts can order payment and penalties for violations.,False,,,,8
+2,74,8,Employer fails to pay maternity allowance. What happens?,multiple_choice,2,Court can order payment,B,Correct - Courts can order payment and penalties for violations.,True,,,,8
+2,74,8,Employer fails to pay maternity allowance. What happens?,multiple_choice,3,Worker loses rights,C,Incorrect - Courts can order payment and penalties for violations.,False,,,,8
+2,74,8,Employer fails to pay maternity allowance. What happens?,multiple_choice,4,Delay until next month,D,Incorrect - Courts can order payment and penalties for violations.,False,,,,8
+3,15,1,Maximum daily hours allowed (normal conditions)?,multiple_choice,1,8,A,Correct - 8 hours/day.,True,,,,1
+3,15,1,Maximum daily hours allowed (normal conditions)?,multiple_choice,2,10,B,Incorrect - 8 hours/day.,False,,,,1
+3,15,1,Maximum daily hours allowed (normal conditions)?,multiple_choice,3,12,C,Incorrect - 8 hours/day.,False,,,,1
+3,15,1,Maximum daily hours allowed (normal conditions)?,multiple_choice,4,14,D,Incorrect - 8 hours/day.,False,,,,1
+3,15,2,Maximum weekly hours allowed?,multiple_choice,1,40,A,Incorrect - 45 hours/week.,False,,,,2
+3,15,2,Maximum weekly hours allowed?,multiple_choice,2,45,B,Correct - 45 hours/week.,True,,,,2
+3,15,2,Maximum weekly hours allowed?,multiple_choice,3,50,C,Incorrect - 45 hours/week.,False,,,,2
+3,15,2,Maximum weekly hours allowed?,multiple_choice,4,60,D,Incorrect - 45 hours/week.,False,,,,2
+3,15,3,What break is required after 5 continuous hours?,multiple_choice,1,No break,A,Incorrect - At least a 30-minute break.,False,,,,3
+3,15,3,What break is required after 5 continuous hours?,multiple_choice,2,15 minutes,B,Incorrect - At least a 30-minute break.,False,,,,3
+3,15,3,What break is required after 5 continuous hours?,multiple_choice,3,30 minutes,C,Correct - At least a 30-minute break.,True,,,,3
+3,15,3,What break is required after 5 continuous hours?,multiple_choice,4,45 minutes,D,Incorrect - At least a 30-minute break.,False,,,,3
+3,20,4,Forced to work every weekly rest day. Legal?,true_false,1,Yes,A,Incorrect - At least one rest day per week is mandatory.,False,,,,4
+3,20,4,Forced to work every weekly rest day. Legal?,true_false,2,No,B,Correct - At least one rest day per week is mandatory.,True,,,,4
+3,20,5,How many rest days per week are you entitled to?,multiple_choice,1,1,A,Correct - At least one full rest day weekly.,True,,,,5
+3,20,5,How many rest days per week are you entitled to?,multiple_choice,2,2,B,Incorrect - At least one full rest day weekly.,False,,,,5
+3,20,5,How many rest days per week are you entitled to?,multiple_choice,3,0,C,Incorrect - At least one full rest day weekly.,False,,,,5
+3,20,5,How many rest days per week are you entitled to?,multiple_choice,4,Employer decides,D,Incorrect - At least one full rest day weekly.,False,,,,5
+3,25,6,You apply to employer for flexible work. Allowed?,true_false,1,Yes,A,Correct - Workers may apply for flexible hours/days/place.,True,,,,6
+3,25,6,You apply to employer for flexible work. Allowed?,true_false,2,No,B,Incorrect - Workers may apply for flexible hours/days/place.,False,,,,6
+3,15,7,What's the emergency daily maximum hours?,multiple_choice,1,10,A,Incorrect - 12 hours/day cap in emergencies.,False,,,,7
+3,15,7,What's the emergency daily maximum hours?,multiple_choice,2,12,B,Correct - 12 hours/day cap in emergencies.,True,,,,7
+3,15,7,What's the emergency daily maximum hours?,multiple_choice,3,14,C,Incorrect - 12 hours/day cap in emergencies.,False,,,,7
+3,15,7,What's the emergency daily maximum hours?,multiple_choice,4,No limit,D,Incorrect - 12 hours/day cap in emergencies.,False,,,,7
+3,15,8,You worked 50 hours in a week. Legal?,true_false,1,Legal,A,Incorrect - Exceeds 45 hours/week.,False,,,,8
+3,15,8,You worked 50 hours in a week. Legal?,true_false,2,Illegal,B,Correct - Exceeds 45 hours/week.,True,,,,8
+4,35,1,Can your employer keep your passport?,true_false,1,Yes,A,Incorrect - Employers cannot hold passports; only proper authority can.,False,,,,1
+4,35,1,Can your employer keep your passport?,true_false,2,No,B,Correct - Employers cannot hold passports; only proper authority can.,True,,,,1
+4,31,2,Maximum fine for general labour violations (no specific penalty stated)?,multiple_choice,1,"RM10,000",A,"Incorrect - Up to RM50,000.",False,,,,2
+4,31,2,Maximum fine for general labour violations (no specific penalty stated)?,multiple_choice,2,"RM20,000",B,"Incorrect - Up to RM50,000.",False,,,,2
+4,31,2,Maximum fine for general labour violations (no specific penalty stated)?,multiple_choice,3,"RM50,000",C,"Correct - Up to RM50,000.",True,,,,2
+4,31,2,Maximum fine for general labour violations (no specific penalty stated)?,multiple_choice,4,"RM100,000",D,"Incorrect - Up to RM50,000.",False,,,,2
+4,41,3,No safety helmet provided on site. Who is responsible?,multiple_choice,1,Worker,A,Incorrect - Employer must provide protective equipment.,False,,,,3
+4,41,3,No safety helmet provided on site. Who is responsible?,multiple_choice,2,Employer,B,Correct - Employer must provide protective equipment.,True,,,,3
+4,41,3,No safety helmet provided on site. Who is responsible?,multiple_choice,3,Union,C,Incorrect - Employer must provide protective equipment.,False,,,,3
+4,41,3,No safety helmet provided on site. Who is responsible?,multiple_choice,4,NGO,D,Incorrect - Employer must provide protective equipment.,False,,,,3
+4,44,4,A safety & health committee is required at how many workers?,multiple_choice,1,20,A,Incorrect - Required for ≥ 40 workers or when directed.,False,,,,4
+4,44,4,A safety & health committee is required at how many workers?,multiple_choice,2,30,B,Incorrect - Required for ≥ 40 workers or when directed.,False,,,,4
+4,44,4,A safety & health committee is required at how many workers?,multiple_choice,3,40,C,Correct - Required for ≥ 40 workers or when directed.,True,,,,4
+4,44,4,A safety & health committee is required at how many workers?,multiple_choice,4,50,D,Incorrect - Required for ≥ 40 workers or when directed.,False,,,,4
+4,56,5,Unsafe electrical wiring in hostel. Who must fix it?,multiple_choice,1,Employer,A,Correct - Employer/accommodation provider must ensure safety.,True,,,,5
+4,56,5,Unsafe electrical wiring in hostel. Who must fix it?,multiple_choice,2,Worker,B,Incorrect - Employer/accommodation provider must ensure safety.,False,,,,5
+4,56,5,Unsafe electrical wiring in hostel. Who must fix it?,multiple_choice,3,NGO,C,Incorrect - Employer/accommodation provider must ensure safety.,False,,,,5
+4,56,5,Unsafe electrical wiring in hostel. Who must fix it?,multiple_choice,4,Nobody,D,Incorrect - Employer/accommodation provider must ensure safety.,False,,,,5
+4,63,5,Unsafe electrical wiring in hostel. Who must fix it?,multiple_choice,1,Employer,A,Correct - Employer/accommodation provider must ensure safety.,True,,,,5
+4,63,5,Unsafe electrical wiring in hostel. Who must fix it?,multiple_choice,2,Worker,B,Incorrect - Employer/accommodation provider must ensure safety.,False,,,,5
+4,63,5,Unsafe electrical wiring in hostel. Who must fix it?,multiple_choice,3,NGO,C,Incorrect - Employer/accommodation provider must ensure safety.,False,,,,5
+4,63,5,Unsafe electrical wiring in hostel. Who must fix it?,multiple_choice,4,Nobody,D,Incorrect - Employer/accommodation provider must ensure safety.,False,,,,5
+4,45,6,Who must report workplace accidents/dangerous incidents?,multiple_choice,1,Employer,A,Correct - Employer must notify the nearest OSH office.,True,,,,6
+4,45,6,Who must report workplace accidents/dangerous incidents?,multiple_choice,2,Worker,B,Incorrect - Employer must notify the nearest OSH office.,False,,,,6
+4,45,6,Who must report workplace accidents/dangerous incidents?,multiple_choice,3,Police,C,Incorrect - Employer must notify the nearest OSH office.,False,,,,6
+4,45,6,Who must report workplace accidents/dangerous incidents?,multiple_choice,4,No need to report,D,Incorrect - Employer must notify the nearest OSH office.,False,,,,6
+4,63,7,Hostel has no water supply. Legal?,true_false,1,Yes,A,Incorrect - Adequate water must be provided.,False,,,,7
+4,63,7,Hostel has no water supply. Legal?,true_false,2,No,B,Correct - Adequate water must be provided.,True,,,,7
+4,42,8,Employees' safety duty includes…,multiple_choice,1,Nothing,A,Incorrect - Workers must take reasonable care and wear PPE; penalties apply for breaches.,False,,,,8
+4,42,8,Employees' safety duty includes…,multiple_choice,2,Only employer's duty,B,Incorrect - Workers must take reasonable care and wear PPE; penalties apply for breaches.,False,,,,8
+4,42,8,Employees' safety duty includes…,multiple_choice,3,Care for own & others' safety and follow rules,C,Correct - Workers must take reasonable care and wear PPE; penalties apply for breaches.,True,,,,8
+4,42,8,Employees' safety duty includes…,multiple_choice,4,Optional compliance,D,Incorrect - Workers must take reasonable care and wear PPE; penalties apply for breaches.,False,,,,8
+5,1,1,What is the maximum overtime hours per month?,multiple_choice,1,60,A,Incorrect - Monthly cap is 104 hours.,False,,,,1
+5,1,1,What is the maximum overtime hours per month?,multiple_choice,2,80,B,Incorrect - Monthly cap is 104 hours.,False,,,,1
+5,1,1,What is the maximum overtime hours per month?,multiple_choice,3,104,C,Correct - Monthly cap is 104 hours.,True,,,,1
+5,1,1,What is the maximum overtime hours per month?,multiple_choice,4,120,D,Incorrect - Monthly cap is 104 hours.,False,,,,1
+5,2,2,"Who must pay for overtime, rest-day, and holiday work?",multiple_choice,1,Employer,A,Correct - Employer must pay; non-payment is an offence.,True,,,,2
+5,2,2,"Who must pay for overtime, rest-day, and holiday work?",multiple_choice,2,Government,B,Incorrect - Employer must pay; non-payment is an offence.,False,,,,2
+5,2,2,"Who must pay for overtime, rest-day, and holiday work?",multiple_choice,3,Union,C,Incorrect - Employer must pay; non-payment is an offence.,False,,,,2
+5,2,2,"Who must pay for overtime, rest-day, and holiday work?",multiple_choice,4,Nobody,D,Incorrect - Employer must pay; non-payment is an offence.,False,,,,2
+5,31,3,Fine for general violations if no specific penalty is stated?,multiple_choice,1,"RM5,000",A,"Incorrect - Up to RM50,000.",False,,,,3
+5,31,3,Fine for general violations if no specific penalty is stated?,multiple_choice,2,"RM20,000",B,"Incorrect - Up to RM50,000.",False,,,,3
+5,31,3,Fine for general violations if no specific penalty is stated?,multiple_choice,3,"RM50,000",C,"Correct - Up to RM50,000.",True,,,,3
+5,31,3,Fine for general violations if no specific penalty is stated?,multiple_choice,4,"RM100,000",D,"Incorrect - Up to RM50,000.",False,,,,3
+5,1,4,You worked 120 OT hours this month. Legal?,true_false,1,Yes,A,Incorrect - Exceeds the 104-hour cap.,False,,,,4
+5,1,4,You worked 120 OT hours this month. Legal?,true_false,2,No,B,Correct - Exceeds the 104-hour cap.,True,,,,4
+5,2,5,Employer refuses to pay OT. Legal?,true_false,1,Yes,A,Incorrect - Non-payment is an offence; court can order payment.,False,,,,5
+5,2,5,Employer refuses to pay OT. Legal?,true_false,2,No,B,Correct - Non-payment is an offence; court can order payment.,True,,,,5
+5,31,6,"If no penalty is specified for an offence, what applies?",multiple_choice,1,Warning only,A,"Incorrect - General penalty up to RM50,000.",False,,,,6
+5,31,6,"If no penalty is specified for an offence, what applies?",multiple_choice,2,"RM10,000 fine",B,"Incorrect - General penalty up to RM50,000.",False,,,,6
+5,31,6,"If no penalty is specified for an offence, what applies?",multiple_choice,3,"RM50,000 fine",C,"Correct - General penalty up to RM50,000.",True,,,,6
+5,31,6,"If no penalty is specified for an offence, what applies?",multiple_choice,4,No consequence,D,"Incorrect - General penalty up to RM50,000.",False,,,,6
+5,2,7,You worked on a public holiday but got no extra pay. Legal?,true_false,1,Yes,A,Incorrect - Employers must pay for holiday work.,False,,,,7
+5,2,7,You worked on a public holiday but got no extra pay. Legal?,true_false,2,No,B,Correct - Employers must pay for holiday work.,True,,,,7
+5,26,8,What happens if an employer ignores a payment order?,multiple_choice,1,Nothing,A,Incorrect - Non-compliance can lead to extra fines until payment.,False,,,,8
+5,26,8,What happens if an employer ignores a payment order?,multiple_choice,2,Additional daily fines,B,Correct - Non-compliance can lead to extra fines until payment.,True,,,,8
+5,26,8,What happens if an employer ignores a payment order?,multiple_choice,3,Worker pays fees,C,Incorrect - Non-compliance can lead to extra fines until payment.,False,,,,8
+5,26,8,What happens if an employer ignores a payment order?,multiple_choice,4,Delay allowed,D,Incorrect - Non-compliance can lead to extra fines until payment.,False,,,,8
+6,16,1,Minimum overtime pay rate is…,multiple_choice,1,Normal rate,A,Incorrect - At least 1.5× the normal hourly rate.,False,,,,1
+6,16,1,Minimum overtime pay rate is…,multiple_choice,2,1.25×,B,Incorrect - At least 1.5× the normal hourly rate.,False,,,,1
+6,16,1,Minimum overtime pay rate is…,multiple_choice,3,1.5×,C,Correct - At least 1.5× the normal hourly rate.,True,,,,1
+6,16,1,Minimum overtime pay rate is…,multiple_choice,4,2×,D,Incorrect - At least 1.5× the normal hourly rate.,False,,,,1
+6,22,2,"If you work more than half a rest day, you get…",multiple_choice,1,1 day's pay,A,Incorrect - More than half rest-day work = 2 days' wages.,False,,,,2
+6,22,2,"If you work more than half a rest day, you get…",multiple_choice,2,2 days' pay,B,Correct - More than half rest-day work = 2 days' wages.,True,,,,2
+6,22,2,"If you work more than half a rest day, you get…",multiple_choice,3,1.5× hourly rate,C,Incorrect - More than half rest-day work = 2 days' wages.,False,,,,2
+6,22,2,"If you work more than half a rest day, you get…",multiple_choice,4,Normal pay,D,Incorrect - More than half rest-day work = 2 days' wages.,False,,,,2
+6,24,3,Hourly rate calculation (monthly basis) is…,multiple_choice,1,Monthly ÷ 30,A,Incorrect - Monthly ÷ 26 (or weekly ÷ 6).,False,,,,3
+6,24,3,Hourly rate calculation (monthly basis) is…,multiple_choice,2,Monthly ÷ 26,B,Correct - Monthly ÷ 26 (or weekly ÷ 6).,True,,,,3
+6,24,3,Hourly rate calculation (monthly basis) is…,multiple_choice,3,Weekly ÷ 7,C,Incorrect - Monthly ÷ 26 (or weekly ÷ 6).,False,,,,3
+6,24,3,Hourly rate calculation (monthly basis) is…,multiple_choice,4,Monthly ÷ 20,D,Incorrect - Monthly ÷ 26 (or weekly ÷ 6).,False,,,,3
+6,16,4,Paid normal rate for overtime. Legal?,true_false,1,Yes,A,Incorrect - OT must be paid at least 1.5×.,False,,,,4
+6,16,4,Paid normal rate for overtime. Legal?,true_false,2,No,B,Correct - OT must be paid at least 1.5×.,True,,,,4
+6,22,5,Worked half a rest day. What pay?,multiple_choice,2,1 day's wages,B,Correct - Half rest-day work = 1 day's wages.,True,,,,5
+6,22,5,Worked half a rest day. What pay?,multiple_choice,3,2 days' wages,C,Incorrect - Half rest-day work = 1 day's wages.,False,,,,5
+6,22,5,Worked half a rest day. What pay?,multiple_choice,4,Normal pay only,D,Incorrect - Half rest-day work = 1 day's wages.,False,,,,5
+6,22,6,Worked full rest day. What pay?,multiple_choice,1,1 day's wages,A,Incorrect - Full rest-day work = 2 days' wages.,False,,,,6
+6,22,6,Worked full rest day. What pay?,multiple_choice,2,2 days' wages,B,Correct - Full rest-day work = 2 days' wages.,True,,,,6
+6,22,6,Worked full rest day. What pay?,multiple_choice,3,1.5× hourly rate,C,Incorrect - Full rest-day work = 2 days' wages.,False,,,,6
+6,22,6,Worked full rest day. What pay?,multiple_choice,4,Normal pay,D,Incorrect - Full rest-day work = 2 days' wages.,False,,,,6
+6,22,7,Overtime on a rest day. What pay?,multiple_choice,1,Normal rate,A,Incorrect - OT on rest day must be at least double hourly rate.,False,,,,7
+6,22,7,Overtime on a rest day. What pay?,multiple_choice,2,1.5×,B,Incorrect - OT on rest day must be at least double hourly rate.,False,,,,7
+6,22,7,Overtime on a rest day. What pay?,multiple_choice,3,2× hourly rate,C,Correct - OT on rest day must be at least double hourly rate.,True,,,,7
+6,22,7,Overtime on a rest day. What pay?,multiple_choice,4,No pay,D,Incorrect - OT on rest day must be at least double hourly rate.,False,,,,7
+6,24,8,Employer calculates hourly rate as monthly ÷ 30. Legal?,true_false,1,Yes,A,Incorrect - Must use monthly ÷ 26.,False,,,,8
+6,24,8,Employer calculates hourly rate as monthly ÷ 30. Legal?,true_false,2,No,B,Correct - Must use monthly ÷ 26.,True,,,,8
+7,47,1,"If you live at the workplace for ≥ 6 months, the land for food must be at least…",multiple_choice,1,100 sqm,A,Incorrect - 250 square meters.,False,,,,1
+7,47,1,"If you live at the workplace for ≥ 6 months, the land for food must be at least…",multiple_choice,2,150 sqm,B,Incorrect - 250 square meters.,False,,,,1
+7,47,1,"If you live at the workplace for ≥ 6 months, the land for food must be at least…",multiple_choice,3,200 sqm,C,Incorrect - 250 square meters.,False,,,,1
+7,47,1,"If you live at the workplace for ≥ 6 months, the land for food must be at least…",multiple_choice,4,250 sqm,D,Correct - 250 square meters.,True,,,,1
+7,48,2,"If ≥100 workers live at site, employer must provide…",multiple_choice,1,Nothing extra,A,Incorrect - Community hall and recreation facilities are required.,False,,,,2
+7,48,2,"If ≥100 workers live at site, employer must provide…",multiple_choice,2,Community hall & recreation facilities,B,Correct - Community hall and recreation facilities are required.,True,,,,2
+7,48,2,"If ≥100 workers live at site, employer must provide…",multiple_choice,3,Only clinic,C,Incorrect - Community hall and recreation facilities are required.,False,,,,2
+7,48,2,"If ≥100 workers live at site, employer must provide…",multiple_choice,4,Only dorm rooms,D,Incorrect - Community hall and recreation facilities are required.,False,,,,2
+7,50,3,"If no hospital is nearby, who must establish a clinic?",multiple_choice,1,Government,A,Incorrect - Employer must maintain a clinic with doctor visits.,False,,,,3
+7,50,3,"If no hospital is nearby, who must establish a clinic?",multiple_choice,2,Employer,B,Correct - Employer must maintain a clinic with doctor visits.,True,,,,3
+7,50,3,"If no hospital is nearby, who must establish a clinic?",multiple_choice,3,Union,C,Incorrect - Employer must maintain a clinic with doctor visits.,False,,,,3
+7,50,3,"If no hospital is nearby, who must establish a clinic?",multiple_choice,4,NGO,D,Incorrect - Employer must maintain a clinic with doctor visits.,False,,,,3
+7,52,4,Must accommodation have a certificate?,true_false,1,Yes,A,Correct - Certificate for Accommodation is required.,True,,,,4
+7,52,4,Must accommodation have a certificate?,true_false,2,No,B,Incorrect - Certificate for Accommodation is required.,False,,,,4
+7,55,5,Employer charges rent but not via wage deductions. Legal?,true_false,1,Yes,A,Incorrect - Rent/charges must be deducted via wages under prescribed conditions.,False,,,,5
+7,55,5,Employer charges rent but not via wage deductions. Legal?,true_false,2,No,B,Correct - Rent/charges must be deducted via wages under prescribed conditions.,True,,,,5
+7,56,6,Employer uses an unfit building for housing. Legal?,true_false,1,Yes,A,Incorrect - Unfit buildings cannot be used for accommodation.,False,,,,6
+7,56,6,Employer uses an unfit building for housing. Legal?,true_false,2,No,B,Correct - Unfit buildings cannot be used for accommodation.,True,,,,6
+7,63,7,Which utilities are required for housing?,multiple_choice,1,None,A,Incorrect - Adequate water and electricity must be provided.,False,,,,7
+7,63,7,Which utilities are required for housing?,multiple_choice,2,Only electricity,B,Incorrect - Adequate water and electricity must be provided.,False,,,,7
+7,63,7,Which utilities are required for housing?,multiple_choice,3,Only water,C,Incorrect - Adequate water and electricity must be provided.,False,,,,7
+7,63,7,Which utilities are required for housing?,multiple_choice,4,Water and electricity,D,Correct - Adequate water and electricity must be provided.,True,,,,7
+7,59,8,Terminated with notice < 4 weeks; told to leave hostel today. Legal?,true_false,1,Yes,A,Incorrect - Worker generally has up to 4 weeks to vacate after short-notice termination.,False,,,,8
+7,59,8,Terminated with notice < 4 weeks; told to leave hostel today. Legal?,true_false,2,No,B,Correct - Worker generally has up to 4 weeks to vacate after short-notice termination.,True,,,,8
+8,41,1,Employer safety duties include…,multiple_choice,1,"Provide safe equipment and systems, training, emergency procedures",A,"Correct - Employers must ensure safety, training, safe systems, facilities, and emergency procedures.",True,,,,1
+8,41,1,Employer safety duties include…,multiple_choice,2,Only pay on time,B,"Incorrect - Employers must ensure safety, training, safe systems, facilities, and emergency procedures.",False,,,,1
+8,41,1,Employer safety duties include…,multiple_choice,3,Nothing specific,C,"Incorrect - Employers must ensure safety, training, safe systems, facilities, and emergency procedures.",False,,,,1
+8,41,1,Employer safety duties include…,multiple_choice,4,Leave to workers,D,"Incorrect - Employers must ensure safety, training, safe systems, facilities, and emergency procedures.",False,,,,1
+8,42,2,Employees must…,multiple_choice,1,Ignore safety rules,A,Incorrect - Workers must cooperate on safety and wear PPE; penalties apply for breaches.,False,,,,2
+8,42,2,Employees must…,multiple_choice,2,Care for own & others' safety and wear PPE,B,Correct - Workers must cooperate on safety and wear PPE; penalties apply for breaches.,True,,,,2
+8,42,2,Employees must…,multiple_choice,3,Never report hazards,C,Incorrect - Workers must cooperate on safety and wear PPE; penalties apply for breaches.,False,,,,2
+8,42,2,Employees must…,multiple_choice,4,Choose any equipment,D,Incorrect - Workers must cooperate on safety and wear PPE; penalties apply for breaches.,False,,,,2
+8,42,3,Penalty for breaking employee safety duties?,multiple_choice,1,No penalty,A,"Incorrect - Fines up to RM2,000 or jail up to 3 months.",False,,,,3
+8,42,3,Penalty for breaking employee safety duties?,multiple_choice,2,"RM2,000 fine or up to 3 months jail",B,"Correct - Fines up to RM2,000 or jail up to 3 months.",True,,,,3
+8,42,3,Penalty for breaking employee safety duties?,multiple_choice,3,Only warning,C,"Incorrect - Fines up to RM2,000 or jail up to 3 months.",False,,,,3
+8,42,3,Penalty for breaking employee safety duties?,multiple_choice,4,RM500 fine,D,"Incorrect - Fines up to RM2,000 or jail up to 3 months.",False,,,,3
+8,44,4,When must a safety & health committee be set up?,multiple_choice,1,10 workers,A,Incorrect - Required for 40 or more workers or if directed.,False,,,,4
+8,44,4,When must a safety & health committee be set up?,multiple_choice,2,20 workers,B,Incorrect - Required for 40 or more workers or if directed.,False,,,,4
+8,44,4,When must a safety & health committee be set up?,multiple_choice,3,40 workers,C,Correct - Required for 40 or more workers or if directed.,True,,,,4
+8,44,4,When must a safety & health committee be set up?,multiple_choice,4,100 workers,D,Incorrect - Required for 40 or more workers or if directed.,False,,,,4
+8,45,5,Who must report accidents/dangerous incidents?,multiple_choice,1,Employer,A,Correct - Employer must notify the nearest OSH office.,True,,,,5
+8,45,5,Who must report accidents/dangerous incidents?,multiple_choice,2,Worker,B,Incorrect - Employer must notify the nearest OSH office.,False,,,,5
+8,45,5,Who must report accidents/dangerous incidents?,multiple_choice,3,Police,C,Incorrect - Employer must notify the nearest OSH office.,False,,,,5
+8,45,5,Who must report accidents/dangerous incidents?,multiple_choice,4,Nobody,D,Incorrect - Employer must notify the nearest OSH office.,False,,,,5
+8,38,6,Employer ignores fire safety. Legal?,true_false,1,Yes,A,Incorrect - Employers must take fire safety measures.,False,,,,6
+8,38,6,Employer ignores fire safety. Legal?,true_false,2,No,B,Correct - Employers must take fire safety measures.,True,,,,6
+8,43,7,Employer must prepare and update…,multiple_choice,1,Payroll only,A,Incorrect - A written safety and health policy must be prepared and communicated.,False,,,,7
+8,43,7,Employer must prepare and update…,multiple_choice,2,Written safety & health policy,B,Correct - A written safety and health policy must be prepared and communicated.,True,,,,7
+8,43,7,Employer must prepare and update…,multiple_choice,3,No documents,C,Incorrect - A written safety and health policy must be prepared and communicated.,False,,,,7
+8,43,7,Employer must prepare and update…,multiple_choice,4,Advertising plan,D,Incorrect - A written safety and health policy must be prepared and communicated.,False,,,,7
+8,46,8,Infectious disease outbreak at work. Employer must…,multiple_choice,1,Do nothing,A,Incorrect - Provide place for safe segregation and bear maintenance/treatment costs as directed.,False,,,,8
+8,46,8,Infectious disease outbreak at work. Employer must…,multiple_choice,2,Provide segregation and pay costs as directed,B,Correct - Provide place for safe segregation and bear maintenance/treatment costs as directed.,True,,,,8
+8,46,8,Infectious disease outbreak at work. Employer must…,multiple_choice,3,Close business only,C,Incorrect - Provide place for safe segregation and bear maintenance/treatment costs as directed.,False,,,,8
+8,46,8,Infectious disease outbreak at work. Employer must…,multiple_choice,4,Ask workers to stay home without pay,D,Incorrect - Provide place for safe segregation and bear maintenance/treatment costs as directed.,False,,,,8
+9,66,1,Maternity leave entitlement (days)?,multiple_choice,1,60,A,Incorrect - 98 consecutive days; allowance subject to qualifying conditions.,False,,,,1
+9,66,1,Maternity leave entitlement (days)?,multiple_choice,2,90,B,Incorrect - 98 consecutive days; allowance subject to qualifying conditions.,False,,,,1
+9,66,1,Maternity leave entitlement (days)?,multiple_choice,3,98,C,Correct - 98 consecutive days; allowance subject to qualifying conditions.,True,,,,1
+9,66,1,Maternity leave entitlement (days)?,multiple_choice,4,100,D,Incorrect - 98 consecutive days; allowance subject to qualifying conditions.,False,,,,1
+9,73,2,Paternity leave entitlement (days)?,multiple_choice,1,3,A,Incorrect - 7 consecutive days for eligible married male employees.,False,,,,2
+9,73,2,Paternity leave entitlement (days)?,multiple_choice,2,5,B,Incorrect - 7 consecutive days for eligible married male employees.,False,,,,2
+9,73,2,Paternity leave entitlement (days)?,multiple_choice,3,7,C,Correct - 7 consecutive days for eligible married male employees.,True,,,,2
+9,73,2,Paternity leave entitlement (days)?,multiple_choice,4,10,D,Incorrect - 7 consecutive days for eligible married male employees.,False,,,,2
+9,70,3,Minimum paid public holidays per year?,multiple_choice,1,8,A,Incorrect - At least 11 paid public holidays.,False,,,,3
+9,70,3,Minimum paid public holidays per year?,multiple_choice,2,10,B,Incorrect - At least 11 paid public holidays.,False,,,,3
+9,70,3,Minimum paid public holidays per year?,multiple_choice,3,11,C,Correct - At least 11 paid public holidays.,True,,,,3
+9,70,3,Minimum paid public holidays per year?,multiple_choice,4,12,D,Incorrect - At least 11 paid public holidays.,False,,,,3
+9,71,4,Annual leave for service ≥ 5 years?,multiple_choice,1,12 days,A,Incorrect - 16 days per 12 months.,False,,,,4
+9,71,4,Annual leave for service ≥ 5 years?,multiple_choice,2,14 days,B,Incorrect - 16 days per 12 months.,False,,,,4
+9,71,4,Annual leave for service ≥ 5 years?,multiple_choice,3,16 days,C,Correct - 16 days per 12 months.,True,,,,4
+9,71,4,Annual leave for service ≥ 5 years?,multiple_choice,4,18 days,D,Incorrect - 16 days per 12 months.,False,,,,4
+9,74,5,Employer refuses maternity leave to an eligible worker. Legal?,true_false,1,Yes,A,Incorrect - It's an offence; court can order payment/penalties.,False,,,,5
+9,74,5,Employer refuses maternity leave to an eligible worker. Legal?,true_false,2,No,B,Correct - It's an offence; court can order payment/penalties.,True,,,,5
+9,69,6,You work on a rest day > half normal hours. Compensation?,multiple_choice,1,No extra pay,A,Incorrect - Compensation depends on pay basis; exceeding half normal hours triggers higher pay.,False,,,,6
+9,69,6,You work on a rest day > half normal hours. Compensation?,multiple_choice,2,Half-day pay only,B,Incorrect - Compensation depends on pay basis; exceeding half normal hours triggers higher pay.,False,,,,6
+9,69,6,You work on a rest day > half normal hours. Compensation?,multiple_choice,3,1 day's wages (monthly/weekly) or 2 days (daily/hourly),C,Correct - Compensation depends on pay basis; exceeding half normal hours triggers higher pay.,True,,,,6
+9,69,6,You work on a rest day > half normal hours. Compensation?,multiple_choice,4,Normal rate only,D,Incorrect - Compensation depends on pay basis; exceeding half normal hours triggers higher pay.,False,,,,6
+9,70,7,Public holiday falls on your rest day. What happens?,multiple_choice,1,Nothing,A,Incorrect - Next working day becomes a paid public holiday.,False,,,,7
+9,70,7,Public holiday falls on your rest day. What happens?,multiple_choice,2,Next working day becomes a paid holiday,B,Correct - Next working day becomes a paid public holiday.,True,,,,7
+9,70,7,Public holiday falls on your rest day. What happens?,multiple_choice,3,Lose the holiday,C,Incorrect - Next working day becomes a paid public holiday.,False,,,,7
+9,70,7,Public holiday falls on your rest day. What happens?,multiple_choice,4,Take leave,D,Incorrect - Next working day becomes a paid public holiday.,False,,,,7
+9,72,8,Sick leave entitlement for < 2 years of service?,multiple_choice,1,8 days,A,Incorrect - 14 days per year; higher entitlements for longer service/hospitalisation.,False,,,,8
+9,72,8,Sick leave entitlement for < 2 years of service?,multiple_choice,2,14 days,B,Correct - 14 days per year; higher entitlements for longer service/hospitalisation.,True,,,,8
+9,72,8,Sick leave entitlement for < 2 years of service?,multiple_choice,3,18 days,C,Incorrect - 14 days per year; higher entitlements for longer service/hospitalisation.,False,,,,8
+9,72,8,Sick leave entitlement for < 2 years of service?,multiple_choice,4,22 days,D,Incorrect - 14 days per year; higher entitlements for longer service/hospitalisation.,False,,,,8
+10,35,1,Can an employer legally keep your passport?,true_false,1,Yes,A,Incorrect - Employers cannot keep passports; only proper authority can.,False,,,,1
+10,35,1,Can an employer legally keep your passport?,true_false,2,No,B,Correct - Employers cannot keep passports; only proper authority can.,True,,,,1
+10,35,2,Who may lawfully hold your passport?,multiple_choice,1,Employer,A,Incorrect - Only the worker or proper authority.,False,,,,2
+10,35,2,Who may lawfully hold your passport?,multiple_choice,2,You and immigration authority with legal approval,B,Correct - Only the worker or proper authority.,True,,,,2
+10,35,2,Who may lawfully hold your passport?,multiple_choice,3,Supervisor,C,Incorrect - Only the worker or proper authority.,False,,,,2
+10,35,2,Who may lawfully hold your passport?,multiple_choice,4,Recruitment agent,D,Incorrect - Only the worker or proper authority.,False,,,,2
+10,35,3,Employer keeps passport for 'safekeeping' until contract ends. Legal?,true_false,1,Yes,A,Incorrect - Still illegal; passport must remain with worker.,False,,,,3
+10,35,3,Employer keeps passport for 'safekeeping' until contract ends. Legal?,true_false,2,No,B,Correct - Still illegal; passport must remain with worker.,True,,,,3
+10,35,4,"If your passport is kept illegally, that is…",multiple_choice,1,Allowed,A,Incorrect - It is unlawful.,False,,,,4
+10,35,4,"If your passport is kept illegally, that is…",multiple_choice,2,Against the law,B,Correct - It is unlawful.,True,,,,4
+10,35,4,"If your passport is kept illegally, that is…",multiple_choice,3,Optional,C,Incorrect - It is unlawful.,False,,,,4
+10,35,4,"If your passport is kept illegally, that is…",multiple_choice,4,Company policy,D,Incorrect - It is unlawful.,False,,,,4
+10,31,5,Penalty that can apply for passport/labour violations (when no specific penalty stated)?,multiple_choice,1,"RM5,000",A,"Incorrect - General penalty up to RM50,000.",False,,,,5
+10,31,5,Penalty that can apply for passport/labour violations (when no specific penalty stated)?,multiple_choice,2,"RM20,000",B,"Incorrect - General penalty up to RM50,000.",False,,,,5
+10,31,5,Penalty that can apply for passport/labour violations (when no specific penalty stated)?,multiple_choice,3,"RM50,000",C,"Correct - General penalty up to RM50,000.",True,,,,5
+10,31,5,Penalty that can apply for passport/labour violations (when no specific penalty stated)?,multiple_choice,4,"RM100,000",D,"Incorrect - General penalty up to RM50,000.",False,,,,5
+10,35,6,You 'agree' to let employer hold passport. Is it safe/legal?,true_false,1,Yes,A,Incorrect - Workers should keep their own passport; employer retention risks coercion and is not permitted.,False,,,,6
+10,35,6,You 'agree' to let employer hold passport. Is it safe/legal?,true_false,2,No,B,Correct - Workers should keep their own passport; employer retention risks coercion and is not permitted.,True,,,,6
+10,35,7,Employer returns your passport only for immigration appointments. Legal?,true_false,1,Yes,A,Incorrect - Passport should remain with the worker except when handed to proper authority.,False,,,,7
+10,35,7,Employer returns your passport only for immigration appointments. Legal?,true_false,2,No,B,Correct - Passport should remain with the worker except when handed to proper authority.,True,,,,7
+10,35,8,"If employer refuses to return your passport, what should you do first?",multiple_choice,1,Do nothing,A,Incorrect - Seek help from NGOs/authorities; retention is illegal.,False,,,,8
+10,35,8,"If employer refuses to return your passport, what should you do first?",multiple_choice,2,Report to NGO/authorities,B,Correct - Seek help from NGOs/authorities; retention is illegal.,True,,,,8
+10,35,8,"If employer refuses to return your passport, what should you do first?",multiple_choice,3,Pay a fee to get it back,C,Incorrect - Seek help from NGOs/authorities; retention is illegal.,False,,,,8
+10,35,8,"If employer refuses to return your passport, what should you do first?",multiple_choice,4,Quit immediately,D,Incorrect - Seek help from NGOs/authorities; retention is illegal.,False,,,,8
