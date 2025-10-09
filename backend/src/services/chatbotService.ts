@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { db } from './databaseService'
+import { embeddingService } from './embeddingService'
 
 interface ChatMessage {
   role: 'system' | 'user' | 'assistant'
@@ -52,18 +53,45 @@ class ChatbotService {
     return keywords.some(keyword => lowerQuestion.includes(keyword))
   }
 
-  // Search database with timeout
+  // Search database with timeout (RAG with vector similarity)
   private async searchDatabaseWithTimeout(question: string): Promise<DatabaseContext[]> {
     return Promise.race([
-      this.searchDatabase(question),
+      this.searchDatabaseRAG(question),
       new Promise<DatabaseContext[]>((resolve) =>
         setTimeout(() => resolve([]), this.timeoutMs)
       )
     ])
   }
 
-  // Search all relevant tables for context
-  private async searchDatabase(question: string): Promise<DatabaseContext[]> {
+  // RAG: Vector similarity search across all knowledge tables
+  private async searchDatabaseRAG(question: string): Promise<DatabaseContext[]> {
+    try {
+      // Generate embedding for the question
+      const { embedding } = await embeddingService.generateEmbedding(question)
+
+      // Use the stored procedure for vector similarity search
+      const result = await db.query(
+        `SELECT * FROM search_knowledge_base($1::vector, $2, $3)`,
+        [JSON.stringify(embedding), 0.7, 10] // similarity threshold: 0.7, limit: 10 results
+      )
+
+      // Transform results to DatabaseContext format
+      return result.rows.map(row => ({
+        id: row.id,
+        content: row.content,
+        reference: row.reference,
+        source: row.source
+      }))
+    } catch (error) {
+      console.error('RAG search error:', error)
+      // Fallback to keyword search if vector search fails
+      return this.fallbackKeywordSearch(question)
+    }
+  }
+
+  // Fallback: Traditional keyword search (backup if RAG fails)
+  private async fallbackKeywordSearch(question: string): Promise<DatabaseContext[]> {
+    console.log('⚠️  Using fallback keyword search')
     const searchTerm = `%${question}%`
     const contexts: DatabaseContext[] = []
 
@@ -124,7 +152,7 @@ class ChatbotService {
 
       return contexts
     } catch (error) {
-      console.error('Database search error:', error)
+      console.error('Fallback search error:', error)
       return []
     }
   }

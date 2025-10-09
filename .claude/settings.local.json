@@ -21,7 +21,8 @@
       "Bash(npm install:*)",
       "Bash(netstat:*)",
       "Bash(findstr:*)",
-      "Bash(dir:*)"
+      "Bash(dir:*)",
+      "Read(//c/Users/ASUS/OneDrive/Documents/Server/**)"
     ],
     "deny": [],
     "ask": []
