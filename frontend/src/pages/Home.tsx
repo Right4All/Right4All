@@ -68,15 +68,15 @@ export default function Home() {
                   </div>
                 </Link>
 
-                <div className="block group opacity-60">
-                  <div className="faq-item bg-white/5 rounded-2xl p-4 border border-transparent">
+                <Link to="/about-right4all-ai" className="block group">
+                  <div className="faq-item bg-white/5 rounded-2xl p-4 border border-transparent hover:border-cyan-400/30 hover:bg-white/10 transition-all duration-300 cursor-pointer">
                     <div className="faq-question font-semibold text-white mb-2">💬 {t('home.faq.chatWithAI')}</div>
-                    <div className="text-sm text-gray-400 flex items-center gap-2">
-                      <span>{t('home.faq.comingSoon')}</span>
-                      <span className="text-xs opacity-60">⏳</span>
+                    <div className="text-sm text-cyan-300 group-hover:text-cyan-200 flex items-center gap-2">
+                      <span>Learn about our AI Assistant</span>
+                      <span className="text-xs opacity-60">→</span>
                     </div>
                   </div>
-                </div>
+                </Link>
 
                 <Link to="/rights" className="block group">
                   <div className="faq-item bg-white/5 rounded-2xl p-4 border border-transparent hover:border-cyan-400/30 hover:bg-white/10 transition-all duration-300 cursor-pointer">

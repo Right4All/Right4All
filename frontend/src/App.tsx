@@ -6,6 +6,7 @@ import InsightsStories from '@/pages/InsightsStories'
 import RightsGuide from '@/pages/RightsGuide'
 import Quiz from '@/pages/Quiz'
 import Support from '@/pages/Support'
+import AboutRight4AllAI from '@/pages/AboutRight4AllAI'
 import { useLanguageSync } from '@/hooks/useLanguageSync'
 import { ChatWidget } from '@/components/Chatbot'
 
@@ -72,6 +73,14 @@ export default function App() {
             <Navbar />
             <main className="pt-20 md:pt-28 pb-16 min-h-screen">
               <Support />
+            </main>
+          </>
+        } />
+        <Route path="/about-right4all-ai" element={
+          <>
+            <Navbar />
+            <main className="pt-20 md:pt-28 pb-16 min-h-screen">
+              <AboutRight4AllAI />
             </main>
           </>
         } />

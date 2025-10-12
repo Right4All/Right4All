@@ -1,4 +1,4 @@
-import { pipeline, Pipeline } from '@xenova/transformers'
+import { pipeline } from '@xenova/transformers'
 
 interface EmbeddingResponse {
   embedding: number[]
@@ -8,7 +8,7 @@ interface EmbeddingResponse {
 
 class EmbeddingService {
   private model = 'Xenova/multilingual-e5-small' // 384 dimensions, multilingual support
-  private extractor: Pipeline | null = null
+  private extractor: any = null
   private isInitialized = false
   private initPromise: Promise<void> | null = null
 
@@ -67,8 +67,8 @@ class EmbeddingService {
         normalize: true
       })
 
-      // Extract the embedding array
-      const embedding = Array.from(output.data)
+      // Extract the embedding array with proper typing
+      const embedding = Array.from(output.data) as number[]
 
       return {
         embedding,
@@ -107,7 +107,7 @@ class EmbeddingService {
             pooling: 'mean',
             normalize: true
           })
-          embeddings.push(Array.from(output.data))
+          embeddings.push(Array.from(output.data) as number[])
         }
 
         console.log(`✅ Generated embeddings for batch ${Math.floor(i / batchSize) + 1} (${batch.length} items)`)

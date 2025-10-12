@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { MessageCircle, X, Send, Mic, MicOff, Loader2 } from 'lucide-react'
+import { MessageCircle, X, Send, Mic, MicOff, Loader2, Bot, User, Globe, Trash2 } from 'lucide-react'
 import { useChatbot } from '../../hooks/useChatbot'
+import { motion, AnimatePresence } from 'framer-motion'
 
 interface Message {
   id: string
@@ -16,6 +17,7 @@ export const ChatWidget: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([])
   const [input, setInput] = useState('')
   const [isListening, setIsListening] = useState(false)
+  const [isTyping, setIsTyping] = useState(false)
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const recognitionRef = useRef<any>(null)
 
@@ -61,12 +63,14 @@ export const ChatWidget: React.FC = () => {
   // Show welcome message on first open
   useEffect(() => {
     if (isOpen && messages.length === 0) {
-      setMessages([{
-        id: '1',
-        type: 'bot',
-        content: getWelcomeMessage(),
-        timestamp: new Date()
-      }])
+      setTimeout(() => {
+        setMessages([{
+          id: '1',
+          type: 'bot',
+          content: getWelcomeMessage(),
+          timestamp: new Date()
+        }])
+      }, 500)
     }
   }, [isOpen])
 
@@ -93,22 +97,26 @@ export const ChatWidget: React.FC = () => {
 
     setMessages(prev => [...prev, userMessage])
     setInput('')
+    setIsTyping(true)
 
     try {
       const response = await sendMessage(input, language)
 
-      console.log('Chatbot response:', response)
+      // Simulate typing delay for better UX
+      setTimeout(() => {
+        const botMessage: Message = {
+          id: (Date.now() + 1).toString(),
+          type: 'bot',
+          content: response.answer,
+          citations: response.citations,
+          sourceType: response.sourceType,
+          timestamp: new Date()
+        }
 
-      const botMessage: Message = {
-        id: (Date.now() + 1).toString(),
-        type: 'bot',
-        content: response.answer,
-        citations: response.citations,
-        sourceType: response.sourceType,
-        timestamp: new Date()
-      }
+        setMessages(prev => [...prev, botMessage])
+        setIsTyping(false)
+      }, 800)
 
-      setMessages(prev => [...prev, botMessage])
     } catch (error) {
       console.error('Chatbot error:', error)
       const errorMessage: Message = {
@@ -118,6 +126,7 @@ export const ChatWidget: React.FC = () => {
         timestamp: new Date()
       }
       setMessages(prev => [...prev, errorMessage])
+      setIsTyping(false)
     }
   }
 
@@ -153,160 +162,294 @@ export const ChatWidget: React.FC = () => {
     }
   }
 
+  const clearChat = () => {
+    setMessages([])
+  }
+
   return (
     <>
       {/* Floating Button */}
-      {!isOpen && (
-        <button
-          onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 right-6 w-14 h-14 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg flex items-center justify-center transition-all duration-200 z-50"
-          aria-label="Open chat"
-        >
-          <MessageCircle size={24} />
-        </button>
-      )}
+      <AnimatePresence>
+        {!isOpen && (
+          <motion.button
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0, opacity: 0 }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={() => setIsOpen(true)}
+            className="fixed bottom-6 right-6 w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 text-white rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 z-50 group"
+            aria-label="Open chat"
+          >
+            <motion.div
+              animate={{ rotate: [0, 10, -10, 0] }}
+              transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }}
+            >
+              <MessageCircle size={28} />
+            </motion.div>
+            <div className="absolute -top-2 -right-2 w-6 h-6 bg-amber-400 rounded-full flex items-center justify-center text-xs font-bold shadow-lg">
+              AI
+            </div>
+          </motion.button>
+        )}
+      </AnimatePresence>
 
       {/* Chat Panel */}
-      {isOpen && (
-        <div className="fixed bottom-6 right-6 w-96 h-[600px] bg-white rounded-lg shadow-2xl flex flex-col z-50 border border-gray-200">
-          {/* Header */}
-          <div className="bg-blue-600 text-white p-4 rounded-t-lg flex items-center justify-between">
-            <div>
-              <h3 className="font-semibold text-lg">Right4All Assistant</h3>
-              <p className="text-xs text-blue-100">Powered by AI</p>
-            </div>
-            <div className="flex items-center gap-2">
-              {/* Language Selector */}
-              <select
-                value={language}
-                onChange={(e) => setLanguage(e.target.value as any)}
-                className="text-sm bg-blue-700 text-white border-none rounded px-2 py-1 focus:outline-none focus:ring-2 focus:ring-blue-300"
-              >
-                <option value="en">EN</option>
-                <option value="ms">BM</option>
-                <option value="ne">NE</option>
-                <option value="hi">HI</option>
-                <option value="bn">BN</option>
-              </select>
-
-              <button
-                onClick={() => setIsOpen(false)}
-                className="text-white hover:text-gray-200 transition-colors"
-                aria-label="Close chat"
-              >
-                <X size={20} />
-              </button>
-            </div>
-          </div>
-
-          {/* Messages Area */}
-          <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50">
-            {messages.map((message) => (
-              <div
-                key={message.id}
-                className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}
-              >
-                <div
-                  className={`max-w-[80%] rounded-lg p-3 ${
-                    message.type === 'user'
-                      ? 'bg-blue-600 text-white'
-                      : 'bg-white text-gray-800 shadow-sm border border-gray-200'
-                  }`}
-                >
-                  <p className="text-sm whitespace-pre-wrap">{message.content}</p>
-
-                  {/* Citations */}
-                  {message.citations && message.citations.length > 0 && (
-                    <div className="mt-2 pt-2 border-t border-gray-200 text-xs text-gray-600">
-                      <span className="font-semibold">Sources: </span>
-                      {message.citations.join(', ')}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.8, y: 20 }}
+            transition={{ type: "spring", damping: 25, stiffness: 300 }}
+            className="fixed bottom-6 right-6 w-96 h-[600px] bg-white rounded-2xl shadow-2xl flex flex-col z-50 border border-gray-200/50 backdrop-blur-sm overflow-hidden"
+          >
+            {/* Header */}
+            <div className="bg-gradient-to-r from-emerald-600 to-teal-600 text-white p-4 rounded-t-2xl">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="relative">
+                    <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                      <Bot size={20} />
                     </div>
-                  )}
-
-                  {/* Source Type Indicator */}
-                  {message.sourceType === 'general' && (
-                    <div className="mt-1 text-xs text-gray-500 italic">
-                      (General Information)
-                    </div>
-                  )}
+                    <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-400 rounded-full border-2 border-white"></div>
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-lg">Right4All Assistant</h3>
+                    <p className="text-emerald-100 text-xs flex items-center gap-1">
+                      <Globe size={12} />
+                      Online • AI Assistant
+                    </p>
+                  </div>
                 </div>
-              </div>
-            ))}
-
-            {/* Loading indicator */}
-            {isLoading && (
-              <div className="flex justify-start">
-                <div className="bg-white rounded-lg p-3 shadow-sm border border-gray-200">
-                  <Loader2 className="animate-spin text-blue-600" size={20} />
-                </div>
-              </div>
-            )}
-
-            {/* Starter Questions */}
-            {messages.length === 1 && starterQuestions.length > 0 && (
-              <div className="space-y-2">
-                <p className="text-xs text-gray-500 text-center">Quick questions:</p>
-                {starterQuestions.map((question, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => handleStarterQuestion(question)}
-                    className="w-full text-left text-sm bg-white hover:bg-blue-50 text-gray-700 rounded-lg p-2 border border-gray-200 transition-colors"
+                <div className="flex items-center gap-2">
+                  {/* Language Selector */}
+                  <select
+                    value={language}
+                    onChange={(e) => setLanguage(e.target.value as any)}
+                    className="text-sm bg-white/20 text-white border-none rounded-lg px-3 py-1 focus:outline-none focus:ring-2 focus:ring-white/50 backdrop-blur-sm"
                   >
-                    {question}
+                    <option value="en">🇺🇸 EN</option>
+                    <option value="ms">🇲🇾 BM</option>
+                    <option value="ne">🇳🇵 NE</option>
+                    <option value="hi">🇮🇳 HI</option>
+                    <option value="bn">🇧🇩 BN</option>
+                  </select>
+
+                  <button
+                    onClick={clearChat}
+                    className="text-white/80 hover:text-white transition-colors p-1"
+                    aria-label="Clear chat"
+                  >
+                    <Trash2 size={16} />
                   </button>
-                ))}
+
+                  <button
+                    onClick={() => setIsOpen(false)}
+                    className="text-white/80 hover:text-white transition-colors p-1"
+                    aria-label="Close chat"
+                  >
+                    <X size={20} />
+                  </button>
+                </div>
               </div>
-            )}
-
-            <div ref={messagesEndRef} />
-          </div>
-
-          {/* Input Area */}
-          <div className="p-4 border-t border-gray-200 bg-white rounded-b-lg">
-            <div className="flex items-end gap-2">
-              <div className="flex-1 relative">
-                <textarea
-                  value={input}
-                  onChange={(e) => setInput(e.target.value)}
-                  onKeyPress={handleKeyPress}
-                  placeholder="Ask me anything..."
-                  className="w-full resize-none border border-gray-300 rounded-lg px-3 py-2 text-sm text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  rows={2}
-                  disabled={isLoading}
-                />
-              </div>
-
-              {/* Voice Input Button */}
-              <button
-                onClick={toggleListening}
-                disabled={isLoading}
-                className={`p-2 rounded-lg transition-colors ${
-                  isListening
-                    ? 'bg-red-600 text-white'
-                    : 'bg-gray-200 text-gray-600 hover:bg-gray-300'
-                } disabled:opacity-50 disabled:cursor-not-allowed`}
-                aria-label="Voice input"
-              >
-                {isListening ? <MicOff size={20} /> : <Mic size={20} />}
-              </button>
-
-              {/* Send Button */}
-              <button
-                onClick={handleSend}
-                disabled={!input.trim() || isLoading}
-                className="bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                aria-label="Send message"
-              >
-                <Send size={20} />
-              </button>
             </div>
 
-            <p className="text-xs text-gray-500 mt-2 text-center">
-              Press Enter to send • Shift+Enter for new line
-            </p>
-          </div>
-        </div>
-      )}
+            {/* Messages Area */}
+            <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gradient-to-b from-gray-50 to-emerald-50/30">
+              <AnimatePresence>
+                {messages.map((message, index) => (
+                  <motion.div
+                    key={message.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.3, delay: index * 0.1 }}
+                    className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}
+                  >
+                    <div className="flex items-start gap-3 max-w-[85%]">
+                      {message.type === 'bot' && (
+                        <div className="w-8 h-8 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                          <Bot size={16} className="text-white" />
+                        </div>
+                      )}
+                      <div
+                        className={`rounded-2xl p-4 ${
+                          message.type === 'user'
+                            ? 'bg-gradient-to-br from-emerald-500 to-teal-600 text-white shadow-lg'
+                            : 'bg-white text-gray-800 shadow-md border border-gray-100'
+                        }`}
+                      >
+                        <div className="flex items-center gap-2 mb-2">
+                          {message.type === 'user' && (
+                            <User size={14} className="text-emerald-100" />
+                          )}
+                          <span className={`text-xs font-medium ${message.type === 'user' ? 'text-emerald-100' : 'text-gray-500'}`}>
+                            {message.type === 'user' ? 'You' : 'Assistant'}
+                          </span>
+                          <span className={`text-xs ${message.type === 'user' ? 'text-emerald-200' : 'text-gray-400'}`}>
+                            {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                          </span>
+                        </div>
+                        <p className="text-sm whitespace-pre-wrap leading-relaxed">
+                          {message.content}
+                        </p>
+
+                        {/* Citations */}
+                        {message.citations && message.citations.length > 0 && (
+                          <div className="mt-3 pt-3 border-t border-gray-200/50">
+                            <div className="flex flex-wrap gap-1">
+                              <span className="text-xs font-semibold text-gray-600">Sources:</span>
+                              {message.citations.map((citation, idx) => (
+                                <span
+                                  key={idx}
+                                  className="text-xs bg-emerald-100 text-emerald-700 px-2 py-1 rounded-full"
+                                >
+                                  {citation}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+
+                        {/* Source Type Indicator */}
+                        {message.sourceType === 'general' && (
+                          <div className="mt-2 text-xs text-gray-500 italic">
+                            (General Information)
+                          </div>
+                        )}
+                      </div>
+                      {message.type === 'user' && (
+                        <div className="w-8 h-8 bg-gradient-to-br from-gray-600 to-gray-700 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                          <User size={16} className="text-white" />
+                        </div>
+                      )}
+                    </div>
+                  </motion.div>
+                ))}
+              </AnimatePresence>
+
+              {/* Typing Indicator */}
+              {isTyping && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="flex justify-start"
+                >
+                  <div className="flex items-start gap-3 max-w-[85%]">
+                    <div className="w-8 h-8 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                      <Bot size={16} className="text-white" />
+                    </div>
+                    <div className="bg-white rounded-2xl p-4 shadow-md border border-gray-100">
+                      <div className="flex items-center gap-2">
+                        <div className="flex space-x-1">
+                          <motion.div
+                            animate={{ scale: [1, 1.2, 1] }}
+                            transition={{ duration: 1, repeat: Infinity, delay: 0 }}
+                            className="w-2 h-2 bg-emerald-500 rounded-full"
+                          />
+                          <motion.div
+                            animate={{ scale: [1, 1.2, 1] }}
+                            transition={{ duration: 1, repeat: Infinity, delay: 0.2 }}
+                            className="w-2 h-2 bg-emerald-500 rounded-full"
+                          />
+                          <motion.div
+                            animate={{ scale: [1, 1.2, 1] }}
+                            transition={{ duration: 1, repeat: Infinity, delay: 0.4 }}
+                            className="w-2 h-2 bg-emerald-500 rounded-full"
+                          />
+                        </div>
+                        <span className="text-sm text-gray-600">Assistant is typing...</span>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+
+              {/* Starter Questions */}
+              {messages.length === 1 && starterQuestions.length > 0 && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="space-y-3 mt-4"
+                >
+                  <p className="text-xs text-gray-500 text-center font-medium">Quick questions to get started:</p>
+                  <div className="grid grid-cols-1 gap-2">
+                    {starterQuestions.map((question, idx) => (
+                      <motion.button
+                        key={idx}
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        onClick={() => handleStarterQuestion(question)}
+                        className="w-full text-left text-sm bg-white hover:bg-emerald-50 text-gray-700 rounded-xl p-3 border border-gray-200 transition-all duration-200 shadow-sm hover:shadow-md"
+                      >
+                        {question}
+                      </motion.button>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+
+              <div ref={messagesEndRef} />
+            </div>
+
+            {/* Input Area */}
+            <div className="p-4 border-t border-gray-200/50 bg-white/80 backdrop-blur-sm">
+              <div className="flex items-end gap-3">
+                <div className="flex-1 relative">
+                  <textarea
+                    value={input}
+                    onChange={(e) => setInput(e.target.value)}
+                    onKeyPress={handleKeyPress}
+                    placeholder="Ask me anything about migrant workers' rights..."
+                    className="w-full resize-none border border-gray-300 rounded-xl px-4 py-3 text-sm text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-200 bg-white shadow-sm"
+                    rows={2}
+                    disabled={isLoading}
+                  />
+                </div>
+
+                <div className="flex flex-col gap-2">
+                  {/* Voice Input Button */}
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={toggleListening}
+                    disabled={isLoading}
+                    className={`p-3 rounded-xl transition-colors ${
+                      isListening
+                        ? 'bg-red-500 text-white shadow-lg'
+                        : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                    } disabled:opacity-50 disabled:cursor-not-allowed`}
+                    aria-label="Voice input"
+                  >
+                    {isListening ? <MicOff size={18} /> : <Mic size={18} />}
+                  </motion.button>
+
+                  {/* Send Button */}
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={handleSend}
+                    disabled={!input.trim() || isLoading}
+                    className="bg-gradient-to-br from-emerald-500 to-teal-600 text-white p-3 rounded-xl hover:from-emerald-600 hover:to-teal-700 transition-all duration-200 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                    aria-label="Send message"
+                  >
+                    {isLoading ? (
+                      <Loader2 size={18} className="animate-spin" />
+                    ) : (
+                      <Send size={18} />
+                    )}
+                  </motion.button>
+                </div>
+              </div>
+
+              <p className="text-xs text-gray-500 mt-3 text-center">
+                Press Enter to send • Shift+Enter for new line
+              </p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   )
 }
