@@ -45,17 +45,17 @@ export default function AboutRight4AllAI() {
               🤖
             </motion.div>
             <h1 className="text-4xl md:text-6xl font-black leading-tight mb-6">
-              Right4All <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Assistant</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">{t('chatbot.hero.title')}</span>
             </h1>
             <p className="text-xl md:text-2xl text-white/80 mb-8 leading-relaxed">
-              Empowering migrant workers through multilingual AI, verified legal data, and safe, empathetic guidance.
+              {t('chatbot.hero.subtitle')}
             </p>
             <div className="flex justify-center">
               <button 
                 onClick={openChatbot}
                 className="relative btn-primary text-center"
               >
-                Start Chatting
+                {t('chatbot.hero.startChatting')}
               </button>
             </div>
           </div>
@@ -66,9 +66,9 @@ export default function AboutRight4AllAI() {
       <section className="py-16">
         <FadeIn>
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-black text-white mb-4">System Architecture</h2>
+            <h2 className="text-3xl md:text-4xl font-black text-white mb-4">{t('chatbot.architecture.title')}</h2>
             <p className="text-white/80 max-w-2xl mx-auto">
-              Built with cutting-edge AI technology to deliver accurate, safe, and multilingual support
+              {t('chatbot.architecture.subtitle')}
             </p>
           </div>
 
@@ -76,42 +76,42 @@ export default function AboutRight4AllAI() {
             {/* Card 1: Hybrid RAG System */}
             <div className="bg-white/5 backdrop-blur-sm rounded-3xl p-6 md:p-8 border border-white/10 hover:border-cyan-400/30 transition-all duration-300">
               <div className="text-3xl mb-4">🧠</div>
-              <h3 className="text-xl font-bold text-white mb-4">Hybrid RAG System</h3>
+              <h3 className="text-xl font-bold text-white mb-4">{t('chatbot.architecture.hybridRag.title')}</h3>
               <p className="text-white/70 mb-6">
-                Combines vector similarity search with keyword fallback, using DeepSeek API with PostgreSQL vector embeddings and comprehensive keyword matching for reliable responses.
+                {t('chatbot.architecture.hybridRag.description')}
               </p>
               <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 bg-cyan-500/20 text-cyan-300 rounded-full text-sm">DeepSeek API</span>
-                <span className="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-sm">Vector Search</span>
-                <span className="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-sm">Keyword Fallback</span>
+                <span className="px-3 py-1 bg-cyan-500/20 text-cyan-300 rounded-full text-sm">{t('chatbot.architecture.hybridRag.tags.deepseek')}</span>
+                <span className="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-sm">{t('chatbot.architecture.hybridRag.tags.vector')}</span>
+                <span className="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-sm">{t('chatbot.architecture.hybridRag.tags.keyword')}</span>
               </div>
             </div>
 
             {/* Card 2: Database Integration */}
             <div className="bg-white/5 backdrop-blur-sm rounded-3xl p-6 md:p-8 border border-white/10 hover:border-cyan-400/30 transition-all duration-300">
               <div className="text-3xl mb-4">🗄️</div>
-              <h3 className="text-xl font-bold text-white mb-4">Database Integration</h3>
+              <h3 className="text-xl font-bold text-white mb-4">{t('chatbot.architecture.database.title')}</h3>
               <p className="text-white/70 mb-6">
-                Connected to PostgreSQL with tables for rights guides, employment laws, FAQs, migration statistics, and conversation analytics. Uses stored procedures for vector similarity search.
+                {t('chatbot.architecture.database.description')}
               </p>
               <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">PostgreSQL</span>
-                <span className="px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-sm">Vector DB</span>
-                <span className="px-3 py-1 bg-indigo-500/20 text-indigo-300 rounded-full text-sm">Stored Procedures</span>
+                <span className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">{t('chatbot.architecture.database.tags.postgresql')}</span>
+                <span className="px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-sm">{t('chatbot.architecture.database.tags.vectorDb')}</span>
+                <span className="px-3 py-1 bg-indigo-500/20 text-indigo-300 rounded-full text-sm">{t('chatbot.architecture.database.tags.storedProcedures')}</span>
               </div>
             </div>
 
             {/* Card 3: Language & Safety */}
             <div className="bg-white/5 backdrop-blur-sm rounded-3xl p-6 md:p-8 border border-white/10 hover:border-cyan-400/30 transition-all duration-300">
               <div className="text-3xl mb-4">🌐</div>
-              <h3 className="text-xl font-bold text-white mb-4">Language & Safety</h3>
+              <h3 className="text-xl font-bold text-white mb-4">{t('chatbot.architecture.language.title')}</h3>
               <p className="text-white/70 mb-6">
-                Supports 5 languages with strict language enforcement and comprehensive keyword filtering. Rejects off-topic questions and maintains safety boundaries for migrant worker topics only.
+                {t('chatbot.architecture.language.description')}
               </p>
               <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 bg-orange-500/20 text-orange-300 rounded-full text-sm">5 Languages</span>
-                <span className="px-3 py-1 bg-pink-500/20 text-pink-300 rounded-full text-sm">Safety Filter</span>
-                <span className="px-3 py-1 bg-teal-500/20 text-teal-300 rounded-full text-sm">Topic Guard</span>
+                <span className="px-3 py-1 bg-orange-500/20 text-orange-300 rounded-full text-sm">{t('chatbot.architecture.language.tags.languages')}</span>
+                <span className="px-3 py-1 bg-pink-500/20 text-pink-300 rounded-full text-sm">{t('chatbot.architecture.language.tags.safety')}</span>
+                <span className="px-3 py-1 bg-teal-500/20 text-teal-300 rounded-full text-sm">{t('chatbot.architecture.language.tags.topicGuard')}</span>
               </div>
             </div>
           </div>
@@ -122,9 +122,9 @@ export default function AboutRight4AllAI() {
       <section className="py-16">
         <FadeIn>
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-black text-white mb-4">Performance Benchmark</h2>
+            <h2 className="text-3xl md:text-4xl font-black text-white mb-4">{t('chatbot.performance.title')}</h2>
             <p className="text-white/80 max-w-2xl mx-auto">
-              Independent testing validates the Right4All Assistant's accuracy, safety, and empathy
+              {t('chatbot.performance.subtitle')}
             </p>
           </div>
 
@@ -132,63 +132,62 @@ export default function AboutRight4AllAI() {
           <div className="bg-gradient-to-r from-green-500/20 to-emerald-500/20 backdrop-blur-sm rounded-3xl p-8 border border-green-500/30 max-w-4xl mx-auto mb-12">
             <div className="flex items-center gap-4 mb-4">
               <div className="text-3xl">✅</div>
-              <h3 className="text-2xl font-bold text-white">Perfect Performance</h3>
+              <h3 className="text-2xl font-bold text-white">{t('chatbot.performance.perfectPerformance.title')}</h3>
             </div>
             <p className="text-white/80 text-lg">
-              Tested across 35 labour rights questions — evaluated for factual correctness, tone, safety, and cultural sensitivity.
-              Results confirm 100% accuracy in verified data delivery and flawless multilingual communication.
+              {t('chatbot.performance.perfectPerformance.description')}
             </p>
           </div>
 
           {/* Benchmark Table */}
           <div className="bg-white/5 backdrop-blur-sm rounded-3xl p-6 md:p-8 border border-white/10 max-w-4xl mx-auto">
-            <h4 className="text-xl font-bold text-white mb-6 text-center">Test Results Summary</h4>
+            <h4 className="text-xl font-bold text-white mb-6 text-center">{t('chatbot.performance.testResults.title')}</h4>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="text-center">
                 <div className="text-3xl text-green-400 mb-2">35/35</div>
-                <div className="text-white font-semibold">Factual Accuracy</div>
+                <div className="text-white font-semibold">{t('chatbot.performance.testResults.factualAccuracy')}</div>
                 <div className="text-white/60 text-sm">100% Correct</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl text-green-400 mb-2">10/10</div>
-                <div className="text-white font-semibold">Safety Tests</div>
+                <div className="text-white font-semibold">{t('chatbot.performance.testResults.safetyTests')}</div>
                 <div className="text-white/60 text-sm">100% Pass Rate</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl text-green-400 mb-2">5/5</div>
-                <div className="text-white font-semibold">Languages</div>
-                <div className="text-white/60 text-sm">Full Support</div>
+                <div className="text-white font-semibold">{t('chatbot.performance.testResults.languages')}</div>
+                <div className="text-white/60 text-sm">{t('chatbot.performance.testResults.fullSupport')}</div>
               </div>
             </div>
 
             <div className="mt-8 space-y-4">
               <div className="flex items-center justify-between p-4 bg-white/5 rounded-2xl">
-                <span className="text-white">Minimum wage calculation</span>
-                <span className="text-green-400">✅ Wage Rights</span>
+                <span className="text-white">{t('chatbot.performance.testCases.minimumWage')}</span>
+                <span className="text-green-400">✅ {t('chatbot.performance.testCases.wageRights')}</span>
               </div>
               <div className="flex items-center justify-between p-4 bg-white/5 rounded-2xl">
-                <span className="text-white">Overtime payment rules</span>
-                <span className="text-green-400">✅ Legal Compliance</span>
+                <span className="text-white">{t('chatbot.performance.testCases.overtime')}</span>
+                <span className="text-green-400">✅ {t('chatbot.performance.testCases.legalCompliance')}</span>
               </div>
               <div className="flex items-center justify-between p-4 bg-white/5 rounded-2xl">
-                <span className="text-white">Passport confiscation</span>
-                <span className="text-green-400">✅ Safety Boundary</span>
+                <span className="text-white">{t('chatbot.performance.testCases.passport')}</span>
+                <span className="text-green-400">✅ {t('chatbot.performance.testCases.safetyBoundary')}</span>
               </div>
               <div className="flex items-center justify-between p-4 bg-white/5 rounded-2xl">
-                <span className="text-white">Sick leave entitlement</span>
-                <span className="text-green-400">✅ Employment Rights</span>
+                <span className="text-white">{t('chatbot.performance.testCases.sickLeave')}</span>
+                <span className="text-green-400">✅ {t('chatbot.performance.testCases.employmentRights')}</span>
               </div>
               <div className="flex items-center justify-between p-4 bg-white/5 rounded-2xl">
-                <span className="text-white">Accommodation standards</span>
-                <span className="text-green-400">✅ Living Conditions</span>
+                <span className="text-white">{t('chatbot.performance.testCases.accommodation')}</span>
+                <span className="text-green-400">✅ {t('chatbot.performance.testCases.livingConditions')}</span>
               </div>
               <div className="flex items-center justify-between p-4 bg-white/5 rounded-2xl">
-                <span className="text-white">Working hours limits</span>
-                <span className="text-green-400">✅ Working Conditions</span>
+                <span className="text-white">{t('chatbot.performance.testCases.workingHours')}</span>
+                <span className="text-green-400">✅ {t('chatbot.performance.testCases.workingConditions')}</span>
               </div>
               <div className="flex items-center justify-between p-4 bg-white/5 rounded-2xl">
-                <span className="text-white">NGO support access</span>
-                <span className="text-green-400">✅ Support Organizations</span>
+                <span className="text-white">{t('chatbot.performance.testCases.ngoSupport')}</span>
+                <span className="text-green-400">✅ {t('chatbot.performance.testCases.supportOrganizations')}</span>
               </div>
             </div>
           </div>
@@ -201,41 +200,41 @@ export default function AboutRight4AllAI() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
             {/* Key Strengths */}
             <div>
-              <h3 className="text-2xl font-black text-white mb-6">Key Strengths</h3>
+              <h3 className="text-2xl font-black text-white mb-6">{t('chatbot.strengths.title')}</h3>
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
                   <div className="text-green-400 text-xl mt-1">✅</div>
                   <div>
-                    <div className="text-white font-semibold">Hybrid RAG system with vector search</div>
-                    <div className="text-white/70 text-sm">Combines vector similarity search with keyword fallback for reliable responses</div>
+                    <div className="text-white font-semibold">{t('chatbot.strengths.hybridRag.title')}</div>
+                    <div className="text-white/70 text-sm">{t('chatbot.strengths.hybridRag.description')}</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="text-green-400 text-xl mt-1">✅</div>
                   <div>
-                    <div className="text-white font-semibold">Verified database integration</div>
-                    <div className="text-white/70 text-sm">Connected to PostgreSQL with rights guides, employment laws, and migration statistics</div>
+                    <div className="text-white font-semibold">{t('chatbot.strengths.database.title')}</div>
+                    <div className="text-white/70 text-sm">{t('chatbot.strengths.database.description')}</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="text-green-400 text-xl mt-1">✅</div>
                   <div>
-                    <div className="text-white font-semibold">Strict language enforcement</div>
-                    <div className="text-white/70 text-sm">Maintains language consistency across all 5 supported languages</div>
+                    <div className="text-white font-semibold">{t('chatbot.strengths.language.title')}</div>
+                    <div className="text-white/70 text-sm">{t('chatbot.strengths.language.description')}</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="text-green-400 text-xl mt-1">✅</div>
                   <div>
-                    <div className="text-white font-semibold">Comprehensive keyword filtering</div>
-                    <div className="text-white/70 text-sm">1000+ keywords across 5 languages ensure topic relevance</div>
+                    <div className="text-white font-semibold">{t('chatbot.strengths.keyword.title')}</div>
+                    <div className="text-white/70 text-sm">{t('chatbot.strengths.keyword.description')}</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="text-green-400 text-xl mt-1">✅</div>
                   <div>
-                    <div className="text-white font-semibold">Wage calculation capabilities</div>
-                    <div className="text-white/70 text-sm">Built-in wage and overtime calculation with step-by-step breakdown</div>
+                    <div className="text-white font-semibold">{t('chatbot.strengths.wage.title')}</div>
+                    <div className="text-white/70 text-sm">{t('chatbot.strengths.wage.description')}</div>
                   </div>
                 </div>
               </div>
@@ -243,41 +242,41 @@ export default function AboutRight4AllAI() {
 
             {/* Safety Features */}
             <div>
-              <h3 className="text-2xl font-black text-white mb-6">Safety Features</h3>
+              <h3 className="text-2xl font-black text-white mb-6">{t('chatbot.safety.title')}</h3>
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
                   <div className="text-blue-400 text-xl mt-1">🛡️</div>
                   <div>
-                    <div className="text-white font-semibold">Topic boundary enforcement</div>
-                    <div className="text-white/70 text-sm">Rejects questions outside migrant worker rights and labour issues</div>
+                    <div className="text-white font-semibold">{t('chatbot.safety.topicBoundary.title')}</div>
+                    <div className="text-white/70 text-sm">{t('chatbot.safety.topicBoundary.description')}</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="text-blue-400 text-xl mt-1">🛡️</div>
                   <div>
-                    <div className="text-white font-semibold">Database-backed responses</div>
-                    <div className="text-white/70 text-sm">Uses verified data from rights guides, laws, and migration statistics</div>
+                    <div className="text-white font-semibold">{t('chatbot.safety.databaseBacked.title')}</div>
+                    <div className="text-white/70 text-sm">{t('chatbot.safety.databaseBacked.description')}</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="text-blue-400 text-xl mt-1">🛡️</div>
                   <div>
-                    <div className="text-white font-semibold">Fallback protection</div>
-                    <div className="text-white/70 text-sm">Graceful fallback to keyword search when vector search fails</div>
+                    <div className="text-white font-semibold">{t('chatbot.safety.fallback.title')}</div>
+                    <div className="text-white/70 text-sm">{t('chatbot.safety.fallback.description')}</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="text-blue-400 text-xl mt-1">🛡️</div>
                   <div>
-                    <div className="text-white font-semibold">Conversation analytics</div>
-                    <div className="text-white/70 text-sm">Anonymous conversation logging for performance monitoring</div>
+                    <div className="text-white font-semibold">{t('chatbot.safety.analytics.title')}</div>
+                    <div className="text-white/70 text-sm">{t('chatbot.safety.analytics.description')}</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="text-blue-400 text-xl mt-1">🛡️</div>
                   <div>
-                    <div className="text-white font-semibold">Source transparency</div>
-                    <div className="text-white/70 text-sm">Provides citations and source types for all responses</div>
+                    <div className="text-white font-semibold">{t('chatbot.safety.transparency.title')}</div>
+                    <div className="text-white/70 text-sm">{t('chatbot.safety.transparency.description')}</div>
                   </div>
                 </div>
               </div>
@@ -290,9 +289,9 @@ export default function AboutRight4AllAI() {
       <section className="py-16">
         <FadeIn>
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-black text-white mb-4">What the Assistant Can Help With</h2>
+            <h2 className="text-3xl md:text-4xl font-black text-white mb-4">{t('chatbot.capabilities.title')}</h2>
             <p className="text-white/80 max-w-2xl mx-auto">
-              Comprehensive support for migrant workers across all essential areas
+              {t('chatbot.capabilities.subtitle')}
             </p>
           </div>
 
@@ -300,54 +299,54 @@ export default function AboutRight4AllAI() {
             {/* Card 1 */}
             <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-cyan-400/30 transition-all duration-300">
               <div className="text-2xl mb-4">💰</div>
-              <h3 className="text-lg font-bold text-white mb-3">Wage & Salary Questions</h3>
+              <h3 className="text-lg font-bold text-white mb-3">{t('chatbot.capabilities.wage.title')}</h3>
               <p className="text-white/70 text-sm">
-                Minimum wage calculations, overtime pay rules, salary deductions, and wage slip verification.
+                {t('chatbot.capabilities.wage.description')}
               </p>
             </div>
 
             {/* Card 2 */}
             <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-cyan-400/30 transition-all duration-300">
               <div className="text-2xl mb-4">⏰</div>
-              <h3 className="text-lg font-bold text-white mb-3">Working Hours & Leave</h3>
+              <h3 className="text-lg font-bold text-white mb-3">{t('chatbot.capabilities.hours.title')}</h3>
               <p className="text-white/70 text-sm">
-                Daily working hours, annual leave entitlement, sick leave rights, and public holiday rules.
+                {t('chatbot.capabilities.hours.description')}
               </p>
             </div>
 
             {/* Card 3 */}
             <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-cyan-400/30 transition-all duration-300">
               <div className="text-2xl mb-4">📄</div>
-              <h3 className="text-lg font-bold text-white mb-3">Documents & Legal Rights</h3>
+              <h3 className="text-lg font-bold text-white mb-3">{t('chatbot.capabilities.documents.title')}</h3>
               <p className="text-white/70 text-sm">
-                Passport issues, work permits, employment contracts, and legal rights protection.
+                {t('chatbot.capabilities.documents.description')}
               </p>
             </div>
 
             {/* Card 4 */}
             <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-cyan-400/30 transition-all duration-300">
               <div className="text-2xl mb-4">🏠</div>
-              <h3 className="text-lg font-bold text-white mb-3">Accommodation & Living</h3>
+              <h3 className="text-lg font-bold text-white mb-3">{t('chatbot.capabilities.accommodation.title')}</h3>
               <p className="text-white/70 text-sm">
-                Housing standards, accommodation charges, living conditions, and basic amenities.
+                {t('chatbot.capabilities.accommodation.description')}
               </p>
             </div>
 
             {/* Card 5 */}
             <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-cyan-400/30 transition-all duration-300">
               <div className="text-2xl mb-4">🤝</div>
-              <h3 className="text-lg font-bold text-white mb-3">Support & NGOs</h3>
+              <h3 className="text-lg font-bold text-white mb-3">{t('chatbot.capabilities.support.title')}</h3>
               <p className="text-white/70 text-sm">
-                Finding NGOs, filing complaints, Labour Department contacts, and support organizations.
+                {t('chatbot.capabilities.support.description')}
               </p>
             </div>
 
             {/* Card 6 */}
             <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-cyan-400/30 transition-all duration-300">
               <div className="text-2xl mb-4">🌐</div>
-              <h3 className="text-lg font-bold text-white mb-3">Multilingual Support</h3>
+              <h3 className="text-lg font-bold text-white mb-3">{t('chatbot.capabilities.multilingual.title')}</h3>
               <p className="text-white/70 text-sm">
-                Full support in English, Bahasa Malaysia, Hindi, Nepali, and Bengali with cultural context.
+                {t('chatbot.capabilities.multilingual.description')}
               </p>
             </div>
           </div>
@@ -369,9 +368,9 @@ export default function AboutRight4AllAI() {
                   🌍
                 </motion.span>
                 <div className="text-left">
-                  <h3 className="text-lg font-bold text-white">Supporting Sustainable Development Goals</h3>
+                  <h3 className="text-lg font-bold text-white">{t('chatbot.sdg.title')}</h3>
                   <p className="text-white/70 text-sm max-w-md">
-                    Right4All Assistant contributes to SDG 10: Reduced Inequalities by providing equal access to legal information for all migrant workers.
+                    {t('chatbot.sdg.description')}
                   </p>
                 </div>
                 <div className="flex items-center gap-2 px-3 py-1 bg-white/20 rounded-full">

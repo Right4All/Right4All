@@ -102,6 +102,12 @@ const resources = {
         interactiveQuizAvailable: 'Interactive quiz available',
         title: 'Know Your Rights Quiz',
         subtitle: 'Test your knowledge about workplace rights through interactive quizzes. Choose your preferred language to begin.',
+        testYourKnowledge: 'Test Your Knowledge',
+        testYourKnowledgeSubtitle: 'Take interactive quizzes to test your understanding of workplace rights and labor laws',
+        chooseQuizCategory: 'Choose Quiz Category',
+        selectedLanguage: 'Selected language',
+        questionsAvailable: 'questions available',
+        startQuiz: 'Start Quiz',
         disclaimer: {
           title: 'Disclaimer',
           content: 'The quizzes are provided for learning and self-assessment purposes only. They are not official tests and do not guarantee compliance with workplace laws. Always confirm important information with official sources or qualified professionals.'
@@ -119,7 +125,7 @@ const resources = {
         countryComparison: {
           title: 'Country Comparison',
           selectCountries: 'Select Countries',
-          compareTop2: 'Compare Top 2 Countries',
+          compareTop2: 'Compare Countries',
           clearSelection: 'Clear Selection',
           selectToCompare: 'Select Countries to Compare',
           chooseAtLeast2: 'Choose at least 2 countries from the list to see the comparison chart',
@@ -322,6 +328,153 @@ const resources = {
           workingHours: 'Working Hours & Conditions',
           resilience: 'Resilience & Success'
         }
+      },
+      chatbot: {
+        hero: {
+          title: 'Right4All Assistant',
+          subtitle: 'Empowering migrant workers through multilingual AI, verified legal data, and safe, empathetic guidance.',
+          startChatting: 'Start Chatting'
+        },
+        architecture: {
+          title: 'System Architecture',
+          subtitle: 'Built with cutting-edge AI technology to deliver accurate, safe, and multilingual support',
+          hybridRag: {
+            title: 'Hybrid RAG System',
+            description: 'Combines vector similarity search with keyword fallback, using DeepSeek API with PostgreSQL vector embeddings and comprehensive keyword matching for reliable responses.',
+            tags: {
+              deepseek: 'DeepSeek API',
+              vector: 'Vector Search',
+              keyword: 'Keyword Fallback'
+            }
+          },
+          database: {
+            title: 'Database Integration',
+            description: 'Connected to PostgreSQL with tables for rights guides, employment laws, FAQs, migration statistics, and conversation analytics. Uses stored procedures for vector similarity search.',
+            tags: {
+              postgresql: 'PostgreSQL',
+              vectorDb: 'Vector DB',
+              storedProcedures: 'Stored Procedures'
+            }
+          },
+          language: {
+            title: 'Language & Safety',
+            description: 'Supports 5 languages with strict language enforcement and comprehensive keyword filtering. Rejects off-topic questions and maintains safety boundaries for migrant worker topics only.',
+            tags: {
+              languages: '5 Languages',
+              safety: 'Safety Filter',
+              topicGuard: 'Topic Guard'
+            }
+          }
+        },
+        performance: {
+          title: 'Performance Benchmark',
+          subtitle: 'Independent testing validates the Right4All Assistant\'s accuracy, safety, and empathy',
+          perfectPerformance: {
+            title: 'Perfect Performance',
+            description: 'Tested across 35 labour rights questions — evaluated for factual correctness, tone, safety, and cultural sensitivity. Results confirm 100% accuracy in verified data delivery and flawless multilingual communication.'
+          },
+          testResults: {
+            title: 'Test Results Summary',
+            factualAccuracy: 'Factual Accuracy',
+            safetyTests: 'Safety Tests',
+            languages: 'Languages',
+            fullSupport: 'Full Support'
+          },
+          testCases: {
+            minimumWage: 'Minimum wage calculation',
+            overtime: 'Overtime payment rules',
+            passport: 'Passport confiscation',
+            sickLeave: 'Sick leave entitlement',
+            accommodation: 'Accommodation standards',
+            workingHours: 'Working hours limits',
+            ngoSupport: 'NGO support access',
+            wageRights: 'Wage Rights',
+            legalCompliance: 'Legal Compliance',
+            safetyBoundary: 'Safety Boundary',
+            employmentRights: 'Employment Rights',
+            livingConditions: 'Living Conditions',
+            workingConditions: 'Working Conditions',
+            supportOrganizations: 'Support Organizations'
+          }
+        },
+        strengths: {
+          title: 'Key Strengths',
+          hybridRag: {
+            title: 'Hybrid RAG system with vector search',
+            description: 'Combines vector similarity search with keyword fallback for reliable responses'
+          },
+          database: {
+            title: 'Verified database integration',
+            description: 'Connected to PostgreSQL with rights guides, employment laws, and migration statistics'
+          },
+          language: {
+            title: 'Strict language enforcement',
+            description: 'Maintains language consistency across all 5 supported languages'
+          },
+          keyword: {
+            title: 'Comprehensive keyword filtering',
+            description: '1000+ keywords across 5 languages ensure topic relevance'
+          },
+          wage: {
+            title: 'Wage calculation capabilities',
+            description: 'Built-in wage and overtime calculation with step-by-step breakdown'
+          }
+        },
+        safety: {
+          title: 'Safety Features',
+          topicBoundary: {
+            title: 'Topic boundary enforcement',
+            description: 'Rejects questions outside migrant worker rights and labour issues'
+          },
+          databaseBacked: {
+            title: 'Database-backed responses',
+            description: 'Uses verified data from rights guides, laws, and migration statistics'
+          },
+          fallback: {
+            title: 'Fallback protection',
+            description: 'Graceful fallback to keyword search when vector search fails'
+          },
+          analytics: {
+            title: 'Conversation analytics',
+            description: 'Anonymous conversation logging for performance monitoring'
+          },
+          transparency: {
+            title: 'Source transparency',
+            description: 'Provides citations and source types for all responses'
+          }
+        },
+        capabilities: {
+          title: 'What the Assistant Can Help With',
+          subtitle: 'Comprehensive support for migrant workers across all essential areas',
+          wage: {
+            title: 'Wage & Salary Questions',
+            description: 'Minimum wage calculations, overtime pay rules, salary deductions, and wage slip verification.'
+          },
+          hours: {
+            title: 'Working Hours & Leave',
+            description: 'Daily working hours, annual leave entitlement, sick leave rights, and public holiday rules.'
+          },
+          documents: {
+            title: 'Documents & Legal Rights',
+            description: 'Passport issues, work permits, employment contracts, and legal rights protection.'
+          },
+          accommodation: {
+            title: 'Accommodation & Living',
+            description: 'Housing standards, accommodation charges, living conditions, and basic amenities.'
+          },
+          support: {
+            title: 'Support & NGOs',
+            description: 'Finding NGOs, filing complaints, Labour Department contacts, and support organizations.'
+          },
+          multilingual: {
+            title: 'Multilingual Support',
+            description: 'Full support in English, Bahasa Malaysia, Hindi, Nepali, and Bengali with cultural context.'
+          }
+        },
+        sdg: {
+          title: 'Supporting Sustainable Development Goals',
+          description: 'Right4All Assistant contributes to SDG 10: Reduced Inequalities by providing equal access to legal information for all migrant workers.'
+        }
       }
     }
   },
@@ -417,6 +570,12 @@ const resources = {
         interactiveQuizAvailable: 'Kuiz interaktif tersedia',
         title: 'Kuiz Kenali Hak Anda',
         subtitle: 'Uji pengetahuan anda tentang hak tempat kerja melalui kuiz interaktif. Pilih bahasa pilihan anda untuk bermula.',
+        testYourKnowledge: 'Uji Pengetahuan Anda',
+        testYourKnowledgeSubtitle: 'Ambil kuiz interaktif untuk menguji pemahaman anda tentang hak tempat kerja dan undang-undang buruh',
+        chooseQuizCategory: 'Pilih Kategori Kuiz',
+        selectedLanguage: 'Bahasa yang dipilih',
+        questionsAvailable: 'soalan tersedia',
+        startQuiz: 'Mula Kuiz',
         disclaimer: {
           title: 'Penafian',
           content: 'Kuiz-kuiz ini disediakan untuk tujuan pembelajaran dan penilaian kendiri sahaja. Ia bukan ujian rasmi dan tidak menjamin pematuhan undang-undang tempat kerja. Sentiasa sahkan maklumat penting dengan sumber rasmi atau profesional yang berkelayakan.'
@@ -434,7 +593,7 @@ const resources = {
         countryComparison: {
           title: 'Perbandingan Negara',
           selectCountries: 'Pilih Negara',
-          compareTop2: 'Bandingkan 2 Negara Teratas',
+          compareTop2: 'Bandingkan Negara',
           clearSelection: 'Kosongkan Pilihan',
           selectToCompare: 'Pilih Negara untuk Dibandingkan',
           chooseAtLeast2: 'Pilih sekurang-kurangnya 2 negara dari senarai untuk melihat carta perbandingan',
@@ -637,6 +796,153 @@ const resources = {
           workingHours: 'Waktu Kerja & Syarat',
           resilience: 'Daya Tahan & Kejayaan'
         }
+      },
+      chatbot: {
+        hero: {
+          title: 'Pembantu Right4All',
+          subtitle: 'Memperkasakan pekerja migran melalui AI pelbagai bahasa, data undang-undang yang disahkan, dan panduan selamat dan berempati.',
+          startChatting: 'Mula Berbual'
+        },
+        architecture: {
+          title: 'Seni Bina Sistem',
+          subtitle: 'Dibina dengan teknologi AI terkini untuk menyampaikan sokongan yang tepat, selamat, dan pelbagai bahasa',
+          hybridRag: {
+            title: 'Sistem RAG Hibrid',
+            description: 'Menggabungkan carian persamaan vektor dengan sandaran kata kunci, menggunakan API DeepSeek dengan penanaman vektor PostgreSQL dan pemadanan kata kunci yang komprehensif untuk respons yang boleh dipercayai.',
+            tags: {
+              deepseek: 'API DeepSeek',
+              vector: 'Carian Vektor',
+              keyword: 'Sandaran Kata Kunci'
+            }
+          },
+          database: {
+            title: 'Integrasi Pangkalan Data',
+            description: 'Disambungkan ke PostgreSQL dengan jadual untuk panduan hak, undang-undang pekerjaan, Soalan Lazim, statistik migrasi, dan analisis perbualan. Menggunakan prosedur tersimpan untuk carian persamaan vektor.',
+            tags: {
+              postgresql: 'PostgreSQL',
+              vectorDb: 'Pangkalan Data Vektor',
+              storedProcedures: 'Prosedur Tersimpan'
+            }
+          },
+          language: {
+            title: 'Bahasa & Keselamatan',
+            description: 'Menyokong 5 bahasa dengan penguatkuasaan bahasa yang ketat dan penapisan kata kunci yang komprehensif. Menolak soalan di luar topik dan mengekalkan sempadan keselamatan untuk topik pekerja migran sahaja.',
+            tags: {
+              languages: '5 Bahasa',
+              safety: 'Penapis Keselamatan',
+              topicGuard: 'Pengawal Topik'
+            }
+          }
+        },
+        performance: {
+          title: 'Penanda Aras Prestasi',
+          subtitle: 'Ujian bebas mengesahkan ketepatan, keselamatan, dan empati Pembantu Right4All',
+          perfectPerformance: {
+            title: 'Prestasi Sempurna',
+            description: 'Diuji merentasi 35 soalan hak buruh — dinilai untuk ketepatan fakta, nada, keselamatan, dan sensitiviti budaya. Keputusan mengesahkan 100% ketepatan dalam penghantaran data yang disahkan dan komunikasi pelbagai bahasa yang sempurna.'
+          },
+          testResults: {
+            title: 'Ringkasan Keputusan Ujian',
+            factualAccuracy: 'Ketepatan Fakta',
+            safetyTests: 'Ujian Keselamatan',
+            languages: 'Bahasa',
+            fullSupport: 'Sokongan Penuh'
+          },
+          testCases: {
+            minimumWage: 'Pengiraan gaji minimum',
+            overtime: 'Peraturan pembayaran kerja lebih masa',
+            passport: 'Rampasan pasport',
+            sickLeave: 'Hak cuti sakit',
+            accommodation: 'Piawaian penginapan',
+            workingHours: 'Had waktu bekerja',
+            ngoSupport: 'Akses sokongan NGO',
+            wageRights: 'Hak Gaji',
+            legalCompliance: 'Pematuhan Undang-undang',
+            safetyBoundary: 'Sempadan Keselamatan',
+            employmentRights: 'Hak Pekerjaan',
+            livingConditions: 'Keadaan Hidup',
+            workingConditions: 'Keadaan Kerja',
+            supportOrganizations: 'Organisasi Sokongan'
+          }
+        },
+        strengths: {
+          title: 'Kekuatan Utama',
+          hybridRag: {
+            title: 'Sistem RAG hibrid dengan carian vektor',
+            description: 'Menggabungkan carian persamaan vektor dengan sandaran kata kunci untuk respons yang boleh dipercayai'
+          },
+          database: {
+            title: 'Integrasi pangkalan data yang disahkan',
+            description: 'Disambungkan ke PostgreSQL dengan panduan hak, undang-undang pekerjaan, dan statistik migrasi'
+          },
+          language: {
+            title: 'Penguatkuasaan bahasa yang ketat',
+            description: 'Mengekalkan konsistensi bahasa merentasi semua 5 bahasa yang disokong'
+          },
+          keyword: {
+            title: 'Penapisan kata kunci yang komprehensif',
+            description: '1000+ kata kunci merentasi 5 bahasa memastikan relevansi topik'
+          },
+          wage: {
+            title: 'Keupayaan pengiraan gaji',
+            description: 'Pengiraan gaji dan kerja lebih masa terbina dalam dengan pecahan langkah demi langkah'
+          }
+        },
+        safety: {
+          title: 'Ciri Keselamatan',
+          topicBoundary: {
+            title: 'Penguatkuasaan sempadan topik',
+            description: 'Menolak soalan di luar hak pekerja migran dan isu buruh'
+          },
+          databaseBacked: {
+            title: 'Respons berasaskan pangkalan data',
+            description: 'Menggunakan data yang disahkan dari panduan hak, undang-undang, dan statistik migrasi'
+          },
+          fallback: {
+            title: 'Perlindungan sandaran',
+            description: 'Sandaran anggun kepada carian kata kunci apabila carian vektor gagal'
+          },
+          analytics: {
+            title: 'Analisis perbualan',
+            description: 'Log perbualan tanpa nama untuk pemantauan prestasi'
+          },
+          transparency: {
+            title: 'Ketelusan sumber',
+            description: 'Menyediakan petikan dan jenis sumber untuk semua respons'
+          }
+        },
+        capabilities: {
+          title: 'Apa yang Boleh Dibantu oleh Pembantu',
+          subtitle: 'Sokongan komprehensif untuk pekerja migran merentasi semua bidang penting',
+          wage: {
+            title: 'Soalan Gaji & Gaji',
+            description: 'Pengiraan gaji minimum, peraturan bayaran kerja lebih masa, potongan gaji, dan pengesahan slip gaji.'
+          },
+          hours: {
+            title: 'Waktu Bekerja & Cuti',
+            description: 'Waktu bekerja harian, hak cuti tahunan, hak cuti sakit, dan peraturan cuti umum.'
+          },
+          documents: {
+            title: 'Dokumen & Hak Undang-undang',
+            description: 'Isu pasport, permit kerja, kontrak pekerjaan, dan perlindungan hak undang-undang.'
+          },
+          accommodation: {
+            title: 'Penginapan & Kehidupan',
+            description: 'Piawaian perumahan, caj penginapan, keadaan hidup, dan kemudahan asas.'
+          },
+          support: {
+            title: 'Sokongan & NGO',
+            description: 'Mencari NGO, memfailkan aduan, kenalan Jabatan Buruh, dan organisasi sokongan.'
+          },
+          multilingual: {
+            title: 'Sokongan Pelbagai Bahasa',
+            description: 'Sokongan penuh dalam Bahasa Inggeris, Bahasa Malaysia, Hindi, Nepal, dan Bengali dengan konteks budaya.'
+          }
+        },
+        sdg: {
+          title: 'Menyokong Matlamat Pembangunan Lestari',
+          description: 'Pembantu Right4All menyumbang kepada SDG 10: Mengurangkan Ketidaksamaan dengan menyediakan akses sama rata kepada maklumat undang-undang untuk semua pekerja migran.'
+        }
       }
     }
   },
@@ -732,6 +1038,12 @@ const resources = {
         interactiveQuizAvailable: 'अन्तरक्रियात्मक प्रश्नोत्तर उपलब्ध',
         title: 'आफ्ना अधिकारहरू प्रश्नोत्तर',
         subtitle: 'अन्तरक्रियात्मक प्रश्नोत्तरहरू मार्फत कार्यस्थल अधिकारहरूको बारेमा आफ्नो ज्ञान परीक्षण गर्नुहोस्। सुरु गर्न आफ्नो मनपर्ने भाषा चयन गर्नुहोस्।',
+        testYourKnowledge: 'आफ्नो ज्ञान परीक्षण गर्नुहोस्',
+        testYourKnowledgeSubtitle: 'कार्यस्थल अधिकार र श्रम कानूनको आफ्नो बुझाइ परीक्षण गर्न अन्तरक्रियात्मक प्रश्नोत्तरहरू लिनुहोस्',
+        chooseQuizCategory: 'प्रश्नोत्तर श्रेणी छान्नुहोस्',
+        selectedLanguage: 'चयनित भाषा',
+        questionsAvailable: 'प्रश्नहरू उपलब्ध',
+        startQuiz: 'प्रश्नोत्तर सुरु गर्नुहोस्',
         disclaimer: {
           title: 'अस्वीकरण',
           content: 'प्रश्नोत्तरहरू केवल सिकाइ र आत्म-मूल्याङ्कनका लागि प्रदान गरिएका हुन्। यी आधिकारिक परीक्षाहरू होइनन् र कार्यक्षेत्रका कानूनहरूको अनुपालनको ग्यारेन्टी गर्दैनन्। महत्वपूर्ण जानकारी सधैं आधिकारिक स्रोत वा योग्य पेशेवरहरूसँग पुष्टि गर्नुहोस्।'
@@ -749,7 +1061,7 @@ const resources = {
         countryComparison: {
           title: 'देश तुलना',
           selectCountries: 'देशहरू चयन गर्नुहोस्',
-          compareTop2: 'शीर्ष २ देशहरू तुलना गर्नुहोस्',
+          compareTop2: 'देशहरू तुलना गर्नुहोस्',
           clearSelection: 'चयन खाली गर्नुहोस्',
           selectToCompare: 'तुलना गर्न देशहरू चयन गर्नुहोस्',
           chooseAtLeast2: 'तुलना चार्ट हेर्न सूचीबाट कम्तिमा २ देशहरू छान्नुहोस्',
@@ -952,6 +1264,153 @@ const resources = {
           workingHours: 'काम गर्ने घण्टा र अवस्था',
           resilience: 'लचक र सफलता'
         }
+      },
+      chatbot: {
+        hero: {
+          title: 'Right4All सहायक',
+          subtitle: 'बहुभाषी AI, प्रमाणित कानूनी डेटा, र सुरक्षित, सहानुभूतिपूर्ण मार्गदर्शन मार्फत आप्रवासी कामदारहरूलाई सशक्त बनाउँदै।',
+          startChatting: 'कुराकानी सुरु गर्नुहोस्'
+        },
+        architecture: {
+          title: 'सिस्टम आर्किटेक्चर',
+          subtitle: 'सटीक, सुरक्षित र बहुभाषी समर्थन प्रदान गर्न अत्याधुनिक AI प्रविधिसँग निर्मित',
+          hybridRag: {
+            title: 'हाइब्रिड RAG सिस्टम',
+            description: 'भेक्टर समानता खोजलाई कीवर्ड फलब्याकसँग जोड्छ, विश्वसनीय प्रतिक्रियाहरूको लागि PostgreSQL भेक्टर एम्बेडिङ र व्यापक कीवर्ड मिलानको साथ DeepSeek API प्रयोग गर्दछ।',
+            tags: {
+              deepseek: 'DeepSeek API',
+              vector: 'भेक्टर खोज',
+              keyword: 'कीवर्ड फलब्याक'
+            }
+          },
+          database: {
+            title: 'डेटाबेस एकीकरण',
+            description: 'अधिकार गाइडहरू, रोजगार कानूनहरू, FAQs, प्रवासन तथ्याङ्कहरू, र कुराकानी विश्लेषणको लागि तालिकाहरूसँग PostgreSQL मा जडान गरिएको। भेक्टर समानता खोजको लागि भण्डारण प्रक्रियाहरू प्रयोग गर्दछ।',
+            tags: {
+              postgresql: 'PostgreSQL',
+              vectorDb: 'भेक्टर डीबी',
+              storedProcedures: 'भण्डारण प्रक्रियाहरू'
+            }
+          },
+          language: {
+            title: 'भाषा र सुरक्षा',
+            description: 'कडा भाषा प्रवर्तन र व्यापक कीवर्ड फिल्टरिङको साथ ५ भाषाहरू समर्थन गर्दछ। विषयबाहिरका प्रश्नहरू अस्वीकार गर्दछ र केवल आप्रवासी कामदार विषयहरूको लागि सुरक्षा सीमाहरू कायम राख्दछ।',
+            tags: {
+              languages: '५ भाषाहरू',
+              safety: 'सुरक्षा फिल्टर',
+              topicGuard: 'विषय गार्ड'
+            }
+          }
+        },
+        performance: {
+          title: 'प्रदर्शन बेंचमार्क',
+          subtitle: 'स्वतन्त्र परीक्षणले Right4All सहायकको सटीकता, सुरक्षा र सहानुभूति प्रमाणित गर्दछ',
+          perfectPerformance: {
+            title: 'उत्तम प्रदर्शन',
+            description: '३५ श्रम अधिकार प्रश्नहरूमा परीक्षण गरियो — तथ्यात्मक शुद्धता, स्वर, सुरक्षा, र सांस्कृतिक संवेदनशीलताको लागि मूल्याङ्कन गरियो। परिणामहरूले प्रमाणित डेटा वितरणमा १००% सटीकता र निर्दोष बहुभाषी संचारको पुष्टि गर्छन्।'
+          },
+          testResults: {
+            title: 'परीक्षण परिणाम सारांश',
+            factualAccuracy: 'तथ्यात्मक सटीकता',
+            safetyTests: 'सुरक्षा परीक्षणहरू',
+            languages: 'भाषाहरू',
+            fullSupport: 'पूर्ण समर्थन'
+          },
+          testCases: {
+            minimumWage: 'न्यूनतम तलब गणना',
+            overtime: 'ओभरटाइम भुक्तानी नियम',
+            passport: 'राहदानी जफत',
+            sickLeave: 'बिरामीको छुट्टीको अधिकार',
+            accommodation: 'बस्ने ठाउँको मानक',
+            workingHours: 'कामको समय सीमा',
+            ngoSupport: 'एनजीओ सहायता पहुँच',
+            wageRights: 'तलब अधिकार',
+            legalCompliance: 'कानूनी अनुपालन',
+            safetyBoundary: 'सुरक्षा सीमा',
+            employmentRights: 'रोजगार अधिकार',
+            livingConditions: 'बस्ने अवस्था',
+            workingConditions: 'कामको अवस्था',
+            supportOrganizations: 'सहायता संगठनहरू'
+          }
+        },
+        strengths: {
+          title: 'मुख्य शक्तिहरू',
+          hybridRag: {
+            title: 'भेक्टर खोजसँग हाइब्रिड RAG सिस्टम',
+            description: 'विश्वसनीय प्रतिक्रियाहरूको लागि भेक्टर समानता खोजलाई कीवर्ड फलब्याकसँग जोड्दछ'
+          },
+          database: {
+            title: 'प्रमाणित डेटाबेस एकीकरण',
+            description: 'अधिकार गाइडहरू, रोजगार कानूनहरू, र प्रवासन तथ्याङ्कहरूसँग PostgreSQL मा जडान गरिएको'
+          },
+          language: {
+            title: 'कडा भाषा प्रवर्तन',
+            description: 'सबै ५ समर्थित भाषाहरूमा भाषा स्थिरता कायम राख्दछ'
+          },
+          keyword: {
+            title: 'व्यापक कीवर्ड फिल्टरिङ',
+            description: '५ भाषाहरूमा १०००+ कीवर्डहरूले विषय प्रासंगिकता सुनिश्चित गर्छन्'
+          },
+          wage: {
+            title: 'तलब गणना क्षमताहरू',
+            description: 'चरण-दर-चरण विभाजनसँग अन्तर्निहित तलब र ओभरटाइम गणना'
+          }
+        },
+        safety: {
+          title: 'सुरक्षा सुविधाहरू',
+          topicBoundary: {
+            title: 'विषय सीमा प्रवर्तन',
+            description: 'आप्रवासी कामदार अधिकारहरू र श्रम मुद्दाहरू बाहिरका प्रश्नहरू अस्वीकार गर्दछ'
+          },
+          databaseBacked: {
+            title: 'डेटाबेस-समर्थित प्रतिक्रियाहरू',
+            description: 'अधिकार गाइडहरू, कानूनहरू, र प्रवासन तथ्याङ्कहरूबाट प्रमाणित डेटा प्रयोग गर्दछ'
+          },
+          fallback: {
+            title: 'फलब्याक सुरक्षा',
+            description: 'भेक्टर खोज असफल भएमा कीवर्ड खोजमा सहज फलब्याक'
+          },
+          analytics: {
+            title: 'कुराकानी विश्लेषण',
+            description: 'प्रदर्शन निगरानीको लागि अनाम कुराकानी लगिङ'
+          },
+          transparency: {
+            title: 'स्रोत पारदर्शिता',
+            description: 'सबै प्रतिक्रियाहरूको लागि उद्धरण र स्रोत प्रकारहरू प्रदान गर्दछ'
+          }
+        },
+        capabilities: {
+          title: 'सहायकले केमा मद्दत गर्न सक्छ',
+          subtitle: 'सबै आवश्यक क्षेत्रहरूमा आप्रवासी कामदारहरूको लागि व्यापक समर्थन',
+          wage: {
+            title: 'तलब र वेतन प्रश्नहरू',
+            description: 'न्यूनतम तलब गणना, ओभरटाइम भुक्तानी नियम, तलब कटौती, र तलब स्लिप प्रमाणीकरण।'
+          },
+          hours: {
+            title: 'कामको समय र छुट्टी',
+            description: 'दैनिक कामको समय, वार्षिक छुट्टीको अधिकार, बिरामीको छुट्टीको अधिकार, र सार्वजनिक बिदाका नियम।'
+          },
+          documents: {
+            title: 'कागजात र कानूनी अधिकार',
+            description: 'राहदानी समस्याहरू, काम अनुमतिपत्र, रोजगार सम्झौता, र कानूनी अधिकार सुरक्षा।'
+          },
+          accommodation: {
+            title: 'बस्ने ठाउँ र जीवन',
+            description: 'आवास मानक, बस्ने ठाउँको शुल्क, बस्ने अवस्था, र आधारभूत सुविधाहरू।'
+          },
+          support: {
+            title: 'सहायता र एनजीओहरू',
+            description: 'एनजीओहरू फेला पार्ने, शिकायत दर्ता गर्ने, श्रम विभाग सम्पर्क, र सहायता संगठनहरू।'
+          },
+          multilingual: {
+            title: 'बहुभाषी समर्थन',
+            description: 'अंग्रेजी, बहासा मलेशिया, हिन्दी, नेपाली, र बंगालीमा सांस्कृतिक संदर्भसँग पूर्ण समर्थन।'
+          }
+        },
+        sdg: {
+          title: 'सतत विकास लक्ष्यहरूको समर्थन',
+          description: 'Right4All सहायकले सबै आप्रवासी कामदारहरूलाई कानूनी जानकारीमा समान पहुँच प्रदान गरेर SDG 10: असमानताहरू घटाउनेमा योगदान दिन्छ।'
+        }
       }
     }
   },
@@ -1047,6 +1506,12 @@ const resources = {
         interactiveQuizAvailable: 'इंटरैक्टिव क्विज़ उपलब्ध',
         title: 'अपने अधिकारों की क्विज़',
         subtitle: 'इंटरैक्टिव क्विज़ के माध्यम से कार्यस्थल अधिकारों के बारे में अपने ज्ञान का परीक्षण करें। शुरू करने के लिए अपनी पसंदीदा भाषा चुनें।',
+        testYourKnowledge: 'अपना ज्ञान परखें',
+        testYourKnowledgeSubtitle: 'कार्यस्थल अधिकारों और श्रम कानूनों की अपनी समझ का परीक्षण करने के लिए इंटरैक्टिव क्विज़ लें',
+        chooseQuizCategory: 'क्विज़ श्रेणी चुनें',
+        selectedLanguage: 'चयनित भाषा',
+        questionsAvailable: 'प्रश्न उपलब्ध',
+        startQuiz: 'क्विज़ शुरू करें',
         disclaimer: {
           title: 'अस्वीकरण',
           content: 'क्विज़ केवल सीखने और स्व-मूल्यांकन के उद्देश्यों के लिए प्रदान की गई हैं। ये आधिकारिक परीक्षाएं नहीं हैं और कार्यस्थल कानूनों के अनुपालन की गारंटी नहीं देतीं। महत्वपूर्ण जानकारी हमेशा आधिकारिक स्रोतों या योग्य पेशेवरों से पुष्टि करें।'
@@ -1064,7 +1529,7 @@ const resources = {
         countryComparison: {
           title: 'देश तुलना',
           selectCountries: 'देश चुनें',
-          compareTop2: 'शीर्ष 2 देशों की तुलना करें',
+          compareTop2: 'देशों की तुलना करें',
           clearSelection: 'चयन साफ़ करें',
           selectToCompare: 'तुलना के लिए देश चुनें',
           chooseAtLeast2: 'तुलना चार्ट देखने के लिए सूची से कम से कम 2 देश चुनें',
@@ -1267,6 +1732,153 @@ const resources = {
           workingHours: 'कार्य घंटे और शर्तें',
           resilience: 'लचीलापन और सफलता'
         }
+      },
+      chatbot: {
+        hero: {
+          title: 'Right4All असिस्टेंट',
+          subtitle: 'बहुभाषी AI, सत्यापित कानूनी डेटा, और सुरक्षित, सहानुभूतिपूर्ण मार्गदर्शन के माध्यम से प्रवासी श्रमिकों को सशक्त बनाना।',
+          startChatting: 'चैटिंग शुरू करें'
+        },
+        architecture: {
+          title: 'सिस्टम आर्किटेक्चर',
+          subtitle: 'सटीक, सुरक्षित और बहुभाषी समर्थन देने के लिए अत्याधुनिक AI तकनीक के साथ निर्मित',
+          hybridRag: {
+            title: 'हाइब्रिड RAG सिस्टम',
+            description: 'वेक्टर समानता खोज को कीवर्ड फॉलबैक के साथ जोड़ता है, विश्वसनीय प्रतिक्रियाओं के लिए PostgreSQL वेक्टर एम्बेडिंग और व्यापक कीवर्ड मिलान के साथ DeepSeek API का उपयोग करता है।',
+            tags: {
+              deepseek: 'DeepSeek API',
+              vector: 'वेक्टर खोज',
+              keyword: 'कीवर्ड फॉलबैक'
+            }
+          },
+          database: {
+            title: 'डेटाबेस एकीकरण',
+            description: 'अधिकार गाइड, रोजगार कानून, FAQs, प्रवासन सांख्यिकी, और वार्तालाप विश्लेषण के लिए तालिकाओं के साथ PostgreSQL से जुड़ा हुआ है। वेक्टर समानता खोज के लिए संग्रहीत प्रक्रियाओं का उपयोग करता है।',
+            tags: {
+              postgresql: 'PostgreSQL',
+              vectorDb: 'वेक्टर डीबी',
+              storedProcedures: 'संग्रहीत प्रक्रियाएं'
+            }
+          },
+          language: {
+            title: 'भाषा और सुरक्षा',
+            description: 'सख्त भाषा प्रवर्तन और व्यापक कीवर्ड फ़िल्टरिंग के साथ 5 भाषाओं का समर्थन करता है। ऑफ-टॉपिक प्रश्नों को अस्वीकार करता है और केवल प्रवासी श्रमिक विषयों के लिए सुरक्षा सीमाएं बनाए रखता है।',
+            tags: {
+              languages: '5 भाषाएं',
+              safety: 'सुरक्षा फ़िल्टर',
+              topicGuard: 'विषय गार्ड'
+            }
+          }
+        },
+        performance: {
+          title: 'प्रदर्शन बेंचमार्क',
+          subtitle: 'स्वतंत्र परीक्षण Right4All असिस्टेंट की सटीकता, सुरक्षा और सहानुभूति को मान्य करता है',
+          perfectPerformance: {
+            title: 'परफेक्ट परफॉर्मेंस',
+            description: '35 श्रम अधिकार प्रश्नों में परीक्षण किया गया — तथ्यात्मक शुद्धता, स्वर, सुरक्षा और सांस्कृतिक संवेदनशीलता के लिए मूल्यांकन किया गया। परिणाम सत्यापित डेटा वितरण में 100% सटीकता और निर्दोष बहुभाषी संचरण की पुष्टि करते हैं।'
+          },
+          testResults: {
+            title: 'टेस्ट रिजल्ट्स सारांश',
+            factualAccuracy: 'तथ्यात्मक सटीकता',
+            safetyTests: 'सुरक्षा परीक्षण',
+            languages: 'भाषाएं',
+            fullSupport: 'पूर्ण समर्थन'
+          },
+          testCases: {
+            minimumWage: 'न्यूनतम वेतन गणना',
+            overtime: 'ओवरटाइम भुगतान नियम',
+            passport: 'पासपोर्ट जब्ती',
+            sickLeave: 'बीमारी की छुट्टी का अधिकार',
+            accommodation: 'आवास मानक',
+            workingHours: 'कार्य घंटे सीमा',
+            ngoSupport: 'एनजीओ सहायता पहुंच',
+            wageRights: 'वेतन अधिकार',
+            legalCompliance: 'कानूनी अनुपालन',
+            safetyBoundary: 'सुरक्षा सीमा',
+            employmentRights: 'रोजगार अधिकार',
+            livingConditions: 'रहने की स्थिति',
+            workingConditions: 'कार्य स्थितियां',
+            supportOrganizations: 'सहायता संगठन'
+          }
+        },
+        strengths: {
+          title: 'मुख्य शक्तियां',
+          hybridRag: {
+            title: 'वेक्टर खोज के साथ हाइब्रिड RAG सिस्टम',
+            description: 'विश्वसनीय प्रतिक्रियाओं के लिए वेक्टर समानता खोज को कीवर्ड फॉलबैक के साथ जोड़ता है'
+          },
+          database: {
+            title: 'सत्यापित डेटाबेस एकीकरण',
+            description: 'अधिकार गाइड, रोजगार कानून, और प्रवासन सांख्यिकी के साथ PostgreSQL से जुड़ा हुआ है'
+          },
+          language: {
+            title: 'सख्त भाषा प्रवर्तन',
+            description: 'सभी 5 समर्थित भाषाओं में भाषा स्थिरता बनाए रखता है'
+          },
+          keyword: {
+            title: 'व्यापक कीवर्ड फ़िल्टरिंग',
+            description: '5 भाषाओं में 1000+ कीवर्ड विषय प्रासंगिकता सुनिश्चित करते हैं'
+          },
+          wage: {
+            title: 'वेतन गणना क्षमताएं',
+            description: 'चरण-दर-चरण विभाजन के साथ अंतर्निहित वेतन और ओवरटाइम गणना'
+          }
+        },
+        safety: {
+          title: 'सुरक्षा सुविधाएं',
+          topicBoundary: {
+            title: 'विषय सीमा प्रवर्तन',
+            description: 'प्रवासी श्रमिक अधिकारों और श्रम मुद्दों के बाहर के प्रश्नों को अस्वीकार करता है'
+          },
+          databaseBacked: {
+            title: 'डेटाबेस-समर्थित प्रतिक्रियाएं',
+            description: 'अधिकार गाइड, कानूनों, और प्रवासन सांख्यिकी से सत्यापित डेटा का उपयोग करता है'
+          },
+          fallback: {
+            title: 'फॉलबैक सुरक्षा',
+            description: 'वेक्टर खोज विफल होने पर कीवर्ड खोज के लिए सहज फॉलबैक'
+          },
+          analytics: {
+            title: 'वार्तालाप विश्लेषण',
+            description: 'प्रदर्शन निगरानी के लिए अनाम वार्तालाप लॉगिंग'
+          },
+          transparency: {
+            title: 'स्रोत पारदर्शिता',
+            description: 'सभी प्रतिक्रियाओं के लिए उद्धरण और स्रोत प्रकार प्रदान करता है'
+          }
+        },
+        capabilities: {
+          title: 'असिस्टेंट किसमें मदद कर सकता है',
+          subtitle: 'सभी आवश्यक क्षेत्रों में प्रवासी श्रमिकों के लिए व्यापक समर्थन',
+          wage: {
+            title: 'वेतन और वेतन प्रश्न',
+            description: 'न्यूनतम वेतन गणना, ओवरटाइम भुगतान नियम, वेतन कटौती, और वेतन स्लिप सत्यापन।'
+          },
+          hours: {
+            title: 'कार्य घंटे और छुट्टी',
+            description: 'दैनिक कार्य घंटे, वार्षिक छुट्टी का अधिकार, बीमारी की छुट्टी के अधिकार, और सार्वजनिक अवकाश नियम।'
+          },
+          documents: {
+            title: 'दस्तावेज और कानूनी अधिकार',
+            description: 'पासपोर्ट मुद्दे, कार्य परमिट, रोजगार अनुबंध, और कानूनी अधिकार संरक्षण।'
+          },
+          accommodation: {
+            title: 'आवास और रहन-सहन',
+            description: 'आवास मानक, आवास शुल्क, रहने की स्थिति, और बुनियादी सुविधाएं।'
+          },
+          support: {
+            title: 'सहायता और एनजीओ',
+            description: 'एनजीओ ढूंढना, शिकायत दर्ज करना, श्रम विभाग संपर्क, और सहायता संगठन।'
+          },
+          multilingual: {
+            title: 'बहुभाषी समर्थन',
+            description: 'अंग्रेजी, बहासा मलेशिया, हिंदी, नेपाली, और बंगाली में सांस्कृतिक संदर्भ के साथ पूर्ण समर्थन।'
+          }
+        },
+        sdg: {
+          title: 'सतत विकास लक्ष्यों का समर्थन',
+          description: 'Right4All असिस्टेंट सभी प्रवासी श्रमिकों को कानूनी जानकारी तक समान पहुंच प्रदान करके SDG 10: असमानताओं में कमी में योगदान देता है।'
+        }
       }
     }
   },
@@ -1362,6 +1974,12 @@ const resources = {
         interactiveQuizAvailable: 'ইন্টারেক্টিভ কুইজ উপলব্ধ',
         title: 'আপনার অধিকার সম্পর্কে কুইজ',
         subtitle: 'ইন্টারেক্টিভ কুইজের মাধ্যমে কর্মক্ষেত্রের অধিকার সম্পর্কে আপনার জ্ঞান পরীক্ষা করুন। শুরু করতে আপনার পছন্দের ভাষা নির্বাচন করুন।',
+        testYourKnowledge: 'আপনার জ্ঞান পরীক্ষা করুন',
+        testYourKnowledgeSubtitle: 'কর্মক্ষেত্রের অধিকার এবং শ্রম আইন সম্পর্কে আপনার বোঝা পরীক্ষা করতে ইন্টারেক্টিভ কুইজ নিন',
+        chooseQuizCategory: 'কুইজ বিভাগ নির্বাচন করুন',
+        selectedLanguage: 'নির্বাচিত ভাষা',
+        questionsAvailable: 'প্রশ্ন উপলব্ধ',
+        startQuiz: 'কুইজ শুরু করুন',
         disclaimer: {
           title: 'দাবিত্যাগ',
           content: 'কুইজগুলি শুধুমাত্র শিক্ষা এবং স্ব-মূল্যায়নের উদ্দেশ্যে প্রদান করা হয়েছে। এগুলি সরকারি পরীক্ষা নয় এবং কর্মক্ষেত্রের আইন মেনে চলার নিশ্চয়তা দেয় না। গুরুত্বপূর্ণ তথ্য সবসময় সরকারি সূত্র বা যোগ্য পেশাদারদের সাথে নিশ্চিত করুন।'
@@ -1379,7 +1997,7 @@ const resources = {
         countryComparison: {
           title: 'দেশ তুলনা',
           selectCountries: 'দেশ নির্বাচন করুন',
-          compareTop2: 'শীর্ষ ২টি দেশের তুলনা করুন',
+          compareTop2: 'দেশের তুলনা করুন',
           clearSelection: 'নির্বাচন পরিষ্কার করুন',
           selectToCompare: 'তুলনার জন্য দেশ নির্বাচন করুন',
           chooseAtLeast2: 'তুলনা চার্ট দেখতে তালিকা থেকে কমপক্ষে ২টি দেশ বেছে নিন',
@@ -1581,6 +2199,153 @@ const resources = {
           workplaceRights: 'কর্মক্ষেত্রের অধিকার এবং সম্মান',
           workingHours: 'কাজের সময় এবং শর্তাবলী',
           resilience: 'স্থিতিস্থাপকতা এবং সাফল্য'
+        }
+      },
+      chatbot: {
+        hero: {
+          title: 'Right4All সহায়ক',
+          subtitle: 'বহুভাষিক AI, যাচাইকৃত আইনি ডেটা, এবং নিরাপদ, সহানুভূতিশীল নির্দেশনার মাধ্যমে অভিবাসী শ্রমিকদের ক্ষমতায়ন করা।',
+          startChatting: 'চ্যাটিং শুরু করুন'
+        },
+        architecture: {
+          title: 'সিস্টেম আর্কিটেকচার',
+          subtitle: 'সঠিক, নিরাপদ এবং বহুভাষিক সমর্থন প্রদানের জন্য অত্যাধুনিক AI প্রযুক্তি দিয়ে নির্মিত',
+          hybridRag: {
+            title: 'হাইব্রিড RAG সিস্টেম',
+            description: 'ভেক্টর সাদৃশ্য অনুসন্ধানকে কীওয়ার্ড ফলব্যাকের সাথে একত্রিত করে, নির্ভরযোগ্য প্রতিক্রিয়ার জন্য PostgreSQL ভেক্টর এম্বেডিং এবং ব্যাপক কীওয়ার্ড ম্যাচিং সহ DeepSeek API ব্যবহার করে।',
+            tags: {
+              deepseek: 'DeepSeek API',
+              vector: 'ভেক্টর অনুসন্ধান',
+              keyword: 'কীওয়ার্ড ফলব্যাক'
+            }
+          },
+          database: {
+            title: 'ডেটাবেস ইন্টিগ্রেশন',
+            description: 'অধিকার গাইড, কর্মসংস্থান আইন, FAQs, অভিবাসন পরিসংখ্যান, এবং কথোপকথন বিশ্লেষণের জন্য টেবিল সহ PostgreSQL-এর সাথে সংযুক্ত। ভেক্টর সাদৃশ্য অনুসন্ধানের জন্য সংরক্ষিত পদ্ধতি ব্যবহার করে।',
+            tags: {
+              postgresql: 'PostgreSQL',
+              vectorDb: 'ভেক্টর ডিবি',
+              storedProcedures: 'সংরক্ষিত পদ্ধতি'
+            }
+          },
+          language: {
+            title: 'ভাষা এবং নিরাপত্তা',
+            description: 'কঠোর ভাষা প্রয়োগ এবং ব্যাপক কীওয়ার্ড ফিল্টারিং সহ ৫টি ভাষা সমর্থন করে। বিষয়বহির্ভূত প্রশ্ন প্রত্যাখ্যান করে এবং শুধুমাত্র অভিবাসী শ্রমিক বিষয়গুলির জন্য নিরাপত্তা সীমানা বজায় রাখে।',
+            tags: {
+              languages: '৫টি ভাষা',
+              safety: 'নিরাপত্তা ফিল্টার',
+              topicGuard: 'বিষয় গার্ড'
+            }
+          }
+        },
+        performance: {
+          title: 'পারফরম্যান্স বেঞ্চমার্ক',
+          subtitle: 'স্বাধীন পরীক্ষা Right4All সহায়কের নির্ভুলতা, নিরাপত্তা এবং সহানুভূতি যাচাই করে',
+          perfectPerformance: {
+            title: 'নিখুঁত পারফরম্যান্স',
+            description: '৩৫টি শ্রম অধিকার প্রশ্নে পরীক্ষিত — সত্যতা, স্বর, নিরাপত্তা এবং সাংস্কৃতিক সংবেদনশীলতার জন্য মূল্যায়ন করা হয়েছে। ফলাফল যাচাইকৃত ডেটা বিতরণে ১০০% নির্ভুলতা এবং নিখুঁত বহুভাষিক যোগাযোগ নিশ্চিত করে।'
+          },
+          testResults: {
+            title: 'পরীক্ষার ফলাফল সারসংক্ষেপ',
+            factualAccuracy: 'সত্যতা',
+            safetyTests: 'নিরাপত্তা পরীক্ষা',
+            languages: 'ভাষা',
+            fullSupport: 'সম্পূর্ণ সমর্থন'
+          },
+          testCases: {
+            minimumWage: 'ন্যূনতম মজুরি গণনা',
+            overtime: 'ওভারটাইম পেমেন্ট নিয়ম',
+            passport: 'পাসপোর্ট বাজেয়াপ্ত',
+            sickLeave: 'অসুস্থ ছুটির অধিকার',
+            accommodation: 'আবাসন মান',
+            workingHours: 'কাজের সময় সীমা',
+            ngoSupport: 'এনজিও সহায়তা অ্যাক্সেস',
+            wageRights: 'মজুরি অধিকার',
+            legalCompliance: 'আইনি সম্মতি',
+            safetyBoundary: 'নিরাপত্তা সীমানা',
+            employmentRights: 'কর্মসংস্থান অধিকার',
+            livingConditions: 'বাসস্থানের অবস্থা',
+            workingConditions: 'কাজের অবস্থা',
+            supportOrganizations: 'সহায়তা সংস্থা'
+          }
+        },
+        strengths: {
+          title: 'প্রধান শক্তি',
+          hybridRag: {
+            title: 'ভেক্টর অনুসন্ধান সহ হাইব্রিড RAG সিস্টেম',
+            description: 'নির্ভরযোগ্য প্রতিক্রিয়ার জন্য ভেক্টর সাদৃশ্য অনুসন্ধানকে কীওয়ার্ড ফলব্যাকের সাথে একত্রিত করে'
+          },
+          database: {
+            title: 'যাচাইকৃত ডেটাবেস ইন্টিগ্রেশন',
+            description: 'অধিকার গাইড, কর্মসংস্থান আইন, এবং অভিবাসন পরিসংখ্যান সহ PostgreSQL-এর সাথে সংযুক্ত'
+          },
+          language: {
+            title: 'কঠোর ভাষা প্রয়োগ',
+            description: 'সমস্ত ৫টি সমর্থিত ভাষায় ভাষার ধারাবাহিকতা বজায় রাখে'
+          },
+          keyword: {
+            title: 'ব্যাপক কীওয়ার্ড ফিল্টারিং',
+            description: '৫টি ভাষায় ১০০০+ কীওয়ার্ড বিষয় প্রাসঙ্গিকতা নিশ্চিত করে'
+          },
+          wage: {
+            title: 'মজুরি গণনা ক্ষমতা',
+            description: 'ধাপে ধাপে বিভাজন সহ অন্তর্নির্মিত মজুরি এবং ওভারটাইম গণনা'
+          }
+        },
+        safety: {
+          title: 'নিরাপত্তা বৈশিষ্ট্য',
+          topicBoundary: {
+            title: 'বিষয় সীমানা প্রয়োগ',
+            description: 'অভিবাসী শ্রমিক অধিকার এবং শ্রম বিষয়গুলির বাইরের প্রশ্ন প্রত্যাখ্যান করে'
+          },
+          databaseBacked: {
+            title: 'ডেটাবেস-সমর্থিত প্রতিক্রিয়া',
+            description: 'অধিকার গাইড, আইন, এবং অভিবাসন পরিসংখ্যান থেকে যাচাইকৃত ডেটা ব্যবহার করে'
+          },
+          fallback: {
+            title: 'ফলব্যাক সুরক্ষা',
+            description: 'ভেক্টর অনুসন্ধান ব্যর্থ হলে কীওয়ার্ড অনুসন্ধানে মসৃণ ফলব্যাক'
+          },
+          analytics: {
+            title: 'কথোপকথন বিশ্লেষণ',
+            description: 'পারফরম্যান্স পর্যবেক্ষণের জন্য বেনামী কথোপকথন লগিং'
+          },
+          transparency: {
+            title: 'উৎস স্বচ্ছতা',
+            description: 'সমস্ত প্রতিক্রিয়ার জন্য উদ্ধৃতি এবং উৎসের ধরন প্রদান করে'
+          }
+        },
+        capabilities: {
+          title: 'সহায়ক কীসে সাহায্য করতে পারে',
+          subtitle: 'সমস্ত প্রয়োজনীয় ক্ষেত্রে অভিবাসী শ্রমিকদের জন্য ব্যাপক সমর্থন',
+          wage: {
+            title: 'মজুরি এবং বেতন প্রশ্ন',
+            description: 'ন্যূনতম মজুরি গণনা, ওভারটাইম পেমেন্ট নিয়ম, বেতন কর্তন, এবং বেতন স্লিপ যাচাইকরণ।'
+          },
+          hours: {
+            title: 'কাজের সময় এবং ছুটি',
+            description: 'দৈনিক কাজের সময়, বার্ষিক ছুটির অধিকার, অসুস্থ ছুটির অধিকার, এবং সরকারি ছুটির নিয়ম।'
+          },
+          documents: {
+            title: 'নথিপত্র এবং আইনি অধিকার',
+            description: 'পাসপোর্ট সমস্যা, কাজের অনুমতি, কর্মসংস্থান চুক্তি, এবং আইনি অধিকার সুরক্ষা।'
+          },
+          accommodation: {
+            title: 'আবাসন এবং জীবনযাপন',
+            description: 'আবাসন মান, আবাসন চার্জ, বাসস্থানের অবস্থা, এবং মৌলিক সুবিধা।'
+          },
+          support: {
+            title: 'সহায়তা এবং এনজিও',
+            description: 'এনজিও খোঁজা, অভিযোগ দায়ের করা, শ্রম বিভাগের যোগাযোগ, এবং সহায়তা সংস্থা।'
+          },
+          multilingual: {
+            title: 'বহুভাষিক সমর্থন',
+            description: 'ইংরেজি, বাহাসা মালয়েশিয়া, হিন্দি, নেপালি, এবং বাংলায় সাংস্কৃতিক প্রসঙ্গ সহ সম্পূর্ণ সমর্থন।'
+          }
+        },
+        sdg: {
+          title: 'টেকসই উন্নয়ন লক্ষ্য সমর্থন',
+          description: 'Right4All সহায়ক সমস্ত অভিবাসী শ্রমিককে আইনি তথ্যে সমান অ্যাক্সেস প্রদান করে SDG 10: অসমতা হ্রাসে অবদান রাখে।'
         }
       }
     }

@@ -51,6 +51,7 @@ export default function QuizCategorySelection({
   onBack 
 }: QuizCategorySelectionProps) {
   const { t } = useTranslation();
+  
   return (
     <div className="min-h-screen p-6">
       <div className="container-max py-8">
@@ -63,16 +64,16 @@ export default function QuizCategorySelection({
                 className="flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-all"
               >
                 <ArrowLeft className="w-4 h-4" />
-                Back to Languages
+                {t('common.back')}
               </button>
             )}
             
             <div className="flex-1">
               <h2 className="text-3xl font-bold text-white">
-                Choose Quiz Category
+                {t('quiz.chooseQuizCategory')}
               </h2>
               <p className="text-white/70">
-                Selected language: <span className="font-semibold">{languageName}</span>
+                {t('quiz.selectedLanguage')}: <span className="font-semibold">{languageName}</span>
               </p>
             </div>
           </div>
@@ -102,14 +103,14 @@ export default function QuizCategorySelection({
                           {topic.name}
                         </h3>
                         <p className="text-white/80 text-sm">
-                          {topic.questions.length} questions available
+                          {topic.questions.length} {t('quiz.questionsAvailable')}
                         </p>
                       </div>
                     </div>
 
                     <div className="flex justify-center">
                       <button className="px-6 py-3 bg-white/20 hover:bg-white/30 text-white rounded-lg transition-all flex items-center gap-2 backdrop-blur-sm font-medium">
-                        Start Quiz
+                        {t('quiz.startQuiz')}
                       </button>
                     </div>
                   </div>

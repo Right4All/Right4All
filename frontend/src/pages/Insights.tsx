@@ -526,24 +526,24 @@ export default function Insights() {
             })}
           </div>
           
-          {/* Risk Level Explanation - Moved to Bottom */}
+          {/* Industry Risk Levels Information */}
           <div className="mt-6 p-4 rounded-xl bg-white/5 border border-white/10">
             <div className="flex items-center gap-2 mb-3">
               <Shield className="w-4 h-4 text-orange-500"/>
-              <h3 className="font-medium text-white">{t('insights.industry.safetyRiskLevels')}</h3>
+              <h3 className="font-medium text-white">Safety Risk Levels</h3>
             </div>
             <div className="grid md:grid-cols-3 gap-3 text-sm">
               <div className="flex items-center gap-2 p-2 rounded-lg bg-green-500/10 border border-green-500/20">
                 <div className="px-2 py-1 rounded text-xs font-medium bg-green-500/20 text-green-300 border border-green-500/50">LOW</div>
-                <span className="text-green-200">{t('insights.industry.lowRisk')}</span>
+                <span className="text-green-200">Few accidents reported in 2023</span>
               </div>
               <div className="flex items-center gap-2 p-2 rounded-lg bg-yellow-500/10 border border-yellow-500/20">
                 <div className="px-2 py-1 rounded text-xs font-medium bg-yellow-500/20 text-yellow-300 border border-yellow-500/50">MEDIUM</div>
-                <span className="text-yellow-200">{t('insights.industry.mediumRisk')}</span>
+                <span className="text-yellow-200">Moderate number of accidents</span>
               </div>
               <div className="flex items-center gap-2 p-2 rounded-lg bg-red-500/10 border border-red-500/20">
                 <div className="px-2 py-1 rounded text-xs font-medium bg-red-500/20 text-red-300 border border-red-500/50">HIGH</div>
-                <span className="text-red-200">{t('insights.industry.highRisk')}</span>
+                <span className="text-red-200">Many accidents—extra caution needed</span>
               </div>
             </div>
           </div>
@@ -580,28 +580,28 @@ export default function Insights() {
             onStateClick={handleStateClick}
           />
           
-          {/* Risk Level Information */}
+          {/* State Risk Levels Information */}
           <div className="mt-6 p-4 rounded-xl bg-white/5 border border-white/10">
             <div className="flex items-center gap-2 mb-3">
-              <Shield className="w-5 h-5 text-orange-500"/>
-              <h3 className="font-semibold text-white">{t('insights.map.riskLevelInfo')}</h3>
+              <Shield className="w-4 h-4 text-purple-500"/>
+              <h3 className="font-medium text-white">Risk Level Information</h3>
             </div>
             <p className="text-sm text-white/80 mb-3">
-              {t('insights.map.riskDescription')}
+              Risk level shows workplace safety for foreign workers based on injury rates, dangerous job types, and economic protection.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
               <div className="flex items-start gap-3 p-3 rounded-lg bg-green-500/10 border border-green-500/20">
                 <div className="w-3 h-3 rounded-full bg-green-500 mt-0.5 flex-shrink-0"></div>
                 <div>
                   <div className="font-medium text-green-300 text-sm">Low Risk</div>
-                  <div className="text-xs text-green-200/80">{t('insights.map.lowRiskDesc')}</div>
+                  <div className="text-xs text-green-200/80">Less danger and better protection for workers</div>
                 </div>
               </div>
               <div className="flex items-start gap-3 p-3 rounded-lg bg-red-500/10 border border-red-500/20">
                 <div className="w-3 h-3 rounded-full bg-red-500 mt-0.5 flex-shrink-0"></div>
                 <div>
                   <div className="font-medium text-red-300 text-sm">High Risk</div>
-                  <div className="text-xs text-red-200/80">{t('insights.map.highRiskDesc')}</div>
+                  <div className="text-xs text-red-200/80">More danger and less protection for workers</div>
                 </div>
               </div>
             </div>
