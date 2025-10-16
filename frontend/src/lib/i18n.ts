@@ -56,6 +56,7 @@ const resources = {
           findNGOs: 'Find NGOs, organisations, and practical life tips',
           goToGetSupport: 'Go to Get Support',
           chatWithAI: 'Have a question? Chat with our AI Chatbot',
+          learnAboutAI: 'Learn about our AI Assistant',
           comingSoon: 'Coming Soon',
           learnRights: 'Learn about your labour rights in simple language',
           goToRightsEducation: 'Go to Rights Education',
@@ -302,7 +303,8 @@ const resources = {
           }
         },
         descriptions: {
-          storiesIntro: 'These stories come from real migrant workers. Their experiences can help guide and support others facing similar challenges.'
+          storiesIntro: 'These stories come from real migrant workers. Their experiences can help guide and support others facing similar challenges.',
+          immediateHelp: 'Need immediate help? Don\'t hesitate to reach out to these organizations and resources.'
         }
       },
       insightsStories: {
@@ -524,6 +526,7 @@ const resources = {
           findNGOs: 'Cari NGO, organisasi, dan petua kehidupan praktikal',
           goToGetSupport: 'Pergi ke Dapatkan Sokongan',
           chatWithAI: 'Ada soalan? Berbual dengan Chatbot AI kami',
+          learnAboutAI: 'Ketahui tentang Pembantu AI kami',
           comingSoon: 'Akan Datang',
           learnRights: 'Pelajari tentang hak buruh anda dalam bahasa yang mudah',
           goToRightsEducation: 'Pergi ke Pendidikan Hak',
@@ -770,7 +773,8 @@ const resources = {
           }
         },
         descriptions: {
-          storiesIntro: 'Cerita-cerita ini datang dari pekerja migran sebenar. Pengalaman mereka boleh membantu membimbing dan menyokong orang lain yang menghadapi cabaran serupa.'
+          storiesIntro: 'Cerita-cerita ini datang dari pekerja migran sebenar. Pengalaman mereka boleh membantu membimbing dan menyokong orang lain yang menghadapi cabatan serupa.',
+          immediateHelp: 'Perlukan bantuan segera? Jangan teragak-agak untuk menghubungi organisasi dan sumber ini.'
         }
       },
       insightsStories: {
@@ -992,6 +996,7 @@ const resources = {
           findNGOs: 'एनजीओहरू, संगठनहरू, र व्यावहारिक जीवन सुझावहरू फेला पार्नुहोस्',
           goToGetSupport: 'सहयोग प्राप्त गर्न जानुहोस्',
           chatWithAI: 'प्रश्न छ? हाम्रो AI च्याटबोटसँग कुराकानी गर्नुहोस्',
+          learnAboutAI: 'हाम्रो AI सहायकको बारेमा जान्नुहोस्',
           comingSoon: 'छिट्टै आउँदै',
           learnRights: 'सरल भाषामा आफ्ना श्रम अधिकारहरूको बारेमा जान्नुहोस्',
           goToRightsEducation: 'अधिकार शिक्षामा जानुहोस्',
@@ -1238,7 +1243,8 @@ const resources = {
           }
         },
         descriptions: {
-          storiesIntro: 'यी कथाहरू वास्तविक प्रवासी कामदारहरूबाट आउँछन्। तिनीहरूका अनुभवहरूले समान चुनौतीहरूको सामना गर्ने अरूलाई मार्गदर्शन र समर्थन गर्न मद्दत गर्न सक्छ।'
+          storiesIntro: 'यी कथाहरू वास्तविक प्रवासी कामदारहरूबाट आउँछन्। तिनीहरूका अनुभवहरूले समान चुनौतीहरूको सामना गर्ने अरूलाई मार्गदर्शन र समर्थन गर्न मद्दत गर्न सक्छ।',
+          immediateHelp: 'तत्काल सहायता चाहिन्छ? यी संगठन र स्रोतहरूसँग सम्पर्क गर्न हिचकिचाउनुहोस्।'
         }
       },
       insightsStories: {
@@ -1460,6 +1466,7 @@ const resources = {
           findNGOs: 'एनजीओ, संगठन और व्यावहारिक जीवन सुझाव खोजें',
           goToGetSupport: 'सहायता प्राप्त करने जाएं',
           chatWithAI: 'कोई सवाल है? हमारे AI चैटबॉट से बात करें',
+          learnAboutAI: 'हमारे AI सहायक के बारे में जानें',
           comingSoon: 'जल्द आ रहा है',
           learnRights: 'सरल भाषा में अपने श्रम अधिकारों के बारे में जानें',
           goToRightsEducation: 'अधिकार शिक्षा में जाएं',
@@ -1706,7 +1713,8 @@ const resources = {
           }
         },
         descriptions: {
-          storiesIntro: 'ये कहानियां वास्तविक प्रवासी श्रमिकों से आती हैं। उनके अनुभव समान चुनौतियों का सामना करने वाले अन्य लोगों का मार्गदर्शन और समर्थन करने में मदद कर सकते हैं।'
+          storiesIntro: 'ये कहानियां वास्तविक प्रवासी श्रमिकों से आती हैं। उनके अनुभव समान चुनौतियों का सामना करने वाले अन्य लोगों का मार्गदर्शन और समर्थन करने में मदद कर सकते हैं।',
+          immediateHelp: 'तत्काल सहायता चाहिए? इन संगठनों और संसाधनों से संपर्क करने में संकोच न करें।'
         }
       },
       insightsStories: {
@@ -1928,6 +1936,7 @@ const resources = {
           findNGOs: 'এনজিও, সংস্থা এবং ব্যবহারিক জীবনের টিপস খুঁজুন',
           goToGetSupport: 'সহায়তা পেতে যান',
           chatWithAI: 'কোনো প্রশ্ন আছে? আমাদের AI চ্যাটবটের সাথে কথা বলুন',
+          learnAboutAI: 'আমাদের AI সহায়ক সম্পর্কে জানুন',
           comingSoon: 'শীঘ্রই আসছে',
           learnRights: 'সহজ ভাষায় আপনার শ্রম অধিকার সম্পর্কে জানুন',
           goToRightsEducation: 'অধিকার শিক্ষায় যান',
@@ -2174,7 +2183,8 @@ const resources = {
           }
         },
         descriptions: {
-          storiesIntro: 'এই গল্পগুলি প্রকৃত প্রবাসী শ্রমিকদের কাছ থেকে এসেছে। তাদের অভিজ্ঞতা অনুরূপ চ্যালেঞ্জের মুখোমুখি অন্যদের গাইড এবং সমর্থন করতে সাহায্য করতে পারে।'
+          storiesIntro: 'এই গল্পগুলি প্রকৃত প্রবাসী শ্রমিকদের কাছ থেকে এসেছে। তাদের অভিজ্ঞতা অনুরূপ চ্যালেঞ্জের মুখোমুখি অন্যদের গাইড এবং সমর্থন করতে সাহায্য করতে পারে।',
+          immediateHelp: 'তাত্ক্ষণিক সাহায্য প্রয়োজন? এই সংস্থা এবং সম্পদের সাথে যোগাযোগ করতে দ্বিধা করবেন না।'
         }
       },
       insightsStories: {

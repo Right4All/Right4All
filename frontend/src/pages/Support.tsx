@@ -396,12 +396,12 @@ export default function Support() {
                           )}
                           {org.org_phone_no && org.org_phone_no !== 'No contact number' && (
                             <span className="px-3 py-1.5 bg-green-500/10 rounded-lg text-xs font-medium text-green-400/80">
-                              📞 Contact Available
+                              📞 {t('community.actions.contactAvailable')}
                             </span>
                           )}
                           {!isExpanded && (
                             <span className="px-4 py-2 bg-cyan-500/20 rounded-xl text-sm font-medium text-cyan-300 border border-cyan-400/30 backdrop-blur-sm">
-                              👆 Click for details
+                              👆 {t('community.actions.clickForDetails')}
                             </span>
                           )}
                         </div>
@@ -604,7 +604,7 @@ export default function Support() {
                                 </span>
                               )}
                               <span className="px-3 py-1.5 bg-purple-500/10 rounded-lg text-xs font-medium text-purple-400/80">
-                                👆 Click to expand
+                                👆 {t('community.actions.clickToExpand')}
                               </span>
                             </div>
                           </div>
@@ -629,7 +629,7 @@ export default function Support() {
           <div className="relative bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10 text-center">
             <div className="text-3xl mb-4">💡</div>
             <p className="text-white/80 text-lg">
-              Need immediate help? Don't hesitate to reach out to these organizations and resources.
+              {t('support.descriptions.immediateHelp')}
             </p>
           </div>
         </motion.div>

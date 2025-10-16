@@ -72,7 +72,7 @@ export default function Home() {
                   <div className="faq-item bg-white/5 rounded-2xl p-4 border border-transparent hover:border-cyan-400/30 hover:bg-white/10 transition-all duration-300 cursor-pointer">
                     <div className="faq-question font-semibold text-white mb-2">💬 {t('home.faq.chatWithAI')}</div>
                     <div className="text-sm text-cyan-300 group-hover:text-cyan-200 flex items-center gap-2">
-                      <span>Learn about our AI Assistant</span>
+                      <span>{t('home.faq.learnAboutAI')}</span>
                       <span className="text-xs opacity-60">→</span>
                     </div>
                   </div>

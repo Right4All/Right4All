@@ -107,7 +107,7 @@ export default function AnimatedRightsGuide() {
                 </div>
                 <div className="flex-1">
                   <h3 className="text-lg md:text-xl font-bold text-white mb-1">
-                    {topic.name.en}
+                    {t(`rightsGuide.topics.topic${index + 1}`)}
                   </h3>
                   <p className="text-white/80 text-xs md:text-sm">
                     {topic.sections.length} {t('rightsGuide.interactiveSections')}
