@@ -1,12 +1,27 @@
+/**
+ * Chatbot Service for Right4All AI Assistant
+ * 
+ * Provides AI-powered chatbot functionality with RAG (Retrieval-Augmented Generation)
+ * for answering questions about migrant workers' rights, wages, and Malaysian labor laws.
+ * 
+ * @module services/chatbotService
+ */
+
 import axios from 'axios'
 import { db } from './databaseService'
 import { embeddingService } from './embeddingService'
 
+/**
+ * Chat message interface for AI conversation
+ */
 interface ChatMessage {
   role: 'system' | 'user' | 'assistant'
   content: string
 }
 
+/**
+ * Response structure for chatbot answers
+ */
 interface ChatResponse {
   answer: string
   sourceType: 'database' | 'general' | 'off-topic'
@@ -14,12 +29,18 @@ interface ChatResponse {
   responseTime: number
 }
 
+/**
+ * Wage calculation result with step-by-step breakdown
+ */
 interface WageCalculation {
   steps: string[]
   citation: string
   totalOvertimePay?: number
 }
 
+/**
+ * Database context for RAG (Retrieval-Augmented Generation)
+ */
 interface DatabaseContext {
   id: number
   content: string
@@ -27,6 +48,9 @@ interface DatabaseContext {
   source: string
 }
 
+/**
+ * Main chatbot service class implementing AI assistant functionality
+ */
 class ChatbotService {
   private apiKey: string
   private apiUrl = 'https://api.deepseek.com/v1/chat/completions'
@@ -39,7 +63,10 @@ class ChatbotService {
     }
   }
 
-  // Check if question is related to migrant workers/labour rights
+  /**
+   * Check if question is related to migrant workers/labour rights
+   * Uses comprehensive keyword matching across 5 languages
+   */
   private isRelevantQuestion(question: string): boolean {
     const keywords = [
       // English keywords - Comprehensive coverage
@@ -305,7 +332,10 @@ class ChatbotService {
     return keywords.some(keyword => lowerQuestion.includes(keyword))
   }
 
-  // Search database with timeout (RAG with vector similarity)
+  /**
+   * Search database with timeout protection
+   * Uses RAG with vector similarity search, falls back to keyword search
+   */
   private async searchDatabaseWithTimeout(question: string): Promise<DatabaseContext[]> {
     const lowerQuestion = question.toLowerCase()
     
@@ -332,7 +362,10 @@ class ChatbotService {
     ])
   }
 
-  // RAG: Vector similarity search across all knowledge tables
+  /**
+   * RAG: Vector similarity search across all knowledge tables
+   * Uses embeddings to find semantically similar content
+   */
   private async searchDatabaseRAG(question: string): Promise<DatabaseContext[]> {
     try {
       // Generate embedding for the question
@@ -358,7 +391,10 @@ class ChatbotService {
     }
   }
 
-  // Fallback: Traditional keyword search (backup if RAG fails)
+  /**
+   * Fallback: Traditional keyword search (backup if RAG fails)
+   * Searches across rights_guide, FAQ, employment_laws, and migration statistics
+   */
   private async fallbackKeywordSearch(question: string): Promise<DatabaseContext[]> {
     console.log('⚠️  Using fallback keyword search')
     const searchTerm = `%${question}%`
@@ -493,7 +529,10 @@ class ChatbotService {
     }
   }
 
-  // Build system prompt with hybrid mode instructions
+  /**
+   * Build system prompt with hybrid mode instructions
+   * Includes language-specific rules and formatting guidelines
+   */
   private buildSystemPrompt(language: string): string {
     const langMap: Record<string, string> = {
       'en': 'English',
@@ -540,7 +579,10 @@ ALWAYS respond in the same language as the question.
 NEVER use markdown formatting or citations.`
   }
 
-  // Call DeepSeek API
+  /**
+   * Call DeepSeek API for AI responses
+   * Handles various error scenarios with specific error messages
+   */
   private async callDeepSeek(messages: ChatMessage[]): Promise<string> {
     if (!this.apiKey) {
       throw new Error('DeepSeek API key not configured')
@@ -592,7 +634,10 @@ NEVER use markdown formatting or citations.`
     }
   }
 
-  // Main chat function with hybrid RAG approach
+  /**
+   * Main chat function with hybrid RAG approach
+   * Combines database search with AI generation for accurate responses
+   */
   async chat(question: string, language: string = 'en'): Promise<ChatResponse> {
     const startTime = Date.now()
 
@@ -716,7 +761,10 @@ NEVER use markdown formatting or citations.`
     }
   }
 
-  // Generate fallback answer when AI service is unavailable
+  /**
+   * Generate fallback answer when AI service is unavailable
+   * Provides basic responses based on question keywords and available context
+   */
   private generateFallbackAnswer(question: string, contexts: DatabaseContext[], language: string): string {
     const langMap: Record<string, string> = {
       'en': 'English',
@@ -763,7 +811,10 @@ NEVER use markdown formatting or citations.`
     }
   }
 
-  // Calculate wages with step-by-step breakdown
+  /**
+   * Calculate wages with step-by-step breakdown
+   * Implements Malaysian Employment Act wage calculation rules
+   */
   async calculateWage(monthlySalary: number, overtimeHours: number = 0): Promise<WageCalculation> {
     const steps: string[] = []
 
@@ -791,7 +842,10 @@ NEVER use markdown formatting or citations.`
     }
   }
 
-  // Save conversation for analytics
+  /**
+   * Save conversation for analytics and monitoring
+   * Records user questions, bot responses, and performance metrics
+   */
   async saveConversation(
     sessionId: string,
     question: string,
@@ -819,4 +873,5 @@ NEVER use markdown formatting or citations.`
   }
 }
 
+// Export singleton instance of the chatbot service
 export const chatbotService = new ChatbotService()

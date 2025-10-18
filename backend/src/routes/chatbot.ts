@@ -1,26 +1,51 @@
+/**
+ * Chatbot Routes for Right4All Backend
+ * 
+ * Express router providing RESTful API endpoints for AI chatbot functionality.
+ * Handles chat interactions, wage calculations, and starter questions in multiple languages.
+ * 
+ * @module routes/chatbot
+ */
+
 import { Router, Request, Response } from 'express'
 import { chatbotService } from '../services/chatbotService'
 import { z } from 'zod'
 
 const router = Router()
 
-// Request validation schemas
+/**
+ * Request validation schema for chat messages
+ * Validates question content, language selection, and optional session tracking
+ */
 const chatRequestSchema = z.object({
   question: z.string().min(1).max(1000),
   language: z.enum(['en', 'ms', 'ne', 'hi', 'bn']).default('en'),
   sessionId: z.string().optional()
 })
 
+/**
+ * Request validation schema for wage calculations
+ * Validates monthly salary and overtime hours for wage computation
+ */
 const wageRequestSchema = z.object({
   monthly: z.number().positive(),
   otHours: z.number().min(0).default(0)
 })
 
-// POST /api/chatbot/chat
-// Main chatbot endpoint
+/**
+ * POST /api/chatbot/chat
+ * Main chatbot endpoint for AI-powered question answering
+ * Uses RAG (Retrieval-Augmented Generation) with database context
+ * 
+ * @route POST /api/chatbot/chat
+ * @param {string} question - User question text
+ * @param {string} language - Language code (en, ms, ne, hi, bn)
+ * @param {string} sessionId - Optional session ID for conversation tracking
+ * @returns {object} AI response with answer, source type, and citations
+ */
 router.post('/chat', async (req: Request, res: Response) => {
   try {
-    // Validate request
+    // Validate request body against schema
     const validation = chatRequestSchema.safeParse(req.body)
     if (!validation.success) {
       return res.status(400).json({
@@ -31,16 +56,16 @@ router.post('/chat', async (req: Request, res: Response) => {
 
     const { question, language, sessionId } = validation.data
 
-    // Get response from chatbot
+    // Get AI response from chatbot service
     const response = await chatbotService.chat(question, language)
 
-    // Save conversation (async, don't wait)
+    // Save conversation asynchronously (don't block response)
     if (sessionId) {
       chatbotService.saveConversation(sessionId, question, response, language)
         .catch(err => console.error('Failed to save conversation:', err))
     }
 
-    // Return response
+    // Return successful response
     res.json({
       answer: response.answer,
       sourceType: response.sourceType,
@@ -57,11 +82,19 @@ router.post('/chat', async (req: Request, res: Response) => {
   }
 })
 
-// POST /api/chatbot/wage/check
-// Wage calculator endpoint
+/**
+ * POST /api/chatbot/wage/check
+ * Wage calculator endpoint for Malaysian labor law compliance
+ * Calculates daily wage, hourly rate, and overtime pay according to Employment Act
+ * 
+ * @route POST /api/chatbot/wage/check
+ * @param {number} monthly - Monthly salary in Malaysian Ringgit
+ * @param {number} otHours - Overtime hours worked
+ * @returns {object} Step-by-step calculation with overtime pay breakdown
+ */
 router.post('/wage/check', async (req: Request, res: Response) => {
   try {
-    // Validate request
+    // Validate request body against schema
     const validation = wageRequestSchema.safeParse(req.body)
     if (!validation.success) {
       return res.status(400).json({
@@ -72,10 +105,10 @@ router.post('/wage/check', async (req: Request, res: Response) => {
 
     const { monthly, otHours } = validation.data
 
-    // Calculate wage
+    // Calculate wage using Malaysian Employment Act rules
     const calculation = await chatbotService.calculateWage(monthly, otHours)
 
-    // Return calculation
+    // Return calculation results
     res.json({
       steps: calculation.steps,
       citation: calculation.citation,
@@ -91,11 +124,22 @@ router.post('/wage/check', async (req: Request, res: Response) => {
   }
 })
 
-// GET /api/chatbot/starter-questions
-// Get starter questions for different languages
+/**
+ * GET /api/chatbot/starter-questions
+ * Get pre-defined starter questions in multiple languages
+ * Provides common questions about migrant workers' rights and Malaysian labor laws
+ * 
+ * @route GET /api/chatbot/starter-questions
+ * @param {string} language - Language code for question localization
+ * @returns {object} Array of starter questions in requested language
+ */
 router.get('/starter-questions', (req: Request, res: Response) => {
   const language = req.query.language as string || 'en'
 
+  /**
+   * Pre-defined starter questions covering common migrant worker concerns
+   * Available in 5 languages: English, Bahasa Malaysia, Nepali, Hindi, Bengali
+   */
   const starterQuestions: Record<string, string[]> = {
     en: [
       'How is overtime calculated?',
@@ -139,8 +183,13 @@ router.get('/starter-questions', (req: Request, res: Response) => {
   })
 })
 
-// GET /api/chatbot/health
-// Health check endpoint
+/**
+ * GET /api/chatbot/health
+ * Health check endpoint for monitoring and deployment verification
+ * 
+ * @route GET /api/chatbot/health
+ * @returns {object} Service status and timestamp
+ */
 router.get('/health', (req: Request, res: Response) => {
   res.json({
     ok: true,

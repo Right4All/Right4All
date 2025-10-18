@@ -1,17 +1,35 @@
+/**
+ * Rights Guide Page Component for Right4All Frontend
+ * 
+ * Educational page providing animated rights education content and interactive quiz
+ * for migrant workers to learn about their legal rights in Malaysia.
+ * 
+ * @component
+ * @module pages/RightsGuide
+ */
+
 import AnimatedRightsGuide from '@/components/RightsGuide/AnimatedRightsGuide'
 import Quiz from '@/pages/Quiz'
 import { FadeIn } from '@/components/ui/Motion'
 import { PlayCircle } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 
+/**
+ * Main Rights Guide page component
+ * Combines animated educational content with interactive quiz functionality
+ * 
+ * @returns {JSX.Element} Rights education page with animated guide and quiz
+ */
 export default function RightsGuide() {
+  // Translation hook for multi-language support
   const { t } = useTranslation()
+  
   return (
     <div>
-      {/* Rights Guide Section */}
+      {/* Animated Rights Guide Section - Interactive educational content */}
       <AnimatedRightsGuide />
 
-      {/* Quiz Section */}
+      {/* Quiz Section - Interactive knowledge testing */}
       <div className="container-max px-4 py-16">
         <FadeIn>
           <div className="text-center mb-12">
@@ -27,7 +45,7 @@ export default function RightsGuide() {
           </div>
         </FadeIn>
 
-        {/* Original Quiz Component */}
+        {/* Original Quiz Component - Interactive learning assessment */}
         <Quiz />
       </div>
     </div>

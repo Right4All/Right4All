@@ -1,11 +1,26 @@
+/**
+ * Embedding Service for Right4All Backend
+ * 
+ * Provides text embedding generation using local transformer models.
+ * Used for vector similarity search in the RAG (Retrieval-Augmented Generation) system.
+ * 
+ * @module services/embeddingService
+ */
+
 import { pipeline } from '@xenova/transformers'
 
+/**
+ * Response structure for embedding generation
+ */
 interface EmbeddingResponse {
   embedding: number[]
   model: string
   tokens: number
 }
 
+/**
+ * Main embedding service class for text vectorization
+ */
 class EmbeddingService {
   private model = 'Xenova/multilingual-e5-small' // 384 dimensions, multilingual support
   private extractor: any = null
@@ -18,6 +33,7 @@ class EmbeddingService {
 
   /**
    * Initialize the local embedding model (lazy loading)
+   * Loads the transformer model only when first needed
    */
   private async initialize(): Promise<void> {
     // If already initialized, return
@@ -48,6 +64,9 @@ class EmbeddingService {
 
   /**
    * Generate embedding for a single text
+   * Converts text into a numerical vector for similarity search
+   * @param {string} text - Input text to embed
+   * @returns {Promise<EmbeddingResponse>} Embedding vector and metadata
    */
   async generateEmbedding(text: string): Promise<EmbeddingResponse> {
     // Ensure model is loaded
@@ -83,6 +102,9 @@ class EmbeddingService {
 
   /**
    * Generate embeddings for multiple texts (batch processing)
+   * Efficiently processes multiple texts in batches to avoid memory issues
+   * @param {string[]} texts - Array of texts to embed
+   * @returns {Promise<number[][]>} Array of embedding vectors
    */
   async generateEmbeddings(texts: string[]): Promise<number[][]> {
     // Ensure model is loaded
@@ -127,6 +149,9 @@ class EmbeddingService {
 
   /**
    * Clean text for embedding generation
+   * Normalizes whitespace and truncates to prevent token overflow
+   * @param {string} text - Raw input text
+   * @returns {string} Cleaned text
    */
   private cleanText(text: string): string {
     return text
@@ -137,6 +162,8 @@ class EmbeddingService {
 
   /**
    * Sleep utility for retry delays
+   * @param {number} ms - Milliseconds to sleep
+   * @returns {Promise<void>} Promise that resolves after specified time
    */
   private sleep(ms: number): Promise<void> {
     return new Promise(resolve => setTimeout(resolve, ms))
@@ -144,6 +171,10 @@ class EmbeddingService {
 
   /**
    * Calculate cosine similarity between two vectors
+   * Measures the cosine of the angle between two vectors in high-dimensional space
+   * @param {number[]} a - First vector
+   * @param {number[]} b - Second vector
+   * @returns {number} Cosine similarity score between -1 and 1
    */
   cosineSimilarity(a: number[], b: number[]): number {
     if (a.length !== b.length) {
@@ -164,4 +195,5 @@ class EmbeddingService {
   }
 }
 
+// Export singleton instance of the embedding service
 export const embeddingService = new EmbeddingService()

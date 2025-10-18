@@ -1,8 +1,21 @@
+/**
+ * Chat Widget Component for Right4All Frontend
+ * 
+ * Provides an interactive AI chatbot interface with multi-language support,
+ * voice input, and real-time messaging capabilities.
+ * 
+ * @component
+ * @module components/Chatbot/ChatWidget
+ */
+
 import React, { useState, useEffect, useRef } from 'react'
 import { MessageCircle, X, Send, Mic, MicOff, Loader2, Bot, User, Globe, Trash2 } from 'lucide-react'
 import { useChatbot } from '../../hooks/useChatbot'
 import { motion, AnimatePresence } from 'framer-motion'
 
+/**
+ * Message interface representing chat messages
+ */
 interface Message {
   id: string
   type: 'user' | 'bot'
@@ -12,15 +25,23 @@ interface Message {
   timestamp: Date
 }
 
+/**
+ * Main Chat Widget component
+ * Provides floating chat interface with AI assistant capabilities
+ */
 export const ChatWidget: React.FC = () => {
+  // State management for chat functionality
   const [isOpen, setIsOpen] = useState(false)
   const [messages, setMessages] = useState<Message[]>([])
   const [input, setInput] = useState('')
   const [isListening, setIsListening] = useState(false)
   const [isTyping, setIsTyping] = useState(false)
+  
+  // Refs for DOM manipulation and speech recognition
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const recognitionRef = useRef<any>(null)
 
+  // Chatbot hook for AI functionality
   const {
     sendMessage,
     isLoading,
@@ -30,12 +51,18 @@ export const ChatWidget: React.FC = () => {
     sessionId
   } = useChatbot()
 
-  // Scroll to bottom when new messages arrive
+  /**
+   * Scroll to bottom when new messages arrive
+   * Ensures latest messages are always visible
+   */
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [messages])
 
-  // Initialize speech recognition
+  /**
+   * Initialize speech recognition for voice input
+   * Sets up Web Speech API for English voice commands
+   */
   useEffect(() => {
     if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
       const SpeechRecognition = (window as any).webkitSpeechRecognition || (window as any).SpeechRecognition
@@ -60,7 +87,10 @@ export const ChatWidget: React.FC = () => {
     }
   }, [])
 
-  // Show welcome message on first open
+  /**
+   * Show welcome message when chat is first opened
+   * Displays language-specific greeting message
+   */
   useEffect(() => {
     if (isOpen && messages.length === 0) {
       setTimeout(() => {
@@ -74,6 +104,10 @@ export const ChatWidget: React.FC = () => {
     }
   }, [isOpen])
 
+  /**
+   * Get language-specific welcome message
+   * @returns {string} Welcome message in current language
+   */
   const getWelcomeMessage = () => {
     const welcomeMessages: Record<string, string> = {
       en: 'Hello! I\'m your Right4All assistant. I can help you with questions about migrant workers\' rights, wages, working hours, and employment laws in Malaysia. How can I help you today?',
@@ -85,9 +119,14 @@ export const ChatWidget: React.FC = () => {
     return welcomeMessages[language] || welcomeMessages.en
   }
 
+  /**
+   * Handle sending a message to the AI assistant
+   * Processes user input and displays bot response
+   */
   const handleSend = async () => {
     if (!input.trim() || isLoading) return
 
+    // Create user message
     const userMessage: Message = {
       id: Date.now().toString(),
       type: 'user',
@@ -130,11 +169,19 @@ export const ChatWidget: React.FC = () => {
     }
   }
 
+  /**
+   * Handle starter question selection
+   * @param {string} question - Selected starter question
+   */
   const handleStarterQuestion = async (question: string) => {
     setInput(question)
     setTimeout(() => handleSend(), 100)
   }
 
+  /**
+   * Toggle voice input functionality
+   * Only supports English language input
+   */
   const toggleListening = () => {
     if (language !== 'en') {
       alert('Voice input is only supported in English.')
@@ -155,6 +202,10 @@ export const ChatWidget: React.FC = () => {
     }
   }
 
+  /**
+   * Handle keyboard shortcuts
+   * @param {React.KeyboardEvent} e - Keyboard event
+   */
   const handleKeyPress = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault()
@@ -162,6 +213,9 @@ export const ChatWidget: React.FC = () => {
     }
   }
 
+  /**
+   * Clear chat history
+   */
   const clearChat = () => {
     setMessages([])
   }

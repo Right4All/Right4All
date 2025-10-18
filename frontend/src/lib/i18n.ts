@@ -1,6 +1,19 @@
+/**
+ * Internationalization (i18n) Configuration for Right4All
+ * 
+ * Provides multi-language support for the application with 5 languages:
+ * English, Bahasa Malaysia, Nepali, Hindi, and Bengali.
+ * 
+ * @module lib/i18n
+ */
+
 import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
 
+/**
+ * Translation resources for all supported languages
+ * Contains complete application text in 5 languages
+ */
 const resources = {
   en: {
     translation: {
@@ -2362,13 +2375,19 @@ const resources = {
   }
 }
 
+/**
+ * Initialize i18n with React integration
+ * Sets up language detection, fallback, and interpolation
+ */
 i18n
   .use(initReactI18next)
   .init({
     resources,
-    lng: 'en',
-    fallbackLng: 'en',
-    interpolation: { escapeValue: false }
+    lng: 'en', // Default language
+    fallbackLng: 'en', // Fallback language if translation is missing
+    interpolation: { 
+      escapeValue: false // React already escapes values by default
+    }
   })
 
 export default i18n

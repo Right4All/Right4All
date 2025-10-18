@@ -1,3 +1,13 @@
+/**
+ * Insights Page Component for Right4All Frontend
+ * 
+ * Data visualization and analytics page showing migrant worker statistics,
+ * risk analysis, and interactive maps for Malaysian labor market insights.
+ * 
+ * @component
+ * @module pages/Insights
+ */
+
 import React, { useEffect, useMemo, useState } from 'react'
 import { Activity, Calendar, Filter, Globe, MapPin, Shield, Zap, HelpCircle } from 'lucide-react'
 import { ResponsiveContainer, AreaChart, CartesianGrid, XAxis, YAxis, Tooltip, Area, BarChart, Legend, Bar } from 'recharts'
@@ -7,8 +17,14 @@ import { riskColors } from '../data/malaysiaMap'
 import GoogleMalaysiaMap from '../components/GoogleMalaysiaMap'
 import { useTranslation } from 'react-i18next'
 
+/**
+ * Risk level types for workplace safety classification
+ */
 type Risk = 'low'|'medium'|'high'
 
+/**
+ * Color mapping for different nationalities in charts
+ */
 const nationalityColors: Record<string,string> = {
   Bangladesh: '#FF6B6B',
   Indonesia: '#4ECDC4',
@@ -18,7 +34,11 @@ const nationalityColors: Record<string,string> = {
   Malaysia: '#9B59B6'
 }
 
-// Helper function to map API risk level to our type
+/**
+ * Map API risk level string to standardized risk type
+ * @param {string} apiRisk - Risk level from API
+ * @returns {Risk} Standardized risk level
+ */
 function mapRiskLevel(apiRisk: string): Risk {
   const risk = apiRisk.trim().toLowerCase()
   if (risk.includes('high')) return 'high'
@@ -26,14 +46,22 @@ function mapRiskLevel(apiRisk: string): Risk {
   return 'low'
 }
 
-// Helper function to map risk level for map display (only low/high)
+/**
+ * Map risk level for map display (simplified to low/high)
+ * @param {string} apiRisk - Risk level from API
+ * @returns {'low' | 'high'} Simplified risk level for map visualization
+ */
 function mapRiskLevelForMap(apiRisk: string): 'low' | 'high' {
   const risk = apiRisk.trim().toLowerCase()
   if (risk.includes('high') || risk.includes('medium')) return 'high'
   return 'low'
 }
 
-
+/**
+ * Get CSS classes for different risk levels
+ * @param {Risk} risk - Risk level
+ * @returns {object} CSS classes for gradients, badges, and glow effects
+ */
 function riskClasses(risk: Risk) {
   switch (risk) {
     case 'high':
@@ -45,14 +73,23 @@ function riskClasses(risk: Risk) {
   }
 }
 
+/**
+ * Main Insights page component
+ * Provides interactive data visualization for migrant worker statistics
+ * 
+ * @returns {JSX.Element} Insights page with charts, maps, and analytics
+ */
 export default function Insights() {
+  // Translation hook for multi-language support
   const { t } = useTranslation()
+  
+  // State management for interactive filters
   const [selectedState, setSelectedState] = useState<string | null>(null)
   const [selectedIndustry, setSelectedIndustry] = useState<string | 'all'>('all')
   const [selectedNationalities, setSelectedNationalities] = useState<string[]>([])
   const [viewMode, setViewMode] = useState<'overview'|'industry'|'comparison'>('overview')
 
-  // API data hooks
+  // API data hooks for fetching migrant worker statistics
   const { data: statesData, loading: statesLoading, error: statesError } = useStatesData()
   const { data: sectorsData, loading: sectorsLoading, error: sectorsError } = useSectorsData()
   const { data: nationalitiesData, loading: nationalitiesLoading, error: nationalitiesError } = useNationalitiesData()

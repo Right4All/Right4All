@@ -1,9 +1,22 @@
+/**
+ * Database Service for Right4All Backend
+ * 
+ * Provides PostgreSQL database connectivity and query execution for the application.
+ * Handles connection pooling, error handling, and data retrieval for all database operations.
+ * 
+ * @module services/databaseService
+ */
+
 import { Pool } from 'pg'
 import dotenv from 'dotenv'
 
+// Load environment variables from .env file
 dotenv.config()
 
-// Create PostgreSQL connection pool
+/**
+ * PostgreSQL connection pool configuration
+ * Creates a connection pool for efficient database connections
+ */
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: process.env.DATABASE_URL?.includes('neon.tech') ? {
@@ -14,11 +27,16 @@ const pool = new Pool({
   connectionTimeoutMillis: 30000, // Return error after 30 seconds if connection could not be established
 })
 
-// Handle pool errors
+/**
+ * Handle pool errors to prevent application crashes
+ */
 pool.on('error', (err) => {
   console.error('Database pool error:', err)
 })
 
+/**
+ * Main database service class providing database operations
+ */
 export class DatabaseService {
   private pool: Pool
 
@@ -26,7 +44,11 @@ export class DatabaseService {
     this.pool = pool
   }
 
-  // Test database connection
+  /**
+   * Test database connection
+   * Verifies that the application can connect to the PostgreSQL database
+   * @returns {Promise<boolean>} True if connection successful, false otherwise
+   */
   async testConnection(): Promise<boolean> {
     try {
       const client = await this.pool.connect()
@@ -40,7 +62,12 @@ export class DatabaseService {
     }
   }
 
-  // Execute a query
+  /**
+   * Execute a database query with parameters
+   * @param {string} text - SQL query text
+   * @param {any[]} params - Query parameters (optional)
+   * @returns {Promise<any>} Query result object
+   */
   async query(text: string, params?: any[]): Promise<any> {
     const start = Date.now()
     try {
@@ -57,7 +84,10 @@ export class DatabaseService {
     }
   }
 
-  // Get all states data
+  /**
+   * Get all states data with migrant worker statistics
+   * @returns {Promise<any[]>} Array of state data objects
+   */
   async getStatesData(): Promise<any[]> {
     const query = `
       SELECT 
@@ -75,7 +105,10 @@ export class DatabaseService {
     return result.rows
   }
 
-  // Get all sectors data
+  /**
+   * Get all sectors data with accident statistics and risk levels
+   * @returns {Promise<any[]>} Array of sector data objects
+   */
   async getSectorsData(): Promise<any[]> {
     const query = `
       SELECT 
@@ -97,7 +130,10 @@ export class DatabaseService {
     return result.rows
   }
 
-  // Get all nationalities data
+  /**
+   * Get all nationalities data with migrant worker counts
+   * @returns {Promise<any[]>} Array of nationality data objects
+   */
   async getNationalitiesData(): Promise<any[]> {
     const query = `
       SELECT 
@@ -114,7 +150,10 @@ export class DatabaseService {
     return result.rows
   }
 
-  // Get overview/summary data
+  /**
+   * Get overview/summary data for migrant workers
+   * @returns {Promise<any>} Summary data object with timestamp
+   */
   async getOverviewData(): Promise<any> {
     const query = `
       SELECT 
@@ -131,7 +170,10 @@ export class DatabaseService {
     }
   }
 
-  // Get all organizations/NGOs data
+  /**
+   * Get all organizations/NGOs data
+   * @returns {Promise<any[]>} Array of organization objects
+   */
   async getOrganizationsData(): Promise<any[]> {
     const query = `
       SELECT *
@@ -142,7 +184,10 @@ export class DatabaseService {
     return result.rows
   }
 
-  // Get all survivor stories
+  /**
+   * Get all survivor stories from migrant workers
+   * @returns {Promise<any[]>} Array of survivor story objects
+   */
   async getSurvivorStoriesData(): Promise<any[]> {
     const query = `
       SELECT *
@@ -153,7 +198,10 @@ export class DatabaseService {
     return result.rows
   }
 
-  // Get all practical guides
+  /**
+   * Get all practical guides for community resources
+   * @returns {Promise<any[]>} Array of practical guide objects
+   */
   async getPracticalGuidesData(): Promise<any[]> {
     const query = `
       SELECT *
@@ -164,7 +212,11 @@ export class DatabaseService {
     return result.rows
   }
 
-  // Get organizations by category/filter
+  /**
+   * Get organizations by category/filter
+   * @param {string} category - Category to filter organizations by
+   * @returns {Promise<any[]>} Array of filtered organization objects
+   */
   async getOrganizationsByCategory(category: string): Promise<any[]> {
     const query = `
       SELECT
@@ -198,7 +250,11 @@ export class DatabaseService {
     return result.rows
   }
 
-  // Search organizations
+  /**
+   * Search organizations by name, description, type, or location
+   * @param {string} searchTerm - Search term to match against organization fields
+   * @returns {Promise<any[]>} Array of matching organization objects
+   */
   async searchOrganizations(searchTerm: string): Promise<any[]> {
     const query = `
       SELECT
@@ -238,12 +294,14 @@ export class DatabaseService {
     return result.rows
   }
 
-  // Close the pool (for graceful shutdown)
+  /**
+   * Close the database connection pool (for graceful shutdown)
+   */
   async close(): Promise<void> {
     await this.pool.end()
     console.log('Database pool closed')
   }
 }
 
-// Export singleton instance
+// Export singleton instance of the database service
 export const db = new DatabaseService()

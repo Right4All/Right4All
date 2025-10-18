@@ -1,3 +1,13 @@
+/**
+ * Right4All Frontend Application
+ * 
+ * Main React application component that sets up routing and global layout.
+ * Provides multi-language support and integrates the AI chatbot widget.
+ * 
+ * @component
+ * @returns {JSX.Element} The main application component
+ */
+
 import { Routes, Route } from 'react-router-dom'
 import Navbar from '@/components/Navbar'
 import LanguageSelection from '@/pages/LanguageSelection'
@@ -10,16 +20,24 @@ import AboutRight4AllAI from '@/pages/AboutRight4AllAI'
 import { useLanguageSync } from '@/hooks/useLanguageSync'
 import { ChatWidget } from '@/components/Chatbot'
 
+/**
+ * Main App component that handles routing and global layout
+ */
 export default function App() {
+  // Sync language preferences across the application
   useLanguageSync()
 
   return (
     <div className="min-h-screen">
-      {/* Global Chatbot Widget */}
+      {/* Global Chatbot Widget - Available on all pages */}
       <ChatWidget />
 
+      {/* Application Routes */}
       <Routes>
+        {/* Language selection page - initial landing page */}
         <Route path="/" element={<LanguageSelection />} />
+        
+        {/* Home page with navigation */}
         <Route path="/home" element={
           <>
             <Navbar />
@@ -28,6 +46,8 @@ export default function App() {
             </main>
           </>
         } />
+        
+        {/* Insights and stories page */}
         <Route path="/insights" element={
           <>
             <Navbar />
@@ -36,6 +56,8 @@ export default function App() {
             </main>
           </>
         } />
+        
+        {/* Rights guide page */}
         <Route path="/rights" element={
           <>
             <Navbar />
@@ -44,6 +66,8 @@ export default function App() {
             </main>
           </>
         } />
+        
+        {/* Quiz page for testing knowledge */}
         <Route path="/quiz" element={
           <>
             <Navbar />
@@ -52,6 +76,8 @@ export default function App() {
             </main>
           </>
         } />
+        
+        {/* Tools page (currently uses Support component) */}
         <Route path="/tools" element={
           <>
             <Navbar />
@@ -60,6 +86,8 @@ export default function App() {
             </main>
           </>
         } />
+        
+        {/* Community page (currently uses Support component) */}
         <Route path="/community" element={
           <>
             <Navbar />
@@ -68,6 +96,8 @@ export default function App() {
             </main>
           </>
         } />
+        
+        {/* Support page */}
         <Route path="/support" element={
           <>
             <Navbar />
@@ -76,6 +106,8 @@ export default function App() {
             </main>
           </>
         } />
+        
+        {/* About Right4All AI page */}
         <Route path="/about-right4all-ai" element={
           <>
             <Navbar />

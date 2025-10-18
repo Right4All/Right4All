@@ -1,31 +1,61 @@
+/**
+ * Quiz Page Component for Right4All Frontend
+ * 
+ * Interactive learning quiz page for migrant workers to test their knowledge
+ * about Malaysian labor laws and workers' rights in multiple languages.
+ * 
+ * @component
+ * @module pages/Quiz
+ */
+
 import { useState } from 'react'
 import QuizCategorySelection from '@/components/Quiz/QuizCategorySelection'
 import QuizInterface from '@/components/Quiz/QuizInterface'
 import quizDataRaw from '@/data/quizData.json'
 import { useAppStore } from '@/store/appStore'
 
+/**
+ * View modes for the quiz interface
+ */
 type ViewMode = 'category' | 'quiz'
 
+/**
+ * Language interface for multi-language support
+ */
 interface Language {
   code: string;
   name: string;
 }
 
+/**
+ * Topic interface for quiz categories
+ */
 interface Topic {
   id: number;
   name: string;
   questions: any[];
 }
 
-// Type for the new multilingual quiz data format
+/**
+ * Multilingual quiz topic interface
+ */
 interface QuizTopic {
   topic_name: Record<string, string>;
   questions: any[];
 }
 
+/**
+ * Array type for quiz data
+ */
 type QuizDataArray = QuizTopic[];
 
-// Transform multilingual question to expected format
+/**
+ * Transform multilingual question data to standardized format
+ * @param {any} questionData - Raw question data from JSON
+ * @param {number} index - Question index
+ * @param {string} languageCode - Target language code
+ * @returns {object} Transformed question object
+ */
 const transformQuestion = (questionData: any, index: number, languageCode: string) => {
   const options = questionData.options.map((opt: any) => ({
     letter: opt.option_order,
@@ -47,15 +77,27 @@ const transformQuestion = (questionData: any, index: number, languageCode: strin
   };
 };
 
+/**
+ * Main Quiz page component
+ * Manages quiz state, language selection, and view transitions
+ * 
+ * @returns {JSX.Element} Interactive quiz interface
+ */
 export default function Quiz() {
+  // Global language state from app store
   const globalLanguage = useAppStore(state => state.language)
+  
+  // Quiz state management
   const [viewMode, setViewMode] = useState<ViewMode>('category')
   const [selectedTopic, setSelectedTopic] = useState<number | null>(null)
 
-  // Cast the imported data to the correct type
+  // Cast imported quiz data to correct type
   const quizData = quizDataRaw as QuizDataArray
   
-  // Get available languages from the multilingual quiz data
+  /**
+   * Available languages for the quiz
+   * Supports English, Bahasa Malaysia, Nepali, Hindi, and Bengali
+   */
   const languages: Language[] = [
     { code: 'en', name: 'English' },
     { code: 'ms', name: 'Bahasa Malaysia' },
@@ -64,28 +106,41 @@ export default function Quiz() {
     { code: 'bn', name: 'বাংলা' }
   ]
 
-  // Use global language, defaulting to 'en' if not supported
+  // Use global language, defaulting to English if not supported
   const selectedLanguage = languages.find(lang => lang.code === globalLanguage)?.code || 'en'
 
+  /**
+   * Handle topic selection and transition to quiz mode
+   * @param {number} topicId - Selected topic ID
+   */
   const handleTopicSelect = (topicId: number) => {
     setSelectedTopic(topicId)
     setViewMode('quiz')
   }
 
+  /**
+   * Return to category selection view
+   */
   const handleBackToCategories = () => {
     setViewMode('category')
     setSelectedTopic(null)
   }
 
+  /**
+   * Restart quiz and return to category selection
+   */
   const handleRestartQuiz = () => {
     setViewMode('category')
     setSelectedTopic(null)
   }
 
-  // Get current language name
+  // Get current language display name
   const currentLanguageName = languages.find(lang => lang.code === selectedLanguage)?.name || ''
 
-  // Transform quiz data to topics for selected language
+  /**
+   * Transform quiz data to topics for selected language
+   * Maps multilingual data to current language selection
+   */
   const topics: Topic[] = quizData.map((topicData, index) => ({
     id: index + 1,
     name: topicData.topic_name[selectedLanguage] || topicData.topic_name['en'] || 'Unknown Topic',
@@ -96,10 +151,11 @@ export default function Quiz() {
   
   const allTopics = topics
   
-  // Get selected topic
+  // Get currently selected topic
   const currentTopic = topics.find(topic => topic.id === selectedTopic) || null
   const isAllTopics = false
 
+  // Render category selection view
   if (viewMode === 'category') {
     return (
       <QuizCategorySelection
@@ -112,6 +168,7 @@ export default function Quiz() {
     )
   }
 
+  // Render quiz interface view
   if (viewMode === 'quiz') {
     return (
       <QuizInterface

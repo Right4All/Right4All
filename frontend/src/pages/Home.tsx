@@ -1,10 +1,25 @@
+/**
+ * Home Page Component for Right4All Frontend
+ * 
+ * Main landing page featuring hero section, FAQ, and SDG information.
+ * Provides navigation to key application features and multilingual support.
+ * 
+ * @component
+ * @module pages/Home
+ */
+
 import { FadeIn } from '@/components/ui/Motion'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import HeroScene from '@/components/Three/HeroScene'
 
+/**
+ * Main Home page component
+ * Renders the landing page with hero section, FAQ, and footer
+ */
 export default function Home() {
+  // Translation hook for multi-language support
   const { t } = useTranslation()
 
   return (

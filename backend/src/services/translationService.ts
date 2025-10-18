@@ -1,8 +1,22 @@
+/**
+ * Translation Service for Right4All Backend
+ * 
+ * Provides multi-language translation capabilities using multiple providers.
+ * Supports Google Translate, LibreTranslate, and static translations as fallback.
+ * 
+ * @module services/translationService
+ */
+
+/**
+ * Base interface for translation providers
+ */
 interface TranslationProvider {
   translate(text: string, from: string, to: string): Promise<string>
 }
 
-// Interface for Google Translate API response
+/**
+ * Interface for Google Translate API response
+ */
 interface GoogleTranslateResponse {
   data: {
     translations: Array<{
@@ -12,7 +26,9 @@ interface GoogleTranslateResponse {
   }
 }
 
-// Interface for LibreTranslate API response
+/**
+ * Interface for LibreTranslate API response
+ */
 interface LibreTranslateResponse {
   translatedText: string
   detectedLanguage?: {
@@ -21,7 +37,10 @@ interface LibreTranslateResponse {
   }
 }
 
-// Google Translate API implementation
+/**
+ * Google Translate API implementation
+ * Uses Google's Cloud Translation API for high-quality translations
+ */
 class GoogleTranslateProvider implements TranslationProvider {
   private apiKey: string
 
@@ -29,6 +48,13 @@ class GoogleTranslateProvider implements TranslationProvider {
     this.apiKey = apiKey
   }
 
+  /**
+   * Translate text using Google Translate API
+   * @param {string} text - Text to translate
+   * @param {string} from - Source language code
+   * @param {string} to - Target language code
+   * @returns {Promise<string>} Translated text
+   */
   async translate(text: string, from: string, to: string): Promise<string> {
     try {
       const response = await fetch(`https://translation.googleapis.com/language/translate/v2?key=${this.apiKey}`, {
@@ -57,7 +83,10 @@ class GoogleTranslateProvider implements TranslationProvider {
   }
 }
 
-// LibreTranslate API implementation (free alternative)
+/**
+ * LibreTranslate API implementation (free alternative)
+ * Uses open-source translation service as a free alternative to Google Translate
+ */
 class LibreTranslateProvider implements TranslationProvider {
   private baseUrl: string
   private apiKey?: string
@@ -67,6 +96,13 @@ class LibreTranslateProvider implements TranslationProvider {
     this.apiKey = apiKey
   }
 
+  /**
+   * Translate text using LibreTranslate API
+   * @param {string} text - Text to translate
+   * @param {string} from - Source language code
+   * @param {string} to - Target language code
+   * @returns {Promise<string>} Translated text
+   */
   async translate(text: string, from: string, to: string): Promise<string> {
     try {
       const body: any = {
@@ -101,7 +137,10 @@ class LibreTranslateProvider implements TranslationProvider {
   }
 }
 
-// Fallback static translations for common content
+/**
+ * Fallback static translations for common content
+ * Provides pre-translated common phrases as a fallback when external APIs are unavailable
+ */
 class StaticTranslationProvider implements TranslationProvider {
   private translations: Record<string, Record<string, string>> = {
     // Common phrases
@@ -366,6 +405,13 @@ class StaticTranslationProvider implements TranslationProvider {
     }
   }
 
+  /**
+   * Translate text using static translations
+   * @param {string} text - Text to translate
+   * @param {string} from - Source language code
+   * @param {string} to - Target language code
+   * @returns {Promise<string>} Translated text or original if no translation found
+   */
   async translate(text: string, from: string, to: string): Promise<string> {
     const translation = this.translations[text]?.[to]
     if (translation) {
@@ -377,11 +423,16 @@ class StaticTranslationProvider implements TranslationProvider {
   }
 }
 
+/**
+ * Main translation service that orchestrates multiple translation providers
+ * Implements fallback strategy and caching for performance
+ */
 export class TranslationService {
   private providers: TranslationProvider[]
   private cache = new Map<string, string>()
 
   constructor() {
+    // Initialize providers in order of preference (static first, then external APIs)
     this.providers = [
       new StaticTranslationProvider(),
     ]
@@ -399,10 +450,24 @@ export class TranslationService {
     }
   }
 
+  /**
+   * Generate cache key for translation requests
+   * @param {string} text - Text to translate
+   * @param {string} from - Source language code
+   * @param {string} to - Target language code
+   * @returns {string} Cache key
+   */
   private getCacheKey(text: string, from: string, to: string): string {
     return `${from}-${to}-${text}`
   }
 
+  /**
+   * Translate text using available providers with fallback strategy
+   * @param {string} text - Text to translate
+   * @param {string} from - Source language code (default: 'en')
+   * @param {string} to - Target language code
+   * @returns {Promise<string>} Translated text
+   */
   async translate(text: string, from: string = 'en', to: string): Promise<string> {
     // Return original if same language
     if (from === to) {
@@ -435,6 +500,13 @@ export class TranslationService {
     return text
   }
 
+  /**
+   * Translate multiple texts in batch
+   * @param {string[]} texts - Array of texts to translate
+   * @param {string} from - Source language code (default: 'en')
+   * @param {string} to - Target language code
+   * @returns {Promise<Record<string, string>>} Object mapping original texts to translations
+   */
   async translateBatch(
     texts: string[],
     from: string = 'en',
@@ -452,16 +524,21 @@ export class TranslationService {
     return results
   }
 
-  // Clear cache method
+  /**
+   * Clear translation cache
+   */
   clearCache(): void {
     this.cache.clear()
   }
 
-  // Get supported languages
+  /**
+   * Get list of supported languages
+   * @returns {string[]} Array of supported language codes
+   */
   getSupportedLanguages(): string[] {
     return ['en', 'ms', 'ne', 'hi', 'bn']
   }
 }
 
+// Export singleton instance of the translation service
 export const translationService = new TranslationService()
- 
